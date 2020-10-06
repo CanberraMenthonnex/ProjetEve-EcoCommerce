@@ -9,3 +9,4 @@ function dbconnect(){
         die('Erreur : '.$e->getMessage());
     }
 }
+
