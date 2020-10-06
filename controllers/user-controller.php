@@ -41,6 +41,7 @@ function signIn (){
     //Check si pseudo déjà pris
     //inclure le mail et vérifier s'il existe déjà
     //Double mdp pour vérif
+    //déplacer la variable pwd_hache sur le controller (le modèle ne doit contenir UNIQUEMENT du SQL)
     if(isset($_POST["new_send"]) && isset($_POST["new_pwd"]) && isset($_POST["new_id"])){
 
         $id = htmlspecialchars($_POST['new_id']);
