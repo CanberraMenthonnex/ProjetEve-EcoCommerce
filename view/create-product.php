@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <form action="create-product-view.php" method="POST">
+        <form action="create-product.php" method="POST">
 
             <label for="product-name">Nom du produit</label> 
             <input type="text" name="product-name" id="product-name" required> <br><br>
@@ -21,7 +21,7 @@
             <label for="product-ref">Référence du produit</label>
             <input type="text" name="product-ref" id="product-ref" required> <br><br>
 
-            <input type="submit" name="create-product" id="create-product">
+            <input type="submit" name="createproduct" id="create-product">
 
         </form>
     </body>
