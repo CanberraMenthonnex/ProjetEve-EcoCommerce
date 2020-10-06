@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 06 oct. 2020 à 10:51
+-- Généré le : mar. 06 oct. 2020 à 20:44
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -29,21 +29,74 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `identifiant` text NOT NULL,
-  `mdp` text NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'Pigeon'
+  `lastname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mdp` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `admin`
 --
 
-INSERT INTO `admin` (`id`, `identifiant`, `mdp`, `status`) VALUES
-(1, 'Canb', 'soleil', 'Admin'),
-(2, 'Lulu', 'soleil', 'Admin'),
-(3, 'Mario2206', 'soleil', 'Pigeon'),
-(5, 'lulu', '$2y$10$w01CWRWfqpnWzyC6Fauva.Q.uf7/AzzWSNE7bxFEsQ/ZE1Qr4fpSO', 'Pigeon'),
-(6, 'CanberraLeNoob', '$2y$10$tdq21mQyrNzC5Iv9ilVTWujaGSYGLQ4hCRm9t5PcuvBQATj2ufIW2', 'Pigeon');
+INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
+(1, 'Canb', '', '', 'soleil'),
+(2, 'Lulu', '', '', 'soleil'),
+(3, 'Mario2206', '', '', 'soleil'),
+(4, 'Canberra', '', '', '$2y$10$2FHhdKnICHhTtMMeEW55peZhjczJgdNBzEy4EIyd//wgHNM1x8DUy');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cart`
+--
+
+CREATE TABLE `cart` (
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `price` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `product_reference` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stock`
+--
+
+CREATE TABLE `stock` (
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `birth_date` datetime NOT NULL,
+  `adress` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Index pour les tables déchargées
@@ -56,6 +109,30 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Index pour la table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -63,7 +140,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
