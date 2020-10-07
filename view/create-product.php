@@ -7,21 +7,21 @@
     </head>
 
     <body>
-        <form action="create-product.php" method="POST">
+        <form action="product-controller.php" method="POST">
 
-            <label for="product-name">Nom du produit</label> 
-            <input type="text" name="product-name" id="product-name" required> <br><br>
+            <label for="name">Nom du produit</label> 
+            <input type="text" name="name" id="name" required> <br><br>
 
-            <label for="product-desc">Description du produit</label>
-            <textarea name="product-desc" id="product-desc" required></textarea> <br><br>
+            <label for="description">Description du produit</label>
+            <textarea name="description" id="description" required></textarea> <br><br>
 
-            <label for="product-price">Prix du produit</label>
-            <input type="number" name="product-price" id="product-price" required> <br><br>
+            <label for="price">Prix du produit</label>
+            <input type="number" name="price" id="price" required> <br><br>
             
-            <label for="product-ref">Référence du produit</label>
-            <input type="text" name="product-ref" id="product-ref" required> <br><br>
+            <label for="product_reference">Référence du produit</label>
+            <input type="text" name="product_reference" id="product_reference" required> <br><br>
 
-            <input type="submit" name="createproduct" id="create-product">
+            <input type="submit" name="create-product" id="create-product">
 
         </form>
     </body>

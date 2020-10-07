@@ -6,13 +6,17 @@ function createProductPage() {
 }
 
 function createProduct() {
-    if(isset($_POST["createproduct"]) ) {
-        echo "AH OUI UOUI UOUOIUOU";
+    if(isset($_POST["create-product"])) {
+        addProduct();
     }
 }
+
+
+
+/*
 createProductPage();
 createProduct();
-
+*/
 
 
 

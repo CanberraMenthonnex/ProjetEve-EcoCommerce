@@ -8,9 +8,23 @@ function dbconnect(){
     catch(Exception $e){
         die('Erreur : '.$e->getMessage());
     }
+}
 
+function addProduct() {
 
+    $db = dbconnect();
 
-    
+    $prdtInfo = [
+        "prdtName" => $_POST["name"],
+        "prdtDesc" => $_POST["description"],
+        "prdtPrice" => $_POST["price"],
+        "prdtRef" => $_POST["product_reference"],
+    ];
+
+    $requete = $db->prepare(
+        "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, prdtDesc, prdtPrice, prdtRef)"
+    );
+
+    $requete->execute($prdtInfo);
 }
 
