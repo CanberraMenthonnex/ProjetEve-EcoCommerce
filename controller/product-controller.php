@@ -12,10 +12,7 @@ function createProduct() {
 }
 
 
-
-createProductPage();
-createProduct();
-
-
+// createProductPage();             /*Pour tester, enlever les commentaires des fonctions*/
+// createProduct();
 
 ?>

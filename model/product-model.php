@@ -28,5 +28,4 @@ function addProduct() {
     $query->execute($prdtInfo);
 }
 
-
 ?>
