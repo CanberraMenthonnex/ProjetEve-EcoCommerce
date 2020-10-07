@@ -2,7 +2,7 @@
 
 function dbconnect(){
     try{
-        $db = new PDO('mysql:host=localhost;dbname=back_office', 'root', 'root', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING));
+        $db = new PDO('mysql:host=localhost;dbname=back_office', 'root', '', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING));
         return $db;
     }
     catch(Exception $e){
@@ -21,10 +21,12 @@ function addProduct() {
         "prdtRef" => $_POST["product_reference"],
     ];
 
-    $requete = $db->prepare(
-        "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, prdtDesc, prdtPrice, prdtRef)"
+    $query = $db->prepare(
+        "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, :prdtDesc, :prdtPrice, :prdtRef)"
     );
 
-    $requete->execute($prdtInfo);
+    $query->execute($prdtInfo);
 }
 
+
+?>

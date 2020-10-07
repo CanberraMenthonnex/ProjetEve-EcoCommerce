@@ -13,10 +13,9 @@ function createProduct() {
 
 
 
-/*
 createProductPage();
 createProduct();
-*/
+
 
 
 ?>
