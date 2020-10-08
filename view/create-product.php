@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <form action="product-controller.php" method="POST">
+        <form action="<?=MAIN_PATH?>back-office/product/form" method="POST">
 
             <label for="name">Nom du produit</label> 
             <input type="text" name="name" id="name" required> <br><br>

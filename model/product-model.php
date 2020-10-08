@@ -10,22 +10,15 @@ function dbconnect(){
     }
 }
 
-function addProduct() {
+function addProduct($productData) {
 
     $db = dbconnect();
-
-    $prdtInfo = [
-        "prdtName" => $_POST["name"],
-        "prdtDesc" => $_POST["description"],
-        "prdtPrice" => $_POST["price"],
-        "prdtRef" => $_POST["product_reference"],
-    ];
 
     $query = $db->prepare(
         "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, :prdtDesc, :prdtPrice, :prdtRef)"
     );
 
-    $query->execute($prdtInfo);
+    $query->execute($productData);
 }
 
 ?>
