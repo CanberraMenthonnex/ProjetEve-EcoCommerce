@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da1516db-e030-47ea-94e3-d5f4a61d93ae" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/configuration/configuration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/product-controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/product-controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/product-model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/product-model.php" afterDir="false" />
@@ -29,6 +30,10 @@
       <change beforePath="$PROJECT_DIR$/route/router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/router/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/create-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/create-product.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +72,11 @@
       <option name="presentableId" value="Default" />
       <updated>1602109707280</updated>
       <workItem from="1602109708351" duration="1033000" />
+<<<<<<< HEAD
       <workItem from="1602188020660" duration="3223000" />
+=======
+      <workItem from="1602188020660" duration="473000" />
+>>>>>>> main
     </task>
     <servers />
   </component>

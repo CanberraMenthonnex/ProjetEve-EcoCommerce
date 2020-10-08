@@ -5,13 +5,18 @@ require("../routes/router/Route.php");
 require("../routes/router/DynamicRoute.php");
 require("../routes/router/Router.php");
 
-//require("../controllers/user-controller.php");
-require('../controller/product-controller.php');
+
+require("../controllers/user-controller.php");
+
+
+
+
 
 
 try {
 
     $router = new Router\Router($_GET["url"]);
+
 
     $router->get("back-office/product/form", function () {
         createProductPage();
@@ -21,29 +26,26 @@ try {
     });
 
     $router->get("users/login", function () {
-        //logPage();
+        // logPage();
     });
 
     $router->post("users/login", function () {
-        //login();
+        // login();
     });
 
     $router->get("users/signin", function () {
-        //subPage();
+        // subPage();
     });
 
     $router->post("users/signin", function () {
-        //signIn();
+        // signIn();
     });
-
-
 
     $router->parse();
 
 } catch (Exception $e) {
     echo "<strong>ERROR : </strong>";
     die($e->getMessage());
-
 }
 
 

@@ -1,8 +1,8 @@
 <?php
-require('../model/product-model.php');
+require('../models/product-model.php');
 
 function createProductPage() {
-    require('../view/create-product.php');
+    require('../views/create-product.php');
 }
 
 function createProduct() {
