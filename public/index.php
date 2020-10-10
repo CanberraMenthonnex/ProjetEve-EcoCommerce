@@ -4,7 +4,7 @@ require("../routes/router/Route.php");
 require("../routes/router/DynamicRoute.php");
 require("../routes/router/Router.php");
 
-require("../controllers/user-controller.php");
+//require("../controllers/user-controller.php");
 
 
 
@@ -12,20 +12,24 @@ try {
 
     $router = new Router\Router($_GET["url"]);
 
+    $router->get("", function () {
+        require("../views/index.php");
+    });
+
     $router->get("users/login", function () {
-        logPage();
+        //logPage();
     });
 
     $router->post("users/login", function () {
-        login();
+        //login();
     });
 
     $router->get("users/signin", function () {
-        subPage();
+        //subPage();
     });
 
     $router->post("users/signin", function () {
-        signIn();
+        //signIn();
     });
 
 

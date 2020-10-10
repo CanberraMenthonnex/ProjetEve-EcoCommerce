@@ -1,0 +1,66 @@
+body {
+    background-color: #313034;
+}
+/********************<HEADER>*****************/
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+header div {
+    width: 33%;
+}
+p {
+    color: #8ebf25;
+}
+/*******************MENU***********************/
+#boutonHeader {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+
+}
+
+#boutonHeader p {
+    margin: auto;
+    padding: 10px;
+}
+/*******************LOGO***********************/
+#logoImg {
+    width: 160px;
+    height: 160px;
+    padding-top: 30px;
+
+}
+#divLogo { 
+    border-radius: 50%;
+    background-color: white;
+    height: 190px; 
+	width: 220px; 
+    border: 12px solid #8ebf25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*******************PANIER***********************/
+#panierImg {
+    width: 50px;
+    height: 50px;
+    
+}
+#divPanier {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/********************</HEADER>*****************/
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+}
+.iconeF {
+    width: 25px;
+    height: 25px;
+}
