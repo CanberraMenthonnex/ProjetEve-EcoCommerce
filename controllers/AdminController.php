@@ -6,6 +6,7 @@ class AdminController extends Controller {
 
 
     public static function logAdminPage() {
+        var_dump(self::checkPostKeys(["test2"=>"", "test2"=>"", "test4"=>""], ["test1", "test2", "test4"]));
         self::render("log-page.php");
     }
 
