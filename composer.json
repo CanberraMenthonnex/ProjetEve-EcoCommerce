@@ -10,7 +10,8 @@
     "autoload": {
         "psr-4": {
             "Controller\\": "./controllers",
-            "Router\\" : "./routes/router"
+            "Router\\" : "./routes/router",
+            "Model\\" : "./models"
         }
     }
 }

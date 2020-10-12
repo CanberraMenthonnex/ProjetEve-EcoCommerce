@@ -1,6 +1,7 @@
 <?php 
 require("../vendor/autoload.php");
 require("../configuration/configuration.php");
+require("../configuration/dbconfiguration.php");
 require("../constant/HTTP_Message.php");
 
 // require("../controllers/user-controller.php");
