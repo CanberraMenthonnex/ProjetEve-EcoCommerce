@@ -1,11 +1,9 @@
 <?php 
 require("../vendor/autoload.php");
-//require ("../configuration/configuration.php");
-require("../routes/router/Route.php");
-require("../routes/router/DynamicRoute.php");
-require("../routes/router/Router.php");
+require("../configuration/configuration.php");
+require("../constant/HTTP_Message.php");
 
-require("../controllers/user-controller.php");
+// require("../controllers/user-controller.php");
 
 
 
@@ -18,16 +16,16 @@ try {
         Controller\AdminController::logAdminPage();
     });
 
-    $router->post("users/login", function () {
-        login();
+    $router->post("admin/login", function () {
+        Controller\AdminController::login();
     });
 
     $router->get("users/signin", function () {
-        subPage();
+        // subPage();
     });
 
     $router->post("users/signin", function () {
-        signIn();
+        // signIn();
     });
 
 

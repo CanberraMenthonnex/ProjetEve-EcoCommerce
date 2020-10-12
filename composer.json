@@ -9,7 +9,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Controller\\": "./controllers"
+            "Controller\\": "./controllers",
+            "Router\\" : "./routes/router"
         }
     }
 }
