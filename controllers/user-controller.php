@@ -63,8 +63,7 @@ function signIn (){
             echo "Les mots de passe ne correspondent pas";
         }
     
-        
-
+    
         if((strlen($id) < 25) || (!preg_match('[,?.;/:!<>$_€]', $id)) || (!preg_match('[0-9]', $id))){
             if(preg_match('#[a-z]#', $pwd) && (preg_match('#[A-Z]#', $pwd)) && (preg_match('#[_?/:!$]#' , $pwd)) || (preg_match('#[0-9]#', $pwd))){
                 insertID($id,$pwd_hash);

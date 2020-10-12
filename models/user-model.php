@@ -26,9 +26,8 @@ function getID($email){
 
 function insertID($insert_id, $insert_pwd){
     $db = dbconnect();
-    
-    
     $query = $db->prepare("INSERT INTO admin(identifiant,mdp) VALUES(?, ?)");
     $query->execute(array($insert_id,$insert_pwd));
 
 }
+
