@@ -31,7 +31,7 @@ class AdminController extends Controller {
             }
             else
             {
-                echo "Mauvais email";
+                echo BAD_EMAIL;
             }
         }
         else
