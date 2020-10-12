@@ -6,12 +6,25 @@ abstract class Controller {
 
     const VIEW_PATH = "../views/";
 
+    /*
+     * For displaying the view
+     * @param $viewName : string
+     *
+     * */
     protected static function render (string $viewName) {
         require(self::VIEW_PATH . $viewName);
     }
 
+    /*
+     * @param $post : array
+     * @param $requiredKeys : array
+     *
+     * return boolean
+     * */
     protected static function checkPostKeys(array $post, array $requiredKeys) : bool {
-        //creer une fonction pour vérifer que tout les posts ont bien été envoyé Lulu la fripouille 
+        $postKeys = array_keys($post);
+        $diff = array_diff($requiredKeys, $postKeys);
+        return  count($diff) === 0;
     }
        
 }
