@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="298c0653-e548-4a15-b2ca-d98091682a23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configuration/dbconfiguration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/AdminModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constant/ERROR_Message.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constant/HTTP_Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/constant/HTTP_Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/HTTP_Message.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user-controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user-controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

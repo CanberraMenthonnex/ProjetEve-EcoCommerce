@@ -42,9 +42,6 @@ function subPage () {
 }
 
 function signIn (){
-    //inclure le mail et vérifier s'il existe déjà check
-    //Double mdp pour vérif check
-    //déplacer la variable pwd_hache sur le controller (le modèle ne doit contenir UNIQUEMENT du SQL) check   --> OK
     if(isset($_POST["new_send"]) && isset($_POST["new_pwd"]) && isset($_POST["new_pwd_check"]) && isset($_POST["new_lastname"]) && isset($_POST["new_firstname"]) && isset($_POST["new_email"])){
         $firstname = htmlspecialchars($_POST["new_firstname"]);
         $lastname = htmlspecialchars($_POST["new_lastname"]);
