@@ -57,4 +57,9 @@ class AdminModel extends Model {
         return true;
     }
 
+    public static function find() {
+        self::find();
+        //find admin according variable keys
+    }
+
 }

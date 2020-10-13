@@ -16,6 +16,10 @@ try {
 
     $router = new Router\Router($_GET["url"]);
 
+    $router->get("test", function () {
+        \Model\Model::_find("test", ["name"=>"mark", "frips"=>'test'], ["*"], [5,10]);
+    });
+
     $router->get("admin/login", function () {
         Controller\AdminController::logAdminPage();
     });
