@@ -10,6 +10,17 @@ function createProduct() {
     //$isOk = checkPostKeys(["name", "description", "price", "product_reference"], $_POST); --> vérifier les clés du POST
     if(isset($_POST["create-product"])) {
         //vérifier les types et le contenu
+        
+        function verifierNombre(){
+            if(is_numeric($_POST["price"],$_POST["product_reference"])){
+                
+            }else{
+                echo "Error";
+            }
+        }
+        
+        
+        
         $prdtInfo = [
             "prdtName" => $_POST["name"],
             "prdtDesc" => $_POST["description"],
