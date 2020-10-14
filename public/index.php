@@ -17,7 +17,9 @@ try {
     $router = new Router\Router($_GET["url"]);
 
     $router->get("test", function () {
-        \Model\Model::_find("test", ["name"=>"mark", "frips"=>'test'], ["*"], [5,10]);
+        echo "<pre>";
+        var_dump(\Model\Model::_delete("admin",["identifiant"=>"lulu"]));
+        echo "</pre>";
     });
 
     $router->get("admin/login", function () {

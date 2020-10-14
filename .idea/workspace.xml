@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="298c0653-e548-4a15-b2ca-d98091682a23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configuration/dbconfigutation.example.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjetEve-EcoCommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjetEve-EcoCommerce.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/dbconfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/dbconfiguration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/AdminModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/AdminModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
@@ -55,6 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -72,7 +68,8 @@
       <updated>1602109707280</updated>
       <workItem from="1602109708351" duration="433000" />
       <workItem from="1602541662568" duration="121000" />
-      <workItem from="1602629204087" duration="3318000" />
+      <workItem from="1602629204087" duration="3482000" />
+      <workItem from="1602688595136" duration="6453000" />
     </task>
     <servers />
   </component>
