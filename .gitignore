@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 .idea/
+=======
+/vendor/
+.idea/
+/configuration/dbconfiguration.php
+>>>>>>> LoginSign

@@ -15,7 +15,7 @@ function addProduct($productData) {
     $db = dbconnect();
 
     $query = $db->prepare(
-        "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, :prdtDesc, :prdtPrice, :prdtRef)"
+        "INSERT INTO product (name, description, price) VALUES (:prdtName, :prdtDesc, :prdtPrice)"
     );
 
     return $query->execute($productData);

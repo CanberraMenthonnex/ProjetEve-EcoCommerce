@@ -1,45 +1,36 @@
 <?php
+require("../vendor/autoload.php");
 require ("../configuration/configuration.php");
-//require ("../configuration/configuration.php");
+
 require("../routes/router/Route.php");
 require("../routes/router/DynamicRoute.php");
 require("../routes/router/Router.php");
 
+require("../configuration/dbconfiguration.php");
+require("../constant/ERROR_Message.php");
 
-require("../controllers/user-controller.php");
-
-
-
-
-
+session_start();
 
 try {
 
     $router = new Router\Router($_GET["url"]);
 
-
     $router->get("back-office/product/form", function () {
-        createProductPage();
+        \Controller\ProductController::createProductPage();
     });
     $router->post("back-office/product/form", function () {
-        createProduct();
+        \Controller\ProductController::createProduct();
     });
 
-    $router->get("users/login", function () {
-        // logPage();
+
+    $router->get("admin/login", function () {
+        Controller\AdminController::logAdminPage();
     });
 
-    $router->post("users/login", function () {
-        // login();
+    $router->post("admin/login", function () {
+        Controller\AdminController::login();
     });
 
-    $router->get("users/signin", function () {
-        // subPage();
-    });
-
-    $router->post("users/signin", function () {
-        // signIn();
-    });
 
     $router->parse();
 
