@@ -18,7 +18,7 @@ function addProduct($productData) {
         "INSERT INTO product (name, description, price, product_reference) VALUES (:prdtName, :prdtDesc, :prdtPrice, :prdtRef)"
     );
 
-    $query->execute($productData);
+    return $query->execute($productData);
 }
 
 ?>
