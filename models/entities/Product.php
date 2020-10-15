@@ -5,6 +5,11 @@ namespace Model;
 class Product implements IEProduct {
 
     /*
+     * product id
+     * :string
+     * */
+    private string $id;
+    /*
      * product name
      * :string
      * */
@@ -33,12 +38,17 @@ class Product implements IEProduct {
      * @param $price
      * @param $date
      */
-    public function __construct(string $name, string $description, string $price, \DateTimeInterface $date)
+    public function __construct( string $id , string $name, string $description, string $price, \DateTimeInterface $date)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
         $this->date = $date;
+    }
+
+    public function getId() : string {
+        return $this->id;
     }
 
     public function getName(): string
