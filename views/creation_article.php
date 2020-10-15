@@ -20,7 +20,6 @@
                 <h1>Création de l'article</h1>
             <div id="product">
                 <input type="text" name="name" id="name" placeholder="Nom du produit" >
-                <input type="text" name="product_reference" id="product_reference" placeholder="Référence du produit">
                 <input type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
             </div>
             <div id="divImgPrevu">
