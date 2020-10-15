@@ -11,9 +11,9 @@
 
     <header>
         <div id="boutonHeader">
-            <p>item1</p>
-            <p>item2</p>
-            <p>item3</p>
+            <a href= "">Accueil</a>
+            <a href= "">Produits</a>
+            <a href= "">Contact</a>
         </div>
         <a href=""><div id="divLogo">
             <img id="logoImg" src="img/logo.png" alt="logo du site">

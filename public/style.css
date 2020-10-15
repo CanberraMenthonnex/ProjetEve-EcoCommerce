@@ -14,6 +14,10 @@
 body header div {
     width: 33%;
 }
+#bodyIndex a {
+
+    color: #8ebf25;
+}
 #bodyIndex p {
     color: #8ebf25;
 }
@@ -25,7 +29,7 @@ body header div {
 }
 
 
-#boutonHeader p {
+#boutonHeader a {
     margin: auto;
     padding: 10px;
 }
