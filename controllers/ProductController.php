@@ -35,4 +35,13 @@ class ProductController extends Controller {
             throw new \Exception(BAD_KEYS);
         }
     }
+
+
+    public static function listingProduct() {
+        
+        $productList = productList();
+
+        self::render('product-list.php');
+    }   
+
 }

@@ -1,12 +1,9 @@
 <?php
+/*
 require('../models/product-model.php');
 
 function createProductPage() {
     require('../views/create-product.php');
-}
-
-function productStockPage() {
-    require('../views/product-list.php');
 }
 
 function createProduct() {
@@ -49,5 +46,5 @@ function listingProduct() {
     require('../views/product-list.php');
     
 }
-
+*/
 ?>

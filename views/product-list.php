@@ -15,7 +15,6 @@
             <p><?= $product['description'] ?></p>
             <h3><?= $product['price'] ?> €</h3>
     <!--    <img src="" alt="Image du produit">                          A COMPLETER QUAND ON AURA MIS L'AJOUT D'IMAGES...     --> 
-            <p><?= $product['product_reference'] ?></p>
             <a href="">Supprimer le produit</a> <br><br><hr><br>
 
         <?php } ?>

@@ -5,12 +5,15 @@ require ("../configuration/configuration.php");
 require("../routes/router/Route.php");
 require("../routes/router/DynamicRoute.php");
 require("../routes/router/Router.php");
-require("../controllers/product-controller.php");
+//require("../controllers/product-controller.php");
+require("../controllers/ProductController.php");
 
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
 
 //require("../controllers/user-controller.php");
+
+
 
 
 
@@ -30,7 +33,7 @@ try {
     });
 
     $router->get("back-office/product/stock", function() {
-        listingProduct();
+        \Controller\ProductController::listingProduct();
     });
 
     $router->get("users/login", function () {
