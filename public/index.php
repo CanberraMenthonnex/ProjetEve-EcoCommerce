@@ -1,45 +1,44 @@
-<?php 
+<?php
+require("../vendor/autoload.php");
 require ("../configuration/configuration.php");
-require("../routes/router/Route.php");
-require("../routes/router/DynamicRoute.php");
-require("../routes/router/Router.php");
-
-//require("../controllers/user-controller.php");
+require("../configuration/dbconfiguration.php");
+require("../constant/ERROR_Message.php");
+require ("../constant/routes.php");
 
 
+session_start();
 
 try {
-
     $router = new Router\Router($_GET["url"]);
 
-    $router->get("", function () {
-        require("../views/index.php");
+    $router->get(HOME_ROUTE, function () {
+        \Controller\HomeController::homePage();
     });
 
-    $router->get("users/login", function () {
-        //logPage();
+    $router->get(ADMIN_LOG_ROUTE, function () {
+        \Controller\AdminController::logAdminPage();
     });
 
-    $router->post("users/login", function () {
-        //login();
+    $router->post(ADMIN_LOG_ROUTE, function () {
+        \Controller\AdminController::login();
     });
 
-    $router->get("users/signin", function () {
-        //subPage();
+    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
+        \Controller\ProductController::createProductPage();
+    });
+    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, function () {
+        \Controller\ProductController::createProduct();
     });
 
-    $router->post("users/signin", function () {
-        //signIn();
+    $router->get(ADMIN_GET_PRODUCT_ROUTE, function() {
+        \Controller\ProductController::listingProduct();
     });
-
-
 
     $router->parse();
 
 } catch (Exception $e) {
     echo "<strong>ERROR : </strong>";
     die($e->getMessage());
-
 }
 
 

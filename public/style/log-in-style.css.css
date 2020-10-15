@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#blocLog {
+    width: 500px;
+    height: 500px;
+    margin: 100px auto 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 0 7px black;
+}
+
+#pLog {
+    background-color: green;
+    text-align: center;
+    padding: 30px 0;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    color: #ffffff;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+#divInputLog {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#divInputLog input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#buttonLog {
+    color: #ffffff;
+    background-color: green;
+    margin-top: 25px;
+    cursor: pointer;
+}

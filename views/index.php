@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style/index.css">
     <script src="https://kit.fontawesome.com/97b40379bf.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -62,11 +62,7 @@
             <p>NOM D'ARTICLE</p>
             <p>prix</p>
             </div>
-
     </section>
-
-
-
     <div class="h2produit"><h1>produits</h1><div>
     <section class="produitsindex">
         <div class="content-box">
@@ -93,11 +89,11 @@
     </section>
 
     <footer>
-        <img class="iconeF" src="img/insta.png" alt="instagram">
-        <img class="iconeF" src="img/what.png" alt="what's app">
-        <img class="iconeF" src="img/facebook.png" alt="facebook">
+        <img class="iconeF" src="/img/insta.png" alt="instagram">
+        <img class="iconeF" src="/img/what.png" alt="what's app">
+        <img class="iconeF" src="/img/facebook.png" alt="facebook">
     </footer>
 
-<script src="main.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>

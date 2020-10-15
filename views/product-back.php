@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>ProductBack</title>
+<<<<<<< HEAD:views/productBack.php
     <link rel="stylesheet" href="/style.css">
+=======
+    <link rel="stylesheet" href="/style/display-product.css">
+>>>>>>> main:views/product-back.php
     <script src="https://kit.fontawesome.com/97b40379bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<script>
-    function supprArticle(e){
-        var suppression = e.parentNode;
-        suppression.style.display = "none";
-        console.log("ss")
-    }
-</script>
     <header id="headerAfficheArticle">
         <span>Connecté en tant que administrateur <b>Romain.L</b></span>
         <div>
@@ -83,5 +80,7 @@
             <a href="#" onclick="supprArticle(this)">Supprimer produit</a>
         </div>
     </div>
+
+    <script src="/js/display-article.js"></script>
 </body>
 </html>

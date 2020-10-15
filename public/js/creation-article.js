@@ -1,49 +1,3 @@
-/************************<PAGE INDEX>***************************/
-
-/************************<SLIDER>***************************/
-var precedent = document.getElementById("precedent");
-precedent.onclick = ()=> ChangeSlide(-1);
-var suivant = document.getElementById("suivant");
-suivant.onclick = ()=> ChangeSlide(-1);
-
-var slide = ["slide1.jpg","slide2.jpg","slide3.jpg"];
-var numero = 0;
-
-function ChangeSlide(sens) {
-    numero = numero + sens;
-    if (numero < 0)
-        numero = slide.length - 1;
-    if (numero > slide.length - 1)
-        numero = 0;
-    document.getElementById("slide").src = "img/" + slide[numero];
-}
-
-/************************</SLIDER>***************************/
-
-/************************</PAGE INDEX>***************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /************************<PAGE CREATION DE PRODUIT>***************************/
 
 /************************</WYSIWYG>***************************/
@@ -56,8 +10,8 @@ var souligner = document.getElementById("sStyle");
 souligner.onclick = ()=> commande('underline');
 var lien = document.getElementById("lienStyle");
 lien.onclick = ()=> commande('createLink');
-var createProduct = document.getElementById("create_product");
-createProduct.onclick = ()=> resultat();
+var boutonResultat = document.getElementById("boutonResultat");
+boutonResultat.onclick = ()=> resultat();
 
 
 function commande(nom, argument) {
