@@ -14,18 +14,16 @@ class ProductController extends Controller {
 
         if(self::checkPostKeys($_POST, ["name", "description", "price"])) {
 
-            if(!is_numeric($_POST["price"])) Http::redirect("");
+            if(!is_numeric($_POST["price"])) Http::redirect(HOME_ROUTE);
 
-            $prdtInfo = [
-                "prdtName" => $_POST["name"],
-                "prdtDesc" => $_POST["description"],
-                "prdtPrice" => $_POST["price"],
-            ];
+            $name = htmlspecialchars($_POST["name"]);
+            $desc = htmlspecialchars($_POST["description"]);
+            $price = htmlspecialchars($_POST["price"]);
 
-            $resp = addProduct($prdtInfo);
+            $resp = Model\ProductRepository::save($name, $desc, $price, new \DateTime());
 
             if($resp) {
-                echo "Produit ajouté";
+                Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
             }
             else {
                 throw new \Exception(ERROR_SAVING_BDD);

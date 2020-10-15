@@ -10,7 +10,7 @@ class ProductRepository extends Model {
         return self::_save(
             self::TABLE_NAME,
             ["name", "description", "price", "date"],
-            func_get_args()
+            [$name, $description, $price, $date->format(HOURS_FORMAT)]
         );
     }
 
@@ -28,6 +28,9 @@ class ProductRepository extends Model {
             ["by"=>"date", "desc"=>true]
         );
 
-        return array_map(fn ($item) => new Product($item->name, $item->description, $item->price, new \DateTime($item->date)), $data);
+        return array_map(function ($item) {
+            $date = strtotime($item->date);
+           return new Product($item->name, $item->description, $item->price, $date);
+        }, $data);
     }
 }
