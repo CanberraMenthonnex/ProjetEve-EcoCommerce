@@ -1,53 +1,35 @@
 <?php
 require("../vendor/autoload.php");
 require ("../configuration/configuration.php");
-
-require("../routes/router/Route.php");
-require("../routes/router/DynamicRoute.php");
-require("../routes/router/Router.php");
-//require("../controllers/product-controller.php");
-require("../controllers/ProductController.php");
-
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
-
-//require("../controllers/user-controller.php");
-
-
-
-
-
+require ("../constant/routes.php");
 
 
 session_start();
 
 try {
-
+    var_dump($_GET["url"]);
     $router = new Router\Router($_GET["url"]);
 
-    $router->get("back-office/product/form", function () {
-        \Controller\ProductController::createProductPage();
-    });
-    $router->post("back-office/product/form", function () {
-        \Controller\ProductController::createProduct();
-    });
-
-    $router->get("back-office/product/stock", function() {
-        \Controller\ProductController::listingProduct();
-    });
-
-    $router->get("users/login", function () {
-        // logPage();
-    });
-
-    $router->get("admin/login", function () {
+    $router->get(ADMIN_LOG_ROUTE, function () {
         Controller\AdminController::logAdminPage();
     });
 
-    $router->post("admin/login", function () {
+    $router->post(ADMIN_LOG_ROUTE, function () {
         Controller\AdminController::login();
     });
 
+    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
+        \Controller\ProductController::createProductPage();
+    });
+    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, function () {
+        \Controller\ProductController::createProduct();
+    });
+
+    $router->get(ADMIN_GET_PRODUCT_ROUTE, function() {
+        \Controller\ProductController::listingProduct();
+    });
 
     $router->parse();
 

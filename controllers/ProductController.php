@@ -1,7 +1,8 @@
 <?php
 namespace Controller;
 
-require ("../models/product-model.php");
+use Model;
+use Tools\Http;
 
 class ProductController extends Controller {
 
@@ -13,7 +14,7 @@ class ProductController extends Controller {
 
         if(self::checkPostKeys($_POST, ["name", "description", "price"])) {
 
-            if(!is_numeric($_POST["price"])) die("Bad type");
+            if(!is_numeric($_POST["price"])) Http::redirect("");
 
             $prdtInfo = [
                 "prdtName" => $_POST["name"],
@@ -39,9 +40,8 @@ class ProductController extends Controller {
 
     public static function listingProduct() {
         
-        $productList = productList();
-
-        self::render('product-list.php');
+        $productList = Model\ProductRepository::getAll();
+        self::render('product-list.php', compact("productList"));
     }   
 
 }

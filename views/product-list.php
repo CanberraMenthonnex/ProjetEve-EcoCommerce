@@ -11,9 +11,9 @@
 
         <?php foreach($productList as $product) { ?>
 
-            <h2><?= $product['name']; ?></h2>
-            <p><?= $product['description'] ?></p>
-            <h3><?= $product['price'] ?> €</h3>
+            <h2><?= $product->getName(); ?></h2>
+            <p><?= $product->getDescription() ?></p>
+            <h3><?= $product->getPrice() ?> €</h3>
     <!--    <img src="" alt="Image du produit">                          A COMPLETER QUAND ON AURA MIS L'AJOUT D'IMAGES...     --> 
             <a href="">Supprimer le produit</a> <br><br><hr><br>
 

@@ -2,7 +2,7 @@
  
 namespace Controller;
 
-use Model\AdminModel;
+use Model\AdminRepository;
 use Tools\Http;
 use Tools\Session;
 
@@ -20,13 +20,13 @@ class AdminController extends Controller {
         
             $email = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);
-            $admin = AdminModel::find($email);
+            $admin = AdminRepository::find($email);
 
             if($admin) {
 
-                if(password_verify($pwd, $admin[0]->mdp)) {
+                if(password_verify($pwd, $admin[0]->getPassword())) {
                     Session::set(self::SESSION_NAME, $_POST);
-                    Http::redirect("/admin/login");
+                    Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
                 }
                 else
                 {
