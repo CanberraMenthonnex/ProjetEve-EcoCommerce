@@ -19,9 +19,9 @@
         <form id="formCreationArticle" action="/admin/product/form" method="POST">
                 <h1>Création de l'article</h1>
             <div id="product">
-                    <input type="text" name="name" id="name" placeholder="Nom du produit" >
-                    <input type="text" name="product_reference" id="product_reference" placeholder="Référence du produit">
-                    <input type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
+                <input type="text" name="name" id="name" placeholder="Nom du produit" >
+                <input type="text" name="product_reference" id="product_reference" placeholder="Référence du produit">
+                <input type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
             </div>
             <div id="divImgPrevu">
                 <label for="imgFile">Image du produit:</label>
@@ -38,7 +38,7 @@
 		        <input id="iStyle" type="button" value="I" style="font-style:italic;"/> 
 		        <input id="sStyle" type="button" value="S" style="text-decoration:underline;"/> 
 		        <input id="lienStyle" type="button" value="Lien"/>
-		        <div id="editeur" contentEditable ></div> 
+		        <textarea id="editeur" contentEditable name="description"></textarea>
 		        
             </div>
             
