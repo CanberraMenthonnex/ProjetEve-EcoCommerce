@@ -7,7 +7,8 @@
     <script src="https://kit.fontawesome.com/97b40379bf.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body id="bodyIndex">
+
     <header>
         <div id="boutonHeader">
             <p>item1</p>
@@ -22,14 +23,74 @@
         </div>
     </header>
 
+
+
     <div id="searchs">
         <i class="fas fa-search"></i><input id="search" type="text">
     </div>
+
+
     <div id="slider">
         <img src="img/slide1.jpg" alt="Photo" id="slide">
         <div id="precedent" ><</div>
         <div id="suivant" >></div>
     </div>
+
+
+
+
+    <div class="h2produit"><h1>produits</h1><div>
+    <section class="produitsindex">
+
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+            </div>
+
+    </section>
+
+
+
+    <div class="h2produit"><h1>produits</h1><div>
+    <section class="produitsindex">
+        <div class="content-box">
+            <img src="1.png" >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+        <div class="content-box">
+            <img src="1.png" >
+            <p>NOM D'ARTICLE</p>
+            <p>prix</p>
+        </div>
+
+    </section>
 
     <footer>
         <img class="iconeF" src="img/insta.png" alt="instagram">
