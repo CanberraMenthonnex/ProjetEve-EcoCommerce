@@ -10,16 +10,13 @@ require("../controllers/product-controller.php");
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
 
-<<<<<<< HEAD
 //require("../controllers/user-controller.php");
 
 
 
 
 
-=======
 session_start();
->>>>>>> 1dcfd0a1e0bc49f7a2c8d782c3835835610abd4a
 
 try {
 
@@ -32,7 +29,6 @@ try {
         \Controller\ProductController::createProduct();
     });
 
-<<<<<<< HEAD
     $router->get("back-office/product/stock", function() {
         listingProduct();
     });
@@ -40,8 +36,6 @@ try {
     $router->get("users/login", function () {
         // logPage();
     });
-=======
->>>>>>> 1dcfd0a1e0bc49f7a2c8d782c3835835610abd4a
 
     $router->get("admin/login", function () {
         Controller\AdminController::logAdminPage();
