@@ -21,4 +21,18 @@ function addProduct($productData) {
     $query->execute($productData);
 }
 
+function productList() {
+
+    $db = dbconnect();
+
+    $requete = $db->prepare(
+        "SELECT * FROM product ORDER BY date DESC"
+    );
+
+    $requete->execute();
+
+    return $requete->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
 ?>

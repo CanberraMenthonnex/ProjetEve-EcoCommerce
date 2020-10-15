@@ -5,6 +5,10 @@ function createProductPage() {
     require('../views/create-product.php');
 }
 
+function productStockPage() {
+    require('../views/product-list.php');
+}
+
 function createProduct() {
 
     //$isOk = checkPostKeys(["name", "description", "price", "product_reference"], $_POST); --> vérifier les clés du POST
@@ -20,7 +24,6 @@ function createProduct() {
         }
         
         
-        
         $prdtInfo = [
             "prdtName" => $_POST["name"],
             "prdtDesc" => $_POST["description"],
@@ -33,8 +36,12 @@ function createProduct() {
     }
 }
 
+function listingProduct() {
 
-// createProductPage();             /*Pour tester, enlever les commentaires des fonctions*/
-// createProduct();
+    $productList = productList();
+
+    require('../views/product-list.php');
+    
+}
 
 ?>

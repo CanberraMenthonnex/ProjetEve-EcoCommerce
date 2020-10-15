@@ -4,9 +4,10 @@ require ("../configuration/configuration.php");
 require("../routes/router/Route.php");
 require("../routes/router/DynamicRoute.php");
 require("../routes/router/Router.php");
+require("../controllers/product-controller.php");
 
 
-require("../controllers/user-controller.php");
+//require("../controllers/user-controller.php");
 
 
 
@@ -23,6 +24,10 @@ try {
     });
     $router->post("back-office/product/form", function () {
         createProduct();
+    });
+
+    $router->get("back-office/product/stock", function() {
+        listingProduct();
     });
 
     $router->get("users/login", function () {
