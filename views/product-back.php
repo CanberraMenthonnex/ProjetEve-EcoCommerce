@@ -7,13 +7,6 @@
     <script src="https://kit.fontawesome.com/97b40379bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<script>
-    function supprArticle(e){
-        var suppression = e.parentNode;
-        suppression.style.display = "none";
-        console.log("ss")
-    }
-</script>
     <header id="headerAfficheArticle">
         <span>Connecté en tant que administrateur <b>Romain.L</b></span>
         <div>
@@ -39,5 +32,7 @@
         ?>
 
     </div>
+
+    <script src="/js/display-article.js"></script>
 </body>
 </html>

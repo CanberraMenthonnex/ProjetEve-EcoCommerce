@@ -94,6 +94,6 @@
         <img class="iconeF" src="/img/facebook.png" alt="facebook">
     </footer>
 
-<script src="/js/main.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>
