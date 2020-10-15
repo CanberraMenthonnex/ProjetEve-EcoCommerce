@@ -16,11 +16,11 @@ try {
     });
 
     $router->get(ADMIN_LOG_ROUTE, function () {
-        Controller\AdminController::logAdminPage();
+        \Controller\AdminController::logAdminPage();
     });
 
     $router->post(ADMIN_LOG_ROUTE, function () {
-        Controller\AdminController::login();
+        \Controller\AdminController::login();
     });
 
     $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
