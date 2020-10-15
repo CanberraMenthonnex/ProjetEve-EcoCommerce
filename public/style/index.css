@@ -14,7 +14,8 @@
 body header div {
     width: 33%;
 }
-#bodyIndex p {
+#bodyIndex a {
+    text-decoration: none;
     color: #8ebf25;
 }
 /*******************MENU***********************/
@@ -25,7 +26,7 @@ body header div {
 }
 
 
-#boutonHeader p {
+#boutonHeader a {
     margin: auto;
     padding: 10px;
 }
