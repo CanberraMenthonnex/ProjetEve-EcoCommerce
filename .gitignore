@@ -1,1 +1,5 @@
+
+/vendor/
 .idea/
+/configuration/dbconfiguration.php
+.DS_Store

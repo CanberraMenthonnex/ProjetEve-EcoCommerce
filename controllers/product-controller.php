@@ -12,9 +12,10 @@ function productStockPage() {
 function createProduct() {
 
     //$isOk = checkPostKeys(["name", "description", "price", "product_reference"], $_POST); --> vérifier les clés du POST
-    if(isset($_POST["create-product"])) {
+    if(isset($_POST["create-product"]) ) {
         //vérifier les types et le contenu
         
+<<<<<<< HEAD
         function verifierNombre(){
             if(is_numeric($_POST["price"],$_POST["product_reference"])){
                 
@@ -24,6 +25,8 @@ function createProduct() {
         }
         
         
+=======
+>>>>>>> 1dcfd0a1e0bc49f7a2c8d782c3835835610abd4a
         $prdtInfo = [
             "prdtName" => $_POST["name"],
             "prdtDesc" => $_POST["description"],
@@ -31,8 +34,14 @@ function createProduct() {
             "prdtRef" => $_POST["product_reference"],
         ];
 
-        addProduct($prdtInfo);
+        $resp = addProduct($prdtInfo);
         //Afficher une view
+        if($resp) {
+            echo "Produit ajouté";
+        }
+        else {
+            throw new \Exception("Erreur lors de l'ajout");
+        }
     }
 }
 

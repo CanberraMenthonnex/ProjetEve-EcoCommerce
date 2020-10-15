@@ -1,0 +1,18 @@
+{
+    "name": "canbe/projet-eve-eco-commerce",
+    "authors": [
+        {
+            "name": "Canberra Menthonnex",
+            "email": "Canberra.menthonnex@edu.devinci.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "./controllers",
+            "Router\\" : "./routes/router",
+            "Model\\" : "./models",
+            "Tools\\" : "./tools"
+        }
+    }
+}
