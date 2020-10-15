@@ -1,3 +1,11 @@
+/************************<PAGE INDEX>***************************/
+
+/************************<SLIDER>***************************/
+var precedent = document.getElementById("precedent");
+precedent.onclick = ()=> ChangeSlide(-1);
+var suivant = document.getElementById("suivant");
+suivant.onclick = ()=> ChangeSlide(-1);
+
 var slide = ["slide1.jpg","slide2.jpg","slide3.jpg"];
 var numero = 0;
 
@@ -9,3 +17,7 @@ function ChangeSlide(sens) {
         numero = 0;
     document.getElementById("slide").src = "img/" + slide[numero];
 }
+
+/************************</SLIDER>***************************/
+
+/************************</PAGE INDEX>***************************/

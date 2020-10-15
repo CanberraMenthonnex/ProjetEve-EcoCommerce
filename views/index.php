@@ -27,8 +27,8 @@
     </div>
     <div id="slider">
         <img src="img/slide1.jpg" alt="Photo" id="slide">
-        <div id="precedent" onclick="ChangeSlide(-1)"><</div>
-        <div id="suivant" onclick="ChangeSlide(1)">></div>
+        <div id="precedent" ><</div>
+        <div id="suivant" >></div>
     </div>
 
     <footer>
