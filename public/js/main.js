@@ -1,7 +1,7 @@
 /************************<PAGE INDEX>***************************/
 
 /************************<SLIDER>***************************/
-var precedent = document.getElementById("precedent");
+let precedent = document.querySelector("#precedent");
 precedent.onclick = ()=> ChangeSlide(-1);
 var suivant = document.getElementById("suivant");
 suivant.onclick = ()=> ChangeSlide(-1);

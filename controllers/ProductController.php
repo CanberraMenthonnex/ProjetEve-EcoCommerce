@@ -7,7 +7,7 @@ use Tools\Http;
 class ProductController extends Controller {
 
     public static function createProductPage() {
-        self::render('create-product.php');
+        self::render('creation_article.php');
     }
 
     public static function createProduct() {
@@ -41,7 +41,7 @@ class ProductController extends Controller {
     public static function listingProduct() {
         
         $productList = Model\ProductRepository::getAll();
-        self::render('product-list.php', compact("productList"));
+        self::render('product-back.php', compact("productList"));
     }   
 
 }

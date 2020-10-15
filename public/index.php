@@ -9,8 +9,11 @@ require ("../constant/routes.php");
 session_start();
 
 try {
-    var_dump($_GET["url"]);
     $router = new Router\Router($_GET["url"]);
+
+    $router->get("", function () {
+        \Controller\HomeController::homePage();
+    });
 
     $router->get(ADMIN_LOG_ROUTE, function () {
         Controller\AdminController::logAdminPage();

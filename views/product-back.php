@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ProductBack</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style/style.css">
     <script src="https://kit.fontawesome.com/97b40379bf.js" crossorigin="anonymous"></script>
 </head>
 <body>
