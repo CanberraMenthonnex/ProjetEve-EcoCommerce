@@ -29,8 +29,8 @@ class ProductRepository extends Model {
         );
 
         return array_map(function ($item) {
-            $date = strtotime($item->date);
-           return new Product($item->name, $item->description, $item->price, $date);
+            $date = \DateTime::createFromFormat(HOURS_FORMAT, $item->date);
+           return new Product($item->id,$item->name, $item->description, $item->price, $date);
         }, $data);
     }
 }
