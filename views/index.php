@@ -62,11 +62,7 @@
             <p>NOM D'ARTICLE</p>
             <p>prix</p>
             </div>
-
     </section>
-
-
-
     <div class="h2produit"><h1>produits</h1><div>
     <section class="produitsindex">
         <div class="content-box">
@@ -93,9 +89,9 @@
     </section>
 
     <footer>
-        <img class="iconeF" src="img/insta.png" alt="instagram">
-        <img class="iconeF" src="img/what.png" alt="what's app">
-        <img class="iconeF" src="img/facebook.png" alt="facebook">
+        <img class="iconeF" src="/img/insta.png" alt="instagram">
+        <img class="iconeF" src="/img/what.png" alt="what's app">
+        <img class="iconeF" src="/img/facebook.png" alt="facebook">
     </footer>
 
 <script src="/js/main.js"></script>

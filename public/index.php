@@ -11,7 +11,7 @@ session_start();
 try {
     $router = new Router\Router($_GET["url"]);
 
-    $router->get("", function () {
+    $router->get(HOME_ROUTE, function () {
         \Controller\HomeController::homePage();
     });
 
