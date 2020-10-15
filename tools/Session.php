@@ -16,5 +16,13 @@ class Session {
         $_SESSION[$name] = null;
     }
 
+    public static function checkSession(string $name){
+        if(isset($_SESSION[$name])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 }
