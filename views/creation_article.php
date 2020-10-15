@@ -45,6 +45,6 @@
             <input type="submit" name="create_product" id="create_product" value="Créer l'article" /><br />
         </form>
     </section>
-    <script src="/js/main.js"></script>
+    <script src="/js/creation-article.js"></script>
 </body>
 </html>
