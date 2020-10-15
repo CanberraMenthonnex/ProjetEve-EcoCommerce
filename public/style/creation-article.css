@@ -1,0 +1,109 @@
+/********************<PAGE CREATION D ARTICLE>*********************/
+/********************<Body>*********************/
+#bodyPageCreationArticle{
+	background-image: url("img/backgroundImg.jpg");
+}
+/********************<logo>*********************/
+#divLogoPageBack { 
+    border-radius: 50%;
+    background-color: #313034;
+    height: 170px; 
+	width: 190px; 
+    border: 12px solid #8ebf25;
+    display: flex;
+    align-items: center;
+	justify-content: center;
+	position: absolute;
+}
+#logoImgPageBack {
+    width: 160px;
+    height: 160px;
+    padding-top: 30px;
+
+}
+
+/********************</logo>*********************/
+/********************<FORM>*********************/
+
+#pageProduit {
+	color:  #313034;
+	display: flex;
+	justify-content: center;
+}
+#formCreationArticle {
+	background-color: white;
+    display: flex;
+	flex-direction: column;
+	padding: 0px 20px;
+}
+#pageProduit h1 {
+	background-color: #8ebf25;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
+	text-align: center;
+	padding: 30px;
+}
+
+#product input {
+	margin: 10px;
+}
+
+#product {
+	
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+#product input {
+	border-radius: 30px;
+	border: solid#8ebf25;
+	padding: 7px;
+	background-color:#8ebf25;
+}
+
+#product input::placeholder {
+	color:#313034;
+}
+/****WYSIWYG****/
+#editeur{
+	width: 500px; 
+	height: 200px; 
+	border: 1px solid black; 
+	padding: 5px; 
+	overflow: auto; 
+}
+/********************<BOUTON FORM>*********************/
+#create_product {
+	padding: 10px;
+	background-color: #8ebf25;
+}
+#create_product:hover {
+		padding: 11px;
+}
+/********************</BOUTON FORM>*********************/
+/********************<PREVUALISATION D IMAGE>*********************/
+#divImgPrevu {
+padding-left: 20%;
+padding-bottom: 5px;
+
+}
+.imagePrevu {
+	width: 300px;
+	min-height: 100px;
+	border: 2px solid #8ebf25;
+	margin-top: 15px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #8ebf25;
+}
+.imagePrevuImage{
+	display: none;
+	width: 100%;
+}
+/********************</PREVUALISATION D IMAGE>*********************/
+/********************</FORM>*********************/
+/********************</Body>*********************/
+/********************</PAGE CREATION D ARTICLE>*********************/

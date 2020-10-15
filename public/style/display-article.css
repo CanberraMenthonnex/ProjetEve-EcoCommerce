@@ -1,0 +1,55 @@
+#headerAfficheArticle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: #8ebf25;
+}
+
+#headerAfficheArticle span{
+    margin: 15px;
+    position: relative;
+    left: 0;
+}
+
+#headerAfficheArticle a{
+    text-decoration: none;
+    margin: 15px;
+    color: whitesmoke;
+}
+
+.product{
+    background-color: grey;
+    border-radius: 7px;
+    border: 1px solid black;
+    width: 20%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product h1{
+    text-align: center;
+}
+
+.product a{
+    text-align: center;
+    margin: 8px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.product span{
+    margin: 8px;
+}
+
+.product span b{
+    text-decoration: underline;
+}
+
+#products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
