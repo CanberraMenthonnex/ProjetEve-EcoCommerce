@@ -12,7 +12,7 @@
             <img id="logoImgPageBack" src="/img/logo.png" alt="logo du site">
         </div></a>
     </header>
-    <section id="pageProduit">
+    <section id="pageProduct">
 
 
         
@@ -36,9 +36,9 @@
                 <input id="gStyle" type="button" value="G" style="font-weight:bold;"/> 
 		        <input id="iStyle" type="button" value="I" style="font-style:italic;"/> 
 		        <input id="sStyle" type="button" value="S" style="text-decoration:underline;"/> 
-                <input id="lienStyle" type="button" value="Lien"/>
+                <input id="linkStyle" type="button" value="Lien"/>
                 <br>
-                <div id="editeur" contentEditable name="description"></div>
+                <div id="editor" contentEditable name="description"></div>
                 <input type="hidden" name="description" id="depot">
 		        
             </div>

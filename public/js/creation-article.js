@@ -1,4 +1,4 @@
-/************************<PAGE CREATION DE PRODUIT>***************************/
+
 
 /************************</WYSIWYG>***************************/
 
@@ -8,7 +8,7 @@ var italique = document.getElementById("iStyle");
 italique.onclick = ()=> commande('italic');
 var souligner = document.getElementById("sStyle");
 souligner.onclick = ()=> commande('underline');
-var lien = document.getElementById("lienStyle");
+var lien = document.getElementById("linkStyle");
 lien.onclick = ()=> commande('createLink');
 var createProduct = document.getElementById("create_product");
 createProduct.onclick = ()=> resultat();
@@ -27,17 +27,17 @@ function commande(nom, argument) {
 
 	
 }
-// function permettant de recuperer le contenue du WYSIWYG
+// How to get the WYSIWYG html
 
 function resultat() {
-	document.getElementById("depot").value = document.getElementById("editeur").innerHTML;
+	document.getElementById("depot").value = document.getElementById("editor").innerHTML;
 }
 
 
 /**************************</WYSIWYG>******************************/
 
 
-/*********************<IMAGE PREVUALISATION>***********************/
+/*********************<IMAGE PREVIEW>***********************/
 
 const imgFile = document.getElementById("imgFile");
 const prevuConteneur = document.getElementById("imgPreview");
@@ -66,5 +66,4 @@ imgFile.addEventListener("change", function(){
 });
 
 
-/*********************</IMAGE PREVUALISATION>***********************/
-/************************</PAGE CREATION DE PRODUIT>***************************/
+/*********************</IMAGE PREVIEW>***********************/
