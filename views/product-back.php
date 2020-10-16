@@ -25,7 +25,7 @@
             <span class="urlImageProduct"><b>Url image :</b> http://hduzyydbhzbdyagdjyaegfbeza.com</span>
             <span class="priceprduct"><b>Prix du produit :</b> <?= $product->getPrice()?> €</span>
             <span class="dateProduct"><b>Date produit :</b> <?= $product->getDate()->format(HOURS_FORMAT)?></span>
-            <a href="#" onclick="supprArticle(this)">Supprimer produit</a>
+            <a href="#" id="suppArticle">Supprimer produit</a>
         </div>
         <?php
             }
