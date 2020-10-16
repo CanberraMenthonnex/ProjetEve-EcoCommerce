@@ -38,7 +38,7 @@
 		        <input id="sStyle" type="button" value="S" style="text-decoration:underline;"/> 
                 <input id="linkStyle" type="button" value="Lien"/>
                 <br>
-                <div id="editor" contentEditable name="description"></div>
+                <div id="editor" contentEditable></div>
                 <input type="hidden" name="description" id="depot">
 		        
             </div>
