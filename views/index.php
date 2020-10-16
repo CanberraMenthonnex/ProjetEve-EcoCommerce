@@ -10,7 +10,7 @@
 <body id="bodyIndex">
 
     <header>
-        <div id="boutonHeader">
+        <div id="buttonHeader">
             <a href="">Accueil</a>
             <a href="">Produits</a>
             <a href="">Contact</a>
@@ -18,8 +18,10 @@
         <a href=""><div id="divLogo">
             <img id="logoImg" src="img/logo.png" alt="logo du site">
         </div></a>
-        <div id="divPanier">
-            <img id="panierImg" src="img/panier.png" alt="panier">
+        <div id="divShop">
+            <a href="">
+            <img id="shopImg" src="img/panier.png" alt="panier">
+            </a>
         </div>
     </header>
 
@@ -39,8 +41,8 @@
 
 
 
-    <div class="h2produit"><h1>produits</h1><div>
-    <section class="produitsindex">
+    <div class="h1product"><h1>Produits</h1><div>
+    <section class="productsindex">
 
         <div class="content-box">
             <img src="1.png"  >
@@ -63,8 +65,8 @@
             <p>prix</p>
             </div>
     </section>
-    <div class="h2produit"><h1>produits</h1><div>
-    <section class="produitsindex">
+    <div class="h1product"><h1>Produits</h1><div>
+    <section class="productsindex">
         <div class="content-box">
             <img src="1.png" >
             <p>NOM D'ARTICLE</p>

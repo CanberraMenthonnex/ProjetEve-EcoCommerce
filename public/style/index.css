@@ -22,14 +22,14 @@ body header div {
     color: #8ebf25;
 }
 /*******************MENU***********************/
-#boutonHeader {
+#buttonHeader {
     display: flex;
     flex-direction: row;
     margin-bottom: 100px;
 }
 
 
-#boutonHeader a {
+#buttonHeader a {
     margin: auto;
     padding: 10px;
 }
@@ -51,13 +51,18 @@ body header div {
     justify-content: center;
     transform: translateY(-25%);
 }
-/*******************PANIER***********************/
-#panierImg {
+/*******************SHOP***********************/
+#shopImg {
     width: 50px;
     height: 50px;
     
 }
-#divPanier {
+#shopImg:hover {
+    transition-duration: 10s;
+    transform: rotateY(360deg);
+    
+}
+#divShop {
     display: flex;
     justify-content: flex-end;
 }
@@ -127,27 +132,29 @@ body header div {
 }
 
 /********************</SLIDER>*****************/
-/********************<PRODUITS>*****************/
-.produitsindex div {
+/********************<PRODUCTS>*****************/
+.productsindex div {
     padding: 0px 20px
    }
-   .produitsindex p{
+   .productsindex p{
      text-align: center;
    }
-  .h2produit h1 {
+  .h1product h1 {
      padding-left: 12%;
      color: #8ebf25;
    }
-   .produitsindex  {
+   .productsindex  {
     display: flex;
     flex-direction: row;margin: 70px ; 
-    justify-content:center;}
-   .produitsindex img {
+    justify-content:center;
+    }
+   .productsindex img {
+       border: solid 1px #8ebf25 ;
      width: 250px;
      height: 250px;
    }
    
-/********************</PRODUITS>*****************/
+/********************</PRODUCTS>*****************/
 /********************<FOOTER>*****************/
 
 #bodyIndex footer {
