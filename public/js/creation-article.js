@@ -10,8 +10,8 @@ var souligner = document.getElementById("sStyle");
 souligner.onclick = ()=> commande('underline');
 var lien = document.getElementById("lienStyle");
 lien.onclick = ()=> commande('createLink');
-var boutonResultat = document.getElementById("boutonResultat");
-boutonResultat.onclick = ()=> resultat();
+var createProduct = document.getElementById("create_product");
+createProduct.onclick = ()=> resultat();
 
 
 function commande(nom, argument) {
@@ -28,11 +28,11 @@ function commande(nom, argument) {
 	
 }
 // function permettant de recuperer le contenue du WYSIWYG
-/*
+
 function resultat() {
 	document.getElementById("depot").value = document.getElementById("editeur").innerHTML;
 }
-*/
+
 
 /**************************</WYSIWYG>******************************/
 

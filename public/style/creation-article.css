@@ -1,7 +1,7 @@
 /********************<PAGE CREATION D ARTICLE>*********************/
 /********************<Body>*********************/
 #bodyPageCreationArticle{
-	background-image: url("img/backgroundImg.jpg");
+	background-image: url("/img/backgroundImg.jpg");
 }
 /********************<logo>*********************/
 #divLogoPageBack { 
