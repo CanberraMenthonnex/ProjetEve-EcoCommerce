@@ -16,11 +16,15 @@ try {
     });
 
     $router->get(ADMIN_LOG_ROUTE, function () {
-        \Controller\AdminController::logAdminPage();
+        \Controller\AdminLoginController::logAdminPage();
     });
 
     $router->post(ADMIN_LOG_ROUTE, function () {
-        \Controller\AdminController::login();
+        \Controller\AdminLoginController::login();
+    });
+
+    $router->get(ADMIN_LOGOUT_ROUTE, function () {
+        \Controller\AdminLoginController::logout();
     });
 
     $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
@@ -32,6 +36,10 @@ try {
 
     $router->get(ADMIN_GET_PRODUCT_ROUTE, function() {
         \Controller\ProductController::listingProduct();
+    });
+
+    $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
+        \Controller\ProductController::removeProduct($id);
     });
 
     $router->parse();

@@ -1,10 +1,13 @@
 <?php
 namespace Controller;
 
+use Model\ProductRepository;
+
 class HomeController extends Controller {
 
     public static function homePage() {
-        self::render("index.php");
+        $products = ProductRepository::getAll();
+        self::render("home.php", compact("products"));
     }
 
 }

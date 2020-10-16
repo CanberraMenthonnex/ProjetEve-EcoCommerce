@@ -38,35 +38,19 @@
         <div id="suivant" >></div>
     </div>
 
-
-
-
-    <div class="h1product"><h1>Produits</h1><div>
     <section class="productsindex">
+        <div class="h1product"><h1>Produits</h1></div>
+        <?php foreach ($products as $product) {?>
+        <div class="content-box">
+            <img src="1.png"  >
+            <p><?= $product->getName(); ?></p>
+            <p><?= $product->getPrice(); ?>€</p>
+        </div>
+        <?php }?>
 
-        <div class="content-box">
-            <img src="1.png"  >
-            <p>NOM D'ARTICLE</p>
-            <p>prix</p>
-        </div>
-        <div class="content-box">
-            <img src="1.png"  >
-            <p>NOM D'ARTICLE</p>
-            <p>prix</p>
-        </div>
-        <div class="content-box">
-            <img src="1.png"  >
-            <p>NOM D'ARTICLE</p>
-            <p>prix</p>
-        </div>
-        <div class="content-box">
-            <img src="1.png"  >
-            <p>NOM D'ARTICLE</p>
-            <p>prix</p>
-            </div>
     </section>
-    <div class="h1product"><h1>Produits</h1><div>
-    <section class="productsindex">
+    <!--<div class="h1product"><h1>Produits</h1><div>-->
+    <!--<section class="productsindex">
         <div class="content-box">
             <img src="1.png" >
             <p>NOM D'ARTICLE</p>
@@ -88,7 +72,7 @@
             <p>prix</p>
         </div>
 
-    </section>
+    </section>-->
 
     <footer>
         <img class="iconeF" src="/img/insta.png" alt="instagram">

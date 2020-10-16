@@ -8,9 +8,9 @@
 </head>
 <body>
     <header id="headerAfficheArticle">
-        <span>Connecté en tant que administrateur <b>Romain.L</b></span>
+        <span>Connecté en tant que administrateur <b><?= $admin->getMail(); ?></b></span>
         <div>
-            <a href="/">Déconnexion</a>
+            <a href="/<?=ADMIN_LOGOUT_ROUTE?>">Déconnexion</a>
             <a href="/admin/product/form" id="ajoutArticle">Ajouter un article</a>
         </div>
     </header>
@@ -22,10 +22,9 @@
             <h1 class="nameProduct"><b>Nom du produit :</b> <?= $product->getName()?></h1>
             <span class="descriptionProduct"><b>Description :</b> <?= $product->getDescription()?></span>
             <span class="idProduct"><b>Id produit :</b> <?= $product->getId()?></span>
-            <span class="urlImageProduct"><b>Url image :</b> http://hduzyydbhzbdyagdjyaegfbeza.com</span>
             <span class="priceprduct"><b>Prix du produit :</b> <?= $product->getPrice()?> €</span>
             <span class="dateProduct"><b>Date produit :</b> <?= $product->getDate()->format(HOURS_FORMAT)?></span>
-            <a href="#" id="suppArticle">Supprimer produit</a>
+            <a href="/<?= ADMIN_DELETE_PRODUCT_ROUTE . $product->getId(); ?>" id="suppArticle">Supprimer produit</a>
         </div>
         <?php
             }

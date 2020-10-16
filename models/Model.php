@@ -96,7 +96,7 @@ abstract class Model {
      *
      * return boolean
      * */
-    public static function _delete(string $table, array $filters) {
+    protected static function _delete(string $table, array $filters) {
         $db = self::getDb();
 
         $keyFilters = array_keys($filters);
@@ -117,7 +117,7 @@ abstract class Model {
 
     }
 
-    public static function _update (string $table, array $data, array $filters) {
+    protected static function _update (string $table, array $data, array $filters) {
 
     }
 

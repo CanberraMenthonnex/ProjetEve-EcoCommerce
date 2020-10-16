@@ -133,26 +133,32 @@ body header div {
 
 /********************</SLIDER>*****************/
 /********************<PRODUCTS>*****************/
-.productsindex div {
-    padding: 0px 20px
-   }
-   .productsindex p{
-     text-align: center;
-   }
-  .h1product h1 {
-     padding-left: 12%;
-     color: #8ebf25;
-   }
-   .productsindex  {
+.productsindex > div {
+    padding: 0px 20px;
     display: flex;
-    flex-direction: row;margin: 70px ; 
-    justify-content:center;
-    }
-   .productsindex img {
-       border: solid 1px #8ebf25 ;
-     width: 250px;
-     height: 250px;
-   }
+    flex-direction: column;
+    align-items: center;
+}
+.productsindex p{
+    text-align: center;
+}
+.h1product {
+    grid-column: 1 / 5;
+    align-items: flex-start!important;
+}
+.h1product h1 {
+    color: #8ebf25;
+}
+.productsindex  {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 70px ;
+}
+.productsindex img {
+    border: solid 1px #8ebf25 ;
+    width: 250px;
+    height: 250px;
+}
    
 /********************</PRODUCTS>*****************/
 /********************<FOOTER>*****************/
