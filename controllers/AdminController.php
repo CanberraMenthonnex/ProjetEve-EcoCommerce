@@ -14,6 +14,14 @@ class AdminController extends Controller {
         self::render("log-page.php");
     }
 
+    public static function loadPage(string $pathPage){
+        if(checkSession()){
+            self::render($pathPage);
+        }else{
+            throw new \Exception(NO_PERMISSION);
+        }       
+    }
+
     public static function login() {
 
         if(self::checkPostKeys($_POST, [ "pwd", "email"])) {

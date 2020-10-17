@@ -22,7 +22,6 @@ try {
         \Controller\ProductController::createProduct();
     });
 
-
     $router->get("admin/login", function () {
         Controller\AdminController::logAdminPage();
     });
