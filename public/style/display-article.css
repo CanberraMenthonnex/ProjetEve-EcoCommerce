@@ -1,3 +1,7 @@
+*{
+    font-family:sans-serif;
+}
+
 #headerAfficheArticle{
     display: flex;
     flex-direction: row;

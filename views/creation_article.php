@@ -19,7 +19,7 @@
         <form id="formCreationArticle" action="/admin/product/form" method="POST">
                 <h1>Création de l'article</h1>
             <div id="product">
-                <input type="text" name="name" id="name" placeholder="Nom du produit" >
+                <input type="text" name="name" id="name" placeholder="Nom du produit" autocomplete="off">
                 <input type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
             </div>
             <div id="divImgPrevu">

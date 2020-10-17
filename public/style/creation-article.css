@@ -1,4 +1,6 @@
-
+*{
+    font-family:sans-serif;
+}
 /********************<Body>*********************/
 #bodyPageCreationArticle{
 	background-image: url("/img/backgroundImg.jpg");

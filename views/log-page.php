@@ -13,8 +13,8 @@
             <p id="pLog">Log in</p>
             <div id="divInputLog">
                 <form action="/admin/login" method ="POST">
-                    <input type="text"  id="id" name="email" placeholder="Username"> <br>
-                    <input type="text" id="pwd" name="pwd" placeholder="Password"> <br>
+                    <input type="text"  id="id" name="email" placeholder="Username" autocomplete="off"> <br>
+                    <input type="password" id="pwd" name="pwd" placeholder="Password" autocomplete="off"> <br>
                     <input type="submit" name="send" value="CONNEXION" id="buttonLog">
                 </form>
             </div>

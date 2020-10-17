@@ -1,5 +1,10 @@
 /************************<PAGE INDEX>***************************/
 
+*{
+    font-family:sans-serif;
+}
+
+
 #bodyIndex {
     background-color: #313034;
 }

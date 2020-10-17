@@ -40,9 +40,11 @@
 
     <section class="productsindex">
         <div class="h1product"><h1>Produits</h1></div>
-        <?php foreach ($products as $product) {?>
+        <?php 
+        if(!$products) echo "<p>Il n'y a pas de produit pour l'instant :( </p>";
+        foreach ($products as $product) {?>
         <div class="content-box">
-            <img src="1.png"  >
+            <img src="/img/gourde.jpg"  >
             <p><?= $product->getName(); ?></p>
             <p><?= $product->getPrice(); ?>€</p>
         </div>
