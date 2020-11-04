@@ -11,7 +11,8 @@ abstract class Controller {
      * @param $viewName : string
      *
      * */
-    protected static function render (string $viewName) {
+    protected static function render (string $viewName, array $var = []) {
+        extract($var);
         require(self::VIEW_PATH . $viewName);
     }
 

@@ -1,30 +1,31 @@
 <?php
 namespace Controller;
 
-require ("../models/product-model.php");
+use Model;
+use Tools\Http;
+use Tools\Session;
 
-class ProductController extends Controller {
+class ProductController extends AdminController {
 
     public static function createProductPage() {
-        self::render('create-product.php');
+        self::protectForAdmin();
+        self::render('creation_article.php');
     }
 
     public static function createProduct() {
-
+        self::protectForAdmin();
         if(self::checkPostKeys($_POST, ["name", "description", "price"])) {
 
-            if(!is_numeric($_POST["price"])) die("Bad type");
+            if(!is_numeric($_POST["price"])) Http::redirect(HOME_ROUTE);
 
-            $prdtInfo = [
-                "prdtName" => $_POST["name"],
-                "prdtDesc" => $_POST["description"],
-                "prdtPrice" => $_POST["price"],
-            ];
+            $name = htmlspecialchars($_POST["name"]);
+            $desc = $_POST["description"];
+            $price = htmlspecialchars($_POST["price"]);
 
-            $resp = addProduct($prdtInfo);
+            $resp = Model\ProductRepository::save($name, $desc, $price, new \DateTime());
 
             if($resp) {
-                echo "Produit ajouté";
+                Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
             }
             else {
                 throw new \Exception(ERROR_SAVING_BDD);
@@ -35,4 +36,19 @@ class ProductController extends Controller {
             throw new \Exception(BAD_KEYS);
         }
     }
+
+
+    public static function listingProduct() {
+        self::protectForAdmin();
+        $productList = Model\ProductRepository::getAll();
+        $admin = Session::get(self::SESSION_NAME);
+        self::render('product-back.php', compact("productList", "admin"));
+    }
+
+    public static function removeProduct (string $id) {
+        self::protectForAdmin();
+        if(Model\ProductRepository::deleteById($id)) Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
+        else throw new \Exception(ERROR_DELETE_BDD);
+    }
+
 }

@@ -4,7 +4,7 @@ namespace Tools;
 
 class Session {
 
-    public static function set(string $name, array $data) {
+    public static function set(string $name, $data) {
         $_SESSION[$name] = $data;
     }
 

@@ -1,5 +1,5 @@
 <?php
-define("DB_HOST", "localhost");
-define("DB_NAME", "back_office");
-define("DB_USERNAME", "root");
-define("DB_PASSWORD", "");
+const DB_HOST = "localhost";
+const DB_NAME = "back_office";
+const DB_USERNAME = "root";
+const DB_PASSWORD = "root";

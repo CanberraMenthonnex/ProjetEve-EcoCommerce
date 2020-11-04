@@ -1,36 +1,46 @@
 <?php
 require("../vendor/autoload.php");
 require ("../configuration/configuration.php");
-
-require("../routes/router/Route.php");
-require("../routes/router/DynamicRoute.php");
-require("../routes/router/Router.php");
-
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
+require ("../constant/routes.php");
+
 
 session_start();
 
 try {
-
     $router = new Router\Router($_GET["url"]);
 
-    $router->get("back-office/product/form", function () {
+    $router->get(HOME_ROUTE, function () {
+        \Controller\HomeController::homePage();
+    });
+
+    $router->get(ADMIN_LOG_ROUTE, function () {
+        \Controller\AdminLoginController::logAdminPage();
+    });
+
+    $router->post(ADMIN_LOG_ROUTE, function () {
+        \Controller\AdminLoginController::login();
+    });
+
+    $router->get(ADMIN_LOGOUT_ROUTE, function () {
+        \Controller\AdminLoginController::logout();
+    });
+
+    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
         \Controller\ProductController::createProductPage();
     });
-    $router->post("back-office/product/form", function () {
+    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, function () {
         \Controller\ProductController::createProduct();
     });
 
-
-    $router->get("admin/login", function () {
-        Controller\AdminController::logAdminPage();
+    $router->get(ADMIN_GET_PRODUCT_ROUTE, function() {
+        \Controller\ProductController::listingProduct();
     });
 
-    $router->post("admin/login", function () {
-        Controller\AdminController::login();
+    $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
+        \Controller\ProductController::removeProduct($id);
     });
-
 
     $router->parse();
 
