@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2020 at 08:17 PM
+-- Generation Time: Oct 15, 2020 at 08:06 PM
 -- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
-(1, 'Canb', '', '', 'soleil'),
+(1, 'Canb', '', 'test@mail.com', '$2y$10$KLmDR5noC/8cM0YxeLBUo.t.HgPrBs6DeSI4jEddZ3nBPbjz/Ivsu'),
 (2, 'Lulu', '', '', 'soleil'),
 (3, 'Mario2206', '', '', 'soleil'),
 (4, 'Canberra', '', '', '$2y$10$2FHhdKnICHhTtMMeEW55peZhjczJgdNBzEy4EIyd//wgHNM1x8DUy');
@@ -67,16 +67,16 @@ CREATE TABLE `product` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `price` int(11) NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `product_reference` int(11) NOT NULL
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `price`, `date`, `product_reference`) VALUES
-(1, 'Gourde 1', 'blablablablabla', 10, '2020-10-08 00:09:47', 49426525);
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `date`) VALUES
+(1, 'Gourde 1', 'blablablablabla', 10, '2020-10-08 00:09:47'),
+(2, 'Test', 'dezqdq', 2, '2020-10-14 23:25:01');
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stock`

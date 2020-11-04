@@ -11,7 +11,7 @@
         "psr-4": {
             "Controller\\": "./controllers",
             "Router\\" : "./routes/router",
-            "Model\\" : "./models",
+            "Model\\" : ["./models", "./models/repositories", "./models/entities"],
             "Tools\\" : "./tools"
         }
     }

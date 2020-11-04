@@ -23,15 +23,15 @@ abstract class Model {
      * @param $filters : array ["key" => "value"]
      * @param $wantedValue : array ["wantedValue"]
      * @param $limit : array ["start-number", "offset-number"]
+     * @param $order : array ["by"=>key, "desc" => boolean]
      *
      * return array
      * */
-    protected static function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = []) : array {
+    protected static function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = [], array $order = []) : array {
        $db = self::getDb();
 
         $wanted = array_reduce($wantedValue, function ( $accumulator, $item) {
             return $accumulator .=  $item . ", ";
-
         });
 
         $wanted = trim($wanted, ", ");
@@ -50,8 +50,10 @@ abstract class Model {
         }
 
         $sqlLimit = $limit ? " LIMIT " . $limit[0] . ", " . $limit[1] : "";
+        $sqlOrder = $order ? " ORDER BY " . $order["by"] : "";
+        $sqlOrder .= $order && $order["desc"] ? " DESC " : "";
 
-        $sql = "SELECT {$wanted} FROM {$table} {$sqlFilters} {$sqlLimit}";
+        $sql = "SELECT {$wanted} FROM {$table} {$sqlFilters} {$sqlOrder} {$sqlLimit}";
         $req = $db->prepare($sql);
         $req->execute(array_values($filters));
 
@@ -94,7 +96,7 @@ abstract class Model {
      *
      * return boolean
      * */
-    public static function _delete(string $table, array $filters) {
+    protected static function _delete(string $table, array $filters) {
         $db = self::getDb();
 
         $keyFilters = array_keys($filters);
@@ -115,7 +117,7 @@ abstract class Model {
 
     }
 
-    public static function _update (string $table, array $data, array $filters) {
+    protected static function _update (string $table, array $data, array $filters) {
 
     }
 
