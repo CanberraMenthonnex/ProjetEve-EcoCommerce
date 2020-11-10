@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 15, 2020 at 08:06 PM
+-- Generation Time: Nov 10, 2020 at 09:02 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.9
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
-(1, 'Canb', '', 'test@mail.com', '$2y$10$KLmDR5noC/8cM0YxeLBUo.t.HgPrBs6DeSI4jEddZ3nBPbjz/Ivsu'),
+(1, 'Canb', '', '', 'soleil'),
 (2, 'Lulu', '', '', 'soleil'),
 (3, 'Mario2206', '', '', 'soleil'),
 (4, 'Canberra', '', '', '$2y$10$2FHhdKnICHhTtMMeEW55peZhjczJgdNBzEy4EIyd//wgHNM1x8DUy');
@@ -52,9 +52,22 @@ INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `cart_id` int(11) NOT NULL,
+  `nbrProduct` int(11) NOT NULL,
+  `cart_value` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cartdetail`
+--
+
+CREATE TABLE `cartdetail` (
+  `cart_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -63,7 +76,7 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `price` int(11) NOT NULL,
@@ -74,9 +87,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `price`, `date`) VALUES
+INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `date`) VALUES
 (1, 'Gourde 1', 'blablablablabla', 10, '2020-10-08 00:09:47'),
-(2, 'Test', 'dezqdq', 2, '2020-10-14 23:25:01');
+(2, 'Sac', 'sahziduqizd qzd bhjqzg jqzb jqzbd hqzd bjqz ', 39, '2020-10-14 22:20:36');
 
 -- --------------------------------------------------------
 
@@ -96,7 +109,7 @@ CREATE TABLE `stock` (
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -104,6 +117,14 @@ CREATE TABLE `user` (
   `birth_date` datetime NOT NULL,
   `adress` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `lastname`, `firstname`, `email`, `password`, `birth_date`, `adress`) VALUES
+(1, 'Doe', 'John', 'John@doe.fr', 'johnword', '2001-01-01 00:00:00', '2 Rue du John'),
+(2, 'Doe', 'Jane', 'Jane@doe.fr', 'janeword', '2002-01-01 00:00:00', '2 Rue de la Jane');
 
 --
 -- Indexes for dumped tables
@@ -119,13 +140,21 @@ ALTER TABLE `admin`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `cartdetail`
+--
+ALTER TABLE `cartdetail`
+  ADD KEY `cart_id` (`cart_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`product_id`);
 
 --
 -- Indexes for table `stock`
@@ -137,7 +166,7 @@ ALTER TABLE `stock`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -153,13 +182,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -171,7 +200,24 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+
+--
+-- Constraints for table `cartdetail`
+--
+ALTER TABLE `cartdetail`
+  ADD CONSTRAINT `cartdetail_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`),
+  ADD CONSTRAINT `cartdetail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

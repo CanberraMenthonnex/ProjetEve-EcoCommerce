@@ -14,8 +14,8 @@ class ProductRepository extends Model {
         );
     }
 
-    public static function deleteById(string $id) {
-        return self::_delete(self::TABLE_NAME, ["id"=>$id]);
+    public static function deleteById(string $product_id) {
+        return self::_delete(self::TABLE_NAME, ["id"=>$product_id]);
     }
 
     public static function getAll(int $number = null) {
@@ -30,7 +30,7 @@ class ProductRepository extends Model {
 
         return array_map(function ($item) {
             $date = \DateTime::createFromFormat(HOURS_FORMAT, $item->date);
-           return new Product($item->id,$item->name, $item->description, $item->price, $date);
+           return new Product($item->product_id,$item->name, $item->description, $item->price, $date);
         }, $data);
     }
 }
