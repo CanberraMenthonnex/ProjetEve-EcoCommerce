@@ -16,6 +16,11 @@ class Route implements IERoute {
      * **/
     protected $_path;
 
+    /**
+     * ROUTE PARAMS (FOR DYNAMIC ROUTES)
+     */
+    private $_params = [];
+
 
     /*
      * ACTION TO START
@@ -29,10 +34,12 @@ class Route implements IERoute {
      * @param string $path
      * @param function $action
      * **/
-    public function __construct(string $path, $action)
+    public function __construct(string $path, array $params, $action)
     {
         $this->_path =$path;
+        $this->_params = $params;
         $this->_action = $action;
+        
     }
 
     /*
@@ -49,7 +56,7 @@ class Route implements IERoute {
      *
      */
     public function activate() : void{
-        $this->_action->call($this);
+        call_user_func_array( $this->_action, $this->_params);
     }
 
     /*
@@ -57,8 +64,30 @@ class Route implements IERoute {
      * @param string path
      * return boolean
      * **/
-    public function find (string $path) : bool {
-        return $path === $this->_path;
+    public function find (string $url) : bool {
+
+        if($this->_path === "") return $url === $this->_path;
+
+        $isFind = preg_match("#^".preg_quote($this->_path)."#", $url);
+       
+        if($isFind) {
+            $parts = explode($this->_path, $url);
+            $parts = array_filter($parts);
+           
+
+            if($parts) {
+                
+                $parts = array_values($parts);  
+                $args = explode("/",$parts[0]);
+                $args = array_filter($args);
+                
+                if(count($args) !== count($this->_params)) return false;
+
+                $this->_params = array_combine($this->_params,$args);
+            }
+            return true;
+        }        
+        return false;
     }
 
 
