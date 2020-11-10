@@ -9,7 +9,7 @@ abstract class Controller {
     /*
      * For displaying the view
      * @param $viewName : string
-     *
+     * @param $var : array --> variable to pass in view context
      * */
     protected static function render (string $viewName, array $var = []) {
         extract($var);
