@@ -1,7 +1,7 @@
 <?php   
 
 
-    // Verifiez si le panier existe et le creer le cas contraire
+    
    function createCart(){
   
 
@@ -27,12 +27,64 @@ function addProduct($Productid,$Price){
             $_SESSION['cart']['quantity'][$Product] += $quantity;
         }
     }else{
-        $array[] = 
+        array_push ($_SESSION['cart']['Productid'],$Productid);
+        array_push ($_SESSION['cart']['Price'],$Price);
+        array_push ($_SESSION['cart']['quantity'],$quantity);
+    }
+
+} 
+
+function deleteProduct($Productid){
+    
+    if (createCart())
+    {
+       
+       $tmp=array();
+       $tmp['Productid'] = array();
+       $tmp['Price'] = array();
+       $tmp['quantity'] = array();
+       
+ 
+       for($i = 0; $i < count($_SESSION['cart']['Productid']); $i++)
+       {
+          if ($_SESSION['cart']['Productid'][$i] !== $productid)
+          {
+             array_push( $tmp['Productid'],$_SESSION['cart']['Productid'][$i]);
+             array_push( $tmp['Price'],$_SESSION['cart']['Price'][$i]);
+             array_push( $tmp['quantity'],$_SESSION['cart']['quantity'][$i]);
+          }
+ 
+       }
+       
+       $_SESSION['cart'] =  $tmp;
+       
+       unset($tmp);
+    }
+
+    function modifyQuantity($Productid,$quantity){
+        
+        if (createCart())
+        {
+           
+           if ($quantity > 0)
+           {
+              
+              $Product = array_search($Productid, $_SESSION['cart']['Productid']);
+     
+              if ($Product !== false)
+              {
+                 $_SESSION['cart']['quantity'][$Product] = $quantity ;
+              }
+           }else{
+           
+           deleteArticle($Productid);
+        }
+
+
     }
 
 
-
-
-
-
 }
+}
+
+
