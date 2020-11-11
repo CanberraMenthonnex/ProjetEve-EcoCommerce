@@ -6,7 +6,7 @@ use Model\AdminRepository;
 use Tools\Http;
 use Tools\Session;
 
-class AdminLoginController extends AdminController {
+class UserLoginController extends UserController {
 
     public static function logAdminPage() {
         self::render("log-page.php");
@@ -14,17 +14,17 @@ class AdminLoginController extends AdminController {
 
     public static function login() {
 
-        if(self::checkPostKeys($_POST, ["pwd", "email"])) {
+        if(self::checkPostKeys($_POST, [ "pwd", "email"])) {
         
             $email = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);
-            $admin = AdminRepository::find($email);
+            $user = UserRepository::find($email);
 
-            if($admin) {
+            if($user) {
 
-                if(password_verify($pwd, $admin[0]->getPassword())) {
-                    Session::set(self::SESSION_NAME, $admin[0]);
-                    Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
+                if(password_verify($pwd, $user[0]->getPassword())) {
+                    Session::set(self::SESSION_NAME, $user[0]);
+                    Http::redirect(USER_ROUTE);
                 }
                 else
                 {
@@ -47,6 +47,4 @@ class AdminLoginController extends AdminController {
         Session::clean(self::SESSION_NAME);
         Http::redirect(HOME_ROUTE);
     }
-
-
 }
