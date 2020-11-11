@@ -10,7 +10,7 @@ class UserRepository extends Model {
 
       return self::_save(
                   self::TABLE_NAME,
-                  ["lastname", "firstname", "email", "mdp", "birth_date", "adress"],
+                  ["lastname", "firstname", "email", "password", "birth_date", "adress"],
                   [$lastname, $firstname, $mail, $password, $birth_date, $adress]
                 );
 
