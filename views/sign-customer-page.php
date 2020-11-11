@@ -37,5 +37,6 @@
                 
             </div>
             <label><strong>CGU:</strong><input type="checkbox" class="cgu_checkbox"></label>
+            <button type="submit">And let's go</button>
         </form>
     </article>
