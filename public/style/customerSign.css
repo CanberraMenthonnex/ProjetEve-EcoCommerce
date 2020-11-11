@@ -1,0 +1,77 @@
+body {
+    background-color: var(--light-green);
+}
+
+.form_sign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+form{
+    display: block;
+    width: 60%;
+}
+
+
+strong{
+    font-size: 20px;
+}
+
+input{
+    border-radius: 10px;
+    height: 20px;
+    border: none;
+
+}
+
+.form1{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form_content{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+
+.form1>.input_date_naissance{
+    display: block;
+
+}
+
+.form1>label{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.form1>label>input{
+    width: 15rem;
+    margin-bottom: 25px;
+
+}
+
+.cgu_checkbox{
+    width: 20px;
+    margin-left: 1rem;
+}
+
+form>label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.input_date_naissance>label>input{
+    width: 50px;
+    margin-top: 20px;
+    margin-left: 0.10rem;
+}

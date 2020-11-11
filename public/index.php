@@ -38,6 +38,11 @@ try {
         \Controller\ProductController::listingProduct();
     });
 
+
+    $router->get(CUSTOMER_GET_SIGN_ROUTE, function(){
+        \Controller\SignCustomerPage::signCustomerPage();
+    });
+
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
         \Controller\ProductController::removeProduct($id);
     });

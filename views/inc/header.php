@@ -7,7 +7,7 @@
         </nav>
         <div class="head-items">
             <form class="search-bar" method="GET">
-                <input type="text" class="search-bar--input" name="search" size="30" placeholder="Rechercher un produit...">
+                <input type="text" class="search-bar--input" name="search" size="30" placeholder="Rechercher un produit..." autocomplete="off">
                 <button class="search-bar--submit">
                     <img src="/img/search.svg" title="search" alt="search" class="search-bar--icon"/>
                 </button>
