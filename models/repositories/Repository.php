@@ -37,16 +37,24 @@ class Repository extends ModelBase {
         return $mapping;
     }
 
-    public function save( IEntity $entity ) {
+    /**
+     * For saving data from entity in DB
+     * 
+     * @param $entity
+     * 
+     * return bool
+     */
+    public function save( IEntity $entity ) : bool {
 
         $properties = $entity->getDefinableProperties();
+
         $values = $this->mapToArray($properties, $entity);
-        var_dump($values);
+       
         return $this->_save($this->_table,$properties, $values);
     }
 
     /**
-     * For mapping data results in Entities
+     * For mapping data results in Entities (SQL result to Entity Object)
      * 
      * @param array $results
      * 
@@ -67,9 +75,14 @@ class Repository extends ModelBase {
     }
 
     /**
-     * For mapping data in array 
+     * For mapping data in array (Entity Object to SQL variables)
+     * 
+     * @param array $properties
+     * @param IEntity $entity
+     * 
+     * return array
      */
-    private function mapToArray (array $properties, IEntity $entity) {
+    private function mapToArray (array $properties, IEntity $entity) : array {
 
         $values = [];
 

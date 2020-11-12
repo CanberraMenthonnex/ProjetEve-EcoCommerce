@@ -117,8 +117,41 @@ abstract class Model {
 
     }
 
+     /**
+     * For updating element(s) from db table
+     * 
+     * @param string $table
+     * @param array $data
+     * @param array $filters
+     * 
+     * return boolean
+     */
     protected static function _update (string $table, array $data, array $filters) {
+        $db = self::getDb();
 
+        $dataKeys = array_keys($data);
+        $filterKey = array_keys($filters);
+
+        $query = "UPDATE $table SET ";
+
+        $query .= \array_reduce($dataKeys, function ($acc, $key) {
+            return $acc .= $key . " = :$key, ";
+        });
+        
+        $query = trim($query, ", ");
+        
+        if($filters) {
+            $query .= " WHERE ";
+            $query .= \array_reduce($filterKey, function ($acc, $key) {
+                return $acc .= $key . " = :$key AND ";
+            });
+            $query = trim($query, "AND ");
+        }
+       
+
+        $preparedArray = array_merge($data, $filters);
+        $req = $db->prepare($query);
+        return $req->execute($preparedArray);
     }
 
 }
