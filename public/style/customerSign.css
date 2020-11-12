@@ -2,13 +2,12 @@ body {
     background-color: var(--light-green);
 }
 
-.form_sign{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-}
+/***** Form Sign *****/
+
+
+button:focus, input:focus {
+    outline: none;
+  }
 
 form{
     display: block;
@@ -21,10 +20,38 @@ strong{
 }
 
 input{
-    border-radius: 10px;
+    padding-left: 0.25rem;
+}
+
+input, select, button{
+    border-radius: 5px;
     height: 20px;
     border: none;
+}
 
+
+.allreadyCustomer{
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.form_sign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+
+.send_profil{
+    display: block;
+    margin: auto;
+    width: 5rem;
+    margin-top: 1rem;
 }
 
 .form1{
@@ -37,6 +64,12 @@ input{
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cgu_checkbox{
+    width: 15px;
+    margin-left: 0.5rem;
 }
 
 
@@ -53,25 +86,29 @@ input{
 
 
 .form1>label>input{
-    width: 15rem;
+    width: 20rem;
     margin-bottom: 25px;
 
 }
 
-.cgu_checkbox{
-    width: 20px;
-    margin-left: 1rem;
-}
 
 form>label{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
 }
 
 .input_date_naissance>label>input{
     width: 50px;
     margin-top: 20px;
-    margin-left: 0.10rem;
+    margin-left: 0.25rem;
+}
+
+
+/***** Form Login *****/
+
+
+
+article#log{
+    display: none;
 }

@@ -8,8 +8,26 @@ namespace Tools;
 
 class Validators{
 
+
+    public static function validateString(string $input): bool{
+        return is_string($input);
+    }
+
+
+    public static function validatePhoneNumber(string $input): bool{
+        return (preg_match("#^0[1-68]([-. ]?[0-9]{2}){4}$#", $input));
+    }
+
     public static function validateLength(string $name, int $min, int $max): bool{ 
-        return strlen($name) < $max && strlen($name) > $min && (preg_match('[,?.;/:!<>$_€]', $name)) || (preg_match('[0-9]', $name));
+        return strlen($name) < $max && strlen($name) > $min;
+    }
+
+    public static function validateInt(string $name){
+        return (preg_match("\W", $name));
+    }
+
+    public static function validateNoSpecialChar(string $name ){
+        return (!ctype_alpha($name)) || (preg_match('[0-9]', $name));
     }
 
     public static function validateEmail(string $email): bool{
@@ -19,7 +37,7 @@ class Validators{
     }
 
     public static function validatePwd(string $pwd): bool {
-        if(preg_match('#[a-z]#', $mdp) && (preg_match('#[A-Z]#', $mdp)) && (preg_match('#[_?/:!$]#' , $mdp)) || (preg_match('#[0-9]#', $mdp))){
+        if(preg_match('#[a-z]#', $pwd) && (preg_match('#[A-Z]#', $pwd)) && (preg_match('#[_?/:!$]#' , $pwd)) || (preg_match('#[0-9]#', $pwd))){
             return true;
         }
     }
