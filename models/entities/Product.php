@@ -1,8 +1,10 @@
 <?php
 
-namespace Model;
+namespace Model\Entity;
 
-class Product implements IEProduct {
+use DateTime;
+
+class Product extends EntityBase {
 
     /*
      * product id
@@ -26,27 +28,28 @@ class Product implements IEProduct {
     private float  $price;
 
     /*
-     * product date
+     * creation Date
      * :DateTimeInterface
      * */
-    private \DateTimeInterface $date;
+    private \DateTimeInterface $createdAt;
 
     /**
-     * Product constructor.
-     * @param $name
-     * @param $description
-     * @param $price
-     * @param $date
+     * update date
+     * :DateTimeInterface
      */
-    public function __construct( string $id , string $name, string $description, string $price, \DateTimeInterface $date)
+    private \DateTimeInterface $updatedAt;
+
+    /**
+     * For setting default values 
+     * !! no params
+     */
+    public function __construct()
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
-        $this->date = $date;
+        $this->createdAt = $this->createDate(new DateTime());
+        $this->updatedAt =  $this->createDate(new DateTime());
     }
 
+ 
     public function getId() : string {
         return $this->id;
     }
@@ -66,8 +69,42 @@ class Product implements IEProduct {
         return $this->price;
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getCreatedAt(): \DateTimeInterface
     {
-        return $this->date;
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt () : \DateTimeInterface 
+    {
+        return $this->updatedAt;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    public function setPrice(float $price)
+    {
+        $this->price = $price;
+    }
+
+    public function setCreatedAt($date)
+    {
+        $this->createdAt = $this->createDate($date);
+    }
+
+    public function setUpdatedAt($date) {
+        $this->updatedAt = new \DateTime( $date );
     }
 }
