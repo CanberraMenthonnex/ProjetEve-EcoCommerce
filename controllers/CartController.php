@@ -1,9 +1,58 @@
-<?php   
+<?php
+
+try {
+   $db = new PDO("mysql:host=localhost;dbname=back_office", "root", "");
+} catch(PDOException $e) {
+   echo "Echec : " . $e;
+   die;
+};
 
 
+include('../views/cart.php');
+
+if(isset($_POST["cart"])) {
+   $prdt = [
+      "User" => $_GET["user"],
+      "PrdtId" => $_GET["id"],
+      "Quantity" => $_POST["quantity"],
+      "Total" => 25,
+   ];
+
+   $query = $db->prepare("INSERT INTO cartdetail (user_id, product_id, quantity, detailtotal) VALUES (:User, :PrdtId, :Quantity, :Total)");
+   
+   $query->execute($prdt);
+
+}
+
+
+
+/*
+$query = ("INSERT INTO cartdetail (product_id, user_id, quantity) VALUES ( ".$_GET["id"].", ".$_GET["user"]." )"); 
+
+var_dump($query);
+
+
+*/
+
+
+
+// SELECT ROUND((price * quantity), 2) AS total FROM cartdetail INNER JOIN product ON cartdetail.product_id = product.product_id ORDER BY user_id
+
+
+
+/*SELECT user_id, cartdetail.product_id, quantity, ROUND((price * quantity), 2) AS total
+FROM cartdetail
+INNER JOIN product ON cartdetail.product_id = product.product_id
+ORDER BY user_id
+*/
+
+
+
+
+/*
     
    function createCart(){
-  
+
 
     if (!isset($_SESSION['cart'])){
         $_SESSION['cart']=array();
@@ -87,4 +136,4 @@ function deleteProduct($Productid){
 }
 }
 
-
+*/

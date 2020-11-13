@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 10, 2020 at 09:02 PM
+-- Generation Time: Nov 12, 2020 at 11:22 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.9
 
@@ -52,7 +52,6 @@ INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `cart_id` int(11) NOT NULL,
   `nbrProduct` int(11) NOT NULL,
   `cart_value` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -65,9 +64,22 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `cartdetail` (
-  `cart_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `detailtotal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cartdetail`
+--
+
+INSERT INTO `cartdetail` (`user_id`, `product_id`, `quantity`, `detailtotal`) VALUES
+(1, 2, 2, 78),
+(2, 1, 5, 50),
+(1, 5, 3, 36),
+(1, 3, 1, 25),
+(2, 4, 52, 988);
 
 -- --------------------------------------------------------
 
@@ -89,7 +101,10 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `date`) VALUES
 (1, 'Gourde 1', 'blablablablabla', 10, '2020-10-08 00:09:47'),
-(2, 'Sac', 'sahziduqizd qzd bhjqzg jqzb jqzbd hqzd bjqz ', 39, '2020-10-14 22:20:36');
+(2, 'Sac', 'sahziduqizd qzd bhjqzg jqzb jqzbd hqzd bjqz ', 39, '2020-10-14 22:20:36'),
+(3, 'Fourchette', 'Nique', 25, '2020-11-12 22:10:46'),
+(4, 'Couteau', 'Coupe!', 19, '2020-11-12 22:10:46'),
+(5, 'Cuillère', 'Pour la soupe', 12, '2020-11-12 22:11:07');
 
 -- --------------------------------------------------------
 
@@ -140,14 +155,13 @@ ALTER TABLE `admin`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cart_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `cartdetail`
 --
 ALTER TABLE `cartdetail`
-  ADD KEY `cart_id` (`cart_id`),
+  ADD KEY `user_id` (`user_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
@@ -179,16 +193,10 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -216,7 +224,7 @@ ALTER TABLE `cart`
 -- Constraints for table `cartdetail`
 --
 ALTER TABLE `cartdetail`
-  ADD CONSTRAINT `cartdetail_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`),
+  ADD CONSTRAINT `cartdetail_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   ADD CONSTRAINT `cartdetail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 COMMIT;
 
