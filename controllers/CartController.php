@@ -7,22 +7,49 @@ try {
    die;
 };
 
+use Tools\Session;
 
 include('../views/cart.php');
 
+require("../tools/Session.php");
+
+Session::set("user", 1);
+
+$user = Session::get("user");
+
+var_dump($user);
+
+
 if(isset($_POST["cart"])) {
+
    $prdt = [
-      "User" => $_GET["user"],
+      "User" => $user,
       "PrdtId" => $_GET["id"],
       "Quantity" => $_POST["quantity"],
-      "Total" => 25,
    ];
 
-   $query = $db->prepare("INSERT INTO cartdetail (user_id, product_id, quantity, detailtotal) VALUES (:User, :PrdtId, :Quantity, :Total)");
-   
-   $query->execute($prdt);
+ //  $price = ('SELECT price FROM product WHERE user_id = 2 ');
 
+
+
+   $query = $db->prepare("INSERT INTO cartdetail (user_id, product_id, quantity) VALUES (:User, :PrdtId, :Quantity)");
+
+   $query->execute($prdt);
+ 
 }
+
+
+/*  $query2 = $db->prepare("SELECT ROUND((price * quantity), 2) AS total FROM cartdetail INNER JOIN product ON cartdetail.product_id = product.product_id WHERE user_id = :user_id ");
+
+   $query2->execute(
+      ["user_id" => $user]
+   );
+
+   echo '<pre>';
+   
+   var_dump($query2->fetchAll());
+*/
+
 
 
 
@@ -36,7 +63,7 @@ var_dump($query);
 
 
 
-// SELECT ROUND((price * quantity), 2) AS total FROM cartdetail INNER JOIN product ON cartdetail.product_id = product.product_id ORDER BY user_id
+// SELECT ROUND((price * quantity), 2) AS total FROM cartdetail INNER JOIN product ON cartdetail.product_id = product.product_id WHERE user_id = 2
 
 
 
