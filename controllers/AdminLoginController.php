@@ -3,22 +3,25 @@
 namespace Controller;
 
 use Model\AdminRepository;
-use Tools\Http;
-use Tools\Session;
+use Core\Http;
+use Core\Model\EntityManager;
+use Core\Session;
 
 class AdminLoginController extends AdminController {
 
-    public static function logAdminPage() {
-        self::render("log-page.php");
+    public  function logAdminPage() {
+        $this->render("log-page.php");
     }
 
-    public static function login() {
+    public  function login() {
 
-        if(self::checkPostKeys($_POST, [ "pwd", "email"])) {
+        if($this->checkPostKeys($_POST, [ "pwd", "email"])) {
+
+            $em = new EntityManager("Admin");
         
             $email = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);
-            $admin = AdminRepository::find($email);
+            $admin = $em->find(["mail"=>$email]);
 
             if($admin) {
 
@@ -43,7 +46,7 @@ class AdminLoginController extends AdminController {
     
     }
 
-    public static function logout() {
+    public  function logout() {
         Session::clean(self::SESSION_NAME);
         Http::redirect(HOME_ROUTE);
     }

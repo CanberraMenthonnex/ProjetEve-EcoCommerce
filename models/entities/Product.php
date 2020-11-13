@@ -7,11 +7,6 @@ use DateTime;
 class Product extends EntityBase {
 
     /*
-     * product id
-     * :string
-     * */
-    private string $id;
-    /*
      * product name
      * :string
      * */
@@ -40,7 +35,7 @@ class Product extends EntityBase {
     private \DateTimeInterface $updatedAt;
 
     /**
-     * For setting default values 
+     * For setting default values
      * !! no params
      */
     public function __construct()
@@ -49,62 +44,120 @@ class Product extends EntityBase {
         $this->updatedAt =  $this->createDate(new DateTime());
     }
 
- 
-    public function getId() : string {
+    /*
+     * product id
+     * :string
+     * */
+    protected string $id;
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
         return $this->id;
     }
 
+    /**
+     * @param string $id
+     * @return Product
+     */
+    public function setId(string $id): Product
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return Product
+     */
+    public function setName(string $name): Product
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    /**
+     * @param string $description
+     * @return Product
+     */
+    public function setDescription(string $description): Product
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
-    public function getCreatedAt(): \DateTimeInterface
+    /**
+     * @param float $price
+     * @return Product
+     */
+    public function setPrice(float $price): Product
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    /**
+     * @return DateTime|\DateTimeInterface|false|null
+     */
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt () : \DateTimeInterface 
+    /**
+     * @param DateTime|\DateTimeInterface|false|null $createdAt
+     * @return Product
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $this->createDate($createdAt);
+        return $this;
+    }
+
+    /**
+     * @return DateTime|\DateTimeInterface|false|null
+     */
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
 
-    public function setId(int $id)
+    /**
+     * @param DateTime|\DateTimeInterface|false|null $updatedAt
+     * @return Product
+     */
+    public function setUpdatedAt($updatedAt)
     {
-        $this->id = $id;
+        $this->updatedAt = $this->createDate($updatedAt);
+        return $this;
     }
 
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
+ 
 
-    public function setDescription(string $description)
-    {
-        $this->description = $description;
-    }
-
-    public function setPrice(float $price)
-    {
-        $this->price = $price;
-    }
-
-    public function setCreatedAt($date)
-    {
-        $this->createdAt = $this->createDate($date);
-    }
-
-    public function setUpdatedAt($date) {
-        $this->updatedAt = new \DateTime( $date );
-    }
 }

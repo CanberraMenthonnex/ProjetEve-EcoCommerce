@@ -12,9 +12,10 @@
             "Controller\\": "./controllers",
             "Router\\" : "./routes/router",
             "Model\\" : ["./models", "./models/repositories", "./models/entities"],
-            "Model\\Repository\\" : "./models/repositories",
             "Model\\Entity\\" : "./models/entities",
-            "Tools\\" : "./tools"
+            "Core\\" : "./core", 
+            "Core\\Model\\" : "./core/model",
+            "Core\\Router\\" : "./core/router"
         }
     }
 }

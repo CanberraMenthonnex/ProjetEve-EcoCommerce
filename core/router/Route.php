@@ -1,5 +1,5 @@
 <?php
-namespace Router;
+namespace Core\Router;
 
 interface IERoute {
     public function getPath() : string;
@@ -21,6 +21,10 @@ class Route implements IERoute {
      */
     private $_params = [];
 
+    /**
+     * Controller (MVC) where finding the action method
+     */
+    protected $_controller;
 
     /*
      * ACTION TO START
@@ -34,11 +38,12 @@ class Route implements IERoute {
      * @param string $path
      * @param function $action
      * **/
-    public function __construct(string $path, array $params, $action)
+    public function __construct(string $path, array $params, string $controller, $action)
     {
         $this->_path =$path;
         $this->_params = $params;
         $this->_action = $action;
+        $this->_controller = $controller;
         
     }
 
@@ -56,7 +61,8 @@ class Route implements IERoute {
      *
      */
     public function activate() : void{
-        call_user_func_array( $this->_action, $this->_params);
+        $controller = new $this->_controller();
+        call_user_func_array([$controller,$this->_action], $this->_params);
     }
 
     /*

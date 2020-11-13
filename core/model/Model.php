@@ -1,22 +1,21 @@
 <?php
 
-namespace Model;
+namespace Core\Model;
 
 abstract class Model {
 
-    /*
-     * For connecting to database
-     *
-     * return PDO
-     * */
-    private static function getDb() : \PDO{
-        return new \PDO(
+    private $_db;
+
+
+    public function __construct()
+    {
+        $this->_db = new \PDO(
             'mysql:host='. DB_HOST . ';dbname=' . DB_NAME , DB_USERNAME , DB_PASSWORD,
             array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ)
         );
     }
 
-    /*
+    /**
      * For getting element from db table
      *
      * @param $table : string
@@ -27,8 +26,8 @@ abstract class Model {
      *
      * return array
      * */
-    protected static function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = [], array $order = []) : array {
-       $db = self::getDb();
+    protected function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = [], array $order = []) : array {
+       
 
         $wanted = array_reduce($wantedValue, function ( $accumulator, $item) {
             return $accumulator .=  $item . ", ";
@@ -54,14 +53,14 @@ abstract class Model {
         $sqlOrder .= $order && $order["desc"] ? " DESC " : "";
 
         $sql = "SELECT {$wanted} FROM {$table} {$sqlFilters} {$sqlOrder} {$sqlLimit}";
-        $req = $db->prepare($sql);
+        $req = $this->_db->prepare($sql);
         $req->execute(array_values($filters));
 
         return $req->fetchall();
 
     }
 
-    /*
+    /**
      * For saving elements in db table
      *
      * @param string $table (table name)
@@ -69,10 +68,8 @@ abstract class Model {
      *
      * return boolean
      * */
-    protected static function _save(string $table, array $keys, array $values) : bool {
-        $db = self::getDb();
-
-
+    protected function _save(string $table, array $keys, array $values) : bool {
+        
         $keyValues = implode(", ", $keys);
 
         $preparedValues = array_reduce($values, function ( $accumulator, $value) {
@@ -82,13 +79,13 @@ abstract class Model {
 
         $sql = "INSERT INTO {$table} ({$keyValues}) VALUES ( {$preparedValues} )";
 
-        $req = $db->prepare($sql);
+        $req = $this->_db->prepare($sql);
 
         return $req->execute($values);
 
     }
 
-    /*
+    /**
      * For removing element(s) from db table
      *
      * @param string $table
@@ -96,8 +93,7 @@ abstract class Model {
      *
      * return boolean
      * */
-    protected static function _delete(string $table, array $filters) {
-        $db = self::getDb();
+    protected function _delete(string $table, array $filters) {
 
         $keyFilters = array_keys($filters);
 
@@ -109,7 +105,7 @@ abstract class Model {
 
         $sql = "DELETE FROM {$table} WHERE {$sqlFilters}";
 
-        $req = $db->prepare($sql);
+        $req = $this->_db->prepare($sql);
 
         $req->execute(array_values($filters));
 
@@ -124,10 +120,9 @@ abstract class Model {
      * @param array $data
      * @param array $filters
      * 
-     * return boolean
+     * return int (number of updated rows)
      */
-    protected static function _update (string $table, array $data, array $filters) {
-        $db = self::getDb();
+    protected function _update (string $table, array $data, array $filters) : int {
 
         $dataKeys = array_keys($data);
         $filterKey = array_keys($filters);
@@ -150,8 +145,11 @@ abstract class Model {
        
 
         $preparedArray = array_merge($data, $filters);
-        $req = $db->prepare($query);
-        return $req->execute($preparedArray);
+        $req = $this->_db->prepare($query);
+
+        $req->execute($preparedArray);
+
+        return $req->rowCount();
     }
 
 }

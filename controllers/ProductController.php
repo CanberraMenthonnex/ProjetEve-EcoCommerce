@@ -1,20 +1,25 @@
 <?php
 namespace Controller;
 
+use Core\Model\EntityManager;
 use Model;
-use Tools\Http;
-use Tools\Session;
+use Core\Http;
+use Core\Session;
 
 class ProductController extends AdminController {
 
-    public static function createProductPage() {
-        self::protectForAdmin();
-        self::render('creation_article.php');
+    public function __construct()
+    {
+        $this->protectForAdmin();
     }
 
-    public static function createProduct() {
-        self::protectForAdmin();
-        if(self::checkPostKeys($_POST, ["name", "description", "price"])) {
+    public function createProductPage() {
+        $this->render('creation_article.php');
+    }
+
+    public function createProduct() {
+       
+        if($this->checkPostKeys($_POST, ["name", "description", "price"])) {
 
             if(!is_numeric($_POST["price"])) Http::redirect(HOME_ROUTE);
 
@@ -22,7 +27,16 @@ class ProductController extends AdminController {
             $desc = $_POST["description"];
             $price = htmlspecialchars($_POST["price"]);
 
-            $resp = Model\ProductRepository::save($name, $desc, $price, new \DateTime());
+            $product = new Model\Entity\Product();
+
+            $product
+                ->setName($name)
+                ->setDescription($desc)
+                ->setPrice($price);
+
+            $em = new EntityManager("Product");
+
+            $resp = $em->save($product);
 
             if($resp) {
                 Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
@@ -38,16 +52,26 @@ class ProductController extends AdminController {
     }
 
 
-    public static function listingProduct() {
-        self::protectForAdmin();
-        $productList = Model\ProductRepository::getAll();
+    public  function listingProduct() {
+
+        $em = new EntityManager("Product");
+
+        $productList = $em->find();
+
         $admin = Session::get(self::SESSION_NAME);
-        self::render('product-back.php', compact("productList", "admin"));
+
+        $this->render('product-back.php', compact("productList", "admin"));
     }
 
-    public static function removeProduct (string $id) {
-        self::protectForAdmin();
-        if(Model\ProductRepository::deleteById($id)) Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
+    public  function removeProduct (string $id) {
+
+        $em = new EntityManager("Product");
+
+        $res = $em->delete(["id"=> $id]);
+
+        if($res) {
+            Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
+        }
         else throw new \Exception(ERROR_DELETE_BDD);
     }
 

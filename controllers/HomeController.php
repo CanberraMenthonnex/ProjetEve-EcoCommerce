@@ -1,13 +1,15 @@
 <?php
 namespace Controller;
 
-use Model\ProductRepository;
+use Core\Model\EntityManager;
+
 
 class HomeController extends Controller {
 
-    public static function homePage() {
-        $products = ProductRepository::getAll();
-        self::render("home.php", compact("products"));
+    public  function homePage() {
+        $em = new EntityManager("Product");
+        $products = $em->find();
+        $this->render("home.php", compact("products"));
     }
 
 }

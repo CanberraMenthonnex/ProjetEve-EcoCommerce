@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Tools\\' => array($baseDir . '/tools'),
     'Router\\' => array($baseDir . '/routes/router'),
+    'Model\\Entity\\' => array($baseDir . '/models/entities'),
     'Model\\' => array($baseDir . '/models', $baseDir . '/models/repositories', $baseDir . '/models/entities'),
+    'Core\\Router\\' => array($baseDir . '/core/router'),
+    'Core\\Model\\' => array($baseDir . '/core/model'),
+    'Core\\' => array($baseDir . '/core'),
     'Controller\\' => array($baseDir . '/controllers'),
 );

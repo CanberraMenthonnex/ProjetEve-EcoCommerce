@@ -2,7 +2,10 @@
 
 namespace Controller;
 
+use Core\Model\EntityManager;
+
 abstract class Controller {
+
 
     const VIEW_PATH = "../views/";
 
@@ -11,7 +14,7 @@ abstract class Controller {
      * @param $viewName : string
      * @param $var : array --> variable to pass in view context
      * */
-    protected static function render (string $viewName, array $var = []) {
+    protected function render (string $viewName, array $var = []) {
         extract($var);
         require(self::VIEW_PATH . $viewName);
     }
@@ -22,7 +25,7 @@ abstract class Controller {
      *
      * return boolean
      * */
-    protected static function checkPostKeys(array $post, array $requiredKeys) : bool {
+    protected function checkPostKeys(array $post, array $requiredKeys) : bool {
         $postKeys = array_keys($post);
         $diff = array_diff($requiredKeys, $postKeys);
         return  count($diff) === 0;
