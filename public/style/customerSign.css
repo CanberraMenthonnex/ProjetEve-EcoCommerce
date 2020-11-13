@@ -112,3 +112,25 @@ form>label{
 article#log{
     display: none;
 }
+#log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #8EA75D;
+    height: 400px;
+    margin: 167px 35% 0 35%;
+    padding: 0 0 0 0;
+} 
+.form2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+} 
+#log h1 {
+    padding-top: 60px;
+} 
+#SignToLog {
+
+ }
