@@ -102,7 +102,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `birth_date` varchar(255) NOT NULL,
   `adress` varchar(255) NOT NULL,
-  `phone` int(11) NOT NULL
+  `phone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
