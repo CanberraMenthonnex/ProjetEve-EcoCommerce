@@ -4,3 +4,4 @@ const BAD_EMAIL =  "L'email est incorrect";
 const ERROR_SAVING_BDD = "Une erreur s'est produite lors de l'ajout dans la base de données";
 const ERROR_DELETE_BDD = "Une erreur s'est produite lors de la suppression";
 const BAD_KEYS =  "Formulaire erroné";
+const ERROR_ADDING_CART = "Erreur lors de l'ajout du produit au panier";

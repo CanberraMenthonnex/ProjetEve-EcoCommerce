@@ -42,6 +42,13 @@ try {
         \Controller\ProductController::removeProduct($id);
     });
 
+    $router->get(CART_ROUTE, function () {
+        \Controller\CartController::productPage();
+    });
+    $router->post(CART_ROUTE, function () {
+        \Controller\CartController::addCart();
+    });
+
     $router->parse();
 
 } catch (Exception $e) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 12, 2020 at 11:22 PM
+-- Generation Time: Nov 13, 2020 at 09:46 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.9
 
@@ -52,34 +52,30 @@ INSERT INTO `admin` (`id`, `lastname`, `firstname`, `email`, `mdp`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `nbrProduct` int(11) NOT NULL,
-  `cart_value` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cartdetail`
---
-
-CREATE TABLE `cartdetail` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `detailtotal` int(11) NOT NULL
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cartdetail`
+-- Dumping data for table `cart`
 --
 
-INSERT INTO `cartdetail` (`user_id`, `product_id`, `quantity`, `detailtotal`) VALUES
-(1, 2, 2, 78),
-(2, 1, 5, 50),
-(1, 5, 3, 36),
-(1, 3, 1, 25),
-(2, 4, 52, 988);
+INSERT INTO `cart` (`user_id`, `product_id`, `quantity`) VALUES
+(2, 2, 10),
+(2, 2, 4),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(2, 2, 2),
+(1, 2, 2),
+(1, 2, 3),
+(1, 2, 11),
+(1, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -88,7 +84,7 @@ INSERT INTO `cartdetail` (`user_id`, `product_id`, `quantity`, `detailtotal`) VA
 --
 
 CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `price` int(11) NOT NULL,
@@ -99,7 +95,7 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `date`) VALUES
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `date`) VALUES
 (1, 'Gourde 1', 'blablablablabla', 10, '2020-10-08 00:09:47'),
 (2, 'Sac', 'sahziduqizd qzd bhjqzg jqzb jqzbd hqzd bjqz ', 39, '2020-10-14 22:20:36'),
 (3, 'Fourchette', 'Nique', 25, '2020-11-12 22:10:46'),
@@ -124,7 +120,7 @@ CREATE TABLE `stock` (
 --
 
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -137,7 +133,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `lastname`, `firstname`, `email`, `password`, `birth_date`, `adress`) VALUES
+INSERT INTO `user` (`id`, `lastname`, `firstname`, `email`, `password`, `birth_date`, `adress`) VALUES
 (1, 'Doe', 'John', 'John@doe.fr', 'johnword', '2001-01-01 00:00:00', '2 Rue du John'),
 (2, 'Doe', 'Jane', 'Jane@doe.fr', 'janeword', '2002-01-01 00:00:00', '2 Rue de la Jane');
 
@@ -155,12 +151,6 @@ ALTER TABLE `admin`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `cartdetail`
---
-ALTER TABLE `cartdetail`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `product_id` (`product_id`);
 
@@ -168,7 +158,7 @@ ALTER TABLE `cartdetail`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `stock`
@@ -180,7 +170,7 @@ ALTER TABLE `stock`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -196,7 +186,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -208,7 +198,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -218,16 +208,5 @@ ALTER TABLE `user`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `cartdetail`
---
-ALTER TABLE `cartdetail`
-  ADD CONSTRAINT `cartdetail_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `cartdetail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
