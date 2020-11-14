@@ -1,7 +1,8 @@
 <?php 
 
-namespace Core;
+namespace Core\Model\Converters;
 
+use Core\Model\Annotations\AnnotationManager;
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -57,6 +58,11 @@ class DataMapper {
             $newEntity = new $entityClass;
 
             foreach($propertiesWithValues as $property=>$value ) {
+
+                $metaType = AnnotationManager::getMetaData($newEntity, $property, "type");
+
+                $value = DataConverter::convertToType($metaType, $value);
+
                 call_user_func([$newEntity, "set" . ucfirst($property)], $value);
             }
             

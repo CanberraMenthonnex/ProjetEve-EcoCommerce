@@ -11,7 +11,7 @@ abstract class Model {
     {
         $this->_db = new \PDO(
             'mysql:host='. DB_HOST . ';dbname=' . DB_NAME , DB_USERNAME , DB_PASSWORD,
-            array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ)
+            array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ, \PDO::ATTR_EMULATE_PREPARES=> false)
         );
     }
 
@@ -27,7 +27,7 @@ abstract class Model {
      * return array
      * */
     protected function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = [], array $order = []) : array {
-       
+       $vars = [];
 
         $wanted = array_reduce($wantedValue, function ( $accumulator, $item) {
             return $accumulator .=  $item . ", ";
@@ -45,16 +45,23 @@ abstract class Model {
 
             $sqlFilters = trim($sqlFilters, "AND ");
             $sqlFilters = " WHERE " . $sqlFilters;
-
+            $vars = $filters;
         }
 
-        $sqlLimit = $limit ? " LIMIT " . $limit[0] . ", " . $limit[1] : "";
+        $sqlLimit = "";
+
+        if($limit) {
+            $sqlLimit =  " LIMIT ?, ? ";
+            $vars= array_merge($vars, $limit);
+        }
         $sqlOrder = $order ? " ORDER BY " . $order["by"] : "";
         $sqlOrder .= $order && $order["desc"] ? " DESC " : "";
 
-        $sql = "SELECT {$wanted} FROM {$table} {$sqlFilters} {$sqlOrder} {$sqlLimit}";
+        $sql = "SELECT {$wanted} FROM {$table}{$sqlFilters}{$sqlOrder}{$sqlLimit}";
+      
         $req = $this->_db->prepare($sql);
-        $req->execute(array_values($filters));
+        
+        $req->execute($vars);
 
         return $req->fetchall();
 

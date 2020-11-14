@@ -2,7 +2,7 @@
 
 namespace Core\Model;
 
-use Core\DataMapper;
+use Core\Model\Converters\DataMapper;
 
 class EntityManager extends Model {
 
@@ -29,7 +29,7 @@ class EntityManager extends Model {
      * @return array
      */
     public function find (array $filters = [], array $wantedValues = ["*"], array $limit = [], array $order = []) : array {
-
+        
         $res = $this->_find($this->_table, $filters, $wantedValues, $limit, $order);
 
         $mapping = array_map(function ($properties) {

@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInita7df9f01f7d8e6a410036ac1829748a8
 {
     public static $prefixLengthsPsr4 = array (
+        'm' => 
+        array (
+            'mindplay\\annotations\\' => 21,
+        ),
         'M' => 
         array (
             'Model\\Entity\\' => 13,
@@ -15,12 +19,19 @@ class ComposerStaticInita7df9f01f7d8e6a410036ac1829748a8
         array (
             'Core\\Router\\' => 12,
             'Core\\Model\\' => 11,
+            'Core\\Converters\\' => 16,
+            'Core\\Annotations\\' => 17,
             'Core\\' => 5,
             'Controller\\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'mindplay\\annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/src/annotations',
+            1 => __DIR__ . '/..' . '/mindplay/annotations/src/annotations',
+        ),
         'Model\\Entity\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/models/entities',
@@ -32,6 +43,14 @@ class ComposerStaticInita7df9f01f7d8e6a410036ac1829748a8
         'Core\\Model\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core/model',
+        ),
+        'Core\\Converters\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core/converters',
+        ),
+        'Core\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core/annotations',
         ),
         'Core\\' => 
         array (

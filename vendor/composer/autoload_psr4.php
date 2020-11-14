@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'mindplay\\annotations\\' => array($vendorDir . '/src/annotations', $vendorDir . '/mindplay/annotations/src/annotations'),
     'Model\\Entity\\' => array($baseDir . '/src/models/entities'),
     'Core\\Router\\' => array($baseDir . '/core/router'),
     'Core\\Model\\' => array($baseDir . '/core/model'),
+    'Core\\Converters\\' => array($baseDir . '/core/converters'),
+    'Core\\Annotations\\' => array($baseDir . '/core/annotations'),
     'Core\\' => array($baseDir . '/core'),
     'Controller\\' => array($baseDir . '/src/controllers'),
 );

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\Model\Converters;
 
 class TypeConverter {
 
@@ -8,6 +8,10 @@ class TypeConverter {
 
     public static function stringifyDate ( \DateTime $date) {
         return $date->format(self::DATE_FORMAT);
+    }
+
+    public static function convertToDate(string $date) {
+        return new \DateTime($date);
     }
 
 }

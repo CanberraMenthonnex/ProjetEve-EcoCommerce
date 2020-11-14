@@ -4,33 +4,41 @@ namespace Model\Entity;
 
 use DateTime;
 
-class Product extends EntityBase {
+class Product  {
 
     /*
-     * product name
-     * :string
+    * product id
+    * 
+    * @type string
+    * */
+    private string $id;
+    /*
+     * @type string
      * */
     private string $name;
+
     /*
-     * product description
-     * :string
+     * 
+     * @type string
      * */
     private string $description;
     /*
      * product price
-     * :float
+     * @type float
      * */
     private float  $price;
 
-    /*
+    /** 
      * creation Date
-     * :DateTimeInterface
+     * 
+     * @type DateTime
      * */
     private \DateTimeInterface $createdAt;
 
     /**
      * update date
-     * :DateTimeInterface
+     * 
+     * @type DateTime
      */
     private \DateTimeInterface $updatedAt;
 
@@ -40,15 +48,9 @@ class Product extends EntityBase {
      */
     public function __construct()
     {
-        $this->createdAt = $this->createDate(new DateTime());
-        $this->updatedAt =  $this->createDate(new DateTime());
+        $this->createdAt = new DateTime();
+        $this->updatedAt =  new DateTime();
     }
-
-    /*
-     * product id
-     * :string
-     * */
-    protected string $id;
 
     /**
      * @return string
@@ -136,7 +138,7 @@ class Product extends EntityBase {
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $this->createDate($createdAt);
+        $this->createdAt = $createdAt;
         return $this;
     }
 
@@ -154,7 +156,7 @@ class Product extends EntityBase {
      */
     public function setUpdatedAt($updatedAt)
     {
-        $this->updatedAt = $this->createDate($updatedAt);
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 

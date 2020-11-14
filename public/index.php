@@ -1,5 +1,6 @@
 <?php
 
+use Core\Model\Annotations\AnnotationPackage;
 use Core\Router\Router;
 
 require("../vendor/autoload.php");
@@ -8,6 +9,7 @@ require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
 require ("../constant/routes.php");
 
+AnnotationPackage::init();
 
 session_start();
 
