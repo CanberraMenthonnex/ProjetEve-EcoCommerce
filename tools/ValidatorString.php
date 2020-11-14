@@ -4,7 +4,7 @@
 namespace Tools;
 //["lastname", "firstname", "email", "pwd", "birth_date", "adress"]
 
-class Validators{
+class ValidatorString{
 
     private array $error = [];
     private $input;
@@ -25,6 +25,7 @@ class Validators{
         if(!is_string($this->input)){
             $this->error[]= "L'inserstion n'est pas une chaine de caractère";
         }
+        return $this;
     }
 
 
@@ -36,7 +37,7 @@ class Validators{
     }
 
     public function validateLength(int $min, int $max): bool{ 
-        if(!(strlen($this->input) < $max && strlen($this->input) > $min)){
+        if(!(strlen($this->input) <= $max && strlen($this->input) >= $min)){
             $this->error[]= "Nom ou prénom pas de la bonne taille";
         }
         return $this;
@@ -44,8 +45,9 @@ class Validators{
 
     public function validateInt(){
         if (!preg_match("\W", $this->input)){
-        $this->error[]= "La saisie ne pas doit comporter de nombre";
-        }return $this;
+            $this->error[]= "La saisie ne pas doit comporter de nombre";
+        }
+        return $this;
     }
 
     public function validateNoSpecialChar(): string{
@@ -68,14 +70,4 @@ class Validators{
         }
         return $this;
     }
-        
-    // public function validateAdult(int $month , int $day , int $year): bool{
-    //     if(!checkdate($month , $day , $year)){
-    //         $this->error[]= "La date renseignée est incorrecte";
-    //     }
-    //     return $this;
-    // }
-    
-
-
 }            

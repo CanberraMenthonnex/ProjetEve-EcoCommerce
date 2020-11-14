@@ -6,12 +6,12 @@ class UserRepository extends Model {
     const TABLE_NAME = "user";
 
 
-    public function save(string $lastname, string $firstname, $mail, $password, $birth_date, string $adress) : bool {
+    public function save(string $lastname, string $firstname, $mail, $password, $birth_date, string $adress, string $phone) : bool {
 
       return self::_save(
                   self::TABLE_NAME,
-                  ["lastname", "firstname", "email", "password", "birth_date", "adress"],
-                  [$lastname, $firstname, $mail, $password, $birth_date, $adress]
+                  ["lastname", "firstname", "email", "password", "birth_date", "adress", "phone"],
+                  [$lastname, $firstname, $mail, $password, $birth_date, $adress, $phone]
                 );
 
     }

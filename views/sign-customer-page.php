@@ -14,7 +14,7 @@
 
     <article id="sign" class="form_sign">
         <h1>Inscrivez-Vous !</h1>
-        <form action="<?=MAIN_PATH?>users/signin" method ="POST">
+        <form action="<?=MAIN_PATH?>customer/sign" method ="POST">
             <div class="form_content">
                 <div class="form1">
                     <label for="new_firstname">Prénom <input id="new_firstname" name="new_firstname" type="text" autocomplete="off" required></label>
