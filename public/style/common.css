@@ -15,3 +15,42 @@ a {
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/*weight text : */
+
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-weight: italic;
+}
+
+/*Coulor text : */
+
+.white{
+    color: white;
+}
+.black{
+    color: black;
+}
+
+/*size text : */
+
+.PX40{
+    font-size: 40px;
+}
+.PX35{
+    font-size: 35px;
+}
+.PX30{
+    font-size: 30px;
+}
+.PX24{
+    font-size: 24px;
+}
+.PX20{
+    font-size: 20px;
+}
+.PX17{
+    font-size: 17px;
+}

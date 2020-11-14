@@ -53,21 +53,22 @@
                 </div>
                 
             </div>
-            <label>CGU:<input type="checkbox" class="cgu_checkbox" required></label>
-            <button type="submit" class="send_profil">S'inscrire</button>
-            <p id="signToLog" class="allreadyCustomer">Déja membre</p>
+            <span id="span_cgu"><input type="checkbox" class="cgu_checkbox" required> J'ai lu et j'accepte les CGU</span>
+            <button type="submit" class="send_profil">Créer mon compte</button>
+            <p id="signToLog" class="allreadyCustomer white bold">J'ai déjà un compte</p>
         </form>
     </article>
 
     <article id="log">
-        <h1>Connect</h1>
+        
         <form action="<?=MAIN_PATH?>users/login" method ="POST">
-            <div id="form_login" class="form_content form2" >
-                <input id="username" name="username" type="text" autocomplete="off">
-                <input id="pwd" name="pwd" type="password" autocomplete="off">
+            <div id="form_login" class="form2" >
+                <h2 class="white bold">Connect</h2>
+                <input class="bold PX20" id="username" placeholder="Identifiant" name="username" type="text" autocomplete="off">
+                <input class="bold PX20" id="pwd" name="pwd" placeholder="Mot de passe" type="password" autocomplete="off">
                 <button type="submit">Connexion</button>
-                <p>Pas encore de compte ? </p>
-                <p id="logToSign">Rejoins-nous !</p>
+                <p class="white PX17">Pas encore de compte ? </p>
+                <p class="white bold PX20" id="logToSign">Rejoins-nous !</p>
             </div>
         </form>
     </article>
