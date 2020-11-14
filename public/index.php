@@ -1,7 +1,5 @@
 <?php
 
-use Model\Entity\Product;
-use Core\Model\EntityManager;
 use Core\Router\Router;
 
 require("../vendor/autoload.php");

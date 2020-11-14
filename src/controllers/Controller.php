@@ -2,12 +2,11 @@
 
 namespace Controller;
 
-use Core\Model\EntityManager;
 
 abstract class Controller {
 
 
-    const VIEW_PATH = "../views/";
+    const VIEW_PATH = __DIR__."/../views/";
 
     /*
      * For displaying the view
@@ -16,7 +15,7 @@ abstract class Controller {
      * */
     protected function render (string $viewName, array $var = []) {
         extract($var);
-        require(self::VIEW_PATH . $viewName);
+        require( self::VIEW_PATH . $viewName);
     }
 
     /*

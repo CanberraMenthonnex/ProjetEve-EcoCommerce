@@ -9,10 +9,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Controller\\": "./controllers",
-            "Router\\" : "./routes/router",
-            "Model\\" : ["./models", "./models/repositories", "./models/entities"],
-            "Model\\Entity\\" : "./models/entities",
+            "Controller\\": "./src/controllers",
+            "Model\\Entity\\" : "./src/models/entities",
             "Core\\" : "./core", 
             "Core\\Model\\" : "./core/model",
             "Core\\Router\\" : "./core/router"

@@ -2,7 +2,6 @@
  
 namespace Controller;
 
-use Model\AdminRepository;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
