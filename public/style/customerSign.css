@@ -31,11 +31,13 @@ input, select, button{
 
 
 .allreadyCustomer{
+    cursor: pointer;
     text-align: center;
-    display: block;
-    text-decoration: underline;
     font-size: 0.9rem;
     margin-top: 0.5rem;
+}
+.allreadyCustomer:hover{
+    text-decoration: underline;
 }
 
 .form_sign{
@@ -48,10 +50,14 @@ input, select, button{
 
 
 .send_profil{
+    cursor: pointer;
     display: block;
     margin: auto;
-    width: 5rem;
+    width: 8rem;
     margin-top: 1rem;
+}
+.send_profil:hover{
+    box-shadow: 0px 2px 2px black;
 }
 
 .form1{
@@ -69,13 +75,15 @@ input, select, button{
 
 .cgu_checkbox{
     width: 15px;
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
-
+#span_cgu{
+    display: flex;
+    justify-content: center;
+}
 
 .form1>.input_date_naissance{
     display: block;
-
 }
 
 .form1>label{
@@ -90,7 +98,12 @@ input, select, button{
     margin-bottom: 25px;
 
 }
-
+form>label>input{
+    margin: 10px;
+}
+.form1>*{
+    font-weight: bold;
+}
 
 form>label{
     display: flex;
@@ -104,11 +117,70 @@ form>label{
     margin-left: 0.25rem;
 }
 
-
 /***** Form Login *****/
 
 
 
 article#log{
     display: none;
+}
+#log {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #8EA75D;
+    height: 450px;
+    border-radius: 25px 25px 55px 55px;
+    margin: 150px 35% 0 35%;
+    padding: 0;
+} 
+.form2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 8vh;
+    margin: 0px 10% 0 10% ;
+} 
+#log h2 {
+    font-size: 40px;
+    margin: 50px 50px 30px 50px;
+} 
+#log form {
+    width: 90%;
+}
+.form2 input::placeholder{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.form2 input{
+    width: 100%;
+    font-size: 20px;
+    margin-top: 30px;
+    border-radius: 13px;
+    padding: 17px;
+}
+.form2>button{
+    cursor: pointer;
+    margin: 40px;
+    height: 80px;
+    width: 50%;
+    padding: 5px;
+    border-radius: 13px;
+    font-size: 1.5vw;
+}
+.form2>button:hover{
+    border-radius: 16px;
+    box-shadow: 0px 2px 2px black;
+}
+#log p {
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-end;
+    margin: 3px;
+}
+#logToSign:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }

@@ -41,6 +41,11 @@ class User implements IEUser{
     private string $adress;
 
     /**
+     * :string
+     */
+    private string $phone;
+
+    /**
      * Admin constructor.
      * @param $id
      * @param $lastname
@@ -49,8 +54,9 @@ class User implements IEUser{
      * @param $password
      * @param $birth_date
      * @param $adress
+     * @param $phone
      */
-    public function __construct($id, $lastname, $firstname, $mail, $password, $birth_date, $adress)
+    public function __construct($id, $lastname, $firstname, $mail, $password, $birth_date, $adress, $phone)
     {
         $this->id = $id;
         $this->lastname = $lastname;
@@ -59,6 +65,7 @@ class User implements IEUser{
         $this->password = $password;
         $this->birth_date = $birth_date;
         $this->adress = $adress;
+        $this->phone = $phone;
     }
 
 
@@ -115,5 +122,13 @@ class User implements IEUser{
     public function getAdress()
     {
         return $this->adress;
+    }
+
+    /**
+     * @return string
+     */ 
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }
