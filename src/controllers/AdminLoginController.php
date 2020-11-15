@@ -20,12 +20,12 @@ class AdminLoginController extends AdminController {
         
             $email = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);
-            $admin = $em->find(["mail"=>$email]);
-
+            $admin = $em->findOne(["mail"=>$email]);
+            
             if($admin) {
 
-                if(password_verify($pwd, $admin[0]->getPassword())) {
-                    Session::set(self::SESSION_NAME, $admin[0]);
+                if(password_verify($pwd, $admin->getPassword())) {
+                    Session::set(self::SESSION_NAME, $admin);
                     Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
                 }
                 else

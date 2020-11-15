@@ -17,8 +17,11 @@
             "Core\\Model\\" : "./core/model",
             "Core\\Router\\" : "./core/router",
             "Core\\Model\\Converters\\" : "./core/model/converters",
-            "mindplay\\annotations\\" : "./vendor/src/annotations",
-            "Core\\model\\Annotations\\" : "./core/model/annotations"
+            "mindplay\\annotations\\" : "./core/vendor/mindplay/annotations/src/annotations",
+            "Core\\model\\Annotations\\" :[ "./core/model/annotations", "./core/model/annotations/annotation"]
         }
+    }, 
+    "config": {
+        "vendor-dir": "./core/vendor/"
     }
 }

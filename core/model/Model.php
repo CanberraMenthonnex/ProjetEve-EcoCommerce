@@ -11,7 +11,7 @@ abstract class Model {
     {
         $this->_db = new \PDO(
             'mysql:host='. DB_HOST . ';dbname=' . DB_NAME , DB_USERNAME , DB_PASSWORD,
-            array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ, \PDO::ATTR_EMULATE_PREPARES=> false)
+            array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ , \PDO::ATTR_EMULATE_PREPARES=> false)
         );
     }
 
@@ -45,7 +45,7 @@ abstract class Model {
 
             $sqlFilters = trim($sqlFilters, "AND ");
             $sqlFilters = " WHERE " . $sqlFilters;
-            $vars = $filters;
+            $vars = array_values($filters);
         }
 
         $sqlLimit = "";
@@ -60,7 +60,6 @@ abstract class Model {
         $sql = "SELECT {$wanted} FROM {$table}{$sqlFilters}{$sqlOrder}{$sqlLimit}";
       
         $req = $this->_db->prepare($sql);
-        
         $req->execute($vars);
 
         return $req->fetchall();

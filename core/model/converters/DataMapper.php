@@ -31,17 +31,24 @@ class DataMapper {
 
         $values = [];
 
-        foreach($properties as $property) {
+        foreach($properties as $k=>$property) {
 
-            $columnValue = call_user_func([$object, "get". ucfirst($property)]);
-            
-            if(gettype($columnValue) === "object") {
-                $columnValue = get_class($columnValue) === "DateTime" ?  TypeConverter::stringifyDate($columnValue) : $columnValue;
+            $metaIndex = AnnotationManager::getMetaData($object, $property, "@index", "index");
+
+            if(!$metaIndex) {
+
+                $columnValue = call_user_func([$object, "get". ucfirst($property)]);
+                
+                if(gettype($columnValue) === "object") {
+                    $columnValue = get_class($columnValue) === "DateTime" ?  TypeConverter::stringifyDate($columnValue) : $columnValue;
+                }
+
+                $values[] = $columnValue;   
+            } else {
+                unset($properties[$k]);
             }
-
-            $values[] = $columnValue;
+            
         }
-
         return ["properties"=>$properties,"values" =>$values];
     }
 
@@ -59,7 +66,7 @@ class DataMapper {
 
             foreach($propertiesWithValues as $property=>$value ) {
 
-                $metaType = AnnotationManager::getMetaData($newEntity, $property, "type");
+                $metaType = AnnotationManager::getMetaData($newEntity, $property, "@type", "type");
 
                 $value = DataConverter::convertToType($metaType, $value);
 

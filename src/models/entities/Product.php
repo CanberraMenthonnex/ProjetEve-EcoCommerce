@@ -10,14 +10,18 @@ class Product  {
     * product id
     * 
     * @type string
+    * @index
     * */
     private string $id;
     /*
+     * product Name
+     * 
      * @type string
      * */
     private string $name;
 
     /*
+     * Description
      * 
      * @type string
      * */

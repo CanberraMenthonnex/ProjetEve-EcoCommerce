@@ -3,7 +3,7 @@
 use Core\Model\Annotations\AnnotationPackage;
 use Core\Router\Router;
 
-require("../vendor/autoload.php");
+require("../core/vendor/autoload.php");
 require ("../configuration/configuration.php");
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");

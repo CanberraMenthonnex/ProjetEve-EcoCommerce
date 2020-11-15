@@ -11,7 +11,8 @@ return array(
   ),
 ),
   'Model\\Entity\\Product::$id' => array(
-    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
+    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string'),
+    array('#name' => 'index', '#type' => 'Core\\Model\\Annotations\\IndexAnnotation')
   ),
   'Model\\Entity\\Product::$name' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
