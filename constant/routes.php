@@ -5,5 +5,5 @@ const ADMIN_CREATE_PRODUCT_ROUTE = "/admin/product/form";
 const ADMIN_GET_PRODUCT_ROUTE = "/admin/product/stock";
 const ADMIN_DELETE_PRODUCT_ROUTE = "/admin/product/";
 const HOME_ROUTE = "/";
-const CART_ROUTE = "/cart";
-const PRODUCT_ROUTE = "/product";
+const ADD_CART_ROUTE = "/cart/form";
+const GET_CART_ROUTE = "/cart/stock";

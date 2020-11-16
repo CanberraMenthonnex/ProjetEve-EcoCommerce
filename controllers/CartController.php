@@ -5,26 +5,19 @@ use Model;
 use Tools\Http;
 use Tools\Session;
 
-class CartController extends AdminController {
+class CartController extends Controller {
 
    public static function productPage() {
- //     self::protectForAdmin();
+
       self::render('product.php');
    }
 
 
-   public static function setId() {
- //     self::protectForAdmin();
-      Session::set("user", 1);
-
-      $user = Session::get("user");
-   }
-
-
-
    public static function addCart() {
- //  self::protectForAdmin();
 
+      Session::set("user", 1);
+                                                   // POUR TESTER POUR L'INSTANT
+      $user = Session::get("user");
 
       if(self::checkPostKeys($_POST, ["cart", "quantity"])) {
 
@@ -34,10 +27,10 @@ class CartController extends AdminController {
          $product_id = $_POST["id"];
          $quantity = $_POST["quantity"];
 
-         $resp = Model\ProductRepository::save($user, $product_id, $quantity);
+         $resp = Model\CartRepository::save($user, $product_id, $quantity);
          
          if($resp) {
-            Http::redirect(CART_ROUTE);
+            Http::redirect(GET_CART_ROUTE);
          }
          else {
             throw new \Exception(ERROR_ADDING_CART);
@@ -47,6 +40,23 @@ class CartController extends AdminController {
          throw new \Exception(ERROR_ADDING_CART);
       }
       
+  }
+
+
+  public static function listingCart() {
+      Session::set("user", 1);
+                                                   // POUR TESTER POUR L'INSTANT
+      $user = Session::get("user");
+
+     
+
+     $cartList = Model\CartRepository::getInfos();
+
+     
+
+  // require('views/cart.php');
+
+     self::render('cart.php', compact("user", "cartList"));
   }
   
 }

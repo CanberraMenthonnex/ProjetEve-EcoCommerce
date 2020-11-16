@@ -42,11 +42,15 @@ try {
         \Controller\ProductController::removeProduct($id);
     });
 
-    $router->get(CART_ROUTE, function () {
+    $router->get(ADD_CART_ROUTE, function () {
         \Controller\CartController::productPage();
     });
-    $router->post(CART_ROUTE, function () {
+    $router->post(ADD_CART_ROUTE, function () {
         \Controller\CartController::addCart();
+    });
+
+    $router->get(GET_CART_ROUTE, function() {
+        \Controller\CartController::listingCart();
     });
 
     $router->parse();

@@ -4,9 +4,11 @@ namespace Model;
 
 interface IECart
 {
-    public function getUser_id(): int;
-
-    public function getProduct_id(): int;
-
     public function getQuantity(): int;
+
+    public function getName(): string;
+
+    public function getDescription(): string;
+
+    public function getPrice(): float;
 }

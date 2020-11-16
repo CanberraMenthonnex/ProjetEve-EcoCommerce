@@ -1,4 +1,6 @@
 <?php 
+
+/*
 $query = $db->prepare(
     "SELECT name, description, price, quantity
      FROM cart
@@ -8,25 +10,29 @@ $query = $db->prepare(
 
 $query->execute(["user_id" => $user]);
 
-$cart_list = $query->fetchAll(PDO::FETCH_ASSOC);
-
-// var_dump($query->fetchAll());
+$cartList = $query->fetchAll(PDO::FETCH_ASSOC);
+*/
 
 ?>
 
 
 <h2>Panier</h2>
 
-<?php foreach($cart_list as $product): ?>
+<?php foreach($cartList as $product): ?>
 
-<span>Nom du Produit : <?= $product['name'] ?></span> <br>
 
-<span>description : <?= $product['description'] ?></span> <br>
+<span>Nom du Produit : <?= $product["name"] ?></span> <br>
 
-<span>Quantité : <?= $product['quantity'] ?></span> <br>
+<span>description : <?= $product["description"] ?></span> <br>
 
-<span>Prix : <?= $product['price']*$product['quantity'] ?></span> <br><br><br><br>
+<span>Quantité :</span>
 
+<form action="/cart/stock" method="POST">
+    <input type="number" value="<?= $product["quantity"] ?>" min="1" name="quantity">
+    <input type="submit" name="newQuantity" value="Enregistrer les modifications">
+</form>
+
+<span>Prix : <?= $product["price"]*$product["quantity"] ?> €</span> <br><br><br><br>
 
 
 <?php endforeach ?>
