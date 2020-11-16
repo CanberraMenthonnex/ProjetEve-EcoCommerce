@@ -38,6 +38,15 @@ class EntityManager extends Model {
         return $mapping;
     }
 
+    public function findByRegex (array $filters = [], array $wantedValues = ["*"], array $limit = [], array $order = []) : array {
+        $res = $this->_find($this->_table, $filters, $wantedValues, $limit, $order, true);
+        $mapping = array_map(function ($properties) {
+            return DataMapper::MapToObject($properties, $this->_entity);
+        }, $res);
+
+        return $mapping;
+    }
+
     /**
      * For finding data according parameters
      *

@@ -26,40 +26,29 @@ abstract class Model {
      *
      * return array
      * */
-    protected function _find(string $table, array $filters, array $wantedValue = ["*"], array $limit = [], array $order = []) : array {
+    protected function _find(string $table, array $filters = [], array $wantedValue = ["*"], array $limit = [], array $order = [], bool $isRegex = false) : array {
        $vars = [];
 
-        $wanted = array_reduce($wantedValue, function ( $accumulator, $item) {
-            return $accumulator .=  $item . ", ";
-        });
-
-        $wanted = trim($wanted, ", ");
-
-        $sqlFilters = "";
+       $query = QueryBuilder::select($wantedValue, $table);
 
         if($filters) {
 
-            foreach ($filters as $key => $filter) {
-                $sqlFilters .= $key . " = " . "?" . "AND ";
-            }
-
-            $sqlFilters = trim($sqlFilters, "AND ");
-            $sqlFilters = " WHERE " . $sqlFilters;
+            $query .= " " . QueryBuilder::filters(array_keys($filters),$isRegex);
             $vars = array_values($filters);
         }
 
-        $sqlLimit = "";
-
         if($limit) {
-            $sqlLimit =  " LIMIT ?, ? ";
+            $query .= " " .  QueryBuilder::limit();
             $vars= array_merge($vars, $limit);
         }
-        $sqlOrder = $order ? " ORDER BY " . $order["by"] : "";
-        $sqlOrder .= $order && $order["desc"] ? " DESC " : "";
 
-        $sql = "SELECT {$wanted} FROM {$table}{$sqlFilters}{$sqlOrder}{$sqlLimit}";
+        if($order) {
+             $query =" " .  QueryBuilder::order($order["by"], $order["desc"] );
+        }
+       var_dump($query);
+       
       
-        $req = $this->_db->prepare($sql);
+        $req = $this->_db->prepare($query);
         $req->execute($vars);
 
         return $req->fetchall();

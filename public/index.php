@@ -18,19 +18,21 @@ try {
 
     $router->get(HOME_ROUTE, "HomeController", "homePage");
 
+    $router->get(SEARCH_ROUTE, "ProductController", "searchList");
+
     $router->get(ADMIN_LOG_ROUTE, "AdminLoginController", "logAdminPage");
 
     $router->post(ADMIN_LOG_ROUTE, "AdminLoginController", "login");
 
     $router->get(ADMIN_LOGOUT_ROUTE, "AdminLoginController", "logout");
 
-    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, "ProductController", "createProductPage");
+    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProductPage");
 
-    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, "ProductController", "createProduct");
+    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProduct");
 
-     $router->get(ADMIN_GET_PRODUCT_ROUTE, "ProductController", "listingProduct");
+     $router->get(ADMIN_GET_PRODUCT_ROUTE, "AdminProductController", "listingProduct");
 
-     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "ProductController", "removeProduct");
+     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
 
      //TEST
     $router->get("/test", "TestController", "test");
