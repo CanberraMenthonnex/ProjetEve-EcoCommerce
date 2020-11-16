@@ -9,29 +9,30 @@
     <title>New profil</title>
 </head>
 <body>
-    <main>
     <?php require_once "inc/header.php"?>
+    <main>
+   
 
     <article id="sign" class="form_sign">
         <h1>Inscrivez-Vous !</h1>
-        <form action="<?=MAIN_PATH?>customer/sign" method ="POST">
+        <form action="/customer/sign" method ="POST">
             <div class="form_content">
                 <div class="form1">
-                    <label for="new_firstname">Prénom <input id="new_firstname" name="new_firstname" type="text" autocomplete="off" required></label>
-                    <label for="new_lastname">Nom <input id="new_lastname" name="new_lastname" type="text" autocomplete="off" required></label>
-                    <label for="new_email">Adresse Mail <input id="new_email" name="new_email" type="text"autocomplete="off" required></label>
-                    <label for="new_pwd">Mot de passe<input id="new_pwd" name="new_pwd" type="text" autocomplete="off" required></label>
-                    <label for="new_pwd_check">Confirmez votre mot de passe<input id="new_pwd_check" name="new_pwd_check" type="text" autocomplete="off" required></label>
-                    <label for="new_tel">Numero de téléphone<input id="new_tel" name="new_tel" type="tel" required></label>
+                    <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off" ></label>
+                    <label for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" ></label>
+                    <label for="email">Adresse Mail <input id="email" name="email" type="text"autocomplete="off" ></label>
+                    <label for="pwd">Mot de passe<input id="pwd" name="pwd" type="text" autocomplete="off" ></label>
+                    <label for="pwd_check">Confirmez votre mot de passe<input id="pwd_check" name="pwd_check" type="text" autocomplete="off" ></label>
+                    <label for="phone">Numero de téléphone<input id="phone" name="phone" type="tel" ></label>
                 </div>
                 <div class="form1">
-                    <label for="Num_rue">Numéro de rue<input type="text" autocomplete="off"></label>
-                    <label for="Rue">Rue<input type="text" autocomplete="off"></label>
-                    <label for="Code_Postal">Ville<input type="text" autocomplete="off"></label>
-                    <label for="Ville">Code Postale<input type="text" autocomplete="off"></label>
-                    <label for="Pays">Pays<input type="text" autocomplete="off"></label>
+                    <label for="road_number">Numéro de rue<input type="text" autocomplete="off" name="road_number"></label>
+                    <label for="road">Rue<input type="text" autocomplete="off" name="road"></label>
+                    <label for="zip_code">Ville<input type="text" autocomplete="off" name="zip_code"></label>
+                    <label for="city">Code Postale<input type="text" autocomplete="off" name="city"></label>
+                    <label for="country">Pays<input type="text" autocomplete="off" name="country"></label>
                     <label class="input_date_naissance">Date de naissance:<br>
-                        <label for="Jour">Jour<input type="number" autocomplete="off" min="1" max="31" placeholder="1"></label>
+                        <label for="Jour">Jour<input type="number" autocomplete="off" min="1" max="31" placeholder="1" name="day"></label>
                         <label for="month">Mois
                             <select name="month" id="month-select" size="0">
                                 <option value="01">Janvier</option>
@@ -48,20 +49,20 @@
                                 <option value="12">Decembre</option>
                             </select>
                         </label>
-                        <label for="Année">Année<input type="number" autocomplete="off" placeholder="2020" max="2020" min="1900"></label>
+                        <label for="Année">Année<input type="number" autocomplete="off" placeholder="2020" max="2020" min="1900" name="year"></label>
                     </label>
                 </div>
                 
             </div>
-            <span id="span_cgu"><input type="checkbox" class="cgu_checkbox" required> J'ai lu et j'accepte les CGU</span>
-            <button type="submit" class="send_profil">Créer mon compte</button>
+            <span id="span_cgu"><input type="checkbox" class="cgu_checkbox" > J'ai lu et j'accepte les CGU</span>
+            <button type="submit" class="send_profil" name="check_guc" value="yes">Créer mon compte</button>
             <p id="signToLog" class="allreadyCustomer white bold">J'ai déjà un compte</p>
         </form>
     </article>
 
-    <article id="log">
+    <article id=log_sign>
         
-        <form action="<?=MAIN_PATH?>users/login" method ="POST">
+        <form action="<?=MAIN_PATH?>users/login" method ="POST"  id="log">
             <div id="form_login" class="form2" >
                 <h2 class="white bold">Connect</h2>
                 <input class="bold PX20" id="username" placeholder="Identifiant" name="username" type="text" autocomplete="off">
@@ -77,3 +78,6 @@
     <script src="/js/sign-customer-page.js"></script>
     </main>
 </body>
+
+
+</html>

@@ -10,7 +10,7 @@ session_start();
 
 try {
     $router = new Router\Router($_GET["url"]);
-
+    
     $router->get(HOME_ROUTE, function () {
         \Controller\HomeController::homePage();
     });
@@ -42,6 +42,11 @@ try {
     $router->get(CUSTOMER_GET_SIGN_ROUTE, function(){
         \Controller\SignCustomerPage::signCustomerPage();
     });
+
+    $router->post(CUSTOMER_GET_SIGN_ROUTE, function(){
+        \Controller\SignCustomerPage::sign();
+    });
+
 
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
         \Controller\ProductController::removeProduct($id);

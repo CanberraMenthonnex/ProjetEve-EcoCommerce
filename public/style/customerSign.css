@@ -132,9 +132,17 @@ article#log{
     background-color: #8EA75D;
     height: 450px;
     border-radius: 25px 25px 55px 55px;
-    margin: 150px 35% 0 35%;
+    /* margin: 150px 35% 0 35%; */
+    width: 33%;
     padding: 0;
-} 
+}
+
+#log_sign{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
 .form2 {
     display: flex;
     flex-direction: column;

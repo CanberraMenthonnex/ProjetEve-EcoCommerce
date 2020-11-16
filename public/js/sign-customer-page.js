@@ -1,7 +1,7 @@
 const buttunSignToLog = document.getElementById("signToLog");
 const buttonSwitchSign = document.getElementById("logToSign");
 const PageSign = document.getElementById("sign");
-const PageLog = document.getElementById("log");
+const PageLog = document.getElementById("log_sign");
 
 
 buttunSignToLog.onclick = function changePage() {

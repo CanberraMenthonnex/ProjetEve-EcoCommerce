@@ -1,5 +1,11 @@
 <?php
 
+//obsolète ??? -> SignCustomerPage
+
+
+
+
+use Controller\UserController;
 use Tools\ValidatorString;
 use Tools\ValidatorInt;
 
@@ -9,7 +15,7 @@ class UsersSignController extends UserController{
 
 
     public static function signUserPage() {
-        self::render("sign-page.php");
+        self::render("sign-customer-page.php");
     }
 
     public static function sign(){
@@ -24,9 +30,9 @@ class UsersSignController extends UserController{
             $adress = $_POST["adress"];
             $phone = $_POST["phone"];
             
-            $month = $POST["month"];
-            $day = $POST["day"];
-            $year = $POST["year"];
+            $month = $_POST["month"];
+            $day = $_POST["day"];
+            $year = $_POST["year"];
            
 
             //------------------------ Validate Input-----------------------------------------
@@ -59,19 +65,19 @@ class UsersSignController extends UserController{
             $validator = new ValidatorString($adress);
             $validator
             ->validateString()
-            ->validateLength()
+            ->validateLength(10, 200)
             ->validateNoSpecialChar();
             $sign_error[] = $validator->getError();
 
 
-            $validator = new ValidatoString($phone);
+            $validator = new ValidatorString($phone);
             $validator
             ->validatePhoneNumber(); 
             $sign_error[] = $validator->getError();
 
             $validator = new ValidatorInt($month, $day, $year);
             $validator
-            ->validateInt()
+            ->validateDateInt()
             ->validateDate()
             ->validateAge();
             $sign_error[] = $validator->getError();
@@ -83,7 +89,7 @@ class UsersSignController extends UserController{
                     //------------------------------------- push les input ----------------------
 
                     $pwd = password_hash($pwd, PASSWORD_DEFAULT);
-                    $resp = Model\UserRepository::save($lastname, $firstname, $email, $pwd, $birth_date, $adress, $phone);
+                    //$resp = Model\UserRepository::save($lastname, $firstname, $email, $pwd, $birth_date, $adress, $phone);
                 }else{
                     echo "Mdp non corresp";
                 }        
