@@ -77,6 +77,8 @@ class CartController extends Controller {
      $query->execute(["user_id" => $user]);
      
      $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
+    
+     
 
      $this->render('cart.php', compact("user", "cartList"));
    }
@@ -98,15 +100,14 @@ class CartController extends Controller {
      
    $em = new EntityManager("Cart");
 
-   $result = $em->findOne(["product_id"=>$product_id], ["product_id"]);
+   $result = $em->findOne(["product_id"=>$product_id], ["*"]);
 
    if($result) {
       $result
       ->setQuantity($_POST["quantity"]);
       
-      $resp = $em->update($result);
-      // var_dump($resp);
-      // die();
+      $resp = $em->update($result, ["product_id" => $product_id]);
+
       if($resp) {
          Http::redirect(GET_CART_ROUTE);
       }else {

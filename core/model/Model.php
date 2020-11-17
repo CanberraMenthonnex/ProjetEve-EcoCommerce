@@ -51,8 +51,7 @@ abstract class Model {
         if($order) {
              $query =" " .  QueryBuilder::order($order["by"], $order["desc"] );
         }
-       var_dump($query);
-       
+ 
       
         $req = $this->_db->prepare($query);
         $req->execute($vars);
@@ -131,7 +130,7 @@ abstract class Model {
         $query = "UPDATE $table SET ";
 
         $query .= \array_reduce($dataKeys, function ($acc, $key) {
-            return $acc .= $key . " = :$key, ";
+            return $acc .= $key . " = ?, ";
         });
         
         $query = trim($query, ", ");
@@ -139,13 +138,12 @@ abstract class Model {
         if($filters) {
             $query .= " WHERE ";
             $query .= \array_reduce($filterKey, function ($acc, $key) {
-                return $acc .= $key . " = :$key AND ";
+                return $acc .= $key . " = ? AND ";
             });
             $query = trim($query, "AND ");
         }
-       
-
-        $preparedArray = array_merge($data, $filters);
+    
+        $preparedArray = array_merge(array_values($data), array_values( $filters ));
         $req = $this->_db->prepare($query);
 
         $req->execute($preparedArray);
