@@ -4,17 +4,38 @@ namespace Core\Model\Converters;
 
 class DataConverter {
 
-    private static $_converters = [
-        "DateTime"=> [__NAMESPACE__."\TypeConverter", "convertToDate"],
-    ];
+    /**
+     * For managing data conversion (according its type)
+     * 
+     * @param string $type 
+     * @param $values
+     * 
+     * @return $value
+     */
+    public static function convertToType(string $type, $value) {
+        switch($type) {
 
-    public static function convertToType($type, $value) {
-        if(isset(self::$_converters[$type])) {
-            $func = self::$_converters[$type];
-            return \call_user_func($func, $value);
-        } else {
-            return $value;
+            case "DateTime" : 
+                return TypeConverter::convertToDate($value);
+            
+            case "string" :
+                
+                if(gettype($value) === "object") 
+                {
+                    $class = get_class($value);
+
+                    if($class === "DateTime") return TypeConverter::stringifyDate($value);
+
+                } 
+                else
+                {
+                    return strval($value);
+                }
+            
+            default : 
+                return $value;
         }
+        
     }
 
 }

@@ -46,7 +46,6 @@ abstract class Model {
              $query =" " .  QueryBuilder::order($order["by"], $order["desc"] );
         }
        var_dump($query);
-       
       
         $req = $this->_db->prepare($query);
         $req->execute($vars);
@@ -65,14 +64,7 @@ abstract class Model {
      * */
     protected function _save(string $table, array $keys, array $values) : bool {
         
-        $keyValues = implode(", ", $keys);
-
-        $preparedValues = array_reduce($values, function ( $accumulator, $value) {
-            return $accumulator .= "?, ";
-        });
-        $preparedValues = trim($preparedValues, ", ");
-
-        $sql = "INSERT INTO {$table} ({$keyValues}) VALUES ( {$preparedValues} )";
+        $sql = QueryBuilder::insert($table,$keys,[$values]);
 
         $req = $this->_db->prepare($sql);
 
@@ -92,13 +84,7 @@ abstract class Model {
 
         $keyFilters = array_keys($filters);
 
-        $keyFilters = array_map(function ($val){
-            return $val . "= ?";
-        }, $keyFilters);
-
-        $sqlFilters = implode(" AND ", $keyFilters);
-
-        $sql = "DELETE FROM {$table} WHERE {$sqlFilters}";
+        $sql = QueryBuilder::delete($table, $keyFilters);
 
         $req = $this->_db->prepare($sql);
 
@@ -122,26 +108,14 @@ abstract class Model {
         $dataKeys = array_keys($data);
         $filterKey = array_keys($filters);
 
-        $query = "UPDATE $table SET ";
+        $query = QueryBuilder::update($table, $dataKeys);
 
-        $query .= \array_reduce($dataKeys, function ($acc, $key) {
-            return $acc .= $key . " = :$key, ";
-        });
-        
-        $query = trim($query, ", ");
-        
         if($filters) {
-            $query .= " WHERE ";
-            $query .= \array_reduce($filterKey, function ($acc, $key) {
-                return $acc .= $key . " = :$key AND ";
-            });
-            $query = trim($query, "AND ");
+            $query .= " " . QueryBuilder::filters($filterKey);
         }
-       
-
-        $preparedArray = array_merge($data, $filters);
+    
+        $preparedArray = array_merge(array_values($data), array_values( $filters ));
         $req = $this->_db->prepare($query);
-
         $req->execute($preparedArray);
 
         return $req->rowCount();

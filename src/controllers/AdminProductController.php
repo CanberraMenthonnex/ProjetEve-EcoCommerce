@@ -68,7 +68,7 @@ class AdminProductController extends AdminController {
         $em = new EntityManager("Product");
 
         $res = $em->delete(["id"=> $id]);
-
+        
         if($res) {
             Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
         }
