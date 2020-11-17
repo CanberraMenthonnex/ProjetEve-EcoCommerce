@@ -23,17 +23,23 @@ $cartList = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <span>Nom du Produit : <?= $product["name"] ?></span> <br>
 
-<span>description : <?= $product["description"] ?></span> <br>
+<span>ID : <?= $product["product_id"] ?> </span> <br>
+
+<span>Description : <?= $product["description"] ?></span> <br>
 
 <span>Quantité :</span>
 
-<form action="/cart/stock" method="POST">
+<form action="cart/stock" method="POST">
     <input type="number" value="<?= $product["quantity"] ?>" min="1" name="quantity">
     <input type="submit" name="newQuantity" value="Enregistrer les modifications">
 </form>
 
-<span>Prix : <?= $product["price"]*$product["quantity"] ?> €</span> <br><br><br><br>
+<span>Prix : <?= $product["price"]*$product["quantity"] ?> €</span> <br><br>
 
+
+<a href="<?= DELETE_CART_PRODUCT_ROUTE . $product["product_id"]; ?>" id="suppArticle">Supprimer produit</a>
+
+<br><br><br><br><br>
 
 <?php endforeach ?>
 

@@ -53,6 +53,11 @@ try {
         \Controller\CartController::listingCart();
     });
 
+    $router->get(DELETE_CART_PRODUCT_ROUTE . ":id", function($id) {
+        \Controller\CartController::removeCartProduct($id);
+    });
+
+
     $router->parse();
 
 } catch (Exception $e) {

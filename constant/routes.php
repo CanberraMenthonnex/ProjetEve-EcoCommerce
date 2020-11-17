@@ -7,3 +7,4 @@ const ADMIN_DELETE_PRODUCT_ROUTE = "/admin/product/";
 const HOME_ROUTE = "/";
 const ADD_CART_ROUTE = "/cart/form";
 const GET_CART_ROUTE = "/cart/stock";
+const DELETE_CART_PRODUCT_ROUTE = "/cart/remove";

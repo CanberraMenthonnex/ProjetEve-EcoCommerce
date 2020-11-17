@@ -117,8 +117,34 @@ abstract class Model {
 
     }
 
-    protected static function _update (string $table, array $data, array $filters) {
+    protected static function _update (string $table, array $data, array $filters) : int {
 
+        $dataKeys = array_keys($data);
+        $filterKey = array_keys($filters);
+
+        $query = "UPDATE $table SET ";
+
+        $query .= \array_reduce($dataKeys, function ($acc, $key) {
+            return $acc .= $key . " = :$key, ";
+        });
+        
+        $query = trim($query, ", ");
+        
+        if($filters) {
+            $query .= " WHERE ";
+            $query .= \array_reduce($filterKey, function ($acc, $key) {
+                return $acc .= $key . " = :$key AND ";
+            });
+            $query = trim($query, "AND ");
+        }
+       
+
+        $preparedArray = array_merge($data, $filters);
+        $req = $this->_db->prepare($query);
+
+        $req->execute($preparedArray);
+
+        return $req->rowCount();
     }
 
 }
