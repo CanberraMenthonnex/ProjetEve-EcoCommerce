@@ -12,7 +12,7 @@ class ValidatorInt{
     private $month;
     private $year;
 
-    public function __construct($day, $month, $year){
+    public function __construct($month, $day, $year){
         $this->day = $day;
         $this->month = $month;
         $this->year = $year;
@@ -32,16 +32,16 @@ class ValidatorInt{
     }
 
     public function validateDateInt(){
-        if(!(is_string($this->day) && is_string($this->month) && is_string($this->year))){
-            $this->error[]= "Veuillez entrer des nombres";
+        if(!(is_int($this->day) && is_int($this->month) && is_int($this->year))){
+            $this->error[]= "Veuillez entrer une date";
         }
         return $this;
     }
     
 
-
     public function validateDate(){
-        if(!checkdate($this->month, $this->day , $this->year)){
+        if(checkdate($this->month, $this->day , $this->year)){
+        }else{
             $this->error[]= "La date renseignée est incorrecte";
         }
         return $this;

@@ -39,13 +39,21 @@ try {
     });
 
 
-    $router->get(CUSTOMER_GET_SIGN_ROUTE, function(){
+    $router->get(CUSTOMER_POST_SIGN_ROUTE, function(){
         \Controller\SignCustomerPage::signCustomerPage();
     });
 
-    $router->post(CUSTOMER_GET_SIGN_ROUTE, function(){
+    $router->post(CUSTOMER_POST_SIGN_ROUTE, function(){
         \Controller\SignCustomerPage::sign();
     });
+
+    $router->post(CUSTOMER_POST_LOGIN_ROUTE, function(){
+        \Controller\UserLoginController::login();
+    });
+
+    // $router->post(CUSTOMER_POST_LOGIN_ROUTE, function(){
+    //     \Controller\SignCustomerPage::sign();
+    // });
 
 
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {

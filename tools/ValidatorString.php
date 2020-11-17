@@ -37,7 +37,7 @@ class ValidatorString{
 
     public function validateLength(int $min, int $max){ 
         if(!(strlen($this->input) <= $max && strlen($this->input) >= $min)){
-            $this->error[]= "Nom ou prénom pas de la bonne taille";
+            $this->error[]= "Entrée incorrecte";
         }
         return $this;
     }
@@ -56,8 +56,8 @@ class ValidatorString{
         return $this;
     }
 
-    public function validateNoSpecialCharButWithNumber(){   //Mathieu nous tape pas si tu vois ça :)
-        if(!ctype_alpha(str_replace("#[0-9][- ]#", '', $this->input))){  
+    public function validateNoSpecialCharButWithNumber(){
+        if(!ctype_alnum(str_replace([' ','-'], '', $this->input))){  
             $this->error[]= "Les caractères spéciaux ne sont pas autorisés"; 
         }
         return $this;

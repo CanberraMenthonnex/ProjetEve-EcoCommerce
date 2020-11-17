@@ -6,7 +6,7 @@ class UserRepository extends Model {
     const TABLE_NAME = "user";
 
 
-    public function save(string $lastname, string $firstname, $mail, $password, $birth_date, string $adress, string $phone) : bool {
+    public static function save(string $lastname, string $firstname, $mail, $password, $birth_date, string $adress, string $phone) : bool {
 
       return self::_save(
                   self::TABLE_NAME,
@@ -16,12 +16,12 @@ class UserRepository extends Model {
 
     }
 
-    public static function find(string $mail) : array {
+    public static function find(string $email) : array {
 
-        $data = self::_find(self::TABLE_NAME, ["email"=>$mail]);
+        $data = self::_find(self::TABLE_NAME, ["email"=>$email]);
 
         return array_map(function ($item) {
-            return new User($item->id, $item->lastname, $item->firstname, $item->email, $item->mdp, $item->birth_date, $item->adress);
+            return new User($item->id, $item->lastname, $item->firstname, $item->email, $item->password, $item->birth_date, $item->adress, $item->phone);
         }, $data);
 
     }

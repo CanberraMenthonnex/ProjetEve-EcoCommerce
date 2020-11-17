@@ -2,9 +2,11 @@
 
 namespace Controller;
 
-
+use Model;
 use Tools\ValidatorString;
 use Tools\ValidatorInt;
+use Tools\Http;
+
 
 
 class SignCustomerPage extends Controller{
@@ -37,17 +39,14 @@ class SignCustomerPage extends Controller{
         $country = $_POST["country"];
 
         //condition d'utilisation
-        $condition = $_POST["check_guc"];
+        $check_guc = $_POST["check_guc"];
 
         $infos = ["firstname", "lastname", "email", "pwd", "pwd_check", "phone", "month", "day", "year", "road", "road_number", "zip_code", "city", "country", "check_guc"];
-
-        $adress = $road_number . " " . $road . " " . $city . " " . $zip_code . " " . $country;
 
         $month = (int)$month;
         $day = (int)$day;
         $year = (int)$year;
-        //echo $adress;
-
+    
         if(self::checkPostKeys($_POST, $infos)) {
             //------------------------ Validate Input-----------------------------------------
             $validator = new ValidatorString($lastname);
@@ -74,18 +73,49 @@ class SignCustomerPage extends Controller{
             ->validatePwd();
             $sign_error[] = $validator->getError();
 
-            $validator = new ValidatorString($adress);
+
+            $validator = new ValidatorString($road_number);
             $validator
             ->validateString()
-            ->validateLength(10, 200)
+            ->validateLength(1, 10)
             ->validateNoSpecialCharButWithNumber();
             $sign_error[] = $validator->getError();
 
+            $validator = new ValidatorString($road);
+            $validator
+            ->validateString()
+            ->validateLength(5, 50)
+            ->validateNoSpecialCharButWithNumber();
+            $sign_error[] = $validator->getError();
+
+            $validator = new ValidatorString($zip_code);
+            $validator
+            ->validateString()
+            ->validateLength(2, 10)
+            ->validateNoSpecialCharButWithNumber();
+            $sign_error[] = $validator->getError();
+
+
+            $validator = new ValidatorString($city);
+            $validator
+            ->validateString()
+            ->validateLength(2, 100)
+            ->validateNoSpecialChar();
+            $sign_error[] = $validator->getError();
+
+            
+            $validator = new ValidatorString($country);
+            $validator
+            ->validateString()
+            ->validateLength(4, 100)
+            ->validateNoSpecialChar();
+            $sign_error[] = $validator->getError();
 
             $validator = new ValidatorString($phone);
             $validator
             ->validatePhoneNumber();   
             $sign_error[] = $validator->getError();
+
 
             $validator = new ValidatorInt($month, $day, $year);
             $validator
@@ -94,40 +124,53 @@ class SignCustomerPage extends Controller{
             ->validateAge();            
             $sign_error[] = $validator->getError();
 
-            echo "<pre>";
-            var_dump($sign_error);
-            var_dump($infos);
-            echo "</pre>";
-            if(empty($sign_error)){
-                //------------------------------------- prepare les input -------------------  
-
+            $error = 0;
+            foreach ($sign_error as $key) {
+                if(!empty($key)){
+                    $error++;
+                }
+            }
+            if($error == 0 && $check_guc == "yes"){
+                 
                 if($pwd===$pwd_check){
-                    //------------------------------------- push les input ----------------------
-
+                    
+                    $adress = $road_number . " " . $road . " " . $city . " " . $zip_code . " " . $country;
+                    $birth_date = $_POST['day'] . "/" . $_POST['month'] . "/" . $_POST['year'];
                     $pwd = password_hash($pwd, PASSWORD_DEFAULT);
-                    //$resp = Model\UserRepository::save($lastname, $firstname, $email, $pwd, $birth_date, $adress, $phone);
-                }else{
-                    echo "Mdp non corresp";
+
+                    $resp = Model\UserRepository::save($lastname,$firstname,$email,$pwd,$birth_date,$adress,$phone);
+
+                    if($resp) {
+                        Http::redirect(HOME_ROUTE);
+                    }
+                    else {  //une erreure serveur
+                        throw new \Exception(ERROR_SAVING_BDD);
+                    }
+
+                }else{      //Les deux mots de passes ne corespondents pas 
+                    
                 }        
                 
-            }else{
+            }else{//les entrées ne sont pas bonnes 
                 foreach($sign_error as $error){
-                    throw new \Exception("error");
+                    if (!empty($error)){
+                        //throw new \Exception($error[0]);
+                        $that_fuking_error = $error[0];
+                        require_once "../views/sign-customer-page.php";
+                        
+                    }
+                    
                 }
                 
             }
             
-        }else{
-
-            echo "<pre>";
-            var_dump($_POST);
-
-           
-            echo "/<pre>";
-            
+        }else{  //il manque des infos
            
         }
     }
+
+
+    
 
 }
 

@@ -41,7 +41,7 @@ input, select, button{
 }
 
 .form_sign{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -138,7 +138,7 @@ article#log{
 }
 
 #log_sign{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;

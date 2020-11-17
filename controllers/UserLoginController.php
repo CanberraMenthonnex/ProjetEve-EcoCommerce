@@ -2,9 +2,11 @@
  
 namespace Controller;
 
-use Model\AdminRepository;
+
+use Model\UserRepository;
 use Tools\Http;
 use Tools\Session;
+
 
 class UserLoginController extends UserController {
 
@@ -14,9 +16,9 @@ class UserLoginController extends UserController {
 
     public static function login() {
 
-        if(self::checkPostKeys($_POST, [ "pwd", "email"])) {
+        if(self::checkPostKeys($_POST, ["username", "pwd"])) {
         
-            $email = htmlspecialchars($_POST['email']);
+            $email = htmlspecialchars($_POST['username']);
             $pwd = htmlspecialchars($_POST['pwd']);
             $user = UserRepository::find($email);
 
@@ -24,7 +26,7 @@ class UserLoginController extends UserController {
 
                 if(password_verify($pwd, $user[0]->getPassword())) {
                     Session::set(self::SESSION_NAME, $user[0]);
-                    Http::redirect(USER_ROUTE);
+                    Http::redirect(HOME_ROUTE);
                 }
                 else
                 {
@@ -37,8 +39,9 @@ class UserLoginController extends UserController {
             }
         }
         else
-        {
-            throw new \Exception(BAD_KEYS);
+        {   
+            echo "hello";
+            //throw new \Exception(BAD_KEYS);
         }
     
     }
