@@ -1,61 +1,55 @@
 <?php
-require("../vendor/autoload.php");
+
+use Core\Model\Annotations\AnnotationPackage;
+use Core\Router\Router;
+
+require("../core/vendor/autoload.php");
 require ("../configuration/configuration.php");
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
 require ("../constant/routes.php");
 
+AnnotationPackage::init();
 
 session_start();
 
 try {
-    $router = new Router\Router($_GET["url"]);
+    $router = new Router($_GET["url"]);
 
-    $router->get(HOME_ROUTE, function () {
-        \Controller\HomeController::homePage();
-    });
+    $router->get(HOME_ROUTE, "HomeController", "homePage");
 
-    $router->get(ADMIN_LOG_ROUTE, function () {
-        \Controller\AdminLoginController::logAdminPage();
-    });
+ //   $router->get(SEARCH_ROUTE, "ProductController", "searchList");
 
-    $router->post(ADMIN_LOG_ROUTE, function () {
-        \Controller\AdminLoginController::login();
-    });
+    $router->get(ADMIN_LOG_ROUTE, "AdminLoginController", "logAdminPage");
 
-    $router->get(ADMIN_LOGOUT_ROUTE, function () {
-        \Controller\AdminLoginController::logout();
-    });
+    $router->post(ADMIN_LOG_ROUTE, "AdminLoginController", "login");
 
-    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, function () {
-        \Controller\ProductController::createProductPage();
-    });
-    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, function () {
-        \Controller\ProductController::createProduct();
-    });
+    $router->get(ADMIN_LOGOUT_ROUTE, "AdminLoginController", "logout");
 
-    $router->get(ADMIN_GET_PRODUCT_ROUTE, function() {
-        \Controller\ProductController::listingProduct();
-    });
+    $router->get(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProductPage");
 
-    $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
-        \Controller\ProductController::removeProduct($id);
-    });
+    $router->post(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProduct");
 
-    $router->get(ADD_CART_ROUTE, function () {
-        \Controller\CartController::productPage();
-    });
-    $router->post(ADD_CART_ROUTE, function () {
-        \Controller\CartController::addCart();
-    });
+     $router->get(ADMIN_GET_PRODUCT_ROUTE, "AdminProductController", "listingProduct");
 
-    $router->get(GET_CART_ROUTE, function() {
-        \Controller\CartController::listingCart();
-    });
+     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
 
-    $router->get(DELETE_CART_PRODUCT_ROUTE . ":id", function($id) {
-        \Controller\CartController::removeCartProduct($id);
-    });
+     //TEST
+    $router->get("/test", "TestController", "test");
+
+    $router->get(ADD_CART_ROUTE, "CartController", "productPage");
+
+    $router->post(ADD_CART_ROUTE . ":id", "CartController", "addCart");
+
+    $router->get(GET_CART_ROUTE, "CartController", "listingCart");
+
+    $router->get(ADD_CART_ROUTE, "CartController", "productPage");
+
+    $router->get(DELETE_CART_PRODUCT_ROUTE . ":id", "CartController", "removeCartProduct");
+
+    $router->get(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
+
+    
 
 
     $router->parse();
