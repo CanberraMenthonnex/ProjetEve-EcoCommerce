@@ -17,11 +17,6 @@ class Session {
     }
 
     public static function checkSession(string $name){
-        if(isset($_SESSION[$name])){
-            return true;
-        }else{
-            return false;
-        }
+        return(isset($_SESSION[$name]));
     }
-
 }

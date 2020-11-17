@@ -1,12 +1,10 @@
 <?php
- 
-namespace Controller;
 
+namespace Controller;
 
 use Model\UserRepository;
 use Tools\Http;
 use Tools\Session;
-
 
 class UserLoginController extends UserController {
 
@@ -26,7 +24,10 @@ class UserLoginController extends UserController {
 
                 if(password_verify($pwd, $user[0]->getPassword())) {
                     Session::set(self::SESSION_NAME, $user[0]);
-                    Http::redirect(HOME_ROUTE);
+                    
+                    $userSession = Session::get(self::SESSION_NAME);
+                    echo($userSession->getFirstname());
+                    //Http::redirect(HOME_ROUTE);
                 }
                 else
                 {

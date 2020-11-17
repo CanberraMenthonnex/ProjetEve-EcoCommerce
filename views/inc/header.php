@@ -13,7 +13,11 @@
                 </button>
             </form>
             <a href="#" class="head-items--btn">
+
+
                 <img src="/img/user-icon.svg" alt="user icon" title="User" class="head-items--icon">
+            
+
             </a>
             <button class="head-items--btn">
                 <img src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
