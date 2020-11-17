@@ -39,6 +39,7 @@ class DataMapper {
 
                 $columnValue = call_user_func([$object, "get". ucfirst($property)]);
                 
+                DataConverter::convertToType("string", $columnValue);
                 if(gettype($columnValue) === "object") {
                     $columnValue = get_class($columnValue) === "DateTime" ?  TypeConverter::stringifyDate($columnValue) : $columnValue;
                 }

@@ -5,7 +5,7 @@ namespace Core\Model\Converters;
 class DataConverter {
 
     private static $_converters = [
-        "DateTime"=> [__NAMESPACE__."\TypeConverter", "convertToDate"]
+        "DateTime"=> [__NAMESPACE__."\TypeConverter", "convertToDate"],
     ];
 
     public static function convertToType($type, $value) {
