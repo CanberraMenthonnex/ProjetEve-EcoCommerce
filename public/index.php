@@ -47,7 +47,7 @@ try {
 
     $router->get(DELETE_CART_PRODUCT_ROUTE . ":id", "CartController", "removeCartProduct");
 
-    $router->get(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
+    $router->post(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
 
     
 

@@ -98,15 +98,14 @@ class CartController extends Controller {
      
    $em = new EntityManager("Cart");
 
-   $result = $em->findOne(["product_id"=>$product_id], ["product_id"]);
+   $result = $em->findOne(["product_id"=>$product_id]);
 
    if($result) {
       $result
       ->setQuantity($_POST["quantity"]);
       
       $resp = $em->update($result);
-      // var_dump($resp);
-      // die();
+      
       if($resp) {
          Http::redirect(GET_CART_ROUTE);
       }else {
