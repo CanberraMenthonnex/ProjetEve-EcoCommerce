@@ -22,7 +22,7 @@
                     <span>
                         <?php 
                             if(isset($that_fuking_error)){
-                               echo "<p style='color: darkred'>". $that_fuking_error ."</p>";
+                               echo "<p class='red'>". $that_fuking_error ."</p>";
                             }
                         ?>
                     </span>
@@ -74,11 +74,11 @@
         <form action="/customer/login" method ="POST"  id="log">
             <div id="form_login" class="form2" >
                 <h2 class="white bold">Connect</h2>
-                <input class="bold PX20" id="username" placeholder="Adresse Email" name="username" type="text" >
-                <input class="bold PX20" id="pwd"  placeholder="Mot de passe" name="pwd" type="password" >
+                <input class="bold px20" id="username" placeholder="Adresse Email" name="username" type="text" >
+                <input class="bold px20" id="pwd"  placeholder="Mot de passe" name="pwd" type="password" >
                 <button type="submit">Connexion</button>
-                <p class="white PX17">Pas encore de compte ? </p>
-                <p class="white bold PX20" id="logToSign">Rejoins-nous !</p>
+                <p class="white px17">Pas encore de compte ? </p>
+                <p class="white bold px20" id="logToSign">Rejoins-nous !</p>
             </div>
         </form>
     </article>

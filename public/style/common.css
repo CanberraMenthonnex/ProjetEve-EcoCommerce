@@ -33,24 +33,27 @@ a {
 .black{
     color: black;
 }
+.red{
+    color: darkred;
+}
 
 /*size text : */
 
-.PX40{
+.px40{
     font-size: 40px;
 }
-.PX35{
+.px35{
     font-size: 35px;
 }
-.PX30{
+.px30{
     font-size: 30px;
 }
-.PX24{
+.px24{
     font-size: 24px;
 }
-.PX20{
+.px20{
     font-size: 20px;
 }
-.PX17{
+.px17{
     font-size: 17px;
 }
