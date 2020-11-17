@@ -22,7 +22,8 @@
                     <span>
                         <?php 
                             if(isset($that_fuking_error)){
-                               echo "<p class='red'>". $that_fuking_error ."</p>";
+                               echo "<p style='color: darkred'>". $that_fuking_error ."</p>";
+                               echo "<style> .form_sign{display: flex;} #log_sign{display: none;}</style>";
                             }
                         ?>
                     </span>
@@ -74,6 +75,13 @@
         <form action="/customer/login" method ="POST"  id="log">
             <div id="form_login" class="form2" >
                 <h2 class="white bold">Connect</h2>
+                <span>
+                        <?php 
+                            if(isset($log_error)){
+                               echo "<p style='color: darkred'>". $log_error ."</p>";
+                            }
+                        ?>
+                    </span>
                 <input class="bold px20" id="username" placeholder="Adresse Email" name="username" type="text" >
                 <input class="bold px20" id="pwd"  placeholder="Mot de passe" name="pwd" type="password" >
                 <button type="submit">Connexion</button>
