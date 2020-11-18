@@ -12,6 +12,6 @@ const ADMIN_DELETE_PRODUCT_ROUTE = "/admin/product/";
 const HOME_ROUTE = "/";
 const CUSTOMER_POST_SIGN_ROUTE = "/customer/sign";
 const CUSTOMER_POST_LOGIN_ROUTE = "/customer/login";
-
+const CUSTOMER_LOGOUT_ROUTE="/customer/logout";
 
 

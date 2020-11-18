@@ -51,10 +51,9 @@ try {
         \Controller\UserLoginController::login();
     });
 
-    // $router->post(CUSTOMER_POST_LOGIN_ROUTE, function(){
-    //     \Controller\SignCustomerPage::sign();
-    // });
-
+    $router->get(CUSTOMER_LOGOUT_ROUTE, function () {
+        \Controller\UserLoginController::logout();
+    });
 
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
         \Controller\ProductController::removeProduct($id);

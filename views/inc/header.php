@@ -1,3 +1,7 @@
+<?php 
+    use Tools\Session;
+?>
+
 <header class="top-bar">
     <div class="top-bar--top">
         <nav>   
@@ -15,7 +19,16 @@
             <a href="#" class="head-items--btn">
 
 
-                <img src="/img/user-icon.svg" alt="user icon" title="User" class="head-items--icon">
+                <?php
+                    if(Session::checkSession("user")){
+                        $userSession = Session::get("user");
+                        echo "<a href='/customer/logout'>" . ($userSession->getFirstname()) . "</a>";
+                    }else{
+                        echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                    }
+
+                ?>
+                
             
 
             </a>
@@ -39,3 +52,6 @@
         <img src="/img/logo.svg" alt="EVE" title="Projet EVE" class="top-bar--logo">
     </div>
 </header>
+
+
+  

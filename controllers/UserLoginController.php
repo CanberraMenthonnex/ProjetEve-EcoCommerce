@@ -31,10 +31,7 @@ class UserLoginController extends UserController {
 
                 if(password_verify($pwd, $user[0]->getPassword())) {
                     Session::set(self::SESSION_NAME, $user[0]);
-                    
-                    $userSession = Session::get(self::SESSION_NAME);
-                    echo($userSession->getFirstname());
-                    //Http::redirect(HOME_ROUTE);
+                    Http::redirect(HOME_ROUTE);
                 }
                 else
                 {
