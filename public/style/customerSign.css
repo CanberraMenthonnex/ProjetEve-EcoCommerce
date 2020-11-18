@@ -47,6 +47,13 @@ input, select, button{
     align-items: center;
     height: 90vh;
 }
+.form_sign_error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 
 
 .send_profil{
@@ -116,7 +123,13 @@ form>label{
     margin-top: 20px;
     margin-left: 0.25rem;
 }
-
+#errorSign{
+    background-color: red;
+    padding: 10px;
+}
+.form_log_error_sign{
+    display: none;
+}
 /***** Form Login *****/
 
 
@@ -144,6 +157,7 @@ article#log{
     height: 80vh;
 }
 .form2 {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,8 +206,11 @@ article#log{
     cursor: pointer;
     text-decoration: underline;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
 .error{
     position: absolute;
     top: 10%;
@@ -205,14 +222,22 @@ span p {
 }
 
 @media (max-width: 1080px) {
+<<<<<<< HEAD
     /* /Sign Media/ */
+=======
+    /*Sign Media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     form{
         width: 80%;
     }
     .form1>label>input{
         width: 16rem;
     }
+<<<<<<< HEAD
     /* /Login media/ */
+=======
+    /*Login media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     #log{
         width: 50%;
     }
@@ -222,7 +247,11 @@ span p {
     }
 }
 @media (max-width: 730px) {
+<<<<<<< HEAD
     /* /Sign Media/ */
+=======
+    /*Sign Media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     form{
         width: 100%;
     }
@@ -235,7 +264,11 @@ span p {
     .form1>.input_date_naissance>label{
         margin-top: 10px;
     }
+<<<<<<< HEAD
     /* /Login media/ */
+=======
+    /*Login media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     #log{
         width: 70%;
     }
@@ -245,7 +278,11 @@ span p {
     }
 }
 @media (max-width: 450px) {
+<<<<<<< HEAD
     /* /Sign Media/ */
+=======
+    /*Sign Media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     .form_content{
         flex-direction: column;
     }
@@ -261,7 +298,11 @@ span p {
     .form1>label>input{
         width: 20rem;
     }
+<<<<<<< HEAD
     /* /Login media/ */
+=======
+    /*Login media*/
+>>>>>>> 19f169fbd3d9aa511fab0ecbb91ec2eb658bbed0
     #log{
         width: 100%;
     }
