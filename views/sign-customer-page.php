@@ -13,20 +13,21 @@
     <main>
    
 
-    <article id="sign" class="form_sign">
+    <article id="sign" class="form_sign <?php if(isset($that_fuking_error)){echo "form_sign_error";}?>">
         <h1>Inscrivez-Vous !</h1>
+        <span id>
+                        <?php 
+                            if(isset($that_fuking_error)){
+                                echo "<p id='errorSign' class='white''>". $that_fuking_error ."</p>";
+                              
+                            }
+                        ?>
+                    </span>
         <form action="/customer/sign" method ="POST">
             <div class="form_content">
                 <div class="form1">
 
-                    <span>
-                        <?php 
-                            if(isset($that_fuking_error)){
-                               echo "<p style='color: darkred'>". $that_fuking_error ."</p>";
-                               echo "<style> .form_sign{display: flex;} #log_sign{display: none;}</style>";
-                            }
-                        ?>
-                    </span>
+                    
 
                     <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
                     <label for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" required ></label>
@@ -70,15 +71,15 @@
         </form>
     </article>
 
-    <article id=log_sign>
+    <article id="log_sign" class=" <?php if(isset($that_fuking_error)){echo "form_log_error_sign";}?>">
         
         <form action="/customer/login" method ="POST"  id="log">
             <div id="form_login" class="form2" >
-                <h2 class="white bold">Connect</h2>
-                <span>
+                <h2 class="white bold">Connexion</h2>
+                <span class='error' >
                         <?php 
                             if(isset($log_error)){
-                               echo "<p style='color: darkred'>". $log_error ."</p>";
+                               echo "<p class='white'>". $log_error ."</p>";
                             }
                         ?>
                     </span>
@@ -95,6 +96,5 @@
     <script src="/js/sign-customer-page.js"></script>
     </main>
 </body>
-
 
 </html>

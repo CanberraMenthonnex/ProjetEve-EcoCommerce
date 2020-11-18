@@ -47,6 +47,13 @@ input, select, button{
     align-items: center;
     height: 90vh;
 }
+.form_sign_error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 
 
 .send_profil{
@@ -116,7 +123,13 @@ form>label{
     margin-top: 20px;
     margin-left: 0.25rem;
 }
-
+#errorSign{
+    background-color: red;
+    padding: 10px;
+}
+.form_log_error_sign{
+    display: none;
+}
 /***** Form Login *****/
 
 
@@ -144,6 +157,7 @@ article#log{
     height: 80vh;
 }
 .form2 {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,4 +205,80 @@ article#log{
 #logToSign:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+.error{
+    position: absolute;
+    top: 10%;
+    text-align: center;
+}
+span p {
+    background-color: red;
+    border-radius: 20px;
+}
+
+@media (max-width: 1080px) {
+    /*Sign Media*/
+    form{
+        width: 80%;
+    }
+    .form1>label>input{
+        width: 16rem;
+    }
+    /*Login media*/
+    #log{
+        width: 50%;
+    }
+    .form2>button{
+        width: 70%;
+        font-size: 3vw;
+    }
+}
+@media (max-width: 730px) {
+    /*Sign Media*/
+    form{
+        width: 100%;
+    }
+    .form1>label>input{
+        width: 13rem;
+    }
+    .form1>.input_date_naissance{
+        display: flex;
+    }
+    .form1>.input_date_naissance>label{
+        margin-top: 10px;
+    }
+    /*Login media*/
+    #log{
+        width: 70%;
+    }
+    .form2>button{
+        width: 80%;
+        font-size: 4vw;
+    }
+}
+@media (max-width: 450px) {
+    /*Sign Media*/
+    .form_content{
+        flex-direction: column;
+    }
+    .form_sign{
+        height: 150vh;
+    }
+    .form1{
+        align-items: center;
+    }
+    .form1>.input_date_naissance{
+        display: block;
+    }
+    .form1>label>input{
+        width: 20rem;
+    }
+    /*Login media*/
+    #log{
+        width: 100%;
+    }
+    .form2>button{
+        width: 70%;
+        font-size: 5vw;
+    }
 }
