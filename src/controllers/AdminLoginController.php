@@ -14,13 +14,9 @@ class AdminLoginController extends AdminController {
 
     public  function login() {
 
-<<<<<<< HEAD:controllers/AdminLoginController.php
-        if(self::checkPostKeys($_POST, ["pwd", "email"])) {
-=======
         if($this->checkPostKeys($_POST, [ "pwd", "email"])) {
 
             $em = new EntityManager("Admin");
->>>>>>> b1d55888d9ac98e7a0e89e70ce94a327f85f785f:src/controllers/AdminLoginController.php
         
             $email = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);

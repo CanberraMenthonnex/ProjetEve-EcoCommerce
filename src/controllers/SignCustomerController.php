@@ -146,7 +146,7 @@ class SignCustomerController extends UserController{
             $user
             ->setFirstname($firstname)
             ->setLastname($lastname)
-            ->setMail($email)
+            ->setEmail($email)
             ->setPhone($phone)
             ->setPassword($pwd)
             ->setBirth_date($birth_date)
