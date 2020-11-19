@@ -51,7 +51,7 @@ try {
         \Controller\UserLoginController::login();
     });
 
-    $router->get(CUSTOMER_LOGOUT_ROUTE, function () {
+    $router->get(ADMIN_LOGOUT_ROUTE, function () {
         \Controller\UserLoginController::logout();
     });
 
