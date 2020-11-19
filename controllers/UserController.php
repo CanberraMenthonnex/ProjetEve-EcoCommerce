@@ -14,5 +14,10 @@ abstract class UserController extends Controller {
             die();
         }
     }
+
+    Public static function displayCustomerProfil(){
+        self::protectForUser();
+        self::render('customer_profil.php');
+    }
     
 }
