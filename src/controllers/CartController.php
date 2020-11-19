@@ -11,7 +11,7 @@ class CartController extends Controller {
 
    public function productPage() {
 
-      $this->render('product.php');
+      $this->render('product');
    }
 
 
@@ -80,7 +80,7 @@ class CartController extends Controller {
     
      
 
-     $this->render('cart.php', compact("user", "cartList"));
+     $this->render('cart', compact("user", "cartList"));
    }
 
 
