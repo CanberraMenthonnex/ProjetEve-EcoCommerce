@@ -34,9 +34,6 @@ try {
 
      $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
 
-     //TEST
-    $router->get("/test", "TestController", "test");
-
     $router->get(ADD_CART_ROUTE, "CartController", "productPage");
 
     $router->post(ADD_CART_ROUTE . ":id", "CartController", "addCart");

@@ -99,10 +99,11 @@ class EntityManager extends Model {
      *
      * @return int (number of modified rows)
      * */
-    public function update ( Object $entity ) : int {
-        $data = DataMapper::MapToSqlParams($entity);
+    public function update ( Object $entity, array $filters ) : int {
+        $data = DataMapper::MapToSqlParams($entity);    
         $formatedData = array_combine($data["properties"], $data["values"]);
-        return $this->_update($this->_table, $formatedData, ["id"=>$entity->getId()]);
+        
+        return $this->_update($this->_table, $formatedData, $filters);
     }
  
 }
