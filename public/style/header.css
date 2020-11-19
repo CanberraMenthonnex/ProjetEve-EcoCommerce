@@ -88,3 +88,72 @@
     font-weight: bold;
     font-size: 1.5em;
 }
+
+/* Panier Menu Burger */
+
+.listShopping{
+    background-color: grey;
+     position: absolute;
+     top: 79px;
+     right: 0; 
+ }
+ 
+ .listShopping h1{
+     text-align: center;
+ }
+ 
+ .item{
+     display: flex;
+     flex-direction: row;
+     margin-bottom: 15px;
+ }
+ 
+ .itemPicture{
+     display: inline-block;
+     margin-left: 15px;
+ }
+ 
+ .itemPicture img{
+     max-width: 150px;
+     max-height: 150px;
+ }
+ 
+ .itemInfo{
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+ }
+ 
+ .priceProduct{
+     padding: 6px;
+     background-color: green;
+     margin-top: 30px;
+     text-align: center;
+     color: white;
+     margin-bottom: 3px;
+ }
+ 
+ .itemInfo{
+     margin-left: 15px; 
+     font-size: 20px;
+ }
+ 
+ .itemQuantity{
+     margin-top: 90px;
+     margin-left: 15px;
+ }
+ 
+ .itemDelete img{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin-top: 60px;
+     margin-left: 30px;
+     margin-right: 30px;
+     cursor: pointer;
+ }
+ 
+ .itemQuantity span input {
+     width: 30px;
+ }

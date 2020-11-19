@@ -1,39 +1,32 @@
 *{
     font-family:sans-serif;
 }
-/********************<Body>*********************/
-#bodyPageCreationArticle{
-	background-image: url("/img/backgroundImg.jpg");
-}
-/********************<logo>*********************/
-#divLogoPageBack { 
-    border-radius: 50%;
-    background-color: #313034;
-    height: 170px; 
-	width: 190px; 
-    border: 12px solid #8ebf25;
-    display: flex;
-    align-items: center;
-	justify-content: center;
+
+.logoBackOffice{
 	position: absolute;
-}
-#logoImgPageBack {
-    width: 160px;
-    height: 160px;
-    padding-top: 30px;
-
+	top: 10px;
+	left: 10px;
 }
 
-/********************</logo>*********************/
+#bodyPageCreationArticle{
+	background-color: #353535;
+}
+
+
 /********************<FORM>*********************/
+#productInformation{
+	display: flex;
+	flex-direction: row;
+}
 
 #pageProduct {
 	color:  #313034;
 	display: flex;
 	justify-content: center;
+	margin-top: 150px;
 }
 #formCreationArticle {
-	background-color: white;
+	background-color: #707070;
     display: flex;
 	flex-direction: column;
 	padding: 0px 20px;
@@ -47,20 +40,23 @@
 }
 
 #product input {
-	margin: 10px;
+	margin: 10px 30px 10px 0;
+	width: 100%;
 }
 
 #product {
-	
+	margin-top: 25px;
 	display: flex;
+	align-items: center;
+	justify-content: center;
 	flex-direction: column;
 	width: 100%;
 }
 #product input {
-	border-radius: 30px;
-	border: solid#8ebf25;
+	border-radius: 3px;
+	border: 1px solid black;
 	padding: 7px;
-	background-color:#8ebf25;
+	background-color: white;
 }
 
 #product input::placeholder {
@@ -69,37 +65,43 @@
 /****WYSIWYG****/
 #editor{
 	width: 500px; 
-	height: 200px; 
+	height: 180px; 
 	border: 1px solid black; 
 	padding: 5px; 
 	overflow: auto; 
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+#CreaText{
+	margin-top: 30px;
 }
 /********************<BUTTON FORM>*********************/
 #create_product {
-	padding: 10px;
+	padding: 4px 8px;
 	background-color: #8ebf25;
-}
-#create_product:hover {
-		padding: 11px;
+	border-radius: 15px;
+	width: 35%;
+	margin: 0 auto;
+	font-size: 14px;
 }
 /********************</BUTTON FORM>*********************/
 /********************<PREVIEW IMAGE>*********************/
 #divImgPrevu {
-padding-left: 20%;
-padding-bottom: 5px;
+padding: 10px;
 
 }
 .imagePrevu {
-	width: 300px;
-	min-height: 100px;
-	border: 2px solid #8ebf25;
+	width: 175px;
+	min-height: 175px;
+	border: 2px solid transparent;
 	margin-top: 15px;
-
+	background-color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
-	color: #8ebf25;
+	color: grey;
 }
 .imagePrevuImage{
 	display: none;

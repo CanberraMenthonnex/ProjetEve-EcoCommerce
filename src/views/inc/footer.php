@@ -1,4 +1,3 @@
-<script src="/../js/header.js"></script>
 <footer class="footer">
 
     <img src="<?= MAIN_PATH ?>/img/logo.png" alt="Eve logo" title="Projet Eve" class="footer--logo">

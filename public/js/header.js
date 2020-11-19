@@ -1,1 +1,0 @@
-const btnDeco = document.getElementById("log_out");
