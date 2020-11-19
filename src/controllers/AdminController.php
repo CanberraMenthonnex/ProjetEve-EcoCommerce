@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
 
+use Core\Controller\Controller;
 use Core\Http;
 use Core\Session;
 

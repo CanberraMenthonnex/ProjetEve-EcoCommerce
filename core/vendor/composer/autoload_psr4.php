@@ -12,6 +12,7 @@ return array(
     'Core\\Router\\' => array($baseDir . '/core/router'),
     'Core\\Model\\Converters\\' => array($baseDir . '/core/model/converters'),
     'Core\\Model\\' => array($baseDir . '/core/model'),
+    'Core\\Controller\\' => array($baseDir . '/core/controller'),
     'Core\\' => array($baseDir . '/core'),
     'Controller\\' => array($baseDir . '/src/controllers'),
 );

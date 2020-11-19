@@ -1,12 +1,12 @@
 <?php
 
-namespace Controller;
+namespace Core\Controller;
 
 
 abstract class Controller {
 
 
-    const VIEW_PATH = __DIR__."/../views/";
+    const VIEW_PATH = __DIR__."/../../src/views/";
 
     /*
      * For displaying the view

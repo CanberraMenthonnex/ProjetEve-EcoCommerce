@@ -45,7 +45,6 @@ abstract class Model {
         if($order) {
              $query =" " .  QueryBuilder::order($order["by"], $order["desc"] );
         }
-       var_dump($query);
       
         $req = $this->_db->prepare($query);
         $req->execute($vars);

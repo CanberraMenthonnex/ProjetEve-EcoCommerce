@@ -12,13 +12,66 @@ body {
 .f-white {
     color: var(--usual-color);
 }
+.call-btn{
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+.call-btn--icon {
+    width: 25px;
+    margin-left: 40px;
+}
 
+.separator-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.separator-header::before, .separator-header::after {
+    content: "";
+    height: 3px;
+    background-color: white;
+    display: block;
+    flex: 1;
+}
+.separator-header--title {
+   /* padding: 0 15%; */
+   width: 35%;
+   text-align: center;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+.product-card--img {
+    width: 100%;
+}
+.product-card--content {
+    background-color: var(--dark-green);
+    position: relative;
+    padding: 15px 10px 30px 10px;
+}
+.product-card--price {
+    background-color: var(--light-green);
+    position: absolute;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    color: white;
+    right: 5%;
+    top: 0;
+}
+.product-card--name {
+    color: white;
+}
 * {
     margin : 0;
     padding: 0;
-}
-
-a {
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+ul {
+    list-style: none;
 }

@@ -21,6 +21,7 @@ class ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9
             'Core\\Router\\' => 12,
             'Core\\Model\\Converters\\' => 22,
             'Core\\Model\\' => 11,
+            'Core\\Controller\\' => 16,
             'Core\\' => 5,
             'Controller\\' => 11,
         ),
@@ -51,6 +52,10 @@ class ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9
         'Core\\Model\\' => 
         array (
             0 => __DIR__ . '/../../..' . '/core/model',
+        ),
+        'Core\\Controller\\' => 
+        array (
+            0 => __DIR__ . '/../../..' . '/core/controller',
         ),
         'Core\\' => 
         array (

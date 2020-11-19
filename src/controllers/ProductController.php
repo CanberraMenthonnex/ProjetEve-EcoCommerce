@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Exception;
 
