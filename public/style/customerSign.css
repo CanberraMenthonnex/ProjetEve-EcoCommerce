@@ -206,8 +206,6 @@ article#log{
     cursor: pointer;
     text-decoration: underline;
 }
-
-
 .error{
     position: absolute;
     top: 10%;
@@ -219,14 +217,14 @@ span p {
 }
 
 @media (max-width: 1080px) {
-    /* /Sign Media/ */
+    /*Sign Media*/
     form{
         width: 80%;
     }
     .form1>label>input{
         width: 16rem;
     }
-    /* /Login media/ */
+    /*Login media*/
     #log{
         width: 50%;
     }
@@ -236,7 +234,7 @@ span p {
     }
 }
 @media (max-width: 730px) {
-    /* /Sign Media/ */
+    /*Sign Media*/
     form{
         width: 100%;
     }
@@ -249,7 +247,7 @@ span p {
     .form1>.input_date_naissance>label{
         margin-top: 10px;
     }
-    /* /Login media/ */
+    /*Login media*/
     #log{
         width: 70%;
     }
@@ -259,7 +257,7 @@ span p {
     }
 }
 @media (max-width: 450px) {
-    /* /Sign Media/ */
+    /*Sign Media*/
     .form_content{
         flex-direction: column;
     }
@@ -275,7 +273,7 @@ span p {
     .form1>label>input{
         width: 20rem;
     }
-    /* /Login media/ */
+    /*Login media*/
     #log{
         width: 100%;
     }

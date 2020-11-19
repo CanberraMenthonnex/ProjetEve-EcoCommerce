@@ -5,11 +5,12 @@ namespace Controller;
 use Model;
 use Tools\ValidatorString;
 use Tools\ValidatorInt;
+use Tools\Session;
 use Tools\Http;
 
 
 
-class SignCustomerPage extends Controller{
+class SignCustomerPage extends UserController{
 
     public static function signCustomerPage() {
         self::render("sign-customer-page.php");
@@ -138,10 +139,11 @@ class SignCustomerPage extends Controller{
                     $birth_date = $_POST['day'] . "/" . $_POST['month'] . "/" . $_POST['year'];
                     $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-                    $resp = Model\UserRepository::save($lastname,$firstname,$email,$pwd,$birth_date,$adress,$phone);
+                    $user = Model\UserRepository::save($lastname,$firstname,$email,$pwd,$birth_date,$adress,$phone);
 
-                    if($resp) {
-                        Http::redirect(HOME_ROUTE);
+                    if($user) {
+                        Session::set(self::SESSION_NAME, $user[0]);
+                        Http::redirect(CUSTOMER_PROFIL_ROUTE);
                     }
                     else {  //une erreure serveur
                         throw new \Exception(ERROR_SAVING_BDD);

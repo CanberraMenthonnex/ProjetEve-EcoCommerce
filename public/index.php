@@ -55,6 +55,10 @@ try {
         \Controller\UserLoginController::logout();
     });
 
+    $router->get(CUSTOMER_PROFIL_ROUTE, function () {
+        \Controller\UserController::displayCustomerProfil();
+    });
+
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", function($id) {
         \Controller\ProductController::removeProduct($id);
     });
