@@ -98,7 +98,7 @@
                 </section>
                 <section class="container-articles">
                     <header class="separator-header">
-                        <h2 class="separator-header--title f-white"> Nom inconnu </h2>
+                        <h2 class="separator-header--title f-white"> Les nouveaux produits </h2>
                     </header>
                     <div class="product-container">
                         <a href="#" class="product-link">

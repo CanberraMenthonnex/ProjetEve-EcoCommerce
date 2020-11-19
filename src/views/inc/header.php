@@ -1,9 +1,9 @@
 <header class="top-bar">
     <div class="top-bar--top">
         <nav>   
-            <a href="#" class="top-bar--link">Home</a>
+            <a href="<?= MAIN_PATH . HOME_ROUTE ?>" class="top-bar--link">Home</a>
             <a href="#" class="top-bar--link">Blog</a>
-            <a href="#" class="top-bar--link">Menu</a>
+            <a href="#" class="top-bar--link">Contact</a>
         </nav>
         <div class="head-items">
             <form class="search-bar" method="GET" action="<?= MAIN_PATH . SEARCH_ROUTE ?>">

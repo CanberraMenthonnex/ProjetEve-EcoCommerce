@@ -41,6 +41,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 .head-items--icon {
     width: 25px;

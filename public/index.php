@@ -20,11 +20,11 @@ try {
 
     $router->get(SEARCH_ROUTE, "ProductController", "searchList");
 
-    $router->get(ADMIN_LOG_ROUTE, "AdminLoginController", "logAdminPage");
+    $router->get(ADMIN_LOG_ROUTE, "AdminController", "logAdminPage");
 
-    $router->post(ADMIN_LOG_ROUTE, "AdminLoginController", "login");
+    $router->post(ADMIN_LOG_ROUTE, "AdminController", "login");
 
-    $router->get(ADMIN_LOGOUT_ROUTE, "AdminLoginController", "logout");
+    $router->get(ADMIN_LOGOUT_ROUTE, "AdminController", "logout");
 
     $router->get(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProductPage");
 
@@ -34,8 +34,6 @@ try {
 
      $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
 
-     //TEST
-    $router->get("/test", "TestController", "test");
 
     $router->parse();
 

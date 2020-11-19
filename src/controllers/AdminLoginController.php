@@ -2,14 +2,17 @@
  
 namespace Controller;
 
+use Core\Controller\Controller;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
 
-class AdminLoginController extends AdminController {
+class AdminController extends Controller {
+
+    const SESSION_NAME = "admin";
 
     public  function logAdminPage() {
-        $this->render("log-page.php");
+        $this->render("log-page");
     }
 
     public  function login() {

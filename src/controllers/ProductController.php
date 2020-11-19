@@ -14,12 +14,14 @@ class ProductController extends Controller {
             throw new Exception(BAD_KEYS);
         }
 
-        $search = "%" . $_GET["search"] . "%";
+        $keywords = $_GET["search"];
+
+        $search = "%" . $keywords . "%";
 
         $em = new EntityManager("Product");
         $products = $em->findByRegex(["name" =>$search]);
        
-        var_dump($products);
+        $this->render("search-page", compact("products", "keywords"));
     }
 
 }

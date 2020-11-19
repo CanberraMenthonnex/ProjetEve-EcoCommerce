@@ -11,7 +11,7 @@ class HomeController extends Controller {
         // Session::set("user", ["user"]);
         $em = new EntityManager("Product");
         $products = $em->find();
-        $this->render("home.php", compact("products"));
+        $this->render("home", compact("products"));
     }
 
 }

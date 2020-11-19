@@ -7,6 +7,10 @@
 
 body {
     background-color: var(--light-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 .f-white {
@@ -43,6 +47,7 @@ body {
 .product-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 .product-card--img {
     width: 100%;
@@ -51,6 +56,7 @@ body {
     background-color: var(--dark-green);
     position: relative;
     padding: 15px 10px 30px 10px;
+    flex: 1;
 }
 .product-card--price {
     background-color: var(--light-green);
