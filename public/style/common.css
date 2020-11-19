@@ -5,6 +5,14 @@
     --usual-color : white;
 }
 
+body {
+    background-color: var(--light-green);
+}
+
+.f-white {
+    color: var(--usual-color);
+}
+
 * {
     margin : 0;
     padding: 0;
