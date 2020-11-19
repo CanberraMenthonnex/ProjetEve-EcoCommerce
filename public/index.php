@@ -18,7 +18,7 @@ try {
 
     $router->get(HOME_ROUTE, "HomeController", "homePage");
 
-    $router->get(SEARCH_ROUTE, "ProductController", "searchList");
+ //   $router->get(SEARCH_ROUTE, "ProductController", "searchList");
 
     $router->get(ADMIN_LOG_ROUTE, "AdminController", "logAdminPage");
 
@@ -44,9 +44,19 @@ try {
 
     $router->get(CUSTOMER_PROFIL_ROUTE,"UserController","displayCustomerProfil");
 
+    $router->get(ADD_CART_ROUTE, "CartController", "productPage");
 
+    $router->post(ADD_CART_ROUTE . ":id", "CartController", "addCart");
 
+    $router->get(GET_CART_ROUTE, "CartController", "listingCart");
 
+    $router->get(ADD_CART_ROUTE, "CartController", "productPage");
+
+    $router->get(DELETE_CART_PRODUCT_ROUTE . ":id", "CartController", "removeCartProduct");
+
+    $router->post(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
+
+    
 
 
     $router->parse();

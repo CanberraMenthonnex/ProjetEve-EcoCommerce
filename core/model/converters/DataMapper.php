@@ -59,7 +59,7 @@ class DataMapper {
      * return array 
      */
     public static function MapToObject ($propertiesWithValues, $entityClass) {
-       
+           
             $newEntity = new $entityClass;
 
             foreach($propertiesWithValues as $property=>$value ) {
