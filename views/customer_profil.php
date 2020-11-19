@@ -49,7 +49,7 @@
             </div>
         </section>
         <div id="sendBtn">
-            <a href="<?= CUSTOMER_LOGOUT_ROUTE ?>" class="border">Se déconnecter</button>
+            <a href="<?=CUSTOMER_LOGOUT_ROUTE?>" class="border">Se déconnecter</button>
         </div>
         
         

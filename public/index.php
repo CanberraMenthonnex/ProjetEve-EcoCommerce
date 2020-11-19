@@ -63,6 +63,11 @@ try {
         \Controller\ProductController::removeProduct($id);
     });
 
+    $router->get(CUSTOMER_LOGOUT_ROUTE, function () {
+        \Controller\UserLoginController::logout();
+    });
+
+
     $router->parse();
 
 } catch (Exception $e) {
