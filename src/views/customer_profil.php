@@ -1,7 +1,3 @@
-<?php 
-    use Tools\Session;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +35,7 @@
                     <?php
                         echo "Prénom : " . $userSession->getFirstname() . "<br>";
                         echo "Nom : " . $userSession->getLastname() . "<br>";
-                        echo "Email : " . $userSession->getMail() . "<br>";
+                        echo "Email : " . $userSession->getEmail() . "<br>";
                         echo "Date de naissance : " . $userSession->getBirth_date() . "<br>";
                         echo "Adresse : " . $userSession->getAdress() . "<br>";
                         echo "Numéro de téléphone : " . $userSession->getPhone() . "<br>";

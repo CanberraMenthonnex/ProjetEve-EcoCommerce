@@ -17,7 +17,6 @@ class UserController extends Controller {
 
     public function displayCustomerProfil(){
         $this->protectForUser();
-        $userSession = Session::get("user");
         $this->render('customer_profil.php');
     }
     

@@ -57,7 +57,7 @@ class UserLoginController extends UserController {
     }
 
     public function logout() {
-        Session::clean($this->SESSION_NAME);
+        Session::clean(self::SESSION_NAME);
         Http::redirect(HOME_ROUTE);
     }
 }

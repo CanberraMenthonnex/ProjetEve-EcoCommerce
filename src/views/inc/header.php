@@ -1,5 +1,5 @@
 <?php 
-    use Tools\Session;
+    use Core\Session;
 ?>
 
 <header class="top-bar">
@@ -20,6 +20,7 @@
 
 
                 <?php
+                    $userSession = Session::get("user");
                     if(isset($userSession)){
                         echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
                     }else{
