@@ -31,6 +31,7 @@ class ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9
         'mindplay\\annotations\\' => 
         array (
             0 => __DIR__ . '/..' . '/mindplay/annotations/src/annotations',
+            1 => __DIR__ . '/..' . '/mindplay/annotations/src/annotations',
         ),
         'Model\\Entity\\' => 
         array (
@@ -67,16 +68,11 @@ class ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9
         ),
     );
 
-    public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc14944a48d283ae13b118c12c6a9fdc9::$classMap;
 
         }, null, ClassLoader::class);
     }

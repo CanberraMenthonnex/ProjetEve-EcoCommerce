@@ -73,11 +73,56 @@ body {
 * {
     margin : 0;
     padding: 0;
-    text-decoration: none;
+    box-sizing: border-box; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+   
 }
 
 
 ul {
     list-style: none;
+/*weight text : */
+}
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-weight: italic;
+}
+
+/*Coulor text : */
+
+.white{
+    color: white;
+}
+.black{
+    color: black;
+}
+.red{
+    color: darkred;
+}
+
+/*size text : */
+
+.px40{
+    font-size: 40px;
+}
+.px35{
+    font-size: 35px;
+}
+.px30{
+    font-size: 30px;
+}
+.px24{
+    font-size: 24px;
+}
+.px20{
+    font-size: 20px;
+}
+.px17{
+    font-size: 17px;
 }

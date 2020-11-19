@@ -79,3 +79,12 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+
+
+
+#customerName{
+    margin: 0 1vw 0 2vw;
+    font-weight: bold;
+    font-size: 1.5em;
+}

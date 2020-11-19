@@ -3,3 +3,5 @@
 -Définir le dossier public comme dossier racine de votre serveur
 
 -S'assurer d'avoir au moins la version 7.4 de PHP
+
+-S'assurer d'aimer la vie  :) 

@@ -16,5 +16,7 @@ class Session {
         $_SESSION[$name] = null;
     }
 
-
+    public static function checkSession(string $name){
+        return(isset($_SESSION[$name]));
+    }
 }

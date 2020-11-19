@@ -7,7 +7,7 @@ class QueryBuilder {
     /**
      * For generating selection query
      * 
-     * @param array $wantedValues
+     * @param array $wantedValues                
      * 
      * @return string
      */
