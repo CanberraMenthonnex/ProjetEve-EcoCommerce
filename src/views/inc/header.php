@@ -48,6 +48,7 @@
     </div>
     <div class="listShopping">
         <h1>Panier</h1>
+<<<<<<< HEAD
 
         <?php foreach($cartList as $product): ?>
         
@@ -107,6 +108,8 @@
                 <img src="img/close-btn.png" alt="deleteProduct">
             </div>
         </div> -->
+=======
+>>>>>>> 2eafa72cd6bc4b1654ac66139215780f4b71c9c1
     </div>
 </header>
 

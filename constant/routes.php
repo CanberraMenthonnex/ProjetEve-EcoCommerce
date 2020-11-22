@@ -18,6 +18,6 @@ const CUSTOMER_PROFIL_ROUTE = "/customer/profil";
 const HOME_ROUTE = "/";
 const SEARCH_ROUTE = "/search/";
 const ADD_CART_ROUTE = "/cart/form";
-// const GET_CART_ROUTE = "/cart/stock";
+const GET_CART_ROUTE = "/cart/stock";
 const DELETE_CART_PRODUCT_ROUTE = "/cart/remove/";
 const UPDATE_CART_QUANTITY_ROUTE = "/cart/update/";

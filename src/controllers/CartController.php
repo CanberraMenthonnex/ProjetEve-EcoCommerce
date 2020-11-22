@@ -64,26 +64,27 @@ class CartController extends Controller {
   }
 
 
-//    public function listingCart() {
-//       Session::set("user", 1);
-//                                                    // POUR TESTER POUR L'INSTANT
-//       $user = Session::get("user");
+   public function listingCart() {
+      Session::set("user", 1);
+                                                   // POUR TESTER POUR L'INSTANT
+      $user = Session::get("user");
+      
+      $db = EntityManager::getDatabase();
 
-//       $db = EntityManager::getDatabase();
-
-//       $query = $db->prepare(
-//          "SELECT product_id, name, description, price, quantity
-//           FROM cart
-//           INNER JOIN product ON cart.product_id = product.id
-//           WHERE user_id = :user_id"
-//      );
+      $query = $db->prepare(
+         "SELECT product_id, name, description, price, quantity
+          FROM cart
+          INNER JOIN product ON cart.product_id = product.id
+          WHERE user_id = :user_id"
+     );
      
-//      $query->execute(["user_id" => $user]);
+     $query->execute(["user_id" => $user]);
      
-//      $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
+     $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
+ 
+     echo json_encode($cartList);
 
-// //     $this->render('cart', compact("user", "cartList"));
-//    }
+   }
 
 
 
@@ -99,8 +100,8 @@ class CartController extends Controller {
 
 
   public function updateCartQuantity(string $product_id) {
-
-   $qtt = $_POST["quantity"];
+   
+   $qtt =  $_POST["quantity"];
 
    $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
 
@@ -117,7 +118,7 @@ class CartController extends Controller {
       $resp = $em->update($result, ["product_id" => $product_id]);
 
       if($resp) {
-         Http::redirect(HOME_ROUTE);
+         echo "Good Update";
       }else {
          throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
       }
