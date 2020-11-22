@@ -65,7 +65,7 @@ class CartController extends Controller {
       Session::set("user", 1);
                                                    // POUR TESTER POUR L'INSTANT
       $user = Session::get("user");
-
+      
       $db = EntityManager::getDatabase();
 
       $query = $db->prepare(
@@ -78,10 +78,9 @@ class CartController extends Controller {
      $query->execute(["user_id" => $user]);
      
      $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
-    
-     
+ 
+     echo json_encode($cartList);
 
-     $this->render('cart', compact("user", "cartList"));
    }
 
 
