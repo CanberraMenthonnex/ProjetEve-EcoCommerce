@@ -62,17 +62,20 @@
             <div class="itemQuantity">
                 <form action="<?= UPDATE_CART_QUANTITY_ROUTE . $product["product_id"]; ?>" method="POST">
                     <span>
+                        <span>x</span>
                         <input type="number" name="quantity" value="<?= $product["quantity"] ?>" min="1" max="99">
-                        <input type="submit" name="newQuantity" value="Enregistrer les modifications">
+                        <input class="newQuantityBtn" type="submit" name="newQuantity" value="Valider">
                     </span>
                 </form>
             </div>
             <div class="itemDelete">
-                <a href="<?= DELETE_CART_PRODUCT_ROUTE . $product["product_id"]; ?>"><img src="img/close-btn.png" alt="deleteProduct"></a>
+                <button class="imageBtn"><img src="img/close-btn.png" alt="deleteProduct"></button>
             </div>
         </div>
 
         <?php endforeach ?>
+
+        <button id="buyBasket">Acheter</button>
 
         <!-- <div class="item">
             <div class="itemPicture">
