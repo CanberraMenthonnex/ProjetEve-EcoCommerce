@@ -57,8 +57,9 @@ class EntityManager extends Model {
      *
      * @return Entity
      */
-    public function findOne (array $filters = [], array $wantedValues = ["*"]) {
+    public function findOne (array $filters = [], array $wantedValues = ["*"]) { 
         $res = $this->_find($this->_table, $filters, $wantedValues, [0,1]);
+       
         if($res) {
             return DataMapper::MapToObject($res[0], $this->_entity);
         } 
