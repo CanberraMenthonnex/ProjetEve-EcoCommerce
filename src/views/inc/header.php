@@ -16,11 +16,11 @@
 
 
                 <?php
-                    if(isset($userSession)){
-                        echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
-                    }else{
-                        echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
-                    }
+                    // if($userSession){
+                    //     echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
+                    // }else{
+                         echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                    // }
 
                 ?>
                 

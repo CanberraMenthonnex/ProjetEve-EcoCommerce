@@ -4,6 +4,7 @@ $.ajax({
     dataType :"json"
 })
 .done((res)=> {
+    console.log(res);
     const content = res.map((item)=> (
        `
         <div class="item">

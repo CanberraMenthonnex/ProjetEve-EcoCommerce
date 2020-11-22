@@ -17,6 +17,8 @@ abstract class Controller {
      * */
     protected function render (string $viewName, array $var = []) {
         extract($var);
+        $userSession = Session::get('user');
+        
         require( self::VIEW_PATH . $viewName . ".php");
     }
 
