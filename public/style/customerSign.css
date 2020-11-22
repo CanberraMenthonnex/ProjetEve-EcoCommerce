@@ -130,6 +130,11 @@ form>label{
 .form_log_error_sign{
     display: none;
 }
+
+label ~ .form_message_required{
+    font-size: 0.75rem;
+}
+
 /***** Form Login *****/
 
 
