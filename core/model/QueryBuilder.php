@@ -82,7 +82,7 @@ class QueryBuilder {
      */
     public static function filters(array $filters, bool $isRegex = false) : string {
         $filtersQ = array_reduce ($filters, function($acc, $filter) use ($isRegex) {
-            return $acc .= $filter . ($isRegex ? " LIKE " : " = ") . "?" . "AND ";
+            return $acc .= $filter . ($isRegex ? " LIKE " : " = ") . "?" . " AND ";
         });
         $filtersQ = trim($filtersQ, "AND ");
         return "WHERE " . $filtersQ;

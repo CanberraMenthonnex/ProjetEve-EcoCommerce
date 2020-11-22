@@ -16,7 +16,7 @@
     <article id="sign" class="form_sign <?php if(isset($that_fuking_error)){echo "form_sign_error";}?>">
         <h1>Inscrivez-Vous !</h1>
         <span id>
-                        <?php 
+                        <?php
                             if(isset($that_fuking_error)){
                                echo "<p class='white'> ". $that_fuking_error ."</p>";
                                echo "<style> .form_sign{display: flex;} #log_sign{display: none;}</style>";
@@ -32,7 +32,7 @@
                     <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
                     <label for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" required ></label>
                     <label for="email">Adresse Mail <input id="email" name="email" type="text" autocomplete="off" required ></label>
-                    <label for="pwd">Mot de passe<input id="pwd" name="pwd" type="password" autocomplete="off"   required ></label>
+                    <label for="pwd">Mot de passe (doit contenir <br>1 chiffre et 1 caractère spécial)<input id="pwd" name="pwd" type="password" autocomplete="off"   required ></label>
                     <label for="pwd_check">Confirmez votre mot de passe<input id="pwd_check" name="pwd_check" type="password" autocomplete="off"   required ></label>
                     <label for="phone">Numero de téléphone<input id="phone" name="phone"  type="tel" autocomplete="off"  required ></label>
                 </div>

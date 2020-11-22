@@ -16,11 +16,11 @@
 
 
                 <?php
-                    if(isset($userSession)){
-                        echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
-                    }else{
-                        echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
-                    }
+                    // if($userSession){
+                    //     echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
+                    // }else{
+                         echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                    // }
 
                 ?>
                 
@@ -28,7 +28,7 @@
 
             </a>
             <button class="head-items--btn">
-                <img src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+                <img id="basketIcon" src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
             </button>
         </div>
     </div>
@@ -48,51 +48,8 @@
     </div>
     <div class="listShopping">
         <h1>Panier</h1>
-        <div class="item">
-            <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
-            </div>
-            <div class="itemInfo">
-                <span>Nom du produit</span>
-                <span class="priceProduct">10.99€</span>
-            </div>
-            <div class="itemQuantity">
-                <span><input type="number"></span>
-            </div>
-            <div class="itemDelete">
-                <img src="img/close-btn.png" alt="deleteProduct">
-            </div>
-        </div>
-        <div class="item">
-            <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
-            </div>
-            <div class="itemInfo">
-                <span>Nom du produit</span>
-                <span class="priceProduct">10.99€</span>
-            </div>
-            <div class="itemQuantity">
-                <span><input type="number"></span>
-            </div>
-            <div class="itemDelete">
-                <img src="img/close-btn.png" alt="deleteProduct">
-            </div>
-        </div>
-        <div class="item">
-            <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
-            </div>
-            <div class="itemInfo">
-                <span>Nom du produit</span>
-                <span class="priceProduct">10.99€</span>
-            </div>
-            <div class="itemQuantity">
-                <span><input type="number"></span>
-            </div>
-            <div class="itemDelete">
-                <img src="img/close-btn.png" alt="deleteProduct">
-            </div>
-        </div>
+
+        <button id="buyBasket">Acheter</button>
     </div>
 </header>
 

@@ -28,11 +28,11 @@ class UserLoginController extends UserController {
 
             $em = new EntityManager("User");
             $user = $em->findOne(["email"=>$email]);
-
             if($user){
 
                 if(password_verify($pwd, $user->getPassword())) {
-                    Session::set(self::SESSION_NAME, $user);
+                    Session::set("user", $user);
+
                     Http::redirect(CUSTOMER_PROFIL_ROUTE);
                 }
                 else
@@ -57,7 +57,7 @@ class UserLoginController extends UserController {
     }
 
     public function logout() {
-        Session::clean(self::SESSION_NAME);
+        Session::clean("user");
         Http::redirect(HOME_ROUTE);
     }
 }

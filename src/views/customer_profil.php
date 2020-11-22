@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="/style/header.css" />
         <link rel="stylesheet" href="/style/home.css">
         <link rel="stylesheet" href="/style/customerProfil.css">
+        <link rel="stylesheet" href="/style/footer.css">
+
         <title>Document</title>
     </head>
     <body>
@@ -48,7 +50,7 @@
             <a href="<?=CUSTOMER_LOGOUT_ROUTE?>" class="border">Se déconnecter</button>
         </div>
         
-        
+        <?php require("inc/footer.php") ?>
 
         <script src="/js/index.js"></script>
     </body>
