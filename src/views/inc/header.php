@@ -28,7 +28,7 @@
 
             </a>
             <button class="head-items--btn">
-                <img src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+                <img id="basketIcon" src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
             </button>
         </div>
     </div>
