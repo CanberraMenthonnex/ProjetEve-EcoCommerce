@@ -48,9 +48,35 @@
     </div>
     <div class="listShopping">
         <h1>Panier</h1>
+
+        <?php foreach($cartList as $product): ?>
+        
         <div class="item">
             <div class="itemPicture">
                 <img src="<?= MAIN_PATH ?>/img/product-img.png">
+            </div>
+            <div class="itemInfo">
+                <span><?= $product["name"] ?></span>
+                <span class="priceProduct"><?= $product["price"]*$product["quantity"] ?> €</span>
+            </div>
+            <div class="itemQuantity">
+                <form action="<?= UPDATE_CART_QUANTITY_ROUTE . $product["product_id"]; ?>" method="POST">
+                    <span>
+                        <input type="number" name="quantity" value="<?= $product["quantity"] ?>" min="1" max="99">
+                        <input type="submit" name="newQuantity" value="Enregistrer les modifications">
+                    </span>
+                </form>
+            </div>
+            <div class="itemDelete">
+                <a href="<?= DELETE_CART_PRODUCT_ROUTE . $product["product_id"]; ?>"><img src="img/close-btn.png" alt="deleteProduct"></a>
+            </div>
+        </div>
+
+        <?php endforeach ?>
+
+        <!-- <div class="item">
+            <div class="itemPicture">
+                <img src="< ?= MAIN_PATH ?>/img/product-img.png">
             </div>
             <div class="itemInfo">
                 <span>Nom du produit</span>
@@ -65,7 +91,7 @@
         </div>
         <div class="item">
             <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
+                <img src="< ?= MAIN_PATH ?>/img/product-img.png">
             </div>
             <div class="itemInfo">
                 <span>Nom du produit</span>
@@ -77,22 +103,7 @@
             <div class="itemDelete">
                 <img src="img/close-btn.png" alt="deleteProduct">
             </div>
-        </div>
-        <div class="item">
-            <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
-            </div>
-            <div class="itemInfo">
-                <span>Nom du produit</span>
-                <span class="priceProduct">10.99€</span>
-            </div>
-            <div class="itemQuantity">
-                <span><input type="number"></span>
-            </div>
-            <div class="itemDelete">
-                <img src="img/close-btn.png" alt="deleteProduct">
-            </div>
-        </div>
+        </div> -->
     </div>
 </header>
 
