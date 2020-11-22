@@ -31,6 +31,12 @@ class ValidatorInt{
         return(is_int($int));
     }
 
+    public static function validateQuantityInt($int){
+        if(is_numeric($int) && $int >= 1 && $int <= 99){
+            return true;
+        }
+    }
+
     public function validateDateInt(){
         if(!(is_int($this->day) && is_int($this->month) && is_int($this->year))){
             $this->error[]= "Veuillez entrer une date";

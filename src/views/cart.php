@@ -1,21 +1,3 @@
-<?php 
-
-/*
-$query = $db->prepare(
-    "SELECT name, description, price, quantity
-     FROM cart
-     INNER JOIN product ON cart.product_id = product.id
-     WHERE user_id = :user_id"
-);
-
-$query->execute(["user_id" => $user]);
-
-$cartList = $query->fetchAll(PDO::FETCH_ASSOC);
-*/
-
-?>
-
-
 <h2>Panier</h2>
 
 <?php foreach($cartList as $product): ?>
@@ -30,7 +12,7 @@ $cartList = $query->fetchAll(PDO::FETCH_ASSOC);
 <span>Quantité :</span>
 
 <form action="<?= UPDATE_CART_QUANTITY_ROUTE . $product["product_id"]; ?>" method="POST">
-    <input type="number" value="<?= $product["quantity"] ?>" min="1" name="quantity">
+    <input type="number" value="<?= $product["quantity"] ?>" min="1" max="99" name="quantity">
     <input type="submit" name="newQuantity" value="Enregistrer les modifications">
 </form>
 

@@ -48,7 +48,7 @@ try {
 
     $router->post(ADD_CART_ROUTE . ":id", "CartController", "addCart");
 
-    $router->get(GET_CART_ROUTE, "CartController", "listingCart");
+//    $router->get(GET_CART_ROUTE, "CartController", "listingCart");
 
     $router->get(ADD_CART_ROUTE, "CartController", "productPage");
 
