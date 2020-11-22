@@ -92,7 +92,7 @@
 /* Panier Menu Burger */
 
 .listShopping{
-    background-color: grey;
+    background-color:white;
      position: absolute;
      top: 79px;
      right: 0; 
@@ -116,6 +116,7 @@
  .itemPicture img{
      max-width: 150px;
      max-height: 150px;
+     margin-top: 34px;
  }
  
  .itemInfo{
@@ -126,7 +127,8 @@
  
  .priceProduct{
      padding: 6px;
-     background-color: green;
+     background-color:#768950;
+     border-radius: 3px;
      margin-top: 30px;
      text-align: center;
      color: white;
@@ -148,12 +150,27 @@
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     margin-top: 60px;
-     margin-left: 30px;
-     margin-right: 30px;
      cursor: pointer;
  }
- 
- .itemQuantity span input {
-     width: 30px;
+
+ #buyBasket{
+     color: white;
+     background-color: #5E6E3F;
+     padding: 5px 10px;
+     border-radius: 3px;
+     display: block;
+     margin: 15px auto;
+ }
+
+ .imageBtn{
+    background: none;
+    border: transparent;
+    margin-top: 30px;
+ }
+
+ .newQuantityBtn{
+     padding: 2px 4px;
+     background-color: #768950;
+     color: white;
+     border-radius: 3px;
  }

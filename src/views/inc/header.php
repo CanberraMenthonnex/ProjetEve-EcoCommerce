@@ -28,7 +28,7 @@
 
             </a>
             <button class="head-items--btn">
-                <img src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+                <img id="basketIcon" src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
             </button>
         </div>
     </div>
@@ -48,6 +48,68 @@
     </div>
     <div class="listShopping">
         <h1>Panier</h1>
+<<<<<<< HEAD
+
+        <?php foreach($cartList as $product): ?>
+        
+        <div class="item">
+            <div class="itemPicture">
+                <img src="<?= MAIN_PATH ?>/img/product-img.png">
+            </div>
+            <div class="itemInfo">
+                <span><?= $product["name"] ?></span>
+                <span class="priceProduct"><?= $product["price"]*$product["quantity"] ?> €</span>
+            </div>
+            <div class="itemQuantity">
+                <form action="<?= UPDATE_CART_QUANTITY_ROUTE . $product["product_id"]; ?>" method="POST">
+                    <span>
+                        <span>x</span>
+                        <input type="number" name="quantity" value="<?= $product["quantity"] ?>" min="1" max="99">
+                        <input class="newQuantityBtn" type="submit" name="newQuantity" value="Valider">
+                    </span>
+                </form>
+            </div>
+            <div class="itemDelete">
+                <button class="imageBtn"><img src="img/close-btn.png" alt="deleteProduct"></button>
+            </div>
+        </div>
+
+        <?php endforeach ?>
+
+        <button id="buyBasket">Acheter</button>
+
+        <!-- <div class="item">
+            <div class="itemPicture">
+                <img src="< ?= MAIN_PATH ?>/img/product-img.png">
+            </div>
+            <div class="itemInfo">
+                <span>Nom du produit</span>
+                <span class="priceProduct">10.99€</span>
+            </div>
+            <div class="itemQuantity">
+                <span><input type="number"></span>
+            </div>
+            <div class="itemDelete">
+                <img src="img/close-btn.png" alt="deleteProduct">
+            </div>
+        </div>
+        <div class="item">
+            <div class="itemPicture">
+                <img src="< ?= MAIN_PATH ?>/img/product-img.png">
+            </div>
+            <div class="itemInfo">
+                <span>Nom du produit</span>
+                <span class="priceProduct">10.99€</span>
+            </div>
+            <div class="itemQuantity">
+                <span><input type="number"></span>
+            </div>
+            <div class="itemDelete">
+                <img src="img/close-btn.png" alt="deleteProduct">
+            </div>
+        </div> -->
+=======
+>>>>>>> 2eafa72cd6bc4b1654ac66139215780f4b71c9c1
     </div>
 </header>
 
