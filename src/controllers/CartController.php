@@ -100,8 +100,8 @@ class CartController extends Controller {
 
 
   public function updateCartQuantity(string $product_id) {
-
-   $qtt = $_POST["quantity"];
+   
+   $qtt =  $_POST["quantity"];
 
    $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
 
@@ -118,7 +118,7 @@ class CartController extends Controller {
       $resp = $em->update($result, ["product_id" => $product_id]);
 
       if($resp) {
-         Http::redirect(HOME_ROUTE);
+         echo "Good Update";
       }else {
          throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
       }

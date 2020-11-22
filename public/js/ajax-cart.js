@@ -12,11 +12,12 @@ $.ajax({
             </div>
             <div class="itemInfo">
                 <span>${item.name}</span>
-                <span class="priceProduct">${item.price}€</span>
+                <span class="priceProduct">${item.price * item.quantity}€</span>
             </div>
-            <div class="itemQuantity">
+            <form class="itemQuantity">
+                <input type="hidden" value="${item.product_id}"/>
                 <span><input type="number" value="${item.quantity}"></span>
-            </div>
+            </form>
             <div class="itemDelete">
                 <img src="img/close-btn.png" alt="deleteProduct">
             </div>
@@ -24,4 +25,21 @@ $.ajax({
     ` 
     )) 
     $('.listShopping').html(content)
+
+    $(".itemQuantity input[type=number]").change((e)=> {
+
+        const quantity = e.target.value
+        const element = $(e.target)
+        const product_id = element.parent().parent().children("input[type=hidden]").val()
+
+        $.ajax({
+            url : MAIN_PATH + "/cart/update/" + product_id,
+            method : "POST",
+            data : {quantity}
+        })
+        .done((res)=> {
+            // element.parent().parent().parent().children(".itemInfo .priceProduct").text(quantity * )
+        })
+
+    })
 })
