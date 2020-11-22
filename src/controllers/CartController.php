@@ -5,6 +5,7 @@ use Core\Controller\Controller;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
+use Core\ValidatorInt;
 use Model;
 use Model\Entity\Cart;
 
@@ -15,7 +16,7 @@ class CartController extends Controller {
       $this->render('product');  
    }
 
-   //Empecher les quantités négatives !!!
+   
    public function addCart(string $product_id) {
 
       Session::set("user", 1);
@@ -24,6 +25,10 @@ class CartController extends Controller {
 
 
       if($this->checkPostKeys($_POST, ["cart", "quantity"])) {
+
+         $qtt = $_POST["quantity"];
+         $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
+         if(!$isQuantityGood) throw new \Exception(ERROR_ADDING_CART);
          
          $em = new EntityManager("Cart");
 
@@ -31,8 +36,6 @@ class CartController extends Controller {
 
 
          if(!$result) {
-            
-            if(!is_numeric($_POST["quantity"])) Http::redirect(HOME_ROUTE);
 
             $cart = new Cart();
 
@@ -44,7 +47,7 @@ class CartController extends Controller {
             $resp = $em->save($cart);
                
             if($resp) {
-               Http::redirect(GET_CART_ROUTE);
+               Http::redirect(HOME_ROUTE);
             }
             else {
                throw new \Exception(ERROR_ADDING_CART);
@@ -91,12 +94,18 @@ class CartController extends Controller {
 
    $resp = $em->delete(["product_id"=>$product_id]);
 
-   if($resp) Http::redirect(GET_CART_ROUTE);
+   if($resp) Http::redirect(HOME_ROUTE);
      else throw new \Exception(ERROR_DELETE_BDD);
   }
 
 
   public function updateCartQuantity(string $product_id) {
+
+   $qtt = $_POST["quantity"];
+
+   $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
+
+   if(!$isQuantityGood) throw new \Exception(ERROR_UPDATING_CART_QUANTITY);   
      
    $em = new EntityManager("Cart");
 
@@ -109,7 +118,7 @@ class CartController extends Controller {
       $resp = $em->update($result, ["product_id" => $product_id]);
 
       if($resp) {
-         Http::redirect(GET_CART_ROUTE);
+         Http::redirect(HOME_ROUTE);
       }else {
          throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
       }

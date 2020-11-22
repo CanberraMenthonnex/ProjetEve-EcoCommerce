@@ -48,21 +48,6 @@
     </div>
     <div class="listShopping">
         <h1>Panier</h1>
-        <!-- <div class="item">
-            <div class="itemPicture">
-                <img src="<?= MAIN_PATH ?>/img/product-img.png">
-            </div>
-            <div class="itemInfo">
-                <span>Nom du produit</span>
-                <span class="priceProduct">10.99€</span>
-            </div>
-            <div class="itemQuantity">
-                <span><input type="number"></span>
-            </div>
-            <div class="itemDelete">
-                <img src="img/close-btn.png" alt="deleteProduct">
-            </div>
-        </div> -->
     </div>
 </header>
 
