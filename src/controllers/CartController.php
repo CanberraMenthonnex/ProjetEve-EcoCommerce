@@ -101,31 +101,31 @@ class CartController extends Controller {
 
   public function updateCartQuantity(string $product_id) {
    
-   $qtt =  $_POST["quantity"];
+      $qtt =  $_POST["quantity"];
 
-   $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
+      $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
 
-   if(!$isQuantityGood) throw new \Exception(ERROR_UPDATING_CART_QUANTITY);   
-     
-   $em = new EntityManager("Cart");
-
-   $result = $em->findOne(["product_id"=>$product_id], ["*"]);
-
-   if($result) {
-      $result
-      ->setQuantity($_POST["quantity"]);
+      if(!$isQuantityGood) throw new \Exception(ERROR_UPDATING_CART_QUANTITY);   
       
-      $resp = $em->update($result, ["product_id" => $product_id]);
+      $em = new EntityManager("Cart");
 
-      if($resp) {
-         echo "Good Update";
-      }else {
-         throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
+      $result = $em->findOne(["product_id"=>$product_id], ["*"]);
+
+      if($result) {
+         $result
+         ->setQuantity($_POST["quantity"]);
+         
+         $resp = $em->update($result, ["product_id" => $product_id]);
+
+         if($resp) {
+            Http::redirect(GET_CART_ROUTE);
+         }else {
+            throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
+         }
       }
-   }
-   else {
-      throw new \Exception(ERROR_UPDATE_BDD);
-   }
+      else {
+         throw new \Exception(ERROR_UPDATE_BDD);
+      }
   }
   
 }
