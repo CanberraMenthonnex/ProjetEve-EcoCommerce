@@ -168,7 +168,6 @@ class SignCustomerController extends Controller{
         } 
         else
         {   
-            //A MODIFIER 
 
 
             $that_fuking_error = $sign_error[0][0]; 
