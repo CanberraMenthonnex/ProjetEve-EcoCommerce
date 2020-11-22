@@ -169,9 +169,10 @@ class SignCustomerController extends Controller{
         else
         {   
             //A MODIFIER 
-            var_dump($sign_error);
-            $that_fuking_error = $sign_error[0];
-            $this->render("sign-customer-page", compact($that_fuking_error)); 
+
+
+            $that_fuking_error = $sign_error[0][0]; 
+            $this->render("sign-customer-page", compact("that_fuking_error"));
         }
             
     }

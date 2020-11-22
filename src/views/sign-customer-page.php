@@ -16,7 +16,7 @@
     <article id="sign" class="form_sign <?php if(isset($that_fuking_error)){echo "form_sign_error";}?>">
         <h1>Inscrivez-Vous !</h1>
         <span id>
-                        <?php 
+                        <?php
                             if(isset($that_fuking_error)){
                                echo "<p class='white'> ". $that_fuking_error ."</p>";
                                echo "<style> .form_sign{display: flex;} #log_sign{display: none;}</style>";
