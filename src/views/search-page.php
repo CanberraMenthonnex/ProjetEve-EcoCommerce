@@ -16,7 +16,7 @@
         <ul class="product-container">
             <?php foreach($products as $product) : ?>
 
-                <a href="#">
+                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>">
                     <article class="product-card">
                         <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
                         <div class="product-card--content">

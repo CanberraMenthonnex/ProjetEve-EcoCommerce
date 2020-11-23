@@ -1,6 +1,17 @@
 
 /* product section */
-
+.cart-form input[type='number']{
+    width: 30px;
+    font-size: 1.2em;;
+    background: none;
+    margin: 0 30px;
+    border: 2px solid black;
+}
+.cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 .produit{
     margin: auto;
     width: 90%;

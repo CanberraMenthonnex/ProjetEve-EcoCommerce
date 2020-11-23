@@ -15,33 +15,25 @@ class CartController extends Controller {
       $this->protectFor("user", HOME_ROUTE);
    }
 
-   public function productPage() {
 
-      $this->render('product');  
-   }
-
-   
    public function addCart(string $product_id) {
-
+      
       $user = Session::get('user');
       
-      if($this->checkPostKeys($_POST, ["cart", "quantity"])) {
+      if($this->checkPostKeys($_POST, ["quantity"])) {
 
          $qtt = $_POST["quantity"];
-         $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
-         if(!$isQuantityGood) throw new \Exception(ERROR_ADDING_CART);
          
          $em = new EntityManager("Cart");
-
+         
          $result = $em->findOne(["product_id"=>$product_id], ["product_id"]);
-
-
+      
          if(!$result) {
 
             $cart = new Cart();
 
             $cart
-               ->setQuantity($_POST["quantity"])
+               ->setQuantity($qtt)
                ->setUser_id($user->getId())
                ->setProduct_id($product_id);
             

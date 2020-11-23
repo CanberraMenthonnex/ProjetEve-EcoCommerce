@@ -15,13 +15,19 @@
     
     <section class="produit">
     
-        <p class="product_price"><u>Catégorie Gourde</u> : Gourde x8çk</p><br>
+        <p class="product_price"><u>Catégorie Gourde</u> <?= $product->getName() ?></p><br>
         <article>
             <img id="product_image" src="<?= MAIN_PATH ?>/img/gourde.jpg" alt="product-image">
             <div class="description_product">
-                <img id="basket_image" src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="votre panier">
-                <p class="price">10,99€</p>
-                <p class="description_text white 17px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate fugiat voluptates quas, a, beatae exercitationem ut fugit autem facere neque excepturi, omnis numquam consequuntur? Repudiandae placeat sint fugiat laboriosam nam? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat officiis vitae totam ipsa laudantium iure maiores corrupti praesentium suscipit voluptate, aliquam repellendus accusamus temporibus exercitationem officia excepturi fuga natus consequuntur.</p>
+                <form action="<?= MAIN_PATH . ADD_CART_ROUTE ."/" . $product->getId() ?>" method="POST" class="cart-form">
+                    <button href="<?= MAIN_PATH . ADD_CART_ROUTE . "/" . $product->getId(); ?>" class="cart-button">
+                        <img id="basket_image" src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="votre panier"> 
+                    </button> 
+                    <input type="number" min="1" name="quantity" value="1">
+                </form>
+                
+                <p class="price"><?= $product->getPrice() ?></p>
+                <p class="description_text white 17px"><?= $product->getDescription() ?></p>
             </div>
         </article>
 
@@ -34,41 +40,20 @@
         </div>
 
         <div class="sugestion">
-            <article class="suggestion_article">
-                <img class="suggestion_image" src="<?= MAIN_PATH ?>/img/product-img.png" alt="product-image-prev">
-                <div>
-                    <p class="price_suggestion white">10,99€</p>
-                    <p class="description_sugestion white">Nom du produit</p>
-                </div>
-            </article>
-            <article class="suggestion_article">
-                <img class="suggestion_image" src="<?= MAIN_PATH ?>/img/product-img.png" alt="product-image-prev">
-                <div>
-                    <p class="price_suggestion white">10,99€</p>
-                    <p class="description_sugestion white">Nom du produit</p>
-                </div>
-            </article>
-            <article class="suggestion_article">
-                <img class="suggestion_image" src="<?= MAIN_PATH ?>/img/product-img.png" alt="product-image-prev">
-                <div>
-                    <p class="price_suggestion white">10,99€</p>
-                    <p class="description_sugestion white">Nom du produit</p>
-                </div>
-            </article>
-            <article class="suggestion_article">
-                <img class="suggestion_image" src="<?= MAIN_PATH ?>/img/product-img.png" alt="product-image-prev">
-                <div>
-                    <p class="price_suggestion white">10,99€</p>
-                    <p class="description_sugestion white">Nom du produit</p>
-                </div>
-            </article>
-            <article class="suggestion_article">
-                <img class="suggestion_image" src="<?= MAIN_PATH ?>/img/product-img.png" alt="product-image-prev">
-                <div>
-                    <p class="price_suggestion white">10,99€</p>
-                    <p class="description_sugestion white">Nom du produit</p>
-                </div>
-            </article>
+        <?php foreach($relationProducts as $product) : ?>
+
+            <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="w-15">
+                <article class="product-card">
+                    <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                    <div class="product-card--content">
+                        <span class="product-card--price"><?= $product->getPrice(); ?>€</span>
+                        <h3 class="product-card--name"><?= $product->getName(); ?></h3>
+                    </div>
+                </article>
+            </a>
+
+        <?php endforeach; ?>
+          
         </div>
 
         <div class="controler_slider">

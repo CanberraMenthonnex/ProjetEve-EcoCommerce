@@ -1,7 +1,7 @@
 
 /core/vendor/
 .idea/
-/configuration/dbconfiguration.php
+./configuration/dbconfiguration.php
 .DS_Store
 .vs
 

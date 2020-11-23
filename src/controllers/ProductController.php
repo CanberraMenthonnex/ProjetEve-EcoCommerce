@@ -25,8 +25,16 @@ class ProductController extends Controller {
         $this->render("search-page", compact("products", "keywords"));
     }
 
-    public function productPage(){
-        require "../src/views/product-page.php";
+    public function productDescription (string $productId) {
+        $em = new EntityManager("Product");
+        $product = $em->findOne(["id"=>$productId]);
+        $relationProducts = $em->find([], ["*"], [0,5]);
+        
+        if(!$product) {
+            Http::redirect(HOME_ROUTE);
+        }
+
+        $this->render("product-page", compact("product", "relationProducts"));
     }
 
 }
