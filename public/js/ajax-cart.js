@@ -14,7 +14,6 @@ function displayCart(res) {
                 <div class="itemQuantity">
                     <form action="${MAIN_PATH}/cart/update" method="POST" class="update-form" data-product-id="${item.product_id}">
                         <span>
-                            <span>x</span>
                             <input type="number" name="quantity" value="${item.quantity}" min="1" max="99" class="product_quantity">
                             <input class="newQuantityBtn" type="submit" name="newQuantity" value="Valider">
                         </span>
