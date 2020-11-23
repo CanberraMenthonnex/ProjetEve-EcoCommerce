@@ -3,4 +3,5 @@
 .idea/
 /configuration/dbconfiguration.php
 .DS_Store
+.vs
 
