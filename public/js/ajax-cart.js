@@ -12,10 +12,9 @@ function displayCart(res) {
                     <span class="priceProduct">${item.price * item.quantity} €</span>
                 </div>
                 <div class="itemQuantity">
-                    <form action="${MAIN_PATH}/cart/update" method="POST" class="update-form">
+                    <form action="${MAIN_PATH}/cart/update" method="POST" class="update-form" data-product-id="${item.product_id}">
                         <span>
                             <span>x</span>
-                            <input type="hidden" value="${item.product_id}" />
                             <input type="number" name="quantity" value="${item.quantity}" min="1" max="99" class="product_quantity">
                             <input class="newQuantityBtn" type="submit" name="newQuantity" value="Valider">
                         </span>
@@ -32,9 +31,9 @@ function displayCart(res) {
 
       $(".delete-product").click((e)=>{
           e.preventDefault()
-          
+
           const delQuestion = confirm("Êtes-vous sûr de vouloir supprimer cet article de votre panier")
-          
+
           if(delQuestion) {
             $.ajax({
                 url : MAIN_PATH + "/cart/remove/" + $(e.currentTarget).data("productId"),
@@ -53,12 +52,12 @@ function displayCart(res) {
 
         e.preventDefault()
 
-        const element = $(e.target)
+        const element = $(e.currentTarget)
 
         const quantity = element.children().children("input[type=number]").val()
         
-        const product_id = element.children().children("input[type=hidden]").val()
-        
+        const product_id = element.data("productId")
+        console.log(product_id);
 
         $.ajax({
             url : MAIN_PATH + "/cart/update/" + product_id,
@@ -78,7 +77,7 @@ $.ajax({
     dataType :"json"
 })
 .done((res)=> {
-    
+    console.log(res);
     displayCart(res)
 
 })
