@@ -94,7 +94,7 @@ class CartController extends Controller {
 
    $resp = $em->delete(["product_id"=>$product_id]);
 
-   if($resp) Http::redirect(HOME_ROUTE);
+   if($resp) Http::redirect(GET_CART_ROUTE);
      else throw new \Exception(ERROR_DELETE_BDD);
   }
 

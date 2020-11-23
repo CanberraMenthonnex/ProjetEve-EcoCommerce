@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="/style/common.css"/>
-        <link rel="stylesheet" href="/style/header.css" />
-        <link rel="stylesheet" href="/style/home.css">
-        <link rel="stylesheet" href="/style/customerProfil.css">
-        <link rel="stylesheet" href="/style/footer.css">
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/common.css"/>
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/header.css" />
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/home.css">
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/customerProfil.css">
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/footer.css">
 
         <title>Document</title>
     </head>
@@ -19,7 +19,7 @@
         
         <section id="sommaire">
             <div id="avatar">
-                <img src="/img/Avatar.png" alt="">
+                <img src="<?= MAIN_PATH ?>/img/Avatar.png" alt="">
             </div>
             <div id="eltProfil">
                 <a href="" class="white">Profil</a>
@@ -47,11 +47,11 @@
             </div>
         </section>
         <div id="sendBtn">
-            <a href="<?=CUSTOMER_LOGOUT_ROUTE?>" class="border">Se déconnecter</button>
+            <a href="<?=CUSTOMER_LOGOUT_ROUTE?>" class="border">Se déconnecter</a>
         </div>
         
         <?php require("inc/footer.php") ?>
 
-        <script src="/js/index.js"></script>
+        <script src="<?= MAIN_PATH ?>/js/index.js"></script>
     </body>
 </html>

@@ -9,27 +9,30 @@
             <form class="search-bar" method="GET" action="<?= MAIN_PATH . SEARCH_ROUTE ?>">
                 <input type="text" class="search-bar--input" name="search" size="30" placeholder="Rechercher un produit...">
                 <button class="search-bar--submit">
-                    <img src="/img/search.svg" title="search" alt="search" class="search-bar--icon"/>
+                    <img src="<?= MAIN_PATH ?>/img/search.svg" title="search" alt="search" class="search-bar--icon"/>
                 </button>
             </form>
             <a href="#" class="head-items--btn">
 
-
+                
                 <?php
-                    // if($userSession){
-                    //     echo "<a href='/customer/profil' id='customerName' class='white'>" . ($userSession->getFirstname()) . "</a>";
-                    // }else{
-                         echo "<a href='/customer/sign'><img src='/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
-                    // }
+                    if($userSession){
+                        echo "<a href='".MAIN_PATH."/customer/profil' id='customerName' class='white'>" . $userSession->getFirstname() . "</a>";
+                    }else{
+                         echo "<a href=' ". MAIN_PATH ."/customer/sign'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                    }
 
                 ?>
-                
-            
 
             </a>
             <button class="head-items--btn">
-                <img id="basketIcon" src="/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+                <img id="basketIcon" src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
             </button>
+        </div>
+        <div class="listShopping">
+            <h1>Panier</h1>
+            <div class="container-products"></div>
+            <button id="buyBasket">Acheter</button>
         </div>
     </div>
     <div class="top-bar--bottom">
@@ -44,12 +47,7 @@
             </nav>
         </div>
         
-        <img src="/img/logo.svg" alt="EVE" title="Projet EVE" class="top-bar--logo">
-    </div>
-    <div class="listShopping">
-        <h1>Panier</h1>
-
-        <button id="buyBasket">Acheter</button>
+        <img src="<?= MAIN_PATH ?>/img/logo.svg" alt="EVE" title="Projet EVE" class="top-bar--logo">
     </div>
 </header>
 
