@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Core\Http;
 use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Exception;
@@ -22,6 +23,10 @@ class ProductController extends Controller {
         $products = $em->findByRegex(["name" =>$search]);
        
         $this->render("search-page", compact("products", "keywords"));
+    }
+
+    public function productPage(){
+        require "../src/views/product-page.php";
     }
 
 }

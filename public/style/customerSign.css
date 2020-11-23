@@ -131,13 +131,6 @@ form>label{
     display: none;
 }
 
-label ~ .form_message_required{
-    font-size: 0.75rem;
-}
-
-/***** Form Login *****/
-
-
 
 article#log{
     display: none;
