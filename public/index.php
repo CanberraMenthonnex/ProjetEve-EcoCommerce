@@ -60,7 +60,6 @@ try {
 
     $router->post(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
 
-    
 
 
     $router->parse();

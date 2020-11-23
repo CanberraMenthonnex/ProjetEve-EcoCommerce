@@ -1,0 +1,166 @@
+
+/* product section */
+.cart-form input[type='number']{
+    width: 30px;
+    font-size: 1.2em;;
+    background: none;
+    margin: 0 30px;
+}
+.cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.produit{
+    margin: auto;
+    width: 90%;
+    margin-top: 100px;
+    height: 70vh;
+}
+
+.produit > article{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#product_image{
+    width: 20rem;
+    border: solid;
+    border-width: 2.5px;
+    border-color:  #565656;
+    border-radius: 2.5rem;
+}
+
+.product_price{
+    margin-left: 7rem;
+}
+
+#basket_image{
+    width: 3rem;
+}
+
+.description_product{
+    width: 50%;
+}
+
+.description_text{
+    background-color: #565656;
+    padding: 2rem;
+    border-radius: 3.2rem;
+}
+
+.price{
+    margin: auto;
+    padding: 10px;
+    background-color: snow;
+    width: 5rem;
+    text-align: center;
+    position: relative;
+    top: 1.2rem;
+}
+
+
+/* suggestion section */
+
+.title_lined{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+}
+
+.sugestion{
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+h2{
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+
+hr{
+    border: none;
+    background-color: white;
+    height: 2px;
+    width: 17rem;
+}
+
+
+.suggestion_article{
+    background-color: #516035;
+    width: 12rem;
+    height: 200px;
+}
+
+
+.suggestion_image{
+    width: 12rem;
+}
+
+.price_suggestion{
+    position: relative;
+    bottom: 1rem;
+    left: 7rem;
+    width: 4rem;
+    background-color:#768950;
+
+    text-align: center;
+}
+
+.controler_slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow_left, .arrow_right{
+    font-size: 4rem;
+    color: lightgray;
+    opacity: 80%;
+}
+
+
+/* avis section */
+
+
+.avis{
+    margin: 0 auto;
+    width: 70vw;
+    margin-bottom: 50px;
+    
+}
+
+.avis div{
+    text-align: center;
+}
+
+.avis p{
+    background-color: white;
+    font-size: 1rem;
+    padding: 2%;
+}
+
+.icons_tree{
+    font-size: 1.5rem;
+}
+
+.icon-user{
+    width: 2rem;
+}
+
+.article_avis{
+    margin-top: 30px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+

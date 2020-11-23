@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-use Core\Controller\Controller;
 use Core\Http;
+use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Exception;
 
@@ -28,12 +28,13 @@ class ProductController extends Controller {
     public function productDescription (string $productId) {
         $em = new EntityManager("Product");
         $product = $em->findOne(["id"=>$productId]);
+        $relationProducts = $em->find([], ["*"], [0,5]);
         
         if(!$product) {
             Http::redirect(HOME_ROUTE);
         }
 
-        $this->render("", compact($product));
+        $this->render("product-page", compact("product", "relationProducts"));
     }
 
 }
