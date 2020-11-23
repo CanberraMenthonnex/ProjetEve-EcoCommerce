@@ -40,9 +40,7 @@ function displayCart(res) {
                 dataType :"json"
             })
             .done((res)=> {
-                console.log(res);
                 displayCart(res)
-            
             })
 
           }

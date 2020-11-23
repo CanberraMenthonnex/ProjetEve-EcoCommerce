@@ -97,9 +97,10 @@
      position: absolute;
      top: 100%;
      right: 0; 
+     padding: 0 10px;
  }
  
- .listShopping h1{
+ .listShopping h3{
      text-align: center;
  }
  

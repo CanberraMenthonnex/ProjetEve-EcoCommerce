@@ -49,51 +49,17 @@
                         <h2 class="f-white separator-header--title"> Les meilleures ventes </h2>
                     </header>
                     <div class="product-container">
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
+                        <?php foreach($products as $product) : ?>
+                            <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="product-link">
+                                <article class="product-card">
+                                    <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                                    <div class="product-card--content">
+                                        <span class="product-card--price"><?= $product->getPrice() ?>€</span>
+                                        <h3 class="product-card--name"><?= $product->getName() ?></h3>
+                                    </div>
+                                </article>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </section>
                 <section class="container-articles">
@@ -101,51 +67,17 @@
                         <h2 class="separator-header--title f-white"> Les nouveaux produits </h2>
                     </header>
                     <div class="product-container">
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img"> 
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
-                        <a href="#" class="product-link">
-                            <article class="product-card">
-                                <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                                <div class="product-card--content">
-                                    <span class="product-card--price">10,99€</span>
-                                    <h3 class="product-card--name">Nom du produit</h3>
-                                </div>
-                            </article>
-                        </a>
+                        <?php foreach($products as $product) : ?>
+                            <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="product-link">
+                                <article class="product-card">
+                                    <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                                    <div class="product-card--content">
+                                        <span class="product-card--price"><?= $product->getPrice() ?>€</span>
+                                        <h3 class="product-card--name"><?= $product->getName() ?></h3>
+                                    </div>
+                                </article>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </section>  
             </div>

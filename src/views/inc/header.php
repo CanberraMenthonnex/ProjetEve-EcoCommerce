@@ -31,8 +31,13 @@
             </button>
         </div>
         <div class="listShopping">
-            <h1>Panier</h1>
+            <h3>Panier</h3>
             <div class="container-products"></div>
+            <?php
+                if(!$userSession) {
+                    echo "<p>Il faut être connecté pour pouvoir ajouter des produits au panier</p>";
+                }
+            ?>
             <button id="buyBasket">Acheter</button>
         </div>
     </div>

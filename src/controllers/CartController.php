@@ -15,12 +15,7 @@ class CartController extends Controller {
       $this->protectFor("user", HOME_ROUTE);
    }
 
-   public function productPage() {
 
-      $this->render('product');  
-   }
-
-   
    public function addCart(string $product_id) {
 
       $user = Session::get('user');
