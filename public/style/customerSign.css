@@ -23,9 +23,8 @@ input{
     padding-left: 0.25rem;
 }
 
-input, select, button{
+#log input, #log select, #log button{
     border-radius: 5px;
-    height: 20px;
     border: none;
 }
 
@@ -141,7 +140,6 @@ article#log{
     flex-direction: column;
     align-items: center;
     background-color: #8EA75D;
-    height: 450px;
     border-radius: 25px 25px 55px 55px;
     /* margin: 150px 35% 0 35%; */
     width: 33%;
@@ -159,7 +157,6 @@ article#log{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 8vh;
     margin: 0px 10% 0 10% ;
 } 
 #log h2 {
@@ -179,7 +176,7 @@ article#log{
     font-size: 20px;
     margin-top: 30px;
     border-radius: 13px;
-    padding: 17px;
+    padding: 8px;
 }
 .form2>button{
     cursor: pointer;

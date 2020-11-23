@@ -3,6 +3,7 @@
     background-color: var(--dark-green);
     justify-content: space-between;
     padding: 25px 40px;
+    position: relative;
 }
 .top-bar--link {
     color: var(--usual-color);
@@ -94,7 +95,7 @@
 .listShopping{
     background-color:white;
      position: absolute;
-     top: 79px;
+     top: 100%;
      right: 0; 
  }
  
