@@ -15,7 +15,7 @@
     
     <section class="produit">
     
-        <p class="product_price"><u>Catégorie Gourde</u> : Gourde x8çk</p><br>
+        <p class="product_price"><u>Catégorie Gourde</u> <?= $product->getName() ?></p><br>
         <article>
             <img id="product_image" src="<?= MAIN_PATH ?>/img/gourde.jpg" alt="product-image">
             <div class="description_product">
