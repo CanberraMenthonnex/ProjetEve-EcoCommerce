@@ -17,7 +17,7 @@
                 
                 <?php
               
-                    if(get_class($userSession) === "Model\\Entity\\User"){
+                    if(gettype($userSession) === "object"){
                         echo "<a href='".MAIN_PATH."/customer/profil' id='customerName' class='white'>" . $userSession->getFirstname() . "</a>";
                     }else{
                          echo "<a href=' ". MAIN_PATH ."/customer/sign'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
