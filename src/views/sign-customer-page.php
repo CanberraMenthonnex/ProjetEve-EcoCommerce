@@ -28,40 +28,6 @@
                 <div class="form_content">
                     <div class="form1">
 
-<<<<<<< HEAD
-                    
-                    
-                    <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
-                    <label for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" required ></label>
-                    <label for="email">Adresse Mail <input id="email" name="email" type="text" autocomplete="off" required ></label>
-                    <label for="pwd">Mot de passe (doit contenir <br>1 chiffre et 1 caractère spécial)<input id="pwd" name="pwd" type="password" autocomplete="off"   required ></label>
-                    <label for="pwd_check">Confirmez votre mot de passe<input id="pwd_check" name="pwd_check" type="password" autocomplete="off"   required ></label>
-                    <label for="phone">Numero de téléphone<input id="phone" name="phone"  type="tel" autocomplete="off"  required ></label>
-                </div>
-                <div class="form1">
-                    <label for="road_number">Numéro de rue<input type="text"  name="road_number" autocomplete="off"  required></label>
-                    <label for="road">Rue<input type="text"  name="road" autocomplete="off"  required></label>
-                    <label for="city">Ville<input type="text"  name="city" autocomplete="off"  required></label>
-                    <label for="zip_code">Code Postale<input type="text"  name="zip_code" autocomplete="off"  required></label>
-                    <label for="country">Pays<input type="text"  name="country" autocomplete="off"  required></label>
-                    <label class="input_date_naissance">Date de naissance:<br>
-                        <label for="Jour">Jour<input type="number"  min="1" max="31" placeholder="" name="day" autocomplete="off"  required></label>
-                        <label for="month">Mois
-                            <select name="month" id="month-select" size="0" autocomplete="off"  required>
-                                <option value="01">Janvier</option>
-                                <option value="02">Février</option>
-                                <option value="03">Mars</option>
-                                <option value="04">Avril</option>
-                                <option value="05">Mai</option>
-                                <option value="06">Juin</option>
-                                <option value="07">Juillet</option>
-                                <option value="08">Août</option>
-                                <option value="09">Septembre</option>
-                                <option value="10">Octobre</option>
-                                <option value="11">Novembre</option>
-                                <option value="12">Decembre</option>
-                            </select>
-=======
                         
 
                         <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
@@ -96,7 +62,6 @@
                                 </select>
                             </label>
                             <label for="Année">Année<input type="number"  placeholder="2020" max="2020" min="1900" name="year" autocomplete="off"  required></label>
->>>>>>> d11796d959adfa15d98424ac6e14456504316f9c
                         </label>
                     </div>
                     
