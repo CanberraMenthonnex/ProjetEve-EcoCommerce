@@ -1,2 +1,2 @@
 <?php
-define("MAIN_PATH", "http://" . $_SERVER["SERVER_NAME"] . "ProjetEve-EcoCommerce\public" );
+define("MAIN_PATH", "http://" . $_SERVER["SERVER_NAME"]  );
