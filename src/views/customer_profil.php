@@ -47,7 +47,7 @@
             </div>
         </section>
         <div id="sendBtn">
-            <a href="<?= MAIN_PATH . CUSTOMER_LOGOUT_ROUTE?>" class="border">Se déconnecter</a>
+            <a href="<?= MAIN_PATH . CUSTOMER_LOGOUT_ROUTE?>">Se déconnecter</a>
         </div>
         
         <?php require("inc/footer.php") ?>

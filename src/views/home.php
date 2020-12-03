@@ -14,7 +14,7 @@
         <main>
             <div class="container-tree" >
                 <img src="<?= MAIN_PATH ?>/img/three-trees.svg" alt="Trees" title="Saved trees" class="container-tree--trees">
-                <strong class="f-white" class="container-tree--comment">300 000 arbres</strong>
+                <strong class="f-white" class="container-tree--comment">300 000 arbres sauvés</strong>
             </div>
             <section class="banner">
                 <img src="<?= MAIN_PATH ?>/img/forest.jpg" alt="Forêt" title="Forêt" class="banner--picture">
