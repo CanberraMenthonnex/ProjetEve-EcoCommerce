@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/common.css">
     <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/product-page.css">
@@ -65,78 +65,26 @@
     <section class="avis">
     <div class="title_lined">
             <hr>
-            <h2 class="white">Avis</h2>
+            <h2 class="white">Avis (<?= $total->total ?>) - <?= round($total->avgrate, 1) ?> &#x1f384;</h2>
             <hr>
         </div>
 
-        <article class="article_avis">
-            <img class="icon-user" src="<?= MAIN_PATH ?>/img/user.svg" alt="icon-user">
+        <?php foreach($reviewList as $review) : ?>
 
-            <div class="icons_tree">
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                </div>
-                <p class="gray">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Ratione excepturi, cupiditate enim voluptas dolore illum. 
-                    Dicta nulla impedit sint doloremque incidunt nisi molestias 
-                    voluptatibus officiis, nemo dolore rem, repudiandae tempore!
-                </p>
-            </article>
             <article class="article_avis">
-            <img class="icon-user" src="<?= MAIN_PATH ?>/img/user.svg" alt="icon-user">
-
-            <div class="icons_tree">
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
+                <h4><?= $review->firstname ?> <?= $review->lastname ?></h4>
+                <div class="icons_tree">
+                    <?php for ($i = 0; $i < $review->rating; $i++) { ?>
+                        <span>&#x1f384;</span>
+                    <?php } ?>         
                 </div>
-                <p class="gray">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Ratione excepturi, cupiditate enim voluptas dolore illum. 
-                    Dicta nulla impedit sint doloremque incidunt nisi molestias 
-                    voluptatibus officiis, nemo dolore rem, repudiandae tempore!
-                </p>
+                    <p class="gray">
+                        <?= $review->comment ?>
+                    </p>
             </article>
-            <article class="article_avis">
-            <img class="icon-user" src="<?= MAIN_PATH ?>/img/user.svg" alt="icon-user">
 
-            <div class="icons_tree">
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                </div>
-                <p class="gray">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Ratione excepturi, cupiditate enim voluptas dolore illum. 
-                    Dicta nulla impedit sint doloremque incidunt nisi molestias 
-                    voluptatibus officiis, nemo dolore rem, repudiandae tempore!
-                </p>
-            </article>
-            <article class="article_avis">
-            <img class="icon-user" src="<?= MAIN_PATH ?>/img/user.svg" alt="icon-user">
-
-            <div class="icons_tree">
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                    <span>&#x1f384;</span>
-                </div>
-                <p class="gray">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Ratione excepturi, cupiditate enim voluptas dolore illum. 
-                    Dicta nulla impedit sint doloremque incidunt nisi molestias 
-                    voluptatibus officiis, nemo dolore rem, repudiandae tempore!
-                </p>
-            </article>
+        <?php endforeach; ?>
+            
     </section>
     
     <?php require("inc/footer.php"); ?>

@@ -34,7 +34,26 @@ class ProductController extends Controller {
             Http::redirect(HOME_ROUTE);
         }
 
-        $this->render("product-page", compact("product", "relationProducts"));
+        $db = EntityManager::getDatabase();
+
+        $review = $db->prepare(
+            "SELECT comment, rating, lastname, firstname
+             FROM product_review
+             INNER JOIN user ON product_review.user_id = user.id
+             WHERE product_id = :product_id
+             ORDER BY date DESC"
+        );
+
+        $review->execute(["product_id"=>$productId]);
+
+        $reviewList = $review->fetchAll(\PDO::FETCH_OBJ);
+
+
+        $totalQuery = $db->prepare("SELECT COUNT(id) AS total, AVG(rating) AS avgrate FROM product_review WHERE product_id = :product_id");
+        $totalQuery->execute(["product_id"=>$productId]);
+        $total = $totalQuery->fetch();
+
+        $this->render("product-page", compact("product", "relationProducts", "reviewList", "total"));
     }
 
 }
