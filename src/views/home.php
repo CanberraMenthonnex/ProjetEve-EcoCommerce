@@ -3,10 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/common.css"/>
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/header.css" />
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/footer.css">
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/home.css">
+        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/css/index.css">
         <title>Document</title>
     </head>
     <body>
@@ -20,7 +17,7 @@
                 <img src="<?= MAIN_PATH ?>/img/forest.jpg" alt="Forêt" title="Forêt" class="banner--picture">
                 <article>
                     <h2 class="f-white banner--title"> Qui sommes nous ?</h2>
-                    <p class="f-white">
+                    <p class="f-white paragraph">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequuntur et a numquam quo commodi reprehenderit ab animi! Necessitatibus, ea laborum. Porro aliquam reprehenderit amet ullam suscipit modi quia quasi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore ratione quisquam modi vitae libero corrupti mollitia, aut reprehenderit quia quod. Sequi rem qui voluptate vero, nemo blanditiis fugit eius placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium non assumenda vitae quaerat atque! Saepe perspiciatis voluptatem, placeat amet, necessitatibus architecto eum iure aut cum harum ipsa quam, enim optio?
                         <br><br>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia mollitia odit voluptatibus distinctio recusandae totam, neque repellendus doloremque, sapiente asperiores repudiandae eligendi. Rem nulla aut, tenetur inventore nihil hic expedita?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia cupiditate architecto, praesentium eligendi dicta cumque mollitia quasi porro ducimus dignissimos dolorem, cum rerum, adipisci fuga molestias quibusdam velit illum odit.

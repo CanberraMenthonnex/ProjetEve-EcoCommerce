@@ -31,7 +31,7 @@ function browser ()  {
             open:true,
             baseDir : "./",
             notify:false,
-            middleware : (req, res, next) => {
+            middleware : (req, res) => {
                 proxy.web(req, res, {target : "http://localhost:80/ProjetEve-EcoCommerce/public/"})
             }
         }
