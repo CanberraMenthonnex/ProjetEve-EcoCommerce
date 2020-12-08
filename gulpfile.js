@@ -1,35 +1,42 @@
 
-const { src, dest, watch, parallel } = require("gulp")
-
+const { src, dest, watch, parallel, } = require("gulp")
 const browserSync = require('browser-sync').create()
-
 const gulpSass = require("gulp-sass")
-
 const cleanCss = require("gulp-clean-css")
+const httpProxy = require("http-proxy")
 
 //SCSS PREPROCESSING
 function sass () {
-   return src("./style/scss/*.scss")
+   return src("./public/style/scss/*.scss")
    .pipe(gulpSass())
-   .pipe(dest("./style/css/"))
+   .pipe(dest("./public/style/css/"))
    .pipe(cleanCss({debug : true, compatibility : 'ie8'}))
    .pipe(browserSync.stream())
 }
 
 //SCSS WATCHER
 function sassWatcher() {
-    watch("./style/scss/**/*.scss", sass)
+    watch("./public/style/scss/**/*.scss", sass)
  
 }
 
 //SERVER WATCHER
 function browser ()  {
+    
+    const proxy = httpProxy.createProxyServer({})
+
     browserSync.init({
         server : {
-            baseDir : "./"
+            proxy:"localhost:80",
+            open:true,
+            baseDir : "./",
+            notify:false,
+            middleware : (req, res, next) => {
+                proxy.web(req, res, {target : "http://localhost:80/ProjetEve-EcoCommerce/public/"})
+            }
         }
     })
-   watch("./*.html").on("change",browserSync.reload)
+    watch("./**/*.php").on("change",browserSync.reload)
 }
 
 module.exports = {

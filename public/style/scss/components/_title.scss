@@ -1,0 +1,37 @@
+.title {
+    
+    font-family: $poppins;
+    color: $black;
+    display: inline-block;
+
+    &--important {
+        @extend .title;
+        font-size: $mainTitle * 1.2;
+        font-weight: $bold;
+    }
+
+    &--main {
+        @extend .title;
+        font-size: $mainTitle;
+    }
+
+    &--normal {
+        @extend .title;
+        font-size: $title;
+    }
+
+    &--light {
+        font-weight: $normal;
+    }
+
+    &--bold {
+        font-weight: $bold;
+    }
+}
+.title-group {
+    color: $purple;
+    font-size: $normalSize;
+    font-family: $lato;
+    font-weight: $normal;
+
+}

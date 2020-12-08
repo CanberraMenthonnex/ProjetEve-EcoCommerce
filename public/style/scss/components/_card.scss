@@ -1,0 +1,63 @@
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: $fixMarge3;
+    color: $black;
+    box-shadow: 0px -3px 31px $purpleShadow;
+    border-radius: $semiRounded;
+    background-color: $white;
+
+    &--img {
+        margin: $fixMarge3 0 ;
+    }
+
+   
+
+    &--title {
+        font-family: $poppins;
+        width: 100%;
+        padding: $fixMarge1 0;
+    }
+
+    &--important-title {
+        font-family: $poppins;
+        width: 100%;
+        padding: $marge4 0;
+        text-align: center;
+        font-size: $mainTitle;
+        font-weight: $normal;
+    }
+
+    &--text {
+        font-family: $lato;
+        margin: $fixMarge1 0;
+
+        &--center {
+            @extend .card--text;
+            text-align: center;
+        }
+
+    }
+
+    &--important {
+        font-weight: $bold;
+        font-size: $title;
+        font-family: $poppins;
+        margin: $fixMarge3;
+
+        &--blue {
+            @extend .card--important;
+            color: $electricBlue;
+        }
+    }
+
+    .btn {
+        margin: $marge4 0;    
+    }
+    .pos--right {
+            align-self: flex-end;
+    }
+}

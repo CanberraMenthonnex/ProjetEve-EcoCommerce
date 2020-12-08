@@ -1,0 +1,58 @@
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $marge5 0;
+
+    .container-input {
+        display: flex;
+        align-items: center;
+        width: 40%;
+        padding: $marge1 0;
+
+        .input-area {
+            background-color: $lightGrey;
+            color: $black;
+            padding: $fixMarge2;
+            font-size: $normalSize;
+            border: none;
+            flex: 1;
+        }
+        
+        .input-area::placeholder {
+            color: $grey;
+        }
+
+        button {
+            margin-left: $fixMarge2;
+        }
+    }
+}
+
+@media screen and (max-width : $tabletSize) {
+    .container-form {
+
+        .container-input {
+            width: 70%;
+            padding: $marge3 0;
+        }
+
+        
+    }
+}
+
+@media screen and (max-width : $phoneSize) {
+    .container-form {
+        padding: $marge3;
+        
+        .container-input {
+            flex-direction: column;
+            width: 90%;
+        } 
+        .input-area {
+            width: 100%;
+            margin: $marge3 0;
+        } 
+    }
+    
+}

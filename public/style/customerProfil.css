@@ -58,3 +58,9 @@ h1{
 
     margin: 10vh 0;
 }
+#sendBtn a{
+    background-color: var(--dark-green);
+    padding: 10px;
+    color: white;
+    border-radius: 2rem;
+}

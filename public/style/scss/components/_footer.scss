@@ -1,0 +1,149 @@
+.footer {
+    background-image: url("../../../img/footer.png");
+    background-size: cover;
+    padding-top: 15%;
+    background-position: center end;
+    padding-bottom: $marge3;
+    display: flex;
+    align-items: flex-end;
+
+    &--container {
+        width: $semiLargeW ;
+        margin: 0 auto;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-around;
+    }
+
+    &--container-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--logo {
+        font-size: $mainTitle * 1.5;
+        font-family: $poppins;
+        color:  $white;
+    }
+
+    &--title {
+        font-size: $mainTitle;
+        color: $white;
+        font-family: $lato;
+        padding: $fixMarge2 0;
+        text-align: center;
+    }
+
+    &--container-social {
+        width: 100%;
+        justify-content: space-around;
+        display: flex;
+    }
+
+    &--group {
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        font-family: $poppins;
+    }
+    
+
+    &--list {
+        width: $largeW;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: $marge1 0;
+        }
+    }
+
+    &--list-link {
+        @extend .footer--list;
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &--list-contact {
+        @extend .footer--list;
+    }
+
+    &--list-hours {
+        @extend .footer--list;
+        
+    }
+
+    &--link {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width : $tabletSize) {
+    .footer--container {
+        flex-wrap: wrap;
+        padding-top: 25%;
+        background-position: right;
+        align-items: center;
+    }
+    .footer--container-logo {
+        width: $normalW;
+        padding: $marge5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer--group {
+        padding: $fixMarge3;
+    }
+    .footer--unit-padding {
+        padding: 0 $fixMarge1 ;
+    }
+}
+
+@media screen and (max-width : $tabletSize) {
+
+    .footer {
+        &--list-link {
+            li {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width : $phoneSize) {
+    .footer {
+
+        &--container {
+            flex-direction: column;
+            padding-top: 100%;
+        }
+        &--group, &--container-logo {
+            width: auto;
+        }
+
+        &--group, &--group-hours, &--group-contact {
+            width: $largeW;
+        }
+
+        &--list {
+            * {
+                padding: $fixMarge1 0;
+            }
+        }
+
+        &--subtitle {
+            text-align: center;
+        }
+    }
+    
+    
+}

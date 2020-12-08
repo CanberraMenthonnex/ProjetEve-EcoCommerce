@@ -1,0 +1,44 @@
+.btn {
+    color: $black;
+    background : $blueGradient;
+    padding: $fixMarge1 $fixMarge2;
+    text-decoration: none;
+    border-radius: $maxRounded;
+    font-family: $poppins;
+    font-weight: $normal;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: $weakSize;
+
+    &--light {
+        @extend .btn;
+        background: none;
+        background-color: $white;
+        border: 2px solid $electricBlue;
+        color: $black;
+    }
+
+    &--important {
+        @extend .btn;
+        font-size: $subtitle;
+    }
+
+    &--big {
+        @extend .btn;
+        padding: $fixMarge1 *1.4 $fixMarge4;
+    }
+
+}
+
+.btn-circle {
+    border-radius: 100%;
+    box-shadow:  0px -3px 31px rgba(126, 118, 249, 0.3);
+    width: 50px;
+    height: 50px;
+    padding: $fixMarge1;
+    box-sizing: initial;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

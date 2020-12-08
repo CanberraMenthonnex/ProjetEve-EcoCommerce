@@ -1,0 +1,67 @@
+//COLOR
+
+$black : #42495B;
+$lightBlack : #7A839E;
+$white : #FFFFFF;
+$electricBlue : #1000FF;
+$grey : #999999;
+$lightGrey : #F6F7FB;
+$purple : #7E76F9;
+$lightPurple : rgb(236, 234, 254);
+$purpleShadow : rgba(126,118,249, .1);
+
+//LINEAR-GRADIENT 
+$blueGradient : linear-gradient(250deg, rgba(97,86,249,1) , #1A129F 100%);
+
+//MARGIN & PADDING 
+$marge1 : 2%;
+$marge2 : 4%;
+$marge3 : 6%;
+$marge4 : 8%;
+$marge5 : 10%;
+
+$fixMarge1 : 10px;
+$fixMarge2 : 20px;
+$fixMarge3 : 30px;
+$fixMarge4 : 40px;
+$fixMarge5 : 50px;
+
+//FONT-SIZE
+$mainTitle : 2em;
+$title : 1.5em;
+$subtitle :1.2em;
+$subtitle2 : 1.1em;
+$normalSize : 1em;
+$weakSize : .8em;
+
+//FONT-WEIGHT 
+$bold : 700;
+$normal : 500;
+$light : 300;
+
+//FONT-FAMILY 
+$poppins : 'Poppins', sans-serif;
+$lato : 'Lato', sans-serif;
+
+//WIDTH
+$smallW : 25%;
+$semiSmallW : 35%;
+$normalW : 50%;
+$semiLargeW : 80%;
+$largeW : 100%;
+
+$smallFixW : 30px;
+$normalFixW : 40px;
+$largeFixW : 50px;
+
+//HEIGHT 
+$largeH : 100%;
+
+//RADIUS
+$semiRounded : 30px;
+$maxRounded : 100px;
+
+//DEVICE SIZES
+$phoneSize : 450px;
+$tabletSize : 960px;
+$laptopSize : 1600px;

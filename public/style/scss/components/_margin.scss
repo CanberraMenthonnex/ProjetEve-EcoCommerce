@@ -1,0 +1,29 @@
+@use "sass:map";
+
+$margins : (
+    1 : $marge1,
+    2 : $marge2,
+    3 : $marge3,
+    4 : $marge4,
+    5 : $marge5
+);
+
+@mixin generateMarginY ($device : "") {
+    @for $i from 1 through 5 {
+        .my-#{$i}#{$device} {
+            margin : map-get($margins, $i) 0
+        }
+    }
+}
+
+//GENERATE MARGIN Y
+@include generateMarginY();
+
+
+@media screen  and(max-width : $tabletSize) {
+    @include generateMarginY("-tablet");
+}
+
+@media screen and (max-width : $phoneSize) {
+    @include generateMarginY( "-phone");
+}

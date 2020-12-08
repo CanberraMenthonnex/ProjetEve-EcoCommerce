@@ -1,0 +1,96 @@
+//For generating col classes
+@mixin generateCol ($number, $device : "") {
+    @for $i from 1 through $number {
+        .col#{$i}#{$device} {
+            @include flex( 8.3% * $i);
+        }
+    }
+}
+
+//For generating flex properties
+@mixin flex($baseSize) {
+    flex: 0 0 $baseSize;
+    width: $baseSize;
+}
+
+.flex {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &--column {
+        @extend .flex;
+        flex-direction: column;
+
+    }
+
+    &--row {
+        @extend .flex;
+        flex-direction: row;
+    }
+
+    &--row-reverse {
+        @extend .flex;
+        flex-direction: row-reverse;
+    }
+
+    &--column-reverse {
+        @extend .flex;
+        flex-direction: column-reverse;
+    }
+    
+    
+}
+
+.justify {
+
+    &--center {
+        justify-content: center;
+    }
+
+    &--around {
+        justify-content: space-around;
+    }
+
+    &--between {
+        justify-content: space-between;
+    }
+
+}
+
+.align {
+
+    &--baseline {
+        align-items: baseline;
+    }
+    
+    &--center {
+        align-items: center;
+    }
+
+    &--start {
+        align-items: flex-start;
+    }
+
+    &--around {
+        align-items: space-around;
+    }
+
+    &--between {
+        align-items: space-between;
+    }
+}
+
+//COL GENERATION
+@include generateCol(12);
+
+//RESPONSIVE  
+
+@media screen and (max-width : $tabletSize) {
+    @include generateCol(12, "-tablet");
+}
+
+@media screen and (max-width : $phoneSize) {
+    @include generateCol(12, "-phone");
+}
+
