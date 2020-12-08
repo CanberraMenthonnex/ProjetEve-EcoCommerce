@@ -30,9 +30,11 @@ try {
 
     $router->post(ADMIN_CREATE_PRODUCT_ROUTE, "AdminProductController", "createProduct");
 
-     $router->get(ADMIN_GET_PRODUCT_ROUTE, "AdminProductController", "listingProduct");
+    $router->get(ADMIN_GET_PRODUCT_ROUTE, "AdminProductController", "listingProduct");
 
-     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
+    $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
+
+    $router->get(ADMIN_DELETE_REVIEW_ROUTE, "AdminReviewController", "reviewDelete");
 
     $router->get(ADD_CART_ROUTE, "CartController", "productPage");
 
