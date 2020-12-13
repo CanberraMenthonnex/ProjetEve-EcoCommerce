@@ -1,20 +1,23 @@
 <?php
 namespace Controller;
 
+use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Model;
 use Core\Http;
 use Core\Session;
 
-class AdminProductController extends AdminController {
+class AdminProductController extends Controller {
+
+    const SESSION_NAME = "admin";
 
     public function __construct()
     {
-        $this->protectForAdmin();
+        $this->protectFor(self::SESSION_NAME, HOME_ROUTE);
     }
 
     public function createProductPage() {
-        $this->render('creation_article.php');
+        $this->render('creation-article');
     }
 
     public function createProduct() {
@@ -60,7 +63,7 @@ class AdminProductController extends AdminController {
 
         $admin = Session::get(self::SESSION_NAME);
 
-        $this->render('product-back.php', compact("productList", "admin"));
+        $this->render('product-back', compact("productList", "admin"));
     }
 
     public  function removeProduct (string $id) {
@@ -68,7 +71,7 @@ class AdminProductController extends AdminController {
         $em = new EntityManager("Product");
 
         $res = $em->delete(["id"=> $id]);
-
+        
         if($res) {
             Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
         }

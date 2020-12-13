@@ -9,16 +9,19 @@
     </head>
 
     <body>
-        <div id="blocLog">
-            <p id="pLog">Log in</p>
-            <div id="divInputLog">
-                <form action="/admin/login" method ="POST">
-                    <input type="text"  id="id" name="email" placeholder="Username" autocomplete="off"> <br>
-                    <input type="password" id="pwd" name="pwd" placeholder="Password" autocomplete="off"> <br>
-                    <input type="submit" name="send" value="CONNEXION" id="buttonLog">
-                </form>
-            </div>
+    <img class="logoBackOffice" src="/img/logoBackOffice.png">
+    <div id="blocLog">
+            <p id="pLog">Connect</p>
             
+                <form action="/admin/login" method ="POST">
+                    <div id="divInputLog">
+                    <input type="text"  id="id" name="email" placeholder="Identifiant" autocomplete="off"> <br>
+                    <input type="password" id="pwd" name="pwd" placeholder="Mot de passe" autocomplete="off"> <br>
+                    </div>
+                    <div id="divSubmit">
+                    <input type="submit" name="send" value="Connexion" id="buttonLog">
+                </div>
+                </form>
         </div>
     </body>
 

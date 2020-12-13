@@ -7,18 +7,129 @@
 
 body {
     background-color: var(--light-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 .f-white {
     color: var(--usual-color);
 }
+.call-btn{
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+.call-btn--icon {
+    width: 25px;
+    margin-left: 40px;
+}
 
+.separator-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.separator-header::before, .separator-header::after {
+    content: "";
+    height: 3px;
+    background-color: white;
+    display: block;
+    flex: 1;
+}
+.separator-header--title {
+   /* padding: 0 15%; */
+   width: 35%;
+   text-align: center;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.product-card--img {
+    width: 100%;
+}
+.product-card--content {
+    background-color: var(--dark-green);
+    position: relative;
+    padding: 15px 10px 30px 10px;
+    flex: 1;
+}
+.product-card--price {
+    background-color: var(--light-green);
+    position: absolute;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    color: white;
+    right: 5%;
+    top: 0;
+}
+.product-card--name {
+    color: white;
+}
 * {
     margin : 0;
     padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+
+ul {
+    list-style: none;
+/*weight text : */
+}
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-weight: italic;
+}
+
+/*Coulor text : */
+
+.white{
+    color: white;
+}
+.black{
+    color: black;
+}
+.red{
+    color: darkred;
+}
+
+.gray{
+    color: #565656;
+}
+
+/*size text : */
+
+.px40{
+    font-size: 40px;
+}
+.px35{
+    font-size: 35px;
+}
+.px30{
+    font-size: 30px;
+}
+.px24{
+    font-size: 24px;
+}
+.px20{
+    font-size: 20px;
+}
+.px17{
+    font-size: 17px;
+}
+.w-15 {
+    width: 15%;
 }

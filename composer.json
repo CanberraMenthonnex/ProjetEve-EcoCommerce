@@ -18,7 +18,8 @@
             "Core\\Router\\" : "./core/router",
             "Core\\Model\\Converters\\" : "./core/model/converters",
             "mindplay\\annotations\\" : "./core/vendor/mindplay/annotations/src/annotations",
-            "Core\\model\\Annotations\\" :[ "./core/model/annotations", "./core/model/annotations/annotation"]
+            "Core\\model\\Annotations\\" :[ "./core/model/annotations", "./core/model/annotations/annotation"],
+            "Core\\Controller\\" : "./core/controller"
         }
     }, 
     "config": {

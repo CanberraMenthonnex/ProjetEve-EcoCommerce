@@ -16,7 +16,7 @@ abstract class Model {
     public static function getDatabase()
     {
         return new \PDO(
-            'mysql:host='. DB_HOST . ';dbname=' . DB_NAME , DB_USERNAME , DB_PASSWORD,
+            'mysql:host='. DB_HOST . ';dbname=' . DB_NAME . ';charset=UTF8' , DB_USERNAME , DB_PASSWORD,
             array(\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_WARNING,\PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ , \PDO::ATTR_EMULATE_PREPARES=> false)
         );
     }
@@ -52,7 +52,6 @@ abstract class Model {
              $query =" " .  QueryBuilder::order($order["by"], $order["desc"] );
         }
  
-      
         $req = $this->_db->prepare($query);
         $req->execute($vars);
 
@@ -70,15 +69,8 @@ abstract class Model {
      * */
     protected function _save(string $table, array $keys, array $values) : bool {
         
-        $keyValues = implode(", ", $keys);
+        $sql = QueryBuilder::insert($table,$keys,[$values]);
 
-        $preparedValues = array_reduce($values, function ( $accumulator, $value) {
-            return $accumulator .= "?, ";
-        });
-        $preparedValues = trim($preparedValues, ", ");
-
-        $sql = "INSERT INTO {$table} ({$keyValues}) VALUES ( {$preparedValues} )";
-        
         $req = $this->_db->prepare($sql);
 
         return $req->execute($values);
@@ -97,13 +89,7 @@ abstract class Model {
 
         $keyFilters = array_keys($filters);
 
-        $keyFilters = array_map(function ($val){
-            return $val . "= ?";
-        }, $keyFilters);
-
-        $sqlFilters = implode(" AND ", $keyFilters);
-
-        $sql = "DELETE FROM {$table} WHERE {$sqlFilters}";
+        $sql = QueryBuilder::delete($table, $keyFilters);
 
         $req = $this->_db->prepare($sql);
 
@@ -127,25 +113,14 @@ abstract class Model {
         $dataKeys = array_keys($data);
         $filterKey = array_keys($filters);
 
-        $query = "UPDATE $table SET ";
+        $query = QueryBuilder::update($table, $dataKeys);
 
-        $query .= \array_reduce($dataKeys, function ($acc, $key) {
-            return $acc .= $key . " = ?, ";
-        });
-        
-        $query = trim($query, ", ");
-        
         if($filters) {
-            $query .= " WHERE ";
-            $query .= \array_reduce($filterKey, function ($acc, $key) {
-                return $acc .= $key . " = ? AND ";
-            });
-            $query = trim($query, "AND ");
+            $query .= " " . QueryBuilder::filters($filterKey);
         }
     
         $preparedArray = array_merge(array_values($data), array_values( $filters ));
         $req = $this->_db->prepare($query);
-
         $req->execute($preparedArray);
 
         return $req->rowCount();

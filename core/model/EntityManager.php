@@ -57,8 +57,9 @@ class EntityManager extends Model {
      *
      * @return Entity
      */
-    public function findOne (array $filters = [], array $wantedValues = ["*"]) {
+    public function findOne (array $filters = [], array $wantedValues = ["*"]) { 
         $res = $this->_find($this->_table, $filters, $wantedValues, [0,1]);
+       
         if($res) {
             return DataMapper::MapToObject($res[0], $this->_entity);
         } 
@@ -100,9 +101,11 @@ class EntityManager extends Model {
      * @return int (number of modified rows)
      * */
     public function update ( Object $entity, array $filters ) : int {
-        $data = DataMapper::MapToSqlParams($entity);    
+        $data = DataMapper::MapToSqlParams($entity);
         $formatedData = array_combine($data["properties"], $data["values"]);
-        
+        $formatedData = array_filter($formatedData, function ($prop) {
+            return !empty($prop);
+        });
         return $this->_update($this->_table, $formatedData, $filters);
     }
  

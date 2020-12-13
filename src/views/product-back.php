@@ -10,27 +10,46 @@
     <header id="headerAfficheArticle">
         <span>Connecté en tant que administrateur <b><?= $admin->getMail(); ?></b></span>
         <div>
+            
+            <a href="<?=ADMIN_CREATE_PRODUCT_ROUTE ?>" id="ajoutArticle">Ajouter un article</a>
+            <a href="<?=ADMIN_GET_REVIEW_ROUTE ?>" id="ajoutArticle">Gerer les commentaires</a>
             <a href="<?=ADMIN_LOGOUT_ROUTE?>">Déconnexion</a>
-            <a href="/admin/product/form" id="ajoutArticle">Ajouter un article</a>
         </div>
     </header>
-    <div id="products">
+    <img class="logoBackOffice" src="/img/logoBackOffice.png">
+    <h1 class="titleProductBack">Inventaire Produits</h1>
+    <div class="search">
+        <span>Recherche : </span>
+        <input type="text" class="searchText">
+    </div>
+    <div id="filters">
+        <h3>Trier par :</h3>
+        <h5 class="filterPrice">Prix : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
+        <h5 class="filterDate">Date : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
+        <h5 class="filterAlpha">Ordre alphabétique : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
+    </div>
+    <table cellspacing=12>
+        <tr class="tableHead">
+            <td>Nom</td>
+            <td>Id</td>
+            <td>Date</td>
+            <td>Prix</td>
+            <td>Supprimer produit</td>
+        </tr>
         <?php
             foreach ($productList as $product) {
         ?>
-        <div class="product">
-            <h1 class="nameProduct"><b>Nom du produit :</b> <?= $product->getName()?></h1>
-            <span class="descriptionProduct"><b>Description :</b> <?= $product->getDescription()?></span>
-            <span class="idProduct"><b>Id produit :</b> <?= $product->getId()?></span>
-            <span class="priceprduct"><b>Prix du produit :</b> <?= $product->getPrice()?> €</span>
-            <span class="dateProduct"><b>Date produit :</b> <?= $product->getCreatedAt()->format(HOURS_FORMAT)?></span>
-            <a href="<?= ADMIN_DELETE_PRODUCT_ROUTE . $product->getId(); ?>" id="suppArticle">Supprimer produit</a>
-        </div>
+            <tr class="tableBody">
+                <td><?= $product->getName()?></td>
+                <td><?= $product->getId()?></td>
+                <td><?= $product->getCreatedAt()->format("d-m-Y")?></td>
+                <td><?= $product->getPrice()?> €</td>
+                <td><a href="<?= ADMIN_DELETE_PRODUCT_ROUTE . $product->getId(); ?>" id="suppArticle">Supprimer produit</a></td>
+            </tr>
         <?php
             }
         ?>
-
-    </div>
+    </table>
 
     <script src="/js/display-article.js"></script>
 </body>

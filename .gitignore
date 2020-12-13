@@ -3,3 +3,4 @@ core/vendor/
 configuration/dbconfiguration.php
 configuration/configuration.php
 .DS_Store
+.vs

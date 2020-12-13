@@ -1,49 +1,46 @@
 <?php
 namespace Controller;
 
+use Core\Controller\Controller;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
+use Core\ValidatorInt;
 use Model;
 use Model\Entity\Cart;
 
 class CartController extends Controller {
 
-   public function productPage() {
-
-      $this->render('product');
+   public function __construct() {
+      $this->protectFor("user", HOME_ROUTE);
    }
 
 
    public function addCart(string $product_id) {
+      
+      $user = Session::get('user');
+      
+      if($this->checkPostKeys($_POST, ["quantity"])) {
 
-      Session::set("user", 1);
-                                                   // POUR TESTER POUR L'INSTANT
-      $user = Session::get("user");
-
-
-      if($this->checkPostKeys($_POST, ["cart", "quantity"])) {
+         $qtt = $_POST["quantity"];
          
          $em = new EntityManager("Cart");
-
+         
          $result = $em->findOne(["product_id"=>$product_id], ["product_id"]);
-
-
+      
          if(!$result) {
-            
-            if(!is_numeric($_POST["quantity"])) Http::redirect(HOME_ROUTE);
 
             $cart = new Cart();
 
             $cart
-               ->setQuantity($_POST["quantity"])
-               ->setUser_id($user)
+               ->setQuantity($qtt)
+               ->setUser_id($user->getId())
                ->setProduct_id($product_id);
             
             $resp = $em->save($cart);
                
             if($resp) {
-               Http::redirect(GET_CART_ROUTE);
+               Http::redirect(HOME_ROUTE);
             }
             else {
                throw new \Exception(ERROR_ADDING_CART);
@@ -61,10 +58,9 @@ class CartController extends Controller {
 
 
    public function listingCart() {
-      Session::set("user", 1);
-                                                   // POUR TESTER POUR L'INSTANT
-      $user = Session::get("user");
 
+      $user = Session::get("user");
+      
       $db = EntityManager::getDatabase();
 
       $query = $db->prepare(
@@ -74,13 +70,12 @@ class CartController extends Controller {
           WHERE user_id = :user_id"
      );
      
-     $query->execute(["user_id" => $user]);
+     $query->execute(["user_id" => $user->getId()]);
      
      $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
-    
-     
+ 
+     echo json_encode($cartList);
 
-     $this->render('cart', compact("user", "cartList"));
    }
 
 
@@ -97,26 +92,32 @@ class CartController extends Controller {
 
 
   public function updateCartQuantity(string $product_id) {
+   
+   $qtt =  $_POST["quantity"];
+   $isQuantityGood = ValidatorInt::validateQuantityInt($qtt);
+   if(!$isQuantityGood) throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
+   
+   $user = Session::get('user');
      
    $em = new EntityManager("Cart");
 
-   $result = $em->findOne(["product_id"=>$product_id], ["*"]);
+   $result = $em->findOne(["product_id"=>$product_id, "user_id"=>$user->getId()]);
 
    if($result) {
       $result
-      ->setQuantity($_POST["quantity"]);
+      ->setQuantity($qtt);
       
-      $resp = $em->update($result, ["product_id" => $product_id]);
+      $resp = $em->update($result, ["product_id"=>$product_id, "user_id"=>$user->getId()]);
 
       if($resp) {
-         Http::redirect(GET_CART_ROUTE);
-      }else {
-         throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
+            Http::redirect(GET_CART_ROUTE);
+         }else {
+            throw new \Exception(ERROR_UPDATING_CART_QUANTITY);
+         }
       }
-   }
-   else {
-      throw new \Exception(ERROR_UPDATE_BDD);
-   }
+      else {
+         throw new \Exception(ERROR_UPDATE_BDD);
+      }
   }
   
 }
