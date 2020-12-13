@@ -242,3 +242,6 @@ ul {
   font-family: "Poppins", sans-serif;
   margin: 8% 0;
   font-weight: 300; }
+
+.header--main {
+  display: flex; }

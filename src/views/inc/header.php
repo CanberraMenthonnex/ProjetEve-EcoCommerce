@@ -1,5 +1,5 @@
-<header class="top-bar">
-    <div class="top-bar--top">
+<header class="header">
+    <div class="header--main ">
         <nav>   
             <a href="<?= MAIN_PATH . HOME_ROUTE ?>" class="top-bar--link">Home</a>
             <a href="#" class="top-bar--link">Blog</a>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php foreach($templateStyles as $style) : ?>
-       <link rel="stylesheet" href="<?= MAIN_PATH ?> .'style/<?=$style?>.css">
+       <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/css/<?=$style?>.css">
     <?php endforeach; ?>
     <title><?= $templateTitle ?></title>
 </head>

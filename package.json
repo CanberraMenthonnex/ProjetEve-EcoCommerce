@@ -4,6 +4,7 @@
   "description": "-Définir le dossier public comme dossier racine de votre serveur",
   "main": "index.js",
   "scripts": {
+    "start": "gulp browser",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
