@@ -1,0 +1,13 @@
+.cta {
+    display: flex;
+    align-items: center;
+    border: 2px solid $white;
+    padding: $fixMarge1;
+    text-decoration: none;
+    font-weight: $bold;
+
+    &--icon {
+        width: $smallFixW;
+        margin-left: $fixMarge3;
+    }
+}

@@ -6,43 +6,45 @@ use Core\View\Template\Template;
 ?>
 
 
-    <div class="container-tree" >
+    <div class="flex--column align--center my-3" >
         <img src="<?= MAIN_PATH ?>/img/three-trees.svg" alt="Trees" title="Saved trees" class="container-tree--trees">
-        <strong class="f-white" class="container-tree--comment">300 000 arbres sauvés</strong>
+        <strong class="py-2 f-white" >300 000 arbres sauvés</strong>
     </div>
-    <section class="banner">
-        <img src="<?= MAIN_PATH ?>/img/forest.jpg" alt="Forêt" title="Forêt" class="banner--picture">
-        <article>
+    <section class="banner flex  justify--around bg--dark-grey py-1">
+        <img src="<?= MAIN_PATH ?>/img/forest.jpg" alt="Forêt" title="Forêt" class="col4">
+        <article class="col6 flex--column justify--around">
             <h2 class="f-white banner--title"> Qui sommes nous ?</h2>
-            <p class="f-white paragraph">
+            <p class="f-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequuntur et a numquam quo commodi reprehenderit ab animi! Necessitatibus, ea laborum. Porro aliquam reprehenderit amet ullam suscipit modi quia quasi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore ratione quisquam modi vitae libero corrupti mollitia, aut reprehenderit quia quod. Sequi rem qui voluptate vero, nemo blanditiis fugit eius placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium non assumenda vitae quaerat atque! Saepe perspiciatis voluptatem, placeat amet, necessitatibus architecto eum iure aut cum harum ipsa quam, enim optio?
                 <br><br>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia mollitia odit voluptatibus distinctio recusandae totam, neque repellendus doloremque, sapiente asperiores repudiandae eligendi. Rem nulla aut, tenetur inventore nihil hic expedita?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia cupiditate architecto, praesentium eligendi dicta cumque mollitia quasi porro ducimus dignissimos dolorem, cum rerum, adipisci fuga molestias quibusdam velit illum odit.
             </p>
         </article>
     </section>
-    <section class="post-container">
-        <article class="post">
-            <h2 class="f-white post-title">Titre d'un article</h2>
-            <p class="f-white">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus quo deserunt libero veritatis tempora reprehenderit molestiae optio odit qui. Impedit similique praesentium consequuntur blanditiis. Velit illo perferendis atque tempore quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit perspiciatis laborum nulla ea? Enim, sed fuga at quia cum excepturi, repudiandae similique in omnis quas rem iste dignissimos quasi nisi!
-                <br><br>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et aut quibusdam obcaecati, in rerum error placeat sit voluptas veniam nesciunt, voluptates corporis magni? Facilis praesentium ad odit! Molestias, vitae sequi  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quasi vel repellat dolore sunt minus dignissimos id nesciunt cum, provident iusto ex repudiandae vero, perspiciatis delectus facere reiciendis ipsum quia! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, suscipit blanditiis accusantium assumenda ducimus reprehenderit excepturi cum quaerat, alias quod quidem recusandae iusto, modi nobis consequatur magnam aperiam! Facere, quibusdam.
-                <br><br>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et aut quibusdam obcaecati, in rerum error placeat sit voluptas veniam nesciunt, voluptates corporis magni? Facilis praesentium ad odit! Molestias, vitae sequi  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quasi vel repellat dolore sunt minus dignissimos id nesciunt cum, provident iusto ex repudiandae vero, perspiciatis delectus facere reiciendis ipsum quia!
-            </p>
-        </article>
-        <a href="#" class="call-btn post--btn">
-            <span class="f-white">Découvrir notre blog</span>
-            <img src="<?= MAIN_PATH ?>/img/arrow_r.svg" alt="Right arrow" title="Découvrir notre blog" class="call-btn--icon">
-        </a>
-    </section>
-    <div class="container-article-wrapper">
-        <section class="container-articles">
-            <header class="separator-header">
+    <div class="flex justify--center">
+        <section class="flex--column align--center col10">
+            <article class="col8 py-3">
+                <h2 class="f-white post-title py-2">Titre d'un article</h2>
+                <p class="f-white">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus quo deserunt libero veritatis tempora reprehenderit molestiae optio odit qui. Impedit similique praesentium consequuntur blanditiis. Velit illo perferendis atque tempore quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit perspiciatis laborum nulla ea? Enim, sed fuga at quia cum excepturi, repudiandae similique in omnis quas rem iste dignissimos quasi nisi!
+                    <br><br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et aut quibusdam obcaecati, in rerum error placeat sit voluptas veniam nesciunt, voluptates corporis magni? Facilis praesentium ad odit! Molestias, vitae sequi  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quasi vel repellat dolore sunt minus dignissimos id nesciunt cum, provident iusto ex repudiandae vero, perspiciatis delectus facere reiciendis ipsum quia! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, suscipit blanditiis accusantium assumenda ducimus reprehenderit excepturi cum quaerat, alias quod quidem recusandae iusto, modi nobis consequatur magnam aperiam! Facere, quibusdam.
+                    <br><br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et aut quibusdam obcaecati, in rerum error placeat sit voluptas veniam nesciunt, voluptates corporis magni? Facilis praesentium ad odit! Molestias, vitae sequi  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quasi vel repellat dolore sunt minus dignissimos id nesciunt cum, provident iusto ex repudiandae vero, perspiciatis delectus facere reiciendis ipsum quia!
+                </p>
+            </article>
+            <a href="#" class="cta self--end">
+                <span class="f-white">Découvrir notre blog</span>
+                <img src="<?= MAIN_PATH ?>/img/arrow_r.svg" alt="Right arrow" title="Découvrir notre blog" class="cta--icon">
+            </a>
+        </section> 
+    </div>
+    <div class="flex flex--column align--center py-5">
+        <section class="col10">
+            <header class="py-2">
                 <h2 class="f-white separator-header--title"> Les meilleures ventes </h2>
             </header>
-            <div class="product-container">
+            <div class="flex justify--between">
                 <?php foreach($products as $product) : ?>
                     <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="product-link">
                         <article class="product-card">
@@ -56,11 +58,11 @@ use Core\View\Template\Template;
                 <?php endforeach; ?>
             </div>
         </section>
-        <section class="container-articles">
-            <header class="separator-header">
+        <section class="col10">
+            <header class="py-2">
                 <h2 class="separator-header--title f-white"> Les nouveaux produits </h2>
             </header>
-            <div class="product-container">
+            <div class="flex justify--between">
                 <?php foreach($products as $product) : ?>
                     <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="product-link">
                         <article class="product-card">
@@ -75,7 +77,7 @@ use Core\View\Template\Template;
             </div>
         </section>  
     </div>
-    <blockquote class="moral">
+    <blockquote class="flex justify--center">
         <strong class="f-white moral--txt">"Devenez responsable du futur de votre planète"</strong>
     </blockquote>   
 
@@ -83,4 +85,5 @@ use Core\View\Template\Template;
 
 $content = ob_get_clean();
 $temp = new Template("Home", [], ["index"]);
+$temp->transmitVarToContext(["userSession" => $userSession]);
 $temp->render($content);

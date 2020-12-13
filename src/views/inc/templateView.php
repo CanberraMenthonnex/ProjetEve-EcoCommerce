@@ -8,13 +8,13 @@
     <?php endforeach; ?>
     <title><?= $templateTitle ?></title>
 </head>
-<body>
+<body class="bg--light-green">
 
     <?php
         require(ROOT . "/src/views/inc/header.php");
     ?>
 
-    <main class="py-5 container-fluid">
+    <main>
        <?= $content ?> 
     </main>
     

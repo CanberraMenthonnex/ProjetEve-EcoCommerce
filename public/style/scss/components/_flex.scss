@@ -56,6 +56,14 @@
         justify-content: space-between;
     }
 
+    &--start {
+        justify-content: flex-start;
+    }
+
+    &--end {
+        justify-content: flex-end;
+    }
+
 }
 
 .align {
@@ -72,13 +80,27 @@
         align-items: flex-start;
     }
 
-    &--around {
-        align-items: space-around;
+    &--end {
+        align-items: flex-end;
     }
 
-    &--between {
-        align-items: space-between;
+}
+
+.self {
+
+    
+    &--center {
+        align-self: center;
     }
+
+    &--start {
+        align-self: flex-start;
+    }
+
+    &--end {
+        align-self: flex-end;
+    }
+
 }
 
 //COL GENERATION

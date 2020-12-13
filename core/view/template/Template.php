@@ -12,6 +12,8 @@ class Template implements ITemplate {
 
     private $_templateViewName = "templateView";
 
+    private $_contextVars = [];
+
 
     public function __construct(string $pageTitle, array $scriptsNames = [], array $stylesNames = [])
     {
@@ -27,7 +29,7 @@ class Template implements ITemplate {
      * @param string $content 
      */
     public function render (string $content) : void{
-
+        extract($this->_contextVars);
         $templateTitle = $this->_title;
         $templateScripts = $this->_scriptNames;
         $templateStyles = $this->_stylesNames;
@@ -42,6 +44,16 @@ class Template implements ITemplate {
      */
     public function setTemplateView (string $templateFileName) {
         $this->_templateViewName = $templateFileName;
+    }
+
+    /**
+     * For transimitting some variables to render context
+     * 
+     * @param array $vars ( ["var name" => value] )
+     */
+    public function transmitVarToContext(array $vars)
+    {
+        $this->_contextVars = $vars;
     }
 
 
