@@ -1,10 +1,11 @@
 .cta {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border: 2px solid $white;
     padding: $fixMarge1;
     text-decoration: none;
     font-weight: $bold;
+    color: $white;
 
     &--icon {
         width: $smallFixW;

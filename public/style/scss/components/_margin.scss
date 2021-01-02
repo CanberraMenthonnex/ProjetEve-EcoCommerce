@@ -24,17 +24,28 @@ $margins : (
     }
 }
 
+@mixin generatePaddingBottom ($device : "") {
+    @for $i from 1 through 5 {
+        .pb-#{$i}#{$device} {
+            padding-bottom: map-get($margins, $i);
+        }
+    }
+}
+
 //GENERATE MARGIN Y
 @include generateMarginY();
 @include generatePaddingY();
+@include generatePaddingBottom();
 
 
 @media screen  and(max-width : $tabletSize) {
     @include generateMarginY("-tablet");
     @include generatePaddingY("-tablet");
+    @include generatePaddingBottom("-tablet");
 }
 
 @media screen and (max-width : $phoneSize) {
     @include generateMarginY( "-phone");
-    @include generatePaddingY("-phone")
+    @include generatePaddingY("-phone");
+    @include generatePaddingBottom("-phone");
 }

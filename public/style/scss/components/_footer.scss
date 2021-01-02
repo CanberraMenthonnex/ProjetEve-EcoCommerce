@@ -1,0 +1,43 @@
+.classic-footer {
+    background-color: $darkGrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &--logo {
+        width: 10%;
+    }
+
+    &--item {
+        margin: $fixMarge1 0;
+        color: $white;
+    }
+
+    &--adress {
+        color: $white;
+        line-height: 20px;
+    }
+
+}
+
+@media screen and (max-width : $tabletSize) {
+    .classic-footer {
+        padding: $marge3 0;
+    }
+}
+
+@media screen and (max-width : $phoneSize) {
+    .classic-footer {
+        flex-direction: column;
+        padding: $marge5 0 ;
+        &--logo {
+            width: 45%;
+        }
+
+        &--adress {
+            padding: $marge4 0;
+            text-align: center;
+
+        }
+    }
+}
