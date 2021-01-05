@@ -12,3 +12,18 @@
         margin-left: $fixMarge3;
     }
 }
+
+.btn-page {
+    $r : 20px;
+    width: $r;
+    height: $r;
+    background-color: $lightGreen;
+    border: 2px solid $darkGreen;
+    border-radius: $maxRounded;
+    margin: 0 $fixMarge1;
+
+    &--selected {
+        @extend .btn-page;
+        background-color: $darkGreen;
+    }
+}
