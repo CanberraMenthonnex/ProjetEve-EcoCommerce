@@ -5,7 +5,6 @@ use Core\View\Template\Template;
     ob_start();
 ?>
 
-    <img class="logoBackOffice" src="/img/logoBackOffice.png" alt="logoSite">
     <section class="flex--column align--center"  id="pageProduct">
         <div class="bg--light-grey py-1 paddingX1 lightRadius">
             <form id="formCreationArticle" action="/admin/product/form" method="POST">
@@ -42,5 +41,6 @@ use Core\View\Template\Template;
 
 $content = ob_get_clean();
 $temp = new Template("Creation-article", [], ["index"]);
-$temp->transmitVarToContext(["userSession" => $userSession]);
+$temp->setTemplateView("templateBackView");
+$temp->transmitVarToContext(["admin" => $admin]);
 $temp->render($content);

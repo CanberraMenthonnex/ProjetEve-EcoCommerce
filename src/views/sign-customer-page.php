@@ -29,14 +29,14 @@ use Core\View\Template\Template;
                     </div>
 
                     <div class="form1 flex--column">
-                        <label for="road_number">Numéro de rue<input type="text"  name="road_number" autocomplete="off"  required></label>
-                        <label for="road">Rue<input type="text"  name="road" autocomplete="off"  required></label>
-                        <label for="city">Ville<input type="text"  name="city" autocomplete="off"  required></label>
-                        <label for="zip_code">Code Postale<input type="text"  name="zip_code" autocomplete="off"  required></label>
-                        <label for="country">Pays<input type="text"  name="country" autocomplete="off"  required></label>
-                        <label class="input_date_naissance">Date de naissance:<br>
-                            <label for="Jour">Jour<input type="number"  min="1" max="31" placeholder="" name="day" autocomplete="off"  required></label>
-                            <label for="month">Mois
+                        <label class="py-1" for="road_number">Numéro de rue<input type="text"  name="road_number" autocomplete="off"  required></label>
+                        <label class="py-1" for="road">Rue<input type="text"  name="road" autocomplete="off"  required></label>
+                        <label class="py-1" for="city">Ville<input type="text"  name="city" autocomplete="off"  required></label>
+                        <label class="py-1" for="zip_code">Code Postale<input type="text"  name="zip_code" autocomplete="off"  required></label>
+                        <label class="py-1" for="country">Pays<input type="text"  name="country" autocomplete="off"  required></label>
+                        <label class="py-1" class="input_date_naissance">Date de naissance:<br>
+                            <label class="py-1" for="Jour">Jour<input type="number"  min="1" max="31" placeholder="" name="day" autocomplete="off"  required></label>
+                            <label class="py-1" for="month">Mois
                                 <select name="month" id="month-select" size="0" autocomplete="off"  required>
                                     <option value="01">Janvier</option>
                                     <option value="02">Février</option>
@@ -52,22 +52,25 @@ use Core\View\Template\Template;
                                     <option value="12">Decembre</option>
                                 </select>
                             </label>
-                            <label for="Année">Année<input type="number"  placeholder="2020" max="2020" min="1900" name="year" autocomplete="off"  required></label>
+                            <label class="py-1" for="Année">Année<input type="number"  placeholder="2020" max="2020" min="1900" name="year" autocomplete="off"  required></label>
                         </label>
                     </div>
                     
                 </div>
-                <span id="span_cgu"><input type="checkbox" class="cgu_checkbox" autocomplete="off" required> J'ai lu et j'accepte les CGU</span>
-                <button type="submit" class="send_profil" name="check_guc" value="yes" >Créer mon compte</button></label>
-                <p id="signToLog" class="allreadyCustomer white bold">J'ai déjà un compte</p>
+                <div class="flex--column align--center justify--center py-2">
+                    <span id="span_cgu"><input type="checkbox" class="cgu_checkbox" autocomplete="off" required> J'ai lu et j'accepte les CGU</span>
+                    <button class="my-1" type="submit" class="send_profil" name="check_guc" value="yes" >Créer mon compte</button></label>
+                    <p id="signToLog" class="allreadyCustomer white bold">J'ai déjà un compte</p>
+                </div>
+                
             </form>
         </article>
 
         <article id="log_sign" class=" <?php if(isset($that_fuking_error)){echo "form_log_error_sign";}?>">
             
             <form action="<?= MAIN_PATH ?>/customer/login" method ="POST"  id="log">
-                <div id="form_login" class="form2" >
-                    <h2 class="white bold">Connexion</h2>
+                <div class="flex--column justify--center align--center" id="form_login" class="form2" >
+                    <h2 class="white bold py-1">Connexion</h2>
                     <span class='error' >
                             <?php 
                                 if(isset($log_error)){
@@ -76,9 +79,9 @@ use Core\View\Template\Template;
                             ?>
                         </span>
                     <input class="bold px20" id="username" placeholder="Adresse Email" name="username" type="text" >
-                    <input class="bold px20" id="pwd"  placeholder="Mot de passe" name="pwd" type="password" >
+                    <input class="my-1" class="bold px20" id="pwd"  placeholder="Mot de passe" name="pwd" type="password" >
                     <button type="submit">Connexion</button>
-                    <p class="white px17">Pas encore de compte ? </p>
+                    <p class="py-1" class="white px17">Pas encore de compte ? </p>
                     <p class="white bold px20" id="logToSign">Rejoins-nous !</p>
                 </div>
             </form>

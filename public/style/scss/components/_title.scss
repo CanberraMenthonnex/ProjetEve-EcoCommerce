@@ -1,3 +1,26 @@
 .mainTitle{
     font-size: $mainTitle;
 }
+.main-title {
+    font-size: $mainTitle;
+}
+.title {
+    font-size:$title;
+}
+.subtitle {
+    font-size: $subtitle;
+}
+.delimiter-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    &::after, &::before {
+        content: "";
+        display: block;
+        width: 30%;
+        height: 2px;
+        background-color: white;
+    }
+}
