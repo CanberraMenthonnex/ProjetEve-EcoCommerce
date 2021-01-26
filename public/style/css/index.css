@@ -98,6 +98,22 @@
   .py-5-phone {
     padding: 10% 0; } }
 
+.paddingX1 {
+  padding-left: 2%;
+  padding-right: 2%; }
+
+.paddingX2 {
+  padding-left: 4%;
+  padding-right: 4%; }
+
+.paddingX3 {
+  padding-left: 6%;
+  padding-right: 6%; }
+
+.fixeMargin3 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
 * {
   padding: 0;
   margin: 0;
@@ -294,6 +310,9 @@ ul {
 .f-white {
   color: white; }
 
+.text-center {
+  text-align: center; }
+
 .search-bar {
   display: flex;
   padding: 5px 10px;
@@ -381,6 +400,21 @@ ul {
 .bg--dark-grey {
   background-color: #565656; }
 
+.bg--very-dark-grey {
+  background-color: #353535; }
+
+.bg--light-grey {
+  background-color: #707070; }
+
+.bg--medium-grey {
+  background-color: #C2BDBD; }
+
+.bg--white {
+  background-color: white; }
+
+.bg--flash-green {
+  background-color: #3BC20D; }
+
 .cta {
   display: flex;
   align-items: center;
@@ -391,3 +425,25 @@ ul {
   .cta--icon {
     width: 22px;
     margin-left: 30px; }
+
+.semiRadius {
+  border-radius: 30px; }
+
+.lightRadius {
+  border-radius: 10px; }
+
+.mainTitle {
+  font-size: 2em; }
+
+.searchBack {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent; }
+
+.descProduct {
+  height: 50px; }
+
+.arrayCell {
+  padding: 10px 20px;
+  border-radius: 10px; }

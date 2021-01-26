@@ -7,5 +7,19 @@
     &--dark-grey {
         background-color: $darkGrey;
     }
-
+    &--very-dark-grey {
+        background-color: $veryDarkGrey;
+    }
+    &--light-grey {
+        background-color: $lightGrey;
+    }
+    &--medium-grey {
+        background-color: $mediumGrey;
+    }
+    &--white {
+        background-color: $white;
+    }
+    &--flash-green {
+        background-color: $flashGreen;
+    }
 }

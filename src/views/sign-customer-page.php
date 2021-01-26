@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/common.css">
-    <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/header.css" />
-    <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/customerSign.css">
-    <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/footer.css">
-    <title>New profil</title>
-</head>
-<body>
-    <?php require_once "inc/header.php"?>
-    <main>
+<?php
+
+use Core\View\Template\Template;
+
+    ob_start();
+?>
    
 
         <article id="sign" class="form_sign <?php if(isset($that_fuking_error)){echo "form_sign_error";}?>">
-            <h1>Inscrivez-Vous !</h1>
+            <h1 class="text-center my-3">Inscrivez-Vous !</h1>
             <span id>
                             <?php
                                 if(isset($that_fuking_error)){
@@ -25,19 +17,18 @@
                             ?>
                         </span>
             <form action="<?=MAIN_PATH ?>/customer/sign" method ="POST">
-                <div class="form_content">
-                    <div class="form1">
+                <div class="form_content flex--row justify--around">
 
-                        
-
-                        <label for="firstname">Prénom <input id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
-                        <label for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" required ></label>
-                        <label for="email">Adresse Mail <input id="email" name="email" type="text" autocomplete="off" required ></label>
-                        <label for="pwd">Mot de passe (doit contenir <br>1 chiffre et 1 caractère spécial)<input id="pwd" name="pwd" type="password" autocomplete="off"   required ></label>
-                        <label for="pwd_check">Confirmez votre mot de passe<input id="pwd_check" name="pwd_check" type="password" autocomplete="off"   required ></label>
-                        <label for="phone">Numero de téléphone<input id="phone" name="phone"  type="tel" autocomplete="off"  required ></label>
+                    <div class="form1 flex--column">
+                        <label class="py-1" for="firstname">Prénom <input clas id="firstname" name="firstname" type="text" autocomplete="off"  required></label>
+                        <label class="py-1" for="lastname">Nom <input id="lastname" name="lastname" type="text" autocomplete="off" required ></label>
+                        <label class="py-1" for="email">Adresse Mail <input id="email" name="email" type="text" autocomplete="off" required ></label>
+                        <label class="py-1" for="pwd">Mot de passe (doit contenir <br>1 chiffre et 1 caractère spécial)<input id="pwd" name="pwd" type="password" autocomplete="off"   required ></label>
+                        <label class="py-1" for="pwd_check">Confirmez votre mot de passe<input id="pwd_check" name="pwd_check" type="password" autocomplete="off"   required ></label>
+                        <label class="py-1" for="phone">Numero de téléphone<input id="phone" name="phone"  type="tel" autocomplete="off"  required ></label>
                     </div>
-                    <div class="form1">
+
+                    <div class="form1 flex--column">
                         <label for="road_number">Numéro de rue<input type="text"  name="road_number" autocomplete="off"  required></label>
                         <label for="road">Rue<input type="text"  name="road" autocomplete="off"  required></label>
                         <label for="city">Ville<input type="text"  name="city" autocomplete="off"  required></label>
@@ -92,9 +83,9 @@
                 </div>
             </form>
         </article> 
-    </main>
-    <?php require("inc/footer.php") ?>
-    <script src="<?= MAIN_PATH ?>/js/sign-customer-page.js"></script>
-</body>
+        <?php
 
-</html>
+$content = ob_get_clean();
+$temp = new Template("Sign-customer-page", [], ["index"]);
+$temp->transmitVarToContext(["userSession" => $userSession]);
+$temp->render($content);
