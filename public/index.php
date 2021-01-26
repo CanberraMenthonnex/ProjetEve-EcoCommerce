@@ -1,6 +1,7 @@
 <?php
 
 use Core\Model\Annotations\AnnotationPackage;
+use Core\Router\PathGenerator;
 use Core\Router\Router;
 
 require("../core/vendor/autoload.php");
@@ -8,9 +9,12 @@ require ("../configuration/configuration.php");
 require("../configuration/dbconfiguration.php");
 require("../constant/ERROR_Message.php");
 require ("../constant/routes.php");
+require('../core/router/PathGenerator.php');
 
 AnnotationPackage::init();
-
+PathGenerator::defineBasePath(MAIN_PATH);
+PathGenerator::defineImgPath('img');
+PathGenerator::defineStylePath('style/css');
 session_start();
 
 try {

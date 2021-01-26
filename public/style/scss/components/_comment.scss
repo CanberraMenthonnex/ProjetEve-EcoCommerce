@@ -1,0 +1,54 @@
+.comment-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $fixMarge3 0;
+
+    &--user {
+        width: 100px;
+        height: 100px;
+        background-color: $white;
+        border-radius: 100px;
+        padding: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        & > img {
+            width: 80%;
+        }
+    }
+
+    &--trees-wrapper {
+        padding: $fixMarge3 0;
+    }
+
+    &--tree {
+        margin: 0 $fixMarge1;
+        width: 30px;
+    }
+
+    &--tree-unselected {
+        & > path {
+            fill: $white;
+        }
+    }
+
+    &--content {
+        background-color: $white;
+        padding: $fixMarge4;
+    }
+}
+
+@media screen and (max-width: $tabletSize) {
+    .comment-area {
+        &--user {
+            width: 75px;
+            height: 75px;
+        }
+
+        &--tree {
+            width: 25px;    
+        }
+    }
+}

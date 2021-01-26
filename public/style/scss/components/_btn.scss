@@ -27,3 +27,33 @@
         background-color: $darkGreen;
     }
 }
+
+.arrow-btn-wrapper {
+    button {
+        background: none;
+        border: none;   
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            svg  path{
+                fill: $white;
+            }
+        }
+    }
+    svg {
+        width: 50px;
+    }
+    path {
+        transition: .5s;
+    }
+    & > :first-child {
+        margin-right: 10px;
+    }
+    & > :last-child {
+        margin-left: 10px;
+    }
+}

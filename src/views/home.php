@@ -1,5 +1,6 @@
 <?php
 
+use Core\Router\PathGenerator;
 use Core\View\Template\Template;
 
     ob_start();

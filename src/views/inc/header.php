@@ -1,3 +1,7 @@
+<?php 
+    use Core\Router\PathGenerator;
+?>
+
 <header class="header">
     <div class="header--main ">
 
@@ -18,7 +22,7 @@
                     if(gettype($userSession) === "object"){
                         echo "<a href='".MAIN_PATH."/customer/profil' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
                     }else{
-                            echo "<a href=' ". MAIN_PATH ."/customer/sign' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                            echo '<a href="'. PathGenerator::generatePath('/customer/sign').' " class="header--action-items--icon"><img src="'. MAIN_PATH .'/img/user-icon.svg" alt="user icon" title="User" class="head-items--icon"></a>';
                     }
 
                 ?>
@@ -28,12 +32,12 @@
             </div>
         </div>
         
-        <img src="<?= MAIN_PATH ?>/img/logo.svg" alt="EVE" title="Projet EVE" class="header--logo">
+        <img src="<?= PathGenerator::generateImgPath('logo.svg')?>" alt="EVE" title="Projet EVE" class="header--logo">
         <div class="header--action-wrapper">
             <form class="header--search-bar search-bar " method="GET" action="<?= MAIN_PATH . SEARCH_ROUTE ?>">
                 <input type="text" class="search-bar--input" autocomplete="off" name="search" size="30" placeholder="Rechercher un produit...">
                 <button class="search-bar--submit">
-                    <img src="<?= MAIN_PATH ?>/img/search.svg" title="search" alt="search" class="search-bar--icon"/>
+                    <img src="<?= PathGenerator::generateImgPath('search.svg')?>" title="search" alt="search" class="search-bar--icon"/>
                 </button>
             </form>
            
@@ -42,9 +46,9 @@
             <?php
             
                 if(gettype($userSession) === "object"){
-                    echo "<a href='".MAIN_PATH."/customer/profil' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
+                    echo "<a href='". PathGenerator::generatePath("/customer/profil")." id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
                 }else{
-                        echo "<a href=' ". MAIN_PATH ."/customer/sign' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                        echo "<a href=' ". PathGenerator::generatePath("/customer/sign") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
                 }
 
             ?>

@@ -6,11 +6,11 @@ ob_start()
 ?>  
     <section class="p-2">
         <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché "<?= $keywords ?>"</h1>
-        <ul class="flex justify-tablet--center align--stretch">
+        <section class="flex justify-tablet--center align--stretch">
             <?php foreach($products as $product) : ?>
 
-                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col-3 m-1 flex-fill--height">
-                    <article class="product-card">
+                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col-3 m-1">
+                    <article class="product-card flex-fill--height">
                         <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
                         <div class="product-card--content">
                             <span class="product-card--price"><?= $product->getPrice(); ?>€</span>
@@ -20,7 +20,7 @@ ob_start()
                 </a>
 
             <?php endforeach; ?>
-        </ul>
+        </section>
     </section>
     <div class="flex-fill--width flex justify--center py-2 py-5-phone">
         <a href="#" class="btn-page "></a>
