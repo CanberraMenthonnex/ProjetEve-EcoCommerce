@@ -9,7 +9,7 @@ class UserController extends Controller {
     public function displayCustomerProfil(){
         $this->protectFor("user", HOME_ROUTE);
         $userSession = Session::get('user');
-        $this->render('customer_profil', compact("userSession"));
+        $this->render('client-customer-profil', compact("userSession"));
     }
     
 }

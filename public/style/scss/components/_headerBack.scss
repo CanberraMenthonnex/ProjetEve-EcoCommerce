@@ -9,6 +9,9 @@
         color: $white;
         padding: $fixMarge2;
     }
+    &--admin{
+        color: $white;
+    }
 }
 
 @media screen and (max-width : $tabletSize){

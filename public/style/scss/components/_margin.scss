@@ -112,3 +112,7 @@ $margins : (
     margin-top: $fixMarge3;
     margin-bottom: $fixMarge3;
 }
+
+.overScroll{
+    overflow-x: scroll;
+}

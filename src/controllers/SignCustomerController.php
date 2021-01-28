@@ -15,7 +15,7 @@ use Core\Model\Converters\TypeConverter;
 class SignCustomerController extends Controller{
 
     public function signCustomerPage() {
-        $this->render("sign-customer-page");
+        $this->render("client-sign-in");
     }
     public function sign(){
 
@@ -136,7 +136,7 @@ class SignCustomerController extends Controller{
                 
             if($pwd!==$pwd_check){
                 $signError = "Les mots de passes ne sont pas bons ";
-                $this->render("sign-customer-page", compact("signError")); 
+                $this->render("client-sign-in", compact("signError")); 
             }
 
             $adress = $road_number . " " . $road . " " . $city . " " . $zip_code . " " . $country;
@@ -171,7 +171,7 @@ class SignCustomerController extends Controller{
 
 
             $that_fuking_error = $sign_error[0][0]; 
-            $this->render("sign-customer-page", compact("that_fuking_error"));
+            $this->render("client-sign-in", compact("that_fuking_error"));
         }
             
     }
