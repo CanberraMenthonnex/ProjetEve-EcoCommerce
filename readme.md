@@ -1,7 +1,39 @@
-#Configuration pour lancer le projet sur votre machine
+# Project EVE ECO-COMMERVE
 
--Définir le dossier public comme dossier racine de votre serveur
+Here the description
 
--S'assurer d'avoir au moins la version 7.4 de PHP
+## Requires
 
--S'assurer d'aimer la vie  :) 
+* npm (Node package manager)
+* composer (Php package manager)
+
+## Technologies 
+
+* PHP
+* MySQL
+* Javasript
+* HTML 
+* CSS (SASS)
+* GULP 
+
+## SETUP 
+
+1. Create .env file
+2. Copy / Paste .env.dev content
+3. Replace by your own informations
+4. Launch the followed commands 
+    ```
+    npm install // Install node dependencies
+    ```
+
+    ```
+    composer install // Install Php dependencies
+    ```
+
+## RUN 
+
+1. Start your server 
+2. Launch the followed command 
+   ```
+   npm start
+   ```

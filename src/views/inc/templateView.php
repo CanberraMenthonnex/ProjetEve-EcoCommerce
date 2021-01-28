@@ -31,7 +31,7 @@
     <script>const MAIN_PATH = <?= json_encode(MAIN_PATH) ?></script>
     <script src="<?= MAIN_PATH ?>/js/ajax-cart.js"></script>
     <?= array_reduce($templateScripts, function ($acc , $script) {
-        return $acc .= '<script src="'. MAIN_PATH . '/js/' . $script . '.js"></script>';
+        return $acc .= '<script src="'. MAIN_PATH . '/js/dist/' . $script . '.js"></script>';
     }) 
     ?>
 </body>

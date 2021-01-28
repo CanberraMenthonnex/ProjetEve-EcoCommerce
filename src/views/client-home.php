@@ -92,6 +92,6 @@ use Core\View\Template\Template;
 <?php
 
 $content = ob_get_clean();
-$temp = new Template("Home", [], ["index"]);
+$temp = new Template("Home", ['index'], ["index"]);
 $temp->transmitVarToContext(["userSession" => $userSession]);
 $temp->render($content);

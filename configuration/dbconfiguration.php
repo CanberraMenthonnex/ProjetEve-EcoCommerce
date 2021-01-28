@@ -1,5 +1,5 @@
 <?php
-const DB_HOST = "localhost:3306";
-const DB_NAME = "back_office";
-const DB_USERNAME = "root";
-const DB_PASSWORD = "";
+define( 'DB_HOST', $_ENV['DB_HOST']);
+define( 'DB_NAME', $_ENV['DB_NAME'] );
+define( 'DB_USERNAME', $_ENV['DB_USERNAME']);
+define( 'DB_PASSWORD',  $_ENV['DB_PASSWORD']);
