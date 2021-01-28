@@ -92,3 +92,23 @@ $margins : (
     @include generatePadding("-phone");
     @include generateMargin("-phone");
 }
+
+.paddingX1{
+    padding-left: $marge1;
+    padding-right: $marge1;
+}
+
+.paddingX2{
+    padding-left: $marge2;
+    padding-right: $marge2;
+}
+
+.paddingX3{
+    padding-left: $marge3;
+    padding-right: $marge3;
+}
+
+.fixeMargin3{
+    margin-top: $fixMarge3;
+    margin-bottom: $fixMarge3;
+}

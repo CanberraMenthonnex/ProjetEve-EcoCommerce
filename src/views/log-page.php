@@ -1,28 +1,29 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="stylesheet" href="/style/log-in-style.css">
-    </head>
+use Core\View\Template\Template;
 
-    <body>
-    <img class="logoBackOffice" src="/img/logoBackOffice.png">
-    <div id="blocLog">
-            <p id="pLog">Connect</p>
+    ob_start();
+?>
+
+    <div class="flex--column align--center ">
+        <div class="bg--light-grey text-center py-2 paddingX2 semiRadius">
+            <p class="f-white fixeMargin3 mainTitle">Connect</p>
             
-                <form action="/admin/login" method ="POST">
+                <form action="<?=MAIN_PATH . ADMIN_LOG_ROUTE?>" method ="POST">
                     <div id="divInputLog">
-                    <input type="text"  id="id" name="email" placeholder="Identifiant" autocomplete="off"> <br>
-                    <input type="password" id="pwd" name="pwd" placeholder="Mot de passe" autocomplete="off"> <br>
+                    <input class="semiRadius py-1 paddingX3" type="text"  id="id" name="email" placeholder="Identifiant" autocomplete="off"> <br>
+                    <input class="my-3 semiRadius py-1 paddingX3" type="password" id="pwd" name="pwd" placeholder="Mot de passe" autocomplete="off"> <br>
                     </div>
                     <div id="divSubmit">
-                    <input type="submit" name="send" value="Connexion" id="buttonLog">
+                    <input class="fixeMargin3 semiRadius py-1 paddingX3" type="submit" name="send" value="Connexion" id="buttonLog">
                 </div>
                 </form>
         </div>
-    </body>
+            
+        </div>
+        <?php
 
-</html>
+$content = ob_get_clean();
+$temp = new Template("Log-page", [], ["index"]);
+$temp->transmitVarToContext(["userSession" => $userSession]);
+$temp->render($content);

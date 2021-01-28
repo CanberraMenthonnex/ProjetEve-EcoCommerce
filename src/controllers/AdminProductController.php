@@ -17,7 +17,8 @@ class AdminProductController extends Controller {
     }
 
     public function createProductPage() {
-        $this->render('creation-article');
+        $admin = Session::get(self::SESSION_NAME);
+        $this->render('creation-article', compact("admin"));
     }
 
     public function createProduct() {

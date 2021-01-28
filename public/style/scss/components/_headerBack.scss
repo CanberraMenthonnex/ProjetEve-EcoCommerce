@@ -1,0 +1,33 @@
+.headerBack{
+    padding: $fixMarge2;
+    &--logo{
+        width: 15%;
+        padding-top: $fixMarge2;
+    }
+    &--link{
+        text-decoration: $none;
+        color: $white;
+        padding: $fixMarge2;
+    }
+}
+
+@media screen and (max-width : $tabletSize){
+    .headerBack div{
+        display: $flex;
+        flex-direction: $row;
+        justify-content: $center;
+        align-items: $center;
+    }
+    .headerBack img{
+        margin-left: 42%;
+    }
+        
+    
+    #filters{
+        justify-content: center;
+        align-items: center;
+    }
+    table{
+        
+    }
+}

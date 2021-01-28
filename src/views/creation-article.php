@@ -1,28 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/creation-article.css">
-    <title>Creation d'article</title>
-</head>
-    <body id="bodyPageCreationArticle">
-    <img class="logoBackOffice" src="/img/logoBackOffice.png" alt="logoSite">
-    <section id="pageProduct">
-        
-        <form id="formCreationArticle" action="/admin/product/form" method="POST">
-            <div id="productInformation">
-                <div id="divImgPrevu">
+<?php
+
+use Core\View\Template\Template;
+
+    ob_start();
+?>
+
+    <section class="flex--column align--center"  id="pageProduct">
+        <div class="bg--light-grey py-1 paddingX1 lightRadius">
+            <form id="formCreationArticle" action="/admin/product/form" method="POST">
+            <div class="flex--row" id="productInformation">
+                <div class="col6"id="divImgPrevu">
                     <input type="file" name="imgFile" id="imgFile" >
                     <div class="imagePrevu" id="imgPreview">
                         <img src="" alt="Prévualisation d'image" class="imagePrevuImage">
                         <span class="ImagePrevuDefault">Prévualisation d'image</span>
                     </div>
                 </div>
-                <div id="product">
-                    <input type="text" name="name" id="name" placeholder="Nom du produit" autocomplete="off">
-                    <input type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
-                    <input type="number" name="quantity" id="quantity" placeholder="Quantité du produit">
+                <div class="flex--column col5" id="product">
+                    <input class="my-2 py-2" type="text" name="name" id="name" placeholder="Nom du produit" autocomplete="off">
+                    <input class="my-2 py-2" type="number" name="price" id="price" min="0" placeholder="Prix du produit" >
+                    <input class="my-2 py-2" type="number" name="quantity" id="quantity" placeholder="Quantité du produit">
                 </div>
             </div>
             <div id="CreaText">
@@ -32,13 +29,18 @@
 		        <input id="sStyle" type="button" value="S" style="text-decoration:underline;"/> 
                 <input id="linkStyle" type="button" value="Lien"/>
                 <br>
-                <div id="editor" contentEditable></div>
+                <div class="bg--white my-2 descProduct" id="editor" contentEditable></div>
                 <input type="hidden" name="description" id="depot"> 
             </div>
-            <input type="submit" name="create_product" id="create_product" value="AJOUTER LE PRODUIT" /><br />
+            <input class="bg--flash-green py-1 lightRadius text-center" type="submit" name="create_product" id="create_product" value="AJOUTER LE PRODUIT" /><br />
         </form>
+        </div>
+        
     </section>
-    <script src="/js/creation-article.js"></script>
-</body>
+<?php
 
-</html>
+$content = ob_get_clean();
+$temp = new Template("Creation-article", [], ["index"]);
+$temp->setTemplateView("templateBackView");
+$temp->transmitVarToContext(["admin" => $admin]);
+$temp->render($content);

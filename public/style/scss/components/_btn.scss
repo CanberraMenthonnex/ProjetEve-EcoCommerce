@@ -13,6 +13,13 @@
     }
 }
 
+.semiRadius{
+    border-radius: $semiRounded;
+}
+
+.lightRadius{
+    border-radius: $lightRadius;
+}
 .btn-page {
     $r : 20px;
     width: $r;
