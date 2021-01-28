@@ -12,7 +12,7 @@ class AdminController extends Controller {
     const SESSION_NAME = "admin";
 
     public  function logAdminPage() {
-        $this->render("log-page");
+        $this->render("admin-login");
     }
 
     public  function login() {

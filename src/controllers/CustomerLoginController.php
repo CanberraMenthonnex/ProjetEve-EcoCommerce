@@ -5,18 +5,12 @@ namespace Controller;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
+use Core\Controller\Controller;
 
-class UserLoginController extends UserController {
+class CustomerLoginController extends Controller {
 
-    private array $log_error = [];
-
-    public function getError()
-    {
-        return $this->error;
-    }
-
-    public function logAdminPage() {
-        $this->render("log-page");
+    public function loginPage(){
+        $this->render("client-login");
     }
 
     public function login() {

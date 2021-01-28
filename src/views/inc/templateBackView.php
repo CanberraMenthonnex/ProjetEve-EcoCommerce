@@ -13,7 +13,7 @@
 
 <header class="flex--column headerBack" id="headerAfficheArticle">
     <div class="flex--row justify--between">
-        <span>Connecté en tant que administrateur <b><?= $admin->getMail(); ?></b></span>
+        <span class="headerBack--link">Connecté en tant que administrateur <b><?= $admin->getMail(); ?></b></span>
         <div>
             <a class="headerBack--link" href="<?=MAIN_PATH . ADMIN_LOGOUT_ROUTE?>">Déconnexion</a>
             <a class="headerBack--link" href="<?=MAIN_PATH . ADMIN_CREATE_PRODUCT_ROUTE ?>" id="ajoutArticle">Ajouter un article</a>

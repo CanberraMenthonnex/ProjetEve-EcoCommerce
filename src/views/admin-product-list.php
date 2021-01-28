@@ -6,6 +6,7 @@ use Core\View\Template\Template;
 ?>
 
 <body>
+<div class="paddingX1">
     <h1 class="f-white text-center">Inventaire Produits</h1>
     <div class="flex--row justify--end justify-phone--center py-2">
         <span class="f-white">Recherche : </span>
@@ -42,8 +43,9 @@ use Core\View\Template\Template;
             }
         ?>
     </table>
+</div>
 
-    <?php
+<?php
 
 $content = ob_get_clean();
 $temp = new Template("Product-back", [], ["index"]);

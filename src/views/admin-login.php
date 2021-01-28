@@ -1,10 +1,22 @@
-<?php
 
-use Core\View\Template\Template;
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/css/template.css">
+       <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/css/index.css">
 
-    ob_start();
-?>
+    <title><?= $templateTitle ?></title>
+</head>
+<body class="bg--very-dark-grey template-container">
 
+<header class="flex--column headerBack" id="headerAfficheArticle">
+        <img class="headerBack--logo" src="<?= MAIN_PATH ?>/img/logoBackOffice.png">
+</header>
+
+
+    <main class="template-container--main">
     <div class="flex--column align--center ">
         <div class="bg--light-grey text-center py-2 paddingX2 semiRadius">
             <p class="f-white fixeMargin3 mainTitle">Connect</p>
@@ -21,9 +33,10 @@ use Core\View\Template\Template;
         </div>
             
         </div>
-        <?php
+    </main>
+    
+</body>
+</html>
+    
 
-$content = ob_get_clean();
-$temp = new Template("Log-page", [], ["index"]);
-$temp->transmitVarToContext(["userSession" => $userSession]);
-$temp->render($content);
+

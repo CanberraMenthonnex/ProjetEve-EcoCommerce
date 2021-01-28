@@ -22,7 +22,7 @@ class ProductController extends Controller {
         $em = new EntityManager("Product");
         $products = $em->findByRegex(["name" =>$search]);
        
-        $this->render("search-page", compact("products", "keywords"));
+        $this->render("client-search-page", compact("products", "keywords"));
     }
 
     public function productDescription (string $productId) {
@@ -34,7 +34,7 @@ class ProductController extends Controller {
             Http::redirect(HOME_ROUTE);
         }
 
-        $this->render("product-page", compact("product", "relationProducts"));
+        $this->render("client-product-page", compact("product", "relationProducts"));
     }
 
 }
