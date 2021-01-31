@@ -45,5 +45,33 @@ abstract class Controller {
             die();
         }
     }
+
+    /**
+     * @param string $path
+     * @param string $defaultMessage
+     */
+    protected function redirect(string $path, string $defaultMessage = "") {
+        Session::set('defaultMessage', $defaultMessage);
+        Http::redirect($path);
+    }
+
+    /**
+     * @param string $path
+     * @param string $errorMessage
+     */
+    protected function redirectWithError(string $path, string $errorMessage = "") {
+        Session::set('errorMessage', $errorMessage);
+        Http::redirect($path);
+    }
+
+    /**
+     * @param string $key
+     * @return mixed|null
+     */
+    protected function getMessage(string $key) {
+        $message = Session::get($key);
+        Session::clean($key);
+        return $message;
+    }
        
 }

@@ -41,19 +41,23 @@ class Template implements ITemplate {
      * For setting template file name
      * 
      * @param string $templateFileName
+     * @return Template
      */
-    public function setTemplateView (string $templateFileName) {
+    public function setTemplateView (string $templateFileName) : self {
         $this->_templateViewName = $templateFileName;
+        return $this;
     }
 
     /**
      * For transimitting some variables to render context
      * 
      * @param array $vars ( ["var name" => value] )
+     * @return Template
      */
-    public function transmitVarToContext(array $vars)
+    public function transmitVarToContext(array $vars) : self
     {
         $this->_contextVars = $vars;
+        return $this;
     }
 
 

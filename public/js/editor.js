@@ -1,6 +1,5 @@
 (function () {
 
-
     const editor = new EditorJS({
         holder: 'editor',
         autofocus: true,
@@ -12,5 +11,14 @@
             }
         }
     });
-    console.log("test");
+    
+    const editorForm = document.querySelector('#editor-form')
+    const inputContent = document.querySelector("#article-content")
+
+    editorForm.addEventListener('submit', async (e) => {
+        const content = await editor.save()
+        inputContent.value = JSON.stringify(content)
+
+    })
+
 })()

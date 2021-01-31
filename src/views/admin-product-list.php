@@ -5,7 +5,6 @@ use Core\View\Template\Template;
     ob_start();
 ?>
 
-<body>
 <div class="paddingX1">
     <h1 class="f-white text-center">Inventaire Produits</h1>
     <div class="flex--row justify--end justify-phone--center py-2">

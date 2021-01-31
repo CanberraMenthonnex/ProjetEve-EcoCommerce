@@ -73,7 +73,7 @@ class CartController extends Controller {
      $query->execute(["user_id" => $user->getId()]);
      
      $cartList = $query->fetchAll(\PDO::FETCH_ASSOC);
- 
+     header('Content-Type: application/json');
      echo json_encode($cartList);
 
    }

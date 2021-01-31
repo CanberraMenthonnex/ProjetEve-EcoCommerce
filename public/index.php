@@ -47,16 +47,22 @@ try {
 
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", "AdminProductController", "removeProduct");
 
+    $router->get(ADMIN_ARTICLE_LIST, 'AdminBlogController', 'articleList');
+
     $router->get(ADMIN_CREATE_ARTICLE, "AdminBlogController", "createArticlePage");
+
+    $router->post(ADMIN_CREATE_ARTICLE, "AdminBlogController", "postArticle");
+
+    $router->get(ADMIN_DELETE_ARTICLE . ":id", "AdminBlogController", "deleteArticle");
 
     //CUSTOMER ROUTES
     $router->post(CUSTOMER_POST_SIGN_ROUTE, "SignCustomerController", "sign");
 
     $router->get(CUSTOMER_POST_SIGN_ROUTE, "SignCustomerController", "signCustomerPage");
 
-    $router->post(CUSTOMER_POST_LOGIN_ROUTE, "UserLoginController","login");
+    $router->post(CUSTOMER_POST_LOGIN_ROUTE, "CustomerLoginController","login");
 
-    $router->get(CUSTOMER_LOGOUT_ROUTE, "UserLoginController","logout");
+    $router->get(CUSTOMER_LOGOUT_ROUTE, "CustomerLoginController","logout");
 
     $router->get(CUSTOMER_PROFIL_ROUTE,"UserController","displayCustomerProfil");
 
