@@ -77,6 +77,12 @@ try {
 
     $router->post(UPDATE_CART_QUANTITY_ROUTE . ":id", "CartController", "updateCartQuantity");
 
+    //BLOG ROUTES 
+
+    $router->get(ARTICLE_ROUTE, "BlogController", "articleList");
+
+    $router->get(ARTICLE_ROUTE . "/:id", "BlogController", "articlePage");
+
 
 
     $router->parse();

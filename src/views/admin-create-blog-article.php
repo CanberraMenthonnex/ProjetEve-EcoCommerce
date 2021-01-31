@@ -5,26 +5,29 @@ use Core\View\Template\Template;
 
 ob_start()
 ?>
-<section>
-    <form action="<?= PathGenerator::generatePath(ADMIN_CREATE_ARTICLE) ?>" method="POST" id="editor-form">
+<section class="editor">
+    <form action="<?= PathGenerator::generatePath(ADMIN_CREATE_ARTICLE) ?>" method="POST" id="editor-form" class="editor--header-data">
         <input type="hidden" name="content" id="article-content" />
-        <div>
-            <label for="article-title" class="f-white">Titre de l'article</label>
-            <input name="title" placeholder="Titre de l'article" id="article-title" />
+        <div class="flex--column align--center py-1">
+            <label for="article-title" class="f-white py-4">Titre de l'article</label>
+            <input name="title" placeholder="Titre de l'article" id="article-title" class="text-input"/>
         </div>
-        <div>
-            <label for="article-desc" class="f-white">Description de l'article</label>
-            <textarea name="description" placeholder="Description de l'article" id="article-desc"></textarea>
+        <div class="flex--column align--center py-1">
+            <label for="article-desc" class="f-white py-4">Description de l'article</label>
+            <textarea name="description" placeholder="Description de l'article" id="article-desc" class="textarea" rows="10" cols="50"></textarea>
         </div>
-        <div>
-            <label for="article-category" class="f-white">Catégorie de l'article</label>
-            <select id="article-category" name="category">
+        <div class="flex--column align--center py-1">
+            <label for="article-category" class="f-white py-4">Catégorie de l'article</label>
+            <select id="article-category" name="category" class="select">
                 <option value="categorie_1">Catégorie 1</option>
             </select>
         </div>
     </form>
-    <div id="editor"></div>
-    <button type="submit" class="cta" id="confirm-btn" form="editor-form">Confirmer la création</button>
+    <div id="editor" class="editor--content"></div>
+    <div class="flex justify--center py-1">
+        <button type="submit" class="cta" id="confirm-btn" form="editor-form">Confirmer la création</button>
+    </div>
+    
 </section>
 
 <?php 

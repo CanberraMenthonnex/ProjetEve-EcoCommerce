@@ -27,3 +27,14 @@
         transform: translateY(-50%);
     }
 }
+
+.article-card {
+    background-color: $darkGrey;
+    padding: 20px;
+
+    &--title, &--desc {
+        color: $white;
+        padding: 10px 0;
+    }
+
+}

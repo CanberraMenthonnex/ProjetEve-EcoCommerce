@@ -8,3 +8,27 @@
 .descProduct{
     height: $fixMarge5;
 }
+
+.text-input {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    width: 100%;
+    &:focus {
+        border: 4px solid $darkGreen;
+        outline: none;
+    }
+}
+
+.textarea {
+   @extend .text-input;
+   resize: none;
+   
+}
+
+.select {
+    padding: 10px 5px;
+    background-color: $darkGrey;
+    color: $white;
+    width: 100%;
+}
