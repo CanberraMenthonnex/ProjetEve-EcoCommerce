@@ -47,9 +47,11 @@ try {
 
     $router->get(CUSTOMER_POST_SIGN_ROUTE, "SignCustomerController", "signCustomerPage");
 
-    $router->post(CUSTOMER_POST_LOGIN_ROUTE, "UserLoginController","login");
+    $router->get(CUSTOMER_POST_LOGIN_ROUTE, "CustomerLoginController", "loginPage");
 
-    $router->get(CUSTOMER_LOGOUT_ROUTE, "UserLoginController","logout");
+    $router->post(CUSTOMER_POST_LOGIN_ROUTE, "CustomerLoginController","login");
+
+    $router->get(CUSTOMER_LOGOUT_ROUTE, "CustomerLoginController","logout");
 
     $router->get(CUSTOMER_PROFIL_ROUTE,"UserController","displayCustomerProfil");
 

@@ -113,6 +113,18 @@ $margins : (
     margin-bottom: $fixMarge3;
 }
 
+.marginX1{
+    margin: $fixMarge1;
+}
+
 .overScroll{
     overflow-x: scroll;
+}
+
+.widthMax{
+    width: $largeW;
+}
+
+.paddingFix1{
+    padding: $fixMarge1;
 }

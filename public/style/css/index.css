@@ -289,6 +289,18 @@
   margin-top: 30px;
   margin-bottom: 30px; }
 
+.marginX1 {
+  margin: 10px; }
+
+.overScroll {
+  overflow-x: scroll; }
+
+.widthMax {
+  width: 100%; }
+
+.paddingFix1 {
+  padding: 10px; }
+
 * {
   padding: 0;
   margin: 0;
@@ -739,7 +751,7 @@ a {
   background-color: white; }
 
 .bg--flash-green {
-  background-color: #3BC20D; }
+  background-color: #8ebf25; }
 
 .cta {
   display: inline-flex;
@@ -1001,6 +1013,8 @@ a {
     text-decoration: none;
     color: white;
     padding: 20px; }
+  .headerBack--admin {
+    color: white; }
 
 @media screen and (max-width: 960px) {
   .headerBack div {
@@ -1013,3 +1027,6 @@ a {
   #filters {
     justify-content: center;
     align-items: center; } }
+
+.paddingCta {
+  padding: 5px 10px; }
