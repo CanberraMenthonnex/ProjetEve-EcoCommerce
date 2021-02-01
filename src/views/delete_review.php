@@ -17,7 +17,9 @@
         ?>
 
          <tr class="tableBody">
+            <td><?= $comment['product_id'] ?></td>
             <td><?= $comment['comment'] ?></td>
+            <td><?= $comment['date'] ?></td>
             <td> <a href="<?= ADMIN_DELETE_REVIEW_ROUTE . $comment['id'] ?> "> Supprimer</a></td>
          </tr>
 
