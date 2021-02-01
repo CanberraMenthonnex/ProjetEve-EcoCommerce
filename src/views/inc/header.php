@@ -9,8 +9,8 @@
 
         <div id="nav-bar" class="header--nav-main-wrapper">
             <nav class="header--nav-main">   
-                <a href="<?= MAIN_PATH . HOME_ROUTE ?>" class="header--link">Home</a>
-                <a href="#" class="header--link">Blog</a>
+                <a href="<?= PathGenerator::generatePath(HOME_ROUTE) ?>" class="header--link">Home</a>
+                <a href="<?= PathGenerator::generatePath(ARTICLE_ROUTE) ?>" class="header--link">Blog</a>
                 <a href="#" class="header--link">Contact</a>
             </nav> 
             <div class="header--action-wrapper-resp">
@@ -20,9 +20,9 @@
                 <?php
                 
                     if(gettype($userSession) === "object"){
-                        echo "<a href=' ". PathGenerator::generatePath("customer/profil")." ' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
+                        echo "<a href=' ". PathGenerator::generatePath("customer/profil")." ' id='customerName' class='header--username-resp'>" . $userSession->getFirstname() . "</a>";
                     }else{
-                            echo '<a href="'. PathGenerator::generatePath('customer/sign').' " class="header--action-items--icon"><img src="'.  PathGenerator::generateImgPath('luser-icon.svg') .' alt="user icon" title="User" class="head-items--icon"></a>';
+                            echo '<a href="'. PathGenerator::generatePath('customer/sign').' " class="header--username"><img src="'.  PathGenerator::generateImgPath('luser-icon.svg') .' alt="user icon" title="User" class="head-items--icon"></a>';
                     }
 
                 ?>
@@ -46,7 +46,7 @@
             <?php
             
                 if(gettype($userSession) === "object"){
-                    echo "<a href='". PathGenerator::generatePath("customer/profil")."' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
+                    echo "<a href='". PathGenerator::generatePath("customer/profil")."' id='customerName' class='header--username'>" . $userSession->getFirstname() . "</a>";
                 }else{
                         echo "<a href=' ". PathGenerator::generatePath("customer/sign") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
                 }

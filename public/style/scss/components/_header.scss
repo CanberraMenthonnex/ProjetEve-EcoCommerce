@@ -46,6 +46,17 @@
         
     }
 
+    &--username {
+        padding: 0 10px;
+        color: $white;
+    }
+
+    &--username-resp {
+        color: $white;
+        font-size: 1.3em;
+        padding: 10px 0;
+    }
+
     &--action-wrapper-resp {
         display: none;
     }
