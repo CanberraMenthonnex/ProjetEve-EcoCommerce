@@ -34,26 +34,60 @@ class ProductController extends Controller {
             Http::redirect(HOME_ROUTE);
         }
 
+        //------------------- TOTAL DES AVIS ET MOYENNE DES NOTES----------------------\\
         $db = EntityManager::getDatabase();
-
-        $review = $db->prepare(
-            "SELECT comment, rating, lastname, firstname
-             FROM product_review
-             INNER JOIN user ON product_review.user_id = user.id
-             WHERE product_id = :product_id
-             ORDER BY date DESC"
-        );
-
-        $review->execute(["product_id"=>$productId]);
-
-        $reviewList = $review->fetchAll(\PDO::FETCH_OBJ);
-
-
         $totalQuery = $db->prepare("SELECT COUNT(id) AS total, AVG(rating) AS avgrate FROM product_review WHERE product_id = :product_id");
         $totalQuery->execute(["product_id"=>$productId]);
         $total = $totalQuery->fetch();
 
-        $this->render("product-page", compact("product", "relationProducts", "reviewList", "total"));
+        $this->render("product-page", compact("product", "relationProducts", "total"));
+    }
+
+
+
+    public function listingReview(string $prdtId) {
+
+        $db = EntityManager::getDatabase();
+
+        $query = $db->prepare(
+            "SELECT comment, rating, date, lastname, firstname
+             FROM product_review
+             INNER JOIN user ON product_review.user_id = user.id
+             WHERE product_id = :product_id
+             ORDER BY date DESC
+             LIMIT 5"
+        );
+
+        $query->execute(["product_id"=>$prdtId]);
+
+        $reviewList = $query->fetchAll(\PDO::FETCH_ASSOC);
+
+        echo json_encode($reviewList);
+
+    }
+
+
+
+    public function reviewPagination(string $prdtId) {
+
+        $page = $_POST['page'];
+
+        $db = EntityManager::getDatabase();
+
+        $query = $db->prepare(
+            "SELECT comment, rating, date, lastname, firstname
+             FROM product_review
+             INNER JOIN user ON product_review.user_id = user.id
+             WHERE product_id = :product_id
+             ORDER BY date DESC
+             LIMIT 5
+             OFFSET :reviewNbr"
+        );
+
+        $query->execute(["product_id"=>$prdtId, "reviewNbr"=>$page]);
+
+        echo json_encode($query->fetchAll(\PDO::FETCH_ASSOC));
+
     }
 
 }

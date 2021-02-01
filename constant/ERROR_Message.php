@@ -9,3 +9,5 @@ const BAD_KEYS =  "Formulaire erroné";
 const ERROR_ADDING_CART = "Erreur lors de l'ajout du produit au panier";
 const ALREADY_IN_CART = "Ce produit est déja dans votre panier";
 const ERROR_UPDATING_CART_QUANTITY = "Erreur lors de la modification de la quantité de vos produits dans le panier";
+const VERIFYING_WRONG_EMAIL = "Aucun compte ne correspond à cette email";
+const VERIFYING_WRONG_CODE = "Le code de vérification est incorrect";

@@ -1,0 +1,29 @@
+.cta {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid $white;
+    padding: $fixMarge1;
+    text-decoration: none;
+    font-weight: $bold;
+    color: $white;
+
+    &--icon {
+        width: $smallFixW;
+        margin-left: $fixMarge3;
+    }
+}
+
+.btn-page {
+    $r : 20px;
+    width: $r;
+    height: $r;
+    background-color: $lightGreen;
+    border: 2px solid $darkGreen;
+    border-radius: $maxRounded;
+    margin: 0 $fixMarge1;
+
+    &--selected {
+        @extend .btn-page;
+        background-color: $darkGreen;
+    }
+}

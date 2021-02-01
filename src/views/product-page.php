@@ -12,6 +12,8 @@
 <body>
     <?php require("inc/header.php") ?>
     <main>
+
+    <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
     
     <section class="produit">
     
@@ -39,21 +41,18 @@
             <hr>
         </div>
 
-        <div class="sugestion">
-        <?php foreach($relationProducts as $product) : ?>
-
-            <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="w-15">
-                <article class="product-card">
-                    <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                    <div class="product-card--content">
-                        <span class="product-card--price"><?= $product->getPrice(); ?>€</span>
-                        <h3 class="product-card--name"><?= $product->getName(); ?></h3>
-                    </div>
-                </article>
-            </a>
-
-        <?php endforeach; ?>
-          
+        <div class="flex justify--between align--stretch justify-phone--center">
+            <?php foreach($relationProducts as $product) : ?>
+                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                    <article class="product-card flex-fill--height">
+                        <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                        <div class="product-card--content">
+                            <span class="product-card--price"><?= $product->getPrice() ?>€</span>
+                            <h3 class="product-card--title"><?= $product->getName() ?></h3>
+                        </div>
+                    </article>
+                </a>
+            <?php endforeach; ?>
         </div>
 
         <div class="controler_slider">
@@ -67,28 +66,36 @@
             <hr>
             <h2 class="white">Avis (<?= $total->total ?>) - <?= round($total->avgrate, 1) ?> &#x1f384;</h2>
             <hr>
-        </div>
+    </div>
 
-        <?php foreach($reviewList as $review) : ?>
+    <div id="review"></div>
 
-            <article class="article_avis">
-                <h4><?= $review->firstname ?> <?= $review->lastname ?></h4>
-                <div class="icons_tree">
-                    <?php for ($i = 0; $i < $review->rating; $i++) { ?>
-                        <span>&#x1f384;</span>
-                    <?php } ?>         
-                </div>
-                    <p class="gray">
-                        <?= $review->comment ?>
-                    </p>
-            </article>
-
-        <?php endforeach; ?>
-            
     </section>
+
+<<<<<<< HEAD
+    <div class="divPgt">
+        <?php
+            $avis = $total->total;
+            $page = 1;
+            for ($i=0; $i < $avis; $i += 5) {
+                echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
+                $page += 1;
+            }
+        ?>
+    </div>
+
     
     <?php require("inc/footer.php"); ?>
     
     </main>
+
+
 </body>
 </html>
+=======
+<?php
+$content = ob_get_clean();
+$temp = new Template($product->getName(), [], ["index"]);
+$temp->transmitVarToContext(compact("userSession"));
+$temp->render($content);
+>>>>>>> 889a0b9d9627cbe6eab39c6975257c2cecedf0b1
