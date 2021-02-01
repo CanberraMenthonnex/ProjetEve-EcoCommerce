@@ -34,7 +34,7 @@
         
         <img src="<?= PathGenerator::generateImgPath('logo.svg')?>" alt="EVE" title="Projet EVE" class="header--logo">
         <div class="header--action-wrapper">
-            <form class="header--search-bar search-bar " method="GET" action="<?= MAIN_PATH . SEARCH_ROUTE ?>">
+            <form class="header--search-bar search-bar " method="GET" action="<?= PathGenerator::generatePath(SEARCH_ROUTE) ?>">
                 <input type="text" class="search-bar--input" autocomplete="off" name="search" size="30" placeholder="Rechercher un produit...">
                 <button class="search-bar--submit">
                     <img src="<?= PathGenerator::generateImgPath('search.svg')?>" title="search" alt="search" class="search-bar--icon"/>

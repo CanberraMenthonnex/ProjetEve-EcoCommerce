@@ -1,0 +1,34 @@
+body {
+    background-color:#768950;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pending-div {
+    margin: 100px auto 0 auto;
+    border: 1px solid black;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+}
+
+.pending-div form {
+    padding: 25px;
+}
+
+.pending-p {
+    text-align: center;
+    cursor: pointer;
+}
+
+.pending-p:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+#send-div {
+    display: none;
+}

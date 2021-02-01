@@ -1,5 +1,6 @@
 <?php
 
+use Core\Router\PathGenerator;
 use Core\View\Template\Template;
 
 ob_start()
@@ -9,7 +10,7 @@ ob_start()
         <section class="flex justify-tablet--center align--stretch">
             <?php foreach($products as $product) : ?>
 
-                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col-3 m-1">
+                <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() )?>" class="col-3 m-1">
                     <article class="product-card flex-fill--height">
                         <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
                         <div class="product-card--content">

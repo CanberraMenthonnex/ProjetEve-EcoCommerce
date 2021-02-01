@@ -38,9 +38,18 @@ class CustomerLoginController extends Controller {
             }
             else
             {
-                //throw new \Exception(BAD_EMAIL);
-                $log_error = "L'identifiant et/ou le mot de passe de connexion ne sont pas reconnus.";
-                $this->render("client-sign-in", compact("log_error"));
+
+                $em_pending = new EntityManager("User_pending");
+                $user_pending = $em_pending->findOne(["email"=>$email]);
+
+                if($user_pending) {
+                    Http::redirect(CUSTOMER_VERIFY_ROUTE);
+                }
+                else {
+                    //throw new \Exception(BAD_EMAIL);
+                    $log_error = "L'identifiant et/ou le mot de passe de connexion ne sont pas reconnus.";
+                    $this->render("sign-customer-page", compact("log_error"));
+                }
             }
         }
         else

@@ -39,4 +39,3 @@
         projet-eve@eco-commerce.com
     </address>
 </footer>
-

@@ -81,6 +81,15 @@ ob_start()
             <h2 class="separator-header--title f-white py-2">Avis</h2>
         </header>
         <div class='flex--column pb-2'>
+        <?php
+            $avis = $total->total;
+            var_dump($total);
+            $page = 1;
+            for ($i=0; $i < $avis; $i += 5) {
+                echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
+                $page += 1;
+            }
+        ?>
             <article class="comment-area">
                 <div class='comment-area--user'>
                    <img src="<?= PathGenerator::generateImgPath('user.svg') ?>" alt="icon-user"> 
