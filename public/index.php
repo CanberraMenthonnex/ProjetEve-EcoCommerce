@@ -11,7 +11,9 @@ require ("../constant/routes.php");
 
 AnnotationPackage::init();
 
+
 session_start();
+
 
 try {
     $router = new Router($_GET["url"]);
@@ -22,6 +24,10 @@ try {
     $router->get(SEARCH_ROUTE, "ProductController", "searchList");
 
     $router->get(PRODUCT_DESC_ROUTE . ":productId", "ProductController", "productDescription");
+
+    $router->get(REVIEW_PRODUCT . ":prdtId", "ProductController", "listingReview");
+
+    $router->post(REVIEW_PAGINATION . ":prdtId", "ProductController", "reviewPagination");
 
     //ADMIN ROUTES
     $router->get(ADMIN_LOG_ROUTE, "AdminController", "logAdminPage");
@@ -48,6 +54,12 @@ try {
     $router->get(CUSTOMER_LOGOUT_ROUTE, "UserLoginController","logout");
 
     $router->get(CUSTOMER_PROFIL_ROUTE,"UserController","displayCustomerProfil");
+
+    $router->get(CUSTOMER_VERIFY_ROUTE, "SignCustomerController", "displayVerify");
+
+    $router->post(CUSTOMER_VERIFY_ROUTE, "SignCustomerController", "verifyCustomer");
+
+    $router->post(CUSTOMER_VERIFY_RESEND, "SignCustomerController", "resendCode" );
 
     //CART ROUTES
     $router->get(ADD_CART_ROUTE, "CartController", "productPage");

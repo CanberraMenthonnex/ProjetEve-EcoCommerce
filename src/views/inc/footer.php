@@ -43,3 +43,4 @@
 <script src="<?= MAIN_PATH ?>/js/header.js"></script>
 <script>const MAIN_PATH = <?= json_encode(MAIN_PATH) ?></script>
 <script src="<?= MAIN_PATH ?>/js/ajax-cart.js"></script>
+<script src="<?= MAIN_PATH ?>/js/ajax-review.js"></script>

@@ -12,6 +12,8 @@
 <body>
     <?php require("inc/header.php") ?>
     <main>
+
+    <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
     
     <section class="produit">
     
@@ -67,28 +69,28 @@
             <hr>
             <h2 class="white">Avis (<?= $total->total ?>) - <?= round($total->avgrate, 1) ?> &#x1f384;</h2>
             <hr>
-        </div>
+    </div>
 
-        <?php foreach($reviewList as $review) : ?>
+    <div id="review"></div>
 
-            <article class="article_avis">
-                <h4><?= $review->firstname ?> <?= $review->lastname ?></h4>
-                <div class="icons_tree">
-                    <?php for ($i = 0; $i < $review->rating; $i++) { ?>
-                        <span>&#x1f384;</span>
-                    <?php } ?>         
-                </div>
-                    <p class="gray">
-                        <?= $review->comment ?>
-                    </p>
-            </article>
-
-        <?php endforeach; ?>
-            
     </section>
+
+    <div class="divPgt">
+        <?php
+            $avis = $total->total;
+            $page = 1;
+            for ($i=0; $i < $avis; $i += 5) {
+                echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
+                $page += 1;
+            }
+        ?>
+    </div>
+
     
     <?php require("inc/footer.php"); ?>
     
     </main>
+
+
 </body>
 </html>
