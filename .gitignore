@@ -1,8 +1,6 @@
 node_modules
 core/vendor/
 .idea/
-configuration/dbconfiguration.php
-configuration/configuration.php
 .DS_Store
 .vs
-
+.env

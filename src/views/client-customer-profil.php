@@ -1,57 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/common.css"/>
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/header.css" />
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/home.css">
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/customerProfil.css">
-        <link rel="stylesheet" href="<?= MAIN_PATH ?>/style/footer.css">
+<?php
 
-        <title>Document</title>
-    </head>
-    <body>
+use Core\View\Template\Template;
+use Core\Router\PathGenerator;
 
-        <?php require("inc/header.php") ?>
-
-        <h1>Bonjour <?= $userSession->getFirstname() . " " . $userSession->getLastname();  ?></h1>
-        
-        <section id="sommaire">
-            <div id="avatar">
-                <img src="<?= MAIN_PATH ?>/img/Avatar.png" alt="">
+    ob_start();
+?>      
+        <section class="flex--row justify--center" id="sommaire">
+            <div class="flex justify--center align--center" style="width: 30%;" id="avatar">
+                <img style="width: 100%;" src="<?= MAIN_PATH ?>/img/Avatar.png" alt="">
             </div>
-            <div id="eltProfil">
-                <a href="" class="white">Profil</a>
-                <a href="" class="white">Historique d'achats</a>
-                <a href="" class="white">Panier</a>
-                <a href="" class="white">Catégorie</a>
+            <div class="flex--column align--around justify--around paddingX1" style="width: 250px;" id="eltProfil">
+                <div class="flex--row justify--between align--between">
+                    <p class="f-white"><?= $userSession->getLastName() ?></p>
+                    <p class="f-white"><?= $userSession->getFirstName() ?></p>
+                </div>
+                <div class="flex--row justify--between align--between">
+                    <a href="" class="noDecoration">Panier</a>
+                    <a href="" class="flex noDecoration text-center">Historique <br> d'achats</a>
+                </div>
             </div>
         </section>
         
-        
-        <section id="profil">
-            <h2>Votre profil : </h2>
-            <div>
-                <span>
-                    <?php
-                        echo "Prénom : " . $userSession->getFirstname() . "<br>";
-                        echo "Nom : " . $userSession->getLastname() . "<br>";
-                        echo "Email : " . $userSession->getEmail() . "<br>";
-                        echo "Date de naissance : " . $userSession->getBirth_date()->format("d-m-Y") . "<br>";
-                        echo "Adresse : " . $userSession->getAdress() . "<br>";
-                        echo "Numéro de téléphone : " . $userSession->getPhone() . "<br>";
-                    ?>
-                </span>    
-
+        <section class="flex justify--center"">
+            <div class="flex--row justify--between align--center f-white marginX1" style="width: 80%;">
+                <span>Vos cartes de crédit et de débit</span>
+                <span>Expire</span>
+                <span class="creditCard">Ajouter une carte de crédit</span>
+            </div>
+            <div class="flex--row justify--between align--center f-white bg--dark-grey semiRadius paddingX1  marginX1" style="width: 80%;">
+                <span>Visa / Electron **** - 4561</span>
+                <span>01 / 2023</span>
+                <span class="creditCard">Supprimer</span>
+            </div>
+            <div class="flex--row justify--between align--center f-white bg--dark-grey semiRadius paddingX1 marginX1" style="width: 80%;">
+                <span>Visa / Electron **** - 4561</span>
+                <span>01 / 2023</span>
+                <span class="creditCard">Supprimer</span>
+            </div>
+            <div class="flex--row justify--between align--center f-white bg--dark-grey semiRadius paddingX1 marginX1" style="width: 80%;">
+                <span>Visa / Electron **** - 4561</span>
+                <span>01 / 2023</span>
+                <span class="creditCard">Supprimer</span>
             </div>
         </section>
-        <div id="sendBtn">
-            <a href="<?= MAIN_PATH . CUSTOMER_LOGOUT_ROUTE?>">Se déconnecter</a>
+
+        <div class="flex justify--center marginX1" id="sendBtn">
+            <a class="noDecoration" href="<?= MAIN_PATH . CUSTOMER_LOGOUT_ROUTE?>">Se déconnecter</a>
         </div>
         
-        <?php require("inc/footer.php") ?>
+        <?php
 
-        <script src="<?= MAIN_PATH ?>/js/index.js"></script>
-    </body>
-</html>
+$content = ob_get_clean();
+$temp = new Template("Sign-customer-page", [], ["index"]);
+$temp->transmitVarToContext(["userSession" => $userSession]);
+$temp->render($content);

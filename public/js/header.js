@@ -1,11 +1,12 @@
 
 (function () {
-
-  $("#basketIcon").click(function() {
-  $(".listShopping").toggle("slow");
+console.log(  $(".basketIcon"));
+  $(".basketIcon").click(function() {
+    console.log($("#listShopping"));
+    $("#listShopping").toggle("slow");
   });
 
-  $(".listShopping").toggle()
+  $(" #listShopping").toggle()
 
 
   const burgerBtn = document.querySelector("#burger-btn")

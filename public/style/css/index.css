@@ -292,6 +292,9 @@
 .marginX1 {
   margin: 10px; }
 
+.paddingX1 {
+  padding: 10px; }
+
 .overScroll {
   overflow-x: scroll; }
 
@@ -567,6 +570,10 @@ a {
 .txt-center {
   text-align: center; }
 
+.noDecoration {
+  text-decoration: none;
+  color: white; }
+
 .search-bar {
   display: flex;
   padding: 5px 10px;
@@ -760,7 +767,8 @@ a {
   padding: 10px;
   text-decoration: none;
   font-weight: 700;
-  color: white; }
+  color: white;
+  background-color: transparent; }
   .cta--icon {
     width: 22px;
     margin-left: 30px; }
@@ -1030,3 +1038,7 @@ a {
 
 .paddingCta {
   padding: 5px 10px; }
+
+.creditCard {
+  border: 2px solid white;
+  padding: 10px; }

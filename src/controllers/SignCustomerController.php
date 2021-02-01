@@ -158,8 +158,7 @@ class SignCustomerController extends Controller{
             $answer = $em->save($user);
 
             if($answer) {
-                Session::set("user", $user);
-                Http::redirect(CUSTOMER_PROFIL_ROUTE);
+                Http::redirect(CUSTOMER_POST_LOGIN_ROUTE);
             }
             else {  //une erreure serveur
                 throw new \Exception(ERROR_SAVING_BDD);

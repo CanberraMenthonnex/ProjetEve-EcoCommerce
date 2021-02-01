@@ -14,13 +14,15 @@ interface ITemplate {
      * For setting the template name to display
      * 
      * @param string $view
+     * @return ITemplate
      */
-    public function setTemplateView(string $view);
+    public function setTemplateView(string $view) : self;
 
     /**
      * For transimitting some variables to render context
      * 
      * @param array $vars ( ["var name" => value] )
+     * @return ITemplate
      */
-    public function transmitVarToContext(array $vars);
+    public function transmitVarToContext(array $vars) : self;
 }

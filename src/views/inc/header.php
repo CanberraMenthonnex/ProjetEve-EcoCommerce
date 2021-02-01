@@ -20,15 +20,15 @@
                 <?php
                 
                     if(gettype($userSession) === "object"){
-                        echo "<a href='".MAIN_PATH."/customer/profil' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
+                        echo "<a href=' ". PathGenerator::generatePath("customer/profil")." ' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
                     }else{
-                            echo '<a href="'. PathGenerator::generatePath('/customer/sign').' " class="header--action-items--icon"><img src="'. MAIN_PATH .'/img/user-icon.svg" alt="user icon" title="User" class="head-items--icon"></a>';
+                            echo '<a href="'. PathGenerator::generatePath('customer/sign').' " class="header--action-items--icon"><img src="'.  PathGenerator::generateImgPath('luser-icon.svg') .' alt="user icon" title="User" class="head-items--icon"></a>';
                     }
 
                 ?>
-                <a  href="#" class="header--action-items--icon">
-                    <img id="basketIcon" src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
-                </a>
+                <button  href="#" class="header--action-items--icon basketIcon">
+                    <img src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+                </button>
             </div>
         </div>
         
@@ -46,23 +46,23 @@
             <?php
             
                 if(gettype($userSession) === "object"){
-                    echo "<a href='". PathGenerator::generatePath("/customer/profil")." id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
+                    echo "<a href='". PathGenerator::generatePath("customer/profil")."' id='customerName' class='header--action-items--icon'>" . $userSession->getFirstname() . "</a>";
                 }else{
-                        echo "<a href=' ". PathGenerator::generatePath("/customer/sign") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
+                        echo "<a href=' ". PathGenerator::generatePath("customer/sign") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
                 }
 
             ?>
 
             
-            <button class="header--action-items--icon">
-                <img id="basketIcon" src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
+            <button class="header--action-items--icon basketIcon" >
+                <img src="<?= MAIN_PATH ?>/img/basket-icon.svg" alt="basket" title="Basket" class="head-items--icon">
             </button>
         </div>
         <button class="header--burger-btn" id="burger-btn">
             <span></span>
         </button>
         <!-- CART  -->
-        <div class="listShopping header--cart">
+        <div class="listShopping header--cart" id="listShopping">
             <h3>Panier</h3>
             <div class="container-products"></div>
             <?php
