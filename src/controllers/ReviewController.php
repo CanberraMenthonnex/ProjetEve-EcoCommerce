@@ -7,7 +7,7 @@ use Core\Model\EntityManager;
 use Core\Session;
 use Core\ValidatorInt;
 use Model;
-use Model\Entity\Rating;
+use Model\Entity\Product_review;
 
 class ReviewController extends Controller {
 
@@ -20,18 +20,18 @@ class ReviewController extends Controller {
       
       $user = Session::get('user');
       
-      if($this->checkPostKeys($_POST, ["rating"], ["comment"])) {
+      if($this->checkPostKeys($_POST, ["rating", "comment"])) {
 
          $rt = $_POST["rating"];
          $cm = $_POST["comment"];
 
-         $em = new EntityManager("Rating");
+         $em = new EntityManager("Product_review");
          
          $result = $em->findOne(["product_id"=>$product_id, "user_id" => $user->getId()], ["product_id"]);
       
          if(!$result) {
 
-            $product_review = new Rating();
+            $product_review = new Product_review();
 
             $product_review
                ->setRating($rt)

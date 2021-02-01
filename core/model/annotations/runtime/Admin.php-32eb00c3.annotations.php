@@ -10,7 +10,8 @@ return array(
   ),
 ),
   'Model\\Entity\\Admin::$id' => array(
-    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
+    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string'),
+    array('#name' => 'index', '#type' => 'Core\\Model\\Annotations\\IndexAnnotation')
   ),
   'Model\\Entity\\Admin::$lastname' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')

@@ -593,6 +593,14 @@ a {
     .search-bar--submit img {
       width: 100%; }
 
+.comment-form {
+  width: 30%;
+  margin: 0 auto; }
+
+@media screen and (max-width: 450px) {
+  .comment-form {
+    width: 80%; } }
+
 .header {
   position: relative; }
   .header--main {

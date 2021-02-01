@@ -13,7 +13,7 @@ ob_start()
             <img id="product_image" class="product-banner--img-frame " src="<?= PathGenerator::generateImgPath('gourde.jpg') ?>" alt="product-image">
             <div class="product-banner--desc-container">
                 <div class="product-banner--desc-container-child">
-                    <form action="<?= MAIN_PATH . ADD_CART_ROUTE ."/" . $product->getId() ?>" method="POST" class="product-banner--cart-wrapper">
+                    <form action="<?=PathGenerator::generatePath( ADD_CART_ROUTE ."/" . $product->getId() ) ?>" method="POST" class="product-banner--cart-wrapper">
                         <button href="<?= MAIN_PATH . ADD_CART_ROUTE . "/" . $product->getId(); ?>" class="product-banner--cart-btn">
                             
                             <svg  width="41.616" height="32.368" viewBox="0 0 41.616 32.368">
@@ -40,7 +40,7 @@ ob_start()
         <div class="">
             <div class="flex justify--between align--stretch justify-phone--center my-1">
                 <?php foreach($relationProducts as $product) : ?>
-                    <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                    <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId()) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
                             <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
                             <div class="product-card--content">
@@ -80,16 +80,27 @@ ob_start()
         <header class="delimiter-title">
             <h2 class="separator-header--title f-white py-2">Avis</h2>
         </header>
+        <form action="<?= PathGenerator::generatePath(REVIEW_PRODUCT . "/" . $product->getId()) ?>" method="POST" class="comment-form">
+            <h3 for="comment" class="text-center py-1 f-white">Ajouter un commentaire</h3>
+            <div class="flex--column align--center">
+                <label for="rating" class="f-white my-1">Note</label>
+                <select name="rating" class="select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            
+            <textarea type="text" name="comment" class="textarea my-1" rows="10"></textarea>
+            <div class="flex justify--center py-1">
+                <input type="submit" class="cta" value="Envoyer">
+            </div>
+            
+        </form>
         <div class='flex--column pb-2'>
-        <?php
-            $avis = $total->total;
-            var_dump($total);
-            $page = 1;
-            for ($i=0; $i < $avis; $i += 5) {
-                echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
-                $page += 1;
-            }
-        ?>
+        
             <article class="comment-area">
                 <div class='comment-area--user'>
                    <img src="<?= PathGenerator::generateImgPath('user.svg') ?>" alt="icon-user"> 
