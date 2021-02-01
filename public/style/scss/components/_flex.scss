@@ -1,0 +1,158 @@
+//For generating col classes
+@mixin generateCol ($number, $device : "") {
+    @for $i from 1 through $number {
+        .col#{$i}#{$device} {
+            @include flex( 8.3% * $i);
+        }
+    }
+}
+
+@mixin generateJustifyProp($device : "") {
+    .justify#{$device} {
+
+        &--center {
+            justify-content: center;
+        }
+    
+        &--around {
+            justify-content: space-around;
+        }
+    
+        &--between {
+            justify-content: space-between;
+        }
+    
+        &--start {
+            justify-content: flex-start;
+        }
+    
+        &--end {
+            justify-content: flex-end;
+        }
+    
+    }
+}
+
+@mixin generateAlignProp($device : "") {
+    .align#{$device} {
+
+        &--baseline {
+            align-items: baseline;
+        }
+        
+        &--center {
+            align-items: center;
+        }
+    
+        &--start {
+            align-items: flex-start;
+        }
+    
+        &--end {
+            align-items: flex-end;
+        }
+    
+        &--stretch {
+            align-items: stretch;
+        }
+    
+    }
+}
+
+@mixin generateSelfProp($device : "") {
+    .self#{$device} {
+
+    
+        &--center {
+            align-self: center;
+        }
+    
+        &--start {
+            align-self: flex-start;
+        }
+    
+        &--end {
+            align-self: flex-end;
+        }
+    
+    }
+}
+
+//For generating flex properties
+@mixin flex($baseSize) {
+    flex: 0 0 $baseSize;
+    width: $baseSize;
+}
+
+.flex {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &--column {
+        @extend .flex;
+        flex-direction: column;
+
+    }
+
+    &--row {
+        @extend .flex;
+        flex-direction: row;
+    }
+
+    &--row-reverse {
+        @extend .flex;
+        flex-direction: row-reverse;
+    }
+
+    &--column-reverse {
+        @extend .flex;
+        flex-direction: column-reverse;
+    }
+    
+    
+}
+
+
+.flex-fill {
+    
+    &--height {
+        height: 100%;
+    }
+
+    &--width {
+        width: 100%;
+    }
+
+}
+
+//COL GENERATION
+@include generateCol(12);
+
+//JUSTIFY PROPS
+@include  generateJustifyProp();
+
+//ALIGN PROPS
+@include generateAlignProp();
+
+//SELF PROPS
+@include generateSelfProp();
+
+//RESPONSIVE  
+
+@media screen and (max-width : $tabletSize) {
+    @include generateCol(12, "-tablet");
+    @include  generateJustifyProp("-tablet");
+    @include generateAlignProp("-tablet");
+    @include generateSelfProp("-tablet");
+    
+}
+
+@media screen and (max-width : $phoneSize) {
+    @include generateCol(12, "-phone");
+    @include  generateJustifyProp("-phone");
+    @include generateAlignProp("-phone");
+    @include generateSelfProp("-phone");
+
+}
+

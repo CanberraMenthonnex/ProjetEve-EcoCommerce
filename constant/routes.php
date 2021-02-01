@@ -23,6 +23,7 @@ const GET_CART_ROUTE = "/cart/stock";
 const DELETE_CART_PRODUCT_ROUTE = "/cart/remove/";
 const UPDATE_CART_QUANTITY_ROUTE = "/cart/update/";
 
+const ADD_COMMENT_ROUTE = "/comment/form";
 //Product
 const SEARCH_ROUTE = "/search/";
 const PRODUCT_DESC_ROUTE = "/product/";

@@ -41,21 +41,18 @@
             <hr>
         </div>
 
-        <div class="sugestion">
-        <?php foreach($relationProducts as $product) : ?>
-
-            <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="w-15">
-                <article class="product-card">
-                    <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
-                    <div class="product-card--content">
-                        <span class="product-card--price"><?= $product->getPrice(); ?>€</span>
-                        <h3 class="product-card--name"><?= $product->getName(); ?></h3>
-                    </div>
-                </article>
-            </a>
-
-        <?php endforeach; ?>
-          
+        <div class="flex justify--between align--stretch justify-phone--center">
+            <?php foreach($relationProducts as $product) : ?>
+                <a href="<?= MAIN_PATH . PRODUCT_DESC_ROUTE . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                    <article class="product-card flex-fill--height">
+                        <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                        <div class="product-card--content">
+                            <span class="product-card--price"><?= $product->getPrice() ?>€</span>
+                            <h3 class="product-card--title"><?= $product->getName() ?></h3>
+                        </div>
+                    </article>
+                </a>
+            <?php endforeach; ?>
         </div>
 
         <div class="controler_slider">
@@ -75,6 +72,7 @@
 
     </section>
 
+<<<<<<< HEAD
     <div class="divPgt">
         <?php
             $avis = $total->total;
@@ -94,3 +92,10 @@
 
 </body>
 </html>
+=======
+<?php
+$content = ob_get_clean();
+$temp = new Template($product->getName(), [], ["index"]);
+$temp->transmitVarToContext(compact("userSession"));
+$temp->render($content);
+>>>>>>> 889a0b9d9627cbe6eab39c6975257c2cecedf0b1
