@@ -8,7 +8,7 @@ use Core\Router\PathGenerator;
    
 
         <article id="sign" class="form_sign <?php if(isset($that_fuking_error)){echo "form_sign_error";}?>">
-            <h1 class="text-center my-3">Inscrivez-Vous !</h1>
+            <h1 class="text-center my-3 f-white">Inscrivez-Vous !</h1>
             <span id>
                             <?php
                                 if(isset($that_fuking_error)){
