@@ -7,6 +7,8 @@ use Dotenv\Store\File\Paths;
 ob_start()
 
 ?>
+    <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
+    
     <section class="m-3 product-banner">
     
         <p class="product-banner--title"><u>Catégorie Gourde</u> <?= $product->getName() ?></p><br>
@@ -14,8 +16,8 @@ ob_start()
             <img id="product_image" class="product-banner--img-frame " src="<?= PathGenerator::generateImgPath('gourde.jpg') ?>" alt="product-image">
             <div class="product-banner--desc-container">
                 <div class="product-banner--desc-container-child">
-                    <form action="<?= PathGenerator::generatePath(ADD_CART_ROUTE) . $product->getId() ?>" method="POST" class="product-banner--cart-wrapper">
-                        <button href="<?= PathGenerator::generatePath(ADD_CART_ROUTE) . $product->getId(); ?>" class="product-banner--cart-btn">
+                    <form action="<?=PathGenerator::generatePath( ADD_CART_ROUTE ."/" . $product->getId() ) ?>" method="POST" class="product-banner--cart-wrapper">
+                        <button href="<?= MAIN_PATH . ADD_CART_ROUTE . "/" . $product->getId(); ?>" class="product-banner--cart-btn">
                             
                             <svg  width="41.616" height="32.368" viewBox="0 0 41.616 32.368">
                                 <path id="Icon_awesome-shopping-basket" data-name="Icon awesome-shopping-basket" d="M41.616,15.544V16.7a1.734,1.734,0,0,1-1.734,1.734H39.3L37.418,31.641a3.468,3.468,0,0,1-3.433,2.978H7.632A3.468,3.468,0,0,1,4.2,31.641L2.312,18.434H1.734A1.734,1.734,0,0,1,0,16.7V15.544A1.734,1.734,0,0,1,1.734,13.81H6.6L14.314,3.2a2.312,2.312,0,1,1,3.74,2.72L12.317,13.81H29.3L23.562,5.922A2.312,2.312,0,0,1,27.3,3.2L35.017,13.81h4.865A1.734,1.734,0,0,1,41.616,15.544ZM22.542,28.26V20.168a1.734,1.734,0,1,0-3.468,0V28.26a1.734,1.734,0,1,0,3.468,0Zm8.092,0V20.168a1.734,1.734,0,1,0-3.468,0V28.26a1.734,1.734,0,1,0,3.468,0Zm-16.184,0V20.168a1.734,1.734,0,1,0-3.468,0V28.26a1.734,1.734,0,1,0,3.468,0Z" transform="translate(0 -2.25)" fill="#e4e4e4"/>
@@ -41,7 +43,7 @@ ob_start()
         <div class="">
             <div class="flex justify--between align--stretch justify-phone--center my-1">
                 <?php foreach($relationProducts as $product) : ?>
-                    <a href="<?= PathGenerator::generatePath(PRODUCT_DESC_ROUTE) . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                    <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId()) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
                             <img src="<?= PathGenerator::generateImgPath('product-img.png') ?>" alt="" class="product-card--img">
                             <div class="product-card--content">
@@ -85,26 +87,50 @@ ob_start()
                 </svg>
             </h2>
         </header>
+
         <div class='flex--column pb-2'>
 
-        <div id="review"></div>
-        
-            <?php
-                $avis = $total->total;
-                $page = 1;
-                for ($i=0; $i < $avis; $i += 5) {
-                    echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
-                    $page += 1;
-                }
-            ?>
+            <div id="review"></div>
+                    
+            <div class="comment-area--pagination">
+                <?php
+                    $avis = $total->total;
+                    $page = 1;
+                    for ($i=0; $i < $avis; $i += 5) {
+                        echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
+                        $page += 1;
+                    }
+                ?>
+            </div>
             
-        </div>        
+            
+        </div>   
+
+        <form action="<?= PathGenerator::generatePath(REVIEW_PRODUCT . $product->getId()) ?>" method="POST" class="comment-form">
+            <h3 for="comment" class="text-center py-1 f-white">Ajouter un commentaire</h3>
+            <div class="flex--column align--center">
+                <label for="rating" class="f-white my-1">Note</label>
+                <select name="rating" class="select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            
+            <textarea type="text" name="comment" class="textarea my-1" rows="10"></textarea>
+            <div class="flex justify--center py-1">
+                <input type="submit" class="cta" value="Envoyer">
+            </div>
+            
+        </form>     
         
         
     </section>
 
 <?php
 $content = ob_get_clean();
-$temp = new Template($product->getName(), ["ajax-review"], ["index"]);
+$temp = new Template($product->getName(), ["review-min"], ["index"]);
 $temp->transmitVarToContext(compact("userSession"));
 $temp->render($content);

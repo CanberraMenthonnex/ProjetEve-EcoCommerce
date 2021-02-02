@@ -574,6 +574,32 @@ a {
   text-decoration: none;
   color: white; }
 
+#verify-title {
+  text-align: center;
+  margin-top: 100px; }
+
+.pending-div {
+  margin: 100px auto 0 auto;
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+  text-align: center; }
+  .pending-div > h2 {
+    padding-top: 25px; }
+  .pending-div--form {
+    padding: 25px; }
+  .pending-div--p {
+    text-align: center;
+    cursor: pointer;
+    font-style: italic;
+    padding-top: 15px; }
+  .pending-div--p:hover {
+    color: blue;
+    text-decoration: underline; }
+
+#send-div {
+  display: none; }
+
 .search-bar {
   display: flex;
   padding: 5px 10px;
@@ -592,6 +618,14 @@ a {
     background-color: transparent; }
     .search-bar--submit img {
       width: 100%; }
+
+.comment-form {
+  width: 30%;
+  margin: 0 auto; }
+
+@media screen and (max-width: 450px) {
+  .comment-form {
+    width: 80%; } }
 
 .header {
   position: relative; }
@@ -846,7 +880,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 0; }
+  padding: 30px 0;
+  margin-bottom: 50px; }
   .comment-area--user {
     width: 100px;
     height: 100px;
@@ -855,7 +890,8 @@ a {
     padding: 10px;
     display: inline-flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
     .comment-area--user > img {
       width: 80%; }
   .comment-area--trees-wrapper {
@@ -866,8 +902,23 @@ a {
   .comment-area--tree-unselected > path {
     fill: white; }
   .comment-area--content {
+    width: 100%;
     background-color: white;
     padding: 40px; }
+  .comment-area--date {
+    float: right;
+    padding-top: 35px;
+    font-style: italic;
+    font-size: 0.8rem; }
+  .comment-area--pagination {
+    width: 75%;
+    margin: 50px auto 150px auto;
+    display: flex;
+    justify-content: space-around; }
+    .comment-area--pagination > a {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold; }
 
 @media screen and (max-width: 960px) {
   .comment-area--user {

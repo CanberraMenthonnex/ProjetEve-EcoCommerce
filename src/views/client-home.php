@@ -8,7 +8,7 @@ use Core\View\Template\Template;
 
 
     <div class="flex--column align--center my-3" >
-        <img src="<?= MAIN_PATH ?>/img/three-trees.svg" alt="Trees" title="Saved trees" class="col2 col3-tablet col6-phone">
+        <img src="<?= PathGenerator::generateImgPath( "three-trees.svg" )?>" alt="Trees" title="Saved trees" class="col2 col3-tablet col6-phone">
         <strong class="py-2 f-white" >300 000 arbres sauvés</strong>
     </div>
     <section class="banner flex  justify--around bg--dark-grey py-1">
@@ -47,7 +47,7 @@ use Core\View\Template\Template;
             </header>
             <div class="flex justify--between align--stretch justify-phone--center">
                 <?php foreach($products as $product) : ?>
-                    <a href="<?= PathGenerator::generatePath(PRODUCT_DESC_ROUTE) . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone" >
+                    <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() )?>" class="col2 col5-tablet my-2-tablet col9-phone" >
                         <article class="product-card flex-fill--height">
                             <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
                             <div class="product-card--content">
@@ -69,7 +69,7 @@ use Core\View\Template\Template;
             </header>
             <div class="flex justify--between align--stretch justify-phone--center">
                 <?php foreach($products as $product) : ?>
-                    <a href="<?= PathGenerator::generatePath(PRODUCT_DESC_ROUTE) . $product->getId() ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                    <a href="<?=PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() ) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
                             <img src="<?= PathGenerator::generateImgPath('product-img.png') ?>" alt="" class="product-card--img">
                             <div class="product-card--content">

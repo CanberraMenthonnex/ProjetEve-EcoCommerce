@@ -2,8 +2,13 @@
 
 namespace Model\Entity;
 
-class Rating {
+use DateTime;
 
+class Product_review {
+    /**
+     * @index
+     */
+    private string $id;
     /*
      * comment
      * 
@@ -26,12 +31,37 @@ class Rating {
      * @type int
      * */
     private int $rating;
+
+    /**
+     * @type Date
+     */
+    private \DateTimeInterface $date;
+
+    public function __construct()
+    {
+        $this->date = new DateTime();
+    }
    
+    
+    public function getId() : string {
+        return $this->id;
+    }
+
+    public function setId(string $id) {
+        $this->id = $id;
+    }
+
+    public function getDate() {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date) {
+        $this->date = $date;
+    }
 
     /**
      * @param int $rating
      */
-    
     public function setRating(int $rating): Product_review
     {
         $this->rating = $rating;

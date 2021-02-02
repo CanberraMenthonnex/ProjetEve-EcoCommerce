@@ -7,15 +7,16 @@ function displayReview(res) {
             <article class="comment-area">
                 
                 <div class='comment-area--user'>
-                    <img src="<?= PathGenerator::generateImgPath('user.svg') ?>" alt="icon-user"> 
+                    ${item.firstname} ${item.lastname}
                 </div>
         
                 <div class="comment-area--trees-wrapper">
-                    lolodzoqlqozdoq
+                    ${item.rating} / 5 &#x1f384;
                 </div>
 
                 <p class="comment-area--content">
-                    Blalalalallalala
+                    ${item.comment}
+                    <span class="comment-area--date">${item.date}</span>
                 </p>
 
             </article> 
@@ -28,6 +29,9 @@ function displayReview(res) {
 
     $(".pagination").click((e)=>{
         e.preventDefault();
+
+        $(".pagination").css("color", "white");
+        $(e.currentTarget).css("color", "#565656");
 
         const page = $(e.currentTarget).attr('href');
 

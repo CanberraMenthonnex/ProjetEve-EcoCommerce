@@ -82,6 +82,8 @@ try {
 
     $router->post(CUSTOMER_VERIFY_RESEND, "SignCustomerController", "resendCode" );
 
+    $router->post(REVIEW_PRODUCT . "/:id", "ReviewController", "addReview");
+
     //CART ROUTES
     $router->get(ADD_CART_ROUTE, "CartController", "productPage");
 

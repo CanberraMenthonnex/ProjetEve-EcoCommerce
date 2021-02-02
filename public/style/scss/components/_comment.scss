@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding: $fixMarge3 0;
+    margin-bottom: 50px;
 
     &--user {
         width: 100px;
@@ -13,6 +14,7 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
 
         & > img {
             width: 80%;
@@ -35,8 +37,29 @@
     }
 
     &--content {
+        width: 100%;
         background-color: $white;
         padding: $fixMarge4;
+    }
+
+    &--date {
+        float: right;
+        padding-top: 35px;
+        font-style: italic;
+        font-size: 0.8rem;
+    }
+
+    &--pagination {
+        width: 75%;
+        margin: 50px auto 150px auto;
+        display: flex;
+        justify-content: space-around;
+
+        & > a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
     }
 }
 

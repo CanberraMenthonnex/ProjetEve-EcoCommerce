@@ -1,11 +1,11 @@
 <?php
 
+use Core\Router\PathGenerator;
 use Core\View\Template\Template;
 
     ob_start();
 ?>
 
-<body>
 <div class="paddingX1 overScroll">
     <h1 class="f-white text-center">Inventaire Produits</h1>
     <div class="flex--row justify--end justify-phone--center py-2">
@@ -38,7 +38,7 @@ use Core\View\Template\Template;
                     <td class="arrayCell marginX1"><?= $product->getId()?></td>
                     <td class="arrayCell marginX1"><?= $product->getCreatedAt()->format("d-m-Y")?></td>
                     <td class="arrayCell marginX1"><?= $product->getPrice()?> €</td>
-                    <td class="arrayCell marginX1"><a href="<?= ADMIN_DELETE_PRODUCT_ROUTE . $product->getId(); ?>" id="suppArticle">Supprimer produit</a></td>
+                    <td class="arrayCell marginX1"><a href="<?= PathGenerator::generatePath( ADMIN_DELETE_PRODUCT_ROUTE . $product->getId() ); ?>" id="suppArticle">Supprimer produit</a></td>
                 </tr>
             <?php
                 }

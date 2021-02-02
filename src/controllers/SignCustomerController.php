@@ -205,7 +205,7 @@ class SignCustomerController extends Controller{
 
 
     public function displayVerify() {
-        $this->render("user-verify");
+        $this->render("client-verify");
     }
 
 

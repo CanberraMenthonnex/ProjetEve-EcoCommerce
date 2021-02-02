@@ -10,7 +10,15 @@ module.exports = {
       name: 'review',
       scripts: ['./public/js/ajax-review.js'],
       vendor: []
+    },
+
+    {
+      name: 'verify',
+      scripts: ['./public/js/ajax-verify.js'],
+      vendor: []
     }
+
+
     
   ]
 

@@ -26,7 +26,7 @@ class CartController extends Controller {
          
          $em = new EntityManager("Cart");
          
-         $result = $em->findOne(["product_id"=>$product_id], ["product_id"]);
+         $result = $em->findOne(["product_id"=>$product_id, "user_id" => $user->getId()], ["product_id"]);
       
          if(!$result) {
 
