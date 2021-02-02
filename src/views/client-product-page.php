@@ -7,6 +7,7 @@ use Dotenv\Store\File\Paths;
 ob_start()
 
 ?>
+
     <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
     
     <section class="m-3 product-banner">
@@ -42,13 +43,13 @@ ob_start()
         </header>
         <div class="">
             <div class="flex justify--between align--stretch justify-phone--center my-1">
-                <?php foreach($relationProducts as $product) : ?>
-                    <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId()) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
+                <?php foreach($relationProducts as $products) : ?>
+                    <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $products->getId()) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
                             <img src="<?= PathGenerator::generateImgPath('product-img.png') ?>" alt="" class="product-card--img">
                             <div class="product-card--content">
-                                <span class="product-card--price"><?= $product->getPrice() ?>€</span>
-                                <h3 class="product-card--title"><?= $product->getName() ?></h3>
+                                <span class="product-card--price"><?= $products->getPrice() ?>€</span>
+                                <h3 class="product-card--title"><?= $products->getName() ?></h3>
                             </div>
                         </article>
                     </a>
@@ -90,22 +91,6 @@ ob_start()
 
         <div class='flex--column pb-2'>
 
-            <div id="review"></div>
-                    
-            <div class="comment-area--pagination">
-                <?php
-                    $avis = $total->total;
-                    $page = 1;
-                    for ($i=0; $i < $avis; $i += 5) {
-                        echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
-                        $page += 1;
-                    }
-                ?>
-            </div>
-            
-            
-        </div>   
-
         <form action="<?= PathGenerator::generatePath(REVIEW_PRODUCT . $product->getId()) ?>" method="POST" class="comment-form">
             <h3 for="comment" class="text-center py-1 f-white">Ajouter un commentaire</h3>
             <div class="flex--column align--center">
@@ -125,6 +110,23 @@ ob_start()
             </div>
             
         </form>     
+
+            <div id="review"></div>
+                    
+            <div class="comment-area--pagination">
+                <?php
+                    $avis = $total->total;
+                    $page = 1;
+                    for ($i=0; $i < $avis; $i += 5) {
+                        echo "<a href='" . $i . "' class='pagination'>" . $page . "</a>";
+                        $page += 1;
+                    }
+                ?>
+            </div>
+            
+            
+        </div>   
+                
         
         
     </section>

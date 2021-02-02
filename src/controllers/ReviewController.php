@@ -42,7 +42,7 @@ class ReviewController extends Controller {
             $resp = $em->save($product_review);
                
             if($resp) {
-               Http::redirect(HOME_ROUTE);
+               Http::redirect(PRODUCT_DESC_ROUTE . $product_id);
             }
             else {
                throw new \Exception(\ERROR_SAVING_BDD);
