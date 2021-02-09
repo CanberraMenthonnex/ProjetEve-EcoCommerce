@@ -3,6 +3,8 @@
     &--logo{
         width: 15%;
         padding-top: $fixMarge2;
+        position: absolute;
+        z-index: -1;
     }
     &--link{
         text-decoration: $none;

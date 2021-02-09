@@ -13,11 +13,11 @@ const ADMIN_DELETE_ARTICLE = 'admin/blog/article/remove/';
 
 //Customer//
 const CUSTOMER_PROFIL_ROUTE = "customer/profil";
-const CUSTOMER_POST_SIGN_ROUTE = "/customer/sign";
-const CUSTOMER_POST_LOGIN_ROUTE = "/customer/login";
-const CUSTOMER_LOGOUT_ROUTE="/customer/logout";
-const CUSTOMER_VERIFY_ROUTE = "/customer/verify";
-const CUSTOMER_VERIFY_RESEND = "/customer/verify/resend";
+const CUSTOMER_POST_SIGN_ROUTE = "customer/sign";
+const CUSTOMER_POST_LOGIN_ROUTE = "customer/login";
+const CUSTOMER_LOGOUT_ROUTE="customer/logout";
+const CUSTOMER_VERIFY_ROUTE = "customer/verify";
+const CUSTOMER_VERIFY_RESEND = "customer/verify/resend";
 
 const HOME_ROUTE = "";
 const ADD_CART_ROUTE = "cart/form";

@@ -65,6 +65,8 @@ abstract class Controller {
     }
 
     /**
+     * Get message from session
+     *
      * @param string $key
      * @return mixed|null
      */

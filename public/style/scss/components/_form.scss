@@ -29,6 +29,12 @@
     margin: 0 auto;
 }
 
+.product-form {
+    background-color: $lightGrey;
+    padding: $marge1;
+    width: 30vw;
+}
+
 @media screen and (max-width: $phoneSize) {
     .comment-form {
         width: 80%;

@@ -10,7 +10,7 @@ use Core\Router\PathGenerator;
 
 <article id="log_sign" class=" <?php if(isset($that_fuking_error)){echo "form_log_error_sign";}?>">
             
-            <form action="<?= MAIN_PATH ?>/customer/login" method ="POST"  id="log">
+            <form action="<?= PathGenerator::generatePath(CUSTOMER_POST_LOGIN_ROUTE) ?>" method ="POST"  id="log">
                 <div class="flex--column justify--center align--center fixeMargin3" id="form_login" class="form2" >
                     <h2 class="white bold py-1">Connexion</h2>
                     <span class='error' >

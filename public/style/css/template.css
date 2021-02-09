@@ -4,4 +4,6 @@
   flex-direction: column;
   justify-content: space-between; }
   .template-container--main {
-    flex: 1; }
+    flex: 1;
+    display: flex;
+    flex-direction: column; }

@@ -47,7 +47,8 @@ function browser ()  {
 //BUNDLE JS 
 function bundleJs () {
     return Promise.all(  bundleConfig.bundles.map((bundle => {
-            return src([...bundle.vendor,... bundle.scripts])
+
+            return src([...bundle.vendor,...bundle.scripts])
             .pipe(concat(`${bundle.name}.js`))
             .pipe(minify())
             .pipe(dest('./public/js/dist'))
@@ -57,7 +58,7 @@ function bundleJs () {
 
 //WATCH BUNDLE JS 
 function watchBundleJs() {
-    watch('./public/js/*.js', bundleJs)
+    watch('./public/js/src/**/*.js', bundleJs)
 }
 
 module.exports = {
