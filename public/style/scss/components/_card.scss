@@ -1,0 +1,40 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    &--img {
+        width: 100%;
+    }
+
+    &--content {
+        background-color: $darkGreen;
+        position: relative;
+        flex: 1;
+    }
+
+    &--title {
+        padding: $marge5 $marge3;
+        color: $white;
+    }
+
+    &--price {
+        background-color: $lightGreen;
+        color: $white;
+        padding: $marge1 $marge2;
+        position: absolute;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+}
+
+.article-card {
+    background-color: $darkGrey;
+    padding: 20px;
+
+    &--title, &--desc {
+        color: $white;
+        padding: 10px 0;
+    }
+
+}

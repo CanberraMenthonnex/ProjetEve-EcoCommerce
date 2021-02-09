@@ -75,7 +75,7 @@ class ValidatorString{
     }
 
     public function validatePwd(){
-        if(!(preg_match('#[a-z]#', $this->input) && (preg_match('#[A-Z]#', $this->input)) && (preg_match('#[_?/:!$]#' , $this->input)) || (preg_match('#[0-9]#', $this->input)))){
+        if(!(preg_match('#[a-z]#', $this->input) && (preg_match('#[A-Z]#', $this->input)) && (preg_match('#[_?@/:!$]#' , $this->input)) || (preg_match('#[0-9]#', $this->input)))){
             $this->error[]= "Votre mot de passe est incorrect";
         }
         return $this;

@@ -12,7 +12,7 @@ class DataConverter {
      * 
      * @return $value
      */
-    public static function convertToType(string $type, $value) {
+    public static function convertToType($type, $value) {
         switch($type) {
 
             case "DateTime" : 

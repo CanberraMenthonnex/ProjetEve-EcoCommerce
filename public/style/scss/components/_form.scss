@@ -1,0 +1,36 @@
+.search-bar {
+    display: flex;
+    padding: 5px $fixMarge1;
+    background-color: $white;
+    border-radius: 0 30px 0 0;
+    
+    &--input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        width: $largeW;
+    }
+
+    &--submit {
+        background: none;
+        border: none;
+        background-color: $white;
+        width: $smallFixW ;
+        background-color: transparent;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.comment-form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: $phoneSize) {
+    .comment-form {
+        width: 80%;
+    }
+}

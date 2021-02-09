@@ -17,7 +17,8 @@ class AdminProductController extends Controller {
     }
 
     public function createProductPage() {
-        $this->render('creation-article');
+        $admin = Session::get(self::SESSION_NAME);
+        $this->render('admin-creation-article', compact("admin"));
     }
 
     public function createProduct() {
@@ -63,7 +64,7 @@ class AdminProductController extends Controller {
 
         $admin = Session::get(self::SESSION_NAME);
 
-        $this->render('product-back', compact("productList", "admin"));
+        $this->render('admin-product-list', compact("productList", "admin"));
     }
 
     public  function removeProduct (string $id) {

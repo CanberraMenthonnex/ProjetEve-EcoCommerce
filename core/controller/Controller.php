@@ -17,8 +17,7 @@ abstract class Controller {
      * */
     protected function render (string $viewName, array $var = []) {
         extract($var);
-        $userSession = Session::get('user');
-        
+        $userSession = Session::get('user') ?? "";
         require( self::VIEW_PATH . $viewName . ".php");
     }
 
@@ -45,6 +44,34 @@ abstract class Controller {
             Http::redirect($redirection);
             die();
         }
+    }
+
+    /**
+     * @param string $path
+     * @param string $defaultMessage
+     */
+    protected function redirect(string $path, string $defaultMessage = "") {
+        Session::set('defaultMessage', $defaultMessage);
+        Http::redirect($path);
+    }
+
+    /**
+     * @param string $path
+     * @param string $errorMessage
+     */
+    protected function redirectWithError(string $path, string $errorMessage = "") {
+        Session::set('errorMessage', $errorMessage);
+        Http::redirect($path);
+    }
+
+    /**
+     * @param string $key
+     * @return mixed|null
+     */
+    protected function getMessage(string $key) {
+        $message = Session::get($key);
+        Session::clean($key);
+        return $message;
     }
        
 }

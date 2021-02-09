@@ -1,0 +1,134 @@
+@use "sass:map";
+
+$margins : (
+    1 : $marge1,
+    2 : $marge2,
+    3 : $marge3,
+    4 : $marge4,
+    5 : $marge5
+);
+
+@mixin generatePadding ($device : "") {
+    @for $i from 1 through 5 {
+        .p-#{$i}#{$device} {
+            padding : map-get($margins, $i);
+        }
+    }
+}
+
+@mixin generateMargin ($device : "") {
+    @for $i from 1 through 5 {
+        .m-#{$i}#{$device} {
+            margin : map-get($margins, $i);
+        }
+    }
+}
+
+@mixin generateMarginY ($device : "") {
+    @for $i from 1 through 5 {
+        .my-#{$i}#{$device} {
+            margin : map-get($margins, $i) 0
+        }
+    }
+}
+@mixin generateMarginX ($device : "") {
+    @for $i from 1 through 5 {
+        .mx-#{$i}#{$device} {
+            margin : 0 map-get($margins, $i) 
+        }
+    }
+}
+
+@mixin generatePaddingY ($device : "") {
+    @for $i from 1 through 5 {
+        .py-#{$i}#{$device} {
+            padding : map-get($margins, $i) 0
+        }
+    }
+}
+
+@mixin generatePaddingX ($device : "") {
+    @for $i from 1 through 5 {
+        .px-#{$i}#{$device} {
+            padding : 0 map-get($margins, $i) 
+        }
+    }
+}
+
+@mixin generatePaddingBottom ($device : "") {
+    @for $i from 1 through 5 {
+        .pb-#{$i}#{$device} {
+            padding-bottom: map-get($margins, $i);
+        }
+    }
+}
+
+//GENERATE MARGIN Y
+@include generateMarginY();
+@include generateMarginX();
+@include generatePaddingY();
+@include generatePaddingBottom();
+@include generatePaddingX();
+@include generatePadding();
+@include generateMargin();
+
+
+@media screen  and(max-width : $tabletSize) {
+    @include generateMarginY("-tablet");
+    @include generateMarginX("-tablet");
+    @include generatePaddingY("-tablet");
+    @include generatePaddingBottom("-tablet");
+    @include generatePaddingX("-tablet");
+    @include generatePadding("-tablet");
+    @include generateMargin("-tablet");
+}
+
+@media screen and (max-width : $phoneSize) {
+    @include generateMarginY( "-phone");
+    @include generateMarginX("-phone");
+    @include generatePaddingY("-phone");
+    @include generatePaddingBottom("-phone");
+    @include generatePaddingX("-phone");
+    @include generatePadding("-phone");
+    @include generateMargin("-phone");
+}
+
+.paddingX1{
+    padding-left: $marge1;
+    padding-right: $marge1;
+}
+
+.paddingX2{
+    padding-left: $marge2;
+    padding-right: $marge2;
+}
+
+.paddingX3{
+    padding-left: $marge3;
+    padding-right: $marge3;
+}
+
+.fixeMargin3{
+    margin-top: $fixMarge3;
+    margin-bottom: $fixMarge3;
+}
+
+.marginX1{
+    margin: $fixMarge1;
+}
+
+.paddingX1{
+    padding: $fixMarge1;
+}
+
+.overScroll{
+    overflow-x: scroll;
+}
+
+.widthMax{
+    width: $largeW;
+}
+
+.paddingFix1{
+    padding: $fixMarge1;
+}

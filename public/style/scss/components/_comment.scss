@@ -1,0 +1,77 @@
+.comment-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $fixMarge3 0;
+    margin-bottom: 50px;
+
+    &--user {
+        width: 100px;
+        height: 100px;
+        background-color: $white;
+        border-radius: 100px;
+        padding: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        & > img {
+            width: 80%;
+        }
+    }
+
+    &--trees-wrapper {
+        padding: $fixMarge3 0;
+    }
+
+    &--tree {
+        margin: 0 $fixMarge1;
+        width: 30px;
+    }
+
+    &--tree-unselected {
+        & > path {
+            fill: $white;
+        }
+    }
+
+    &--content {
+        width: 100%;
+        background-color: $white;
+        padding: $fixMarge4;
+    }
+
+    &--date {
+        float: right;
+        padding-top: 35px;
+        font-style: italic;
+        font-size: 0.8rem;
+    }
+
+    &--pagination {
+        width: 75%;
+        margin: 50px auto 150px auto;
+        display: flex;
+        justify-content: space-around;
+
+        & > a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (max-width: $tabletSize) {
+    .comment-area {
+        &--user {
+            width: 75px;
+            height: 75px;
+        }
+
+        &--tree {
+            width: 25px;    
+        }
+    }
+}

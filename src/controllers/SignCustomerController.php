@@ -11,11 +11,21 @@ use Core\ValidatorInt;
 use Core\Session;
 use Core\Http;
 use Core\Model\Converters\TypeConverter;
+use Model\Entity\User_pending;
 
 class SignCustomerController extends Controller{
 
+    public function sendMail() {
+        $code = rand();
+        $msg = "Code de vérification : " . $code;
+        mail("nicolas.mopin@gmail.com", "Mail de vérification", $msg);
+        $this->render("home", compact("code"));
+    }
+
+
+
     public function signCustomerPage() {
-        $this->render("sign-customer-page");
+        $this->render("client-sign-in");
     }
     public function sign(){
 
@@ -136,45 +146,158 @@ class SignCustomerController extends Controller{
                 
             if($pwd!==$pwd_check){
                 $signError = "Les mots de passes ne sont pas bons ";
-                $this->render("sign-customer-page", compact("signError")); 
+                $this->render("client-sign-in", compact("signError")); 
             }
 
             $adress = $road_number . " " . $road . " " . $city . " " . $zip_code . " " . $country;
             $birth_date_string = $_POST['year']. "-" . $_POST['month'] . "-" . $_POST['day'] ;
             $birth_date = TypeConverter::convertToDate($birth_date_string);
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
+            $code = rand();
 
-            $em = new EntityManager('User');
-            $user = new User();
-            $user
+            $em = new EntityManager('User_pending');
+            $user_pending = new User_pending();
+            $user_pending
             ->setFirstname($firstname)
             ->setLastname($lastname)
             ->setEmail($email)
             ->setPhone($phone)
             ->setPassword($pwd)
             ->setBirth_date($birth_date)
-            ->setAdress($adress);
+            ->setAdress($adress)
+            ->setCode($code);
 
-            $answer = $em->save($user);
+            $answer = $em->save($user_pending);
 
             if($answer) {
-                Session::set("user", $user);
-                Http::redirect(CUSTOMER_PROFIL_ROUTE);
+                $header="MIME-Version: 1.0\r\n";
+                $header.='Content-Type:text/html; charset="uft-8"'."\n";
+                $header.='Content-Transfer-Encoding: 8bit';
+                $msg =
+                "
+                <body style='border-style:solid;padding-bottom:25px;'>
+                    <h1 style='text-align:center;'>Bienvenue chez Projet Eve !</h1> 
+                    <h3 style='text-align:center;'>Voici le code pour valider votre inscription :</h3> 
+                    <h2 style='text-align:center;background-color:grey;width:200px;padding:5px;color:white;margin:auto;'>$code</h2>           
+                </body>
+                ";
+
+                mail($user_pending->getEmail(), "Mail de vérification", $msg, $header); 
+                
+                Http::redirect(CUSTOMER_VERIFY_ROUTE);
+
             }
             else {  //une erreure serveur
                 throw new \Exception(ERROR_SAVING_BDD);
                 
-            }    
+            }
+            
         } 
         else
         {   
 
 
             $that_fuking_error = $sign_error[0][0]; 
-            $this->render("sign-customer-page", compact("that_fuking_error"));
+            $this->render("client-sign-in", compact("that_fuking_error"));
         }
             
     }
+
+
+    public function displayVerify() {
+        $this->render("client-verify");
+    }
+
+
+    public function verifyCustomer() {
+
+        if(isset($_POST['verify'])) {
+
+            $emailSubmitted = $_POST['email'];
+            $codeSubmitted = $_POST['code'];
+
+            $em = new EntityManager("User_pending");
+            $result = $em->findOne(["email"=>$emailSubmitted], ["code"]);
+
+            if(!$result) {
+                throw new \Exception(VERIFYING_WRONG_EMAIL);
+            }
+
+            $realCode = $result->getCode();
+
+            if($codeSubmitted == $realCode) {
+
+                $db = EntityManager::getDatabase();
+                $query = $db->prepare("INSERT INTO user (lastname, firstname, email, password, birth_date, adress, phone) SELECT lastname, firstname, email, password, birth_date, adress, phone FROM user_pending WHERE email = :email");
+                $query->execute(["email"=>$emailSubmitted]);
+
+                if($query) {
+                    $em->delete(["email"=>$emailSubmitted]);
+
+                    Http::redirect(CUSTOMER_POST_SIGN_ROUTE);
+                }
+                else {
+                    throw new \Exception(\ERROR_DELETE_BDD);
+                }
+
+                
+            }
+            else {
+                throw new \Exception(VERIFYING_WRONG_CODE);
+            }
+
+        }
+
+    }
+
+
+
+    public function resendCode() {
+
+        $newCode = rand();
+        $email= $_POST['email'];
+
+        $em = new EntityManager("User_pending");
+
+        $result = $em->findOne(["email"=>$email]);
+
+        if($result) {
+            $result
+            ->setCode($newCode);
+
+            $resp = $em->update($result, ["email"=>$email]);
+
+            if($resp) {
+
+                $header="MIME-Version: 1.0\r\n";
+                $header.='Content-Type:text/html; charset="uft-8"'."\n";
+                $header.='Content-Transfer-Encoding: 8bit';
+                $msg =
+                "
+                    <body style='border-style:solid;padding-bottom:25px;'>
+                        <h1 style='text-align:center;'>Bienvenue chez Projet Eve !</h1> 
+                        <h3 style='text-align:center;'>Voici le nouveau code pour valider votre inscription :</h3> 
+                        <h2 style='text-align:center;background-color:grey;width:200px;padding:5px;color:white;margin:auto;'>$newCode</h2>           
+                    </body>
+                ";
+
+                mail($email, "Mail de vérification", $msg, $header); 
+                
+                echo "Le code a été renvoyé par mail";
+
+            }
+            else {
+                throw new \Exception(\ERROR_UPDATE_BDD);
+            }
+        }
+        else {
+            echo "Aucune inscription n'a été enregistrée avec cette email";
+        }
+
+    }
+
+
+
             
         
 }

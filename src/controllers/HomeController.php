@@ -9,8 +9,8 @@ class HomeController extends Controller {
 
     public  function homePage() {
         $em = new EntityManager("Product");
-        $products = $em->find();
-        $this->render("home", compact("products"));
+        $products = $em->find([], ["*"], [0,5]);
+        $this->render("client-home", compact("products"));
     }
 
 }
