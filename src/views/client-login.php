@@ -37,5 +37,5 @@ use Core\Router\PathGenerator;
 
 $content = ob_get_clean();
 $temp = new Template("Sign-customer-page", [], ["index"]);
-$temp->transmitVarToContext(["userSession" => $userSession]);
+$temp->transmitVarToContext( compact("userSession", "errorMessage"));
 $temp->render($content);

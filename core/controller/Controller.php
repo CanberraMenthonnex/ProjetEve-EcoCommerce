@@ -18,6 +18,8 @@ abstract class Controller {
     protected function render (string $viewName, array $var = []) {
         extract($var);
         $userSession = Session::get('user') ?? "";
+        $errorMessage = Session::flash("errorMessage");
+        $defaultMessage = Session::flash("defaultMessage");
         require( self::VIEW_PATH . $viewName . ".php");
     }
 
@@ -64,16 +66,5 @@ abstract class Controller {
         Http::redirect($path);
     }
 
-    /**
-     * Get message from session
-     *
-     * @param string $key
-     * @return mixed|null
-     */
-    protected function getMessage(string $key) {
-        $message = Session::get($key);
-        Session::clean($key);
-        return $message;
-    }
        
 }

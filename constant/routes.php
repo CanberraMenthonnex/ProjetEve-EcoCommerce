@@ -31,7 +31,7 @@ const SEARCH_ROUTE = "search/";
 const PRODUCT_DESC_ROUTE = "product/";
 
 //Blog
-const ARTICLE_ROUTE = "/blog/articles";
+const ARTICLE_ROUTE = "blog/articles";
 
 //Review
 const REVIEW_PRODUCT = "product/review/";

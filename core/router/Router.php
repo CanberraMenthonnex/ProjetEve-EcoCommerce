@@ -14,11 +14,6 @@ class Router implements IERouter {
     const HTTP_DELETE = "DELETE";
     const HTTP_PUT = "PUT";
 
-    /**
-     * CONTROLLER NAMESPACE
-     */
-    private string $_controllerNameSpace = "Controller\\";
-
     /*
      * CURRENT URL
      * **/
@@ -90,7 +85,7 @@ class Router implements IERouter {
         $parts = array_map(function ($arg) {
             return trim($arg, "/");
         }, $parts);
-        $this->store[$method][] = new Route($parts[0], array_slice($parts, 1), $this->_controllerNameSpace . $controller, $action);
+        $this->store[$method][] = new Route($parts[0], array_slice($parts, 1), $controller, $action);
         
     }
 

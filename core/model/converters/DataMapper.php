@@ -65,7 +65,7 @@ class DataMapper {
             foreach($propertiesWithValues as $property=>$value ) {
 
                 $metaType = AnnotationManager::getMetaData($newEntity, $property, "@type", "type");
-               
+
                 $value = DataConverter::convertToType($metaType, $value);
 
                 call_user_func([$newEntity, "set" . ucfirst($property)], $value);

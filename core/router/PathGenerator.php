@@ -10,6 +10,8 @@ class PathGenerator {
 
     static $stylePath = "";
 
+    static $jsPath = "";
+
     /**
      * Define base path
      * 
@@ -36,7 +38,11 @@ class PathGenerator {
     public static function defineStylePath(string $path) {
         self::$stylePath = $path;
     }
-    
+
+    public static function defineJsPath(string $path) {
+        self::$jsPath = $path;
+    }
+
     /**
      * Generate path 
      * 
@@ -63,6 +69,10 @@ class PathGenerator {
      */
     public static function generateStylePath(string $style) {
         return self::generatePath( self::$stylePath . '/' . $style );
+    }
+
+    public static function generateJsPath(string $js) {
+        return self::generatePath(self::$jsPath . "/" . $js);
     }
     
 
