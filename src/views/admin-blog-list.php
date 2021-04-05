@@ -29,7 +29,6 @@ ob_start();
             <td class="arrayCell">categorie</td>
             <td class="arrayCell">Créé le</td>
             <td class="arrayCell">Id auteur</td>
-            <td class="arrayCell">Supprimer</td>
         </tr>
         <?php
             foreach ($articles as $article) {
@@ -39,6 +38,9 @@ ob_start();
                 <td class="arrayCell"><?= $article->getCategory()?></td>
                 <td class="arrayCell"><?= $article->getCreatedAt()->format("d-m-Y")?></td>
                 <td class="arrayCell"><?= $article->getAuthor()?></td>
+                <td class="arrayCell">
+                    <a href="<?= PathGenerator::generatePath(ADMIN_ARTICLE_LIST . "/" . $article->getId()) ?>">Editer</a>
+                </td>
                 <td class="arrayCell"><a href="<?= PathGenerator::generatePath( ADMIN_DELETE_ARTICLE ) . $article->getId(); ?>" id="suppArticle">Supprimer</a></td>
             </tr>
         <?php

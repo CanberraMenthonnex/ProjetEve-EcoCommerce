@@ -5,10 +5,8 @@ namespace Controller;
 use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Exception;
-use Model\Entity\User;
 use Core\ValidatorString;
 use Core\ValidatorInt;
-use Core\Session;
 use Core\Http;
 use Core\Model\Converters\TypeConverter;
 use Model\Entity\User_pending;
@@ -155,7 +153,7 @@ class SignCustomerController extends Controller{
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
             $code = rand();
 
-            $em = new EntityManager('User_pending');
+            $em = new EntityManager('UserPending');
             $user_pending = new User_pending();
             $user_pending
             ->setFirstname($firstname)
@@ -216,7 +214,7 @@ class SignCustomerController extends Controller{
             $emailSubmitted = $_POST['email'];
             $codeSubmitted = $_POST['code'];
 
-            $em = new EntityManager("User_pending");
+            $em = new EntityManager("UserPending");
             $result = $em->findOne(["email"=>$emailSubmitted], ["code"]);
 
             if(!$result) {
@@ -257,7 +255,7 @@ class SignCustomerController extends Controller{
         $newCode = rand();
         $email= $_POST['email'];
 
-        $em = new EntityManager("User_pending");
+        $em = new EntityManager("UserPending");
 
         $result = $em->findOne(["email"=>$email]);
 

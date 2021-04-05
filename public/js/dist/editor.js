@@ -277,6 +277,10 @@ class SimpleImage {
     }
 }
 (function () {
+    const editorForm = document.querySelector('#editor-form')
+    const inputContent = document.querySelector("#article-content")
+    const defaultData = inputContent.value ?  JSON.parse(inputContent.value)  : {}
+    console.log(defaultData)
 
     const editor = new EditorJS({
         holder: 'editor',
@@ -287,11 +291,11 @@ class SimpleImage {
                 class: SimpleImage,
                 inlineToolbar: ['link'],
             }
-        }
+        },
+        data: defaultData
     });
     
-    const editorForm = document.querySelector('#editor-form')
-    const inputContent = document.querySelector("#article-content")
+
 
     editorForm.addEventListener('submit', async (e) => {
         const content = await editor.save()

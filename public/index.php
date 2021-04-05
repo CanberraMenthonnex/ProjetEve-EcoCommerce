@@ -27,6 +27,7 @@ PathGenerator::defineJsPath("js/dist");
 session_start();
 
 try {
+
     $router = new Router($_GET["url"]);
 
     $router->get(HOME_ROUTE, \Controller\HomeController::class, "homePage");
@@ -36,9 +37,8 @@ try {
 
     $router->get(PRODUCT_DESC_ROUTE . ":productId", \Controller\ProductController::class, "productDescription");
 
-    $router->get(REVIEW_PRODUCT . ":prdtId", \Controller\ProductController::class, "listingReview");
+    $router->get(REVIEW_PRODUCT . ":prdtId", \Controller\ReviewController::class, "listReviews");
 
-    $router->post(REVIEW_PAGINATION . ":prdtId", \Controller\ProductController::class, "reviewPagination");
 
     //ADMIN ROUTES
     $router->get(ADMIN_LOG_ROUTE, \Controller\AdminController::class, "logAdminPage");
@@ -62,6 +62,10 @@ try {
     $router->post(ADMIN_CREATE_ARTICLE, \Controller\AdminBlogController::class, "postArticle");
 
     $router->get(ADMIN_DELETE_ARTICLE . ":id", \Controller\AdminBlogController::class, "deleteArticle");
+
+    $router->get(ADMIN_ARTICLE_LIST . "/:id", \Controller\AdminBlogController::class, "edit");
+
+    $router->post(ADMIN_UPDATE_ARTICLE . ":id", \Controller\AdminBlogController::class, "update");
 
     //CUSTOMER ROUTES
     $router->post(CUSTOMER_POST_SIGN_ROUTE, \Controller\SignCustomerController::class, "sign");

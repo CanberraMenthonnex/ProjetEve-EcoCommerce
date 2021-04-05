@@ -4,7 +4,7 @@ namespace Model\Entity;
 
 use DateTime;
 
-class Product_review {
+class ProductReview {
     /**
      * @index
      */
