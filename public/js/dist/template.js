@@ -1,4 +1,3 @@
-
 function getCartItems() {
     return fetch(MAIN_PATH + "/cart/stock", {
         method: "GET",
@@ -6,10 +5,6 @@ function getCartItems() {
             "Accept" : "application/json"
         }
     })
-        .then(res => res.json())
-}
-
-function updateCartItem (productId, data) {
     return fetch(MAIN_PATH + "/cart/update/" + productId, {
         method: "POST",
         body : data ,

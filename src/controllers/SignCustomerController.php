@@ -166,10 +166,15 @@ class SignCustomerController extends Controller{
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
             $code = rand();
 
+<<<<<<< HEAD
+            $em = new EntityManager('UserPending');
+            $user_pending = new User_pending();
+=======
         
 
             $em = new EntityManager('UserPending');
             $user_pending = new UserPending();
+>>>>>>> de938b561cff61ddbacee84dfdfa3e5a0afc95d4
             $user_pending
             ->setFirstname($firstname)
             ->setLastname($lastname)

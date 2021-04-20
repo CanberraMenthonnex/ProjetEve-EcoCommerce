@@ -1,3 +1,27 @@
+function getCartItems() {
+    return fetch(MAIN_PATH + "/cart/stock", {
+        method: "GET",
+        headers : {
+            "Accept" : "application/json"
+        }
+    })
+}
+
+function updateCartItem (productId, data) {
+    return fetch(MAIN_PATH + "/cart/update/" + productId, {
+        method: "POST",
+        body : data,
+    })
+}
+
+function deleteCartItems(productId) {
+    return fetch(MAIN_PATH + "/cart/remove/" + productId, {
+        method: "GET",
+        headers : {
+            "Accept" : "application/json"
+        }
+    })
+}
 
 function getCartItems() {
     return fetch(MAIN_PATH + "/cart/stock", {
