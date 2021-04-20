@@ -10,7 +10,7 @@ class BlogController extends Controller {
 
     public function __construct()
     {
-        $this->em = new EntityManager('article');
+        $this->em = new EntityManager('Article');
     }
 
     public function articleList() {

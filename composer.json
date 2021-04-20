@@ -20,7 +20,7 @@
             "Core\\Model\\Converters\\" : "./core/model/converters",
             "mindplay\\annotations\\" : "./core/vendor/mindplay/annotations/src/annotations",
             "Dotenv\\" : "./core/vendor/vlucas/phpdotenv/src",
-            "Core\\model\\Annotations\\" :[ "./core/model/annotations", "./core/model/annotations/annotation"],
+            "Core\\Model\\Annotations\\" : "./core/model/annotations",
             "Core\\Controller\\" : "./core/controller",
             "Core\\View\\Template\\" : "./core/view/template"
         }

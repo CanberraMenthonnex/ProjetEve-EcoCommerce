@@ -19,4 +19,11 @@ class Session {
     public static function checkSession(string $name){
         return(isset($_SESSION[$name]));
     }
+
+    public static function flash(string $name) {
+        $data = self::get($name);
+        self::clean($name);
+        return $data;
+
+    }
 }

@@ -50,7 +50,7 @@ function bundleJs () {
 
             return src([...bundle.vendor,...bundle.scripts])
             .pipe(concat(`${bundle.name}.js`))
-            .pipe(minify())
+            // .pipe(minify())
             .pipe(dest('./public/js/dist'))
     })))
     

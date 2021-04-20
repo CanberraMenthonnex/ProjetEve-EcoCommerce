@@ -33,7 +33,7 @@ class CustomerLoginController extends Controller {
                 {
                     //throw new \Exception(BAD_PASSWORD);
                     $log_error = "L'identifiant et/ou le mot de passe de connexion ne sont pas reconnus.";
-                    $this->render("client-sign-in", compact("log_error"));
+                    $this->redirectWithError(CUSTOMER_POST_LOGIN_ROUTE, $log_error);
                 }
             }
             else

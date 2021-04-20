@@ -20,8 +20,12 @@ module.exports = {
       name: 'creation-article',
       scripts: ['./public/js/src/custom-elements/file-reader-input.js'],
       vendor: []
+    },
+    {
+      name: "template",
+      scripts: ['./public/js/src/ajax-cart.js', './public/js/src/header.js', "./public/js/src/alert.js"],
+      vendor: []
     }
-    
   ]
 
   };
