@@ -132,3 +132,38 @@ $margins : (
 .paddingFix1{
     padding: $fixMarge1;
 }
+
+.width70{
+    width: 70%;
+}
+
+.width10{
+    width: $marge5 !important;
+}
+
+.width40{
+    width: 40%;
+}
+
+.width80{
+    width: 80%;
+}
+
+.marginAuto{
+    margin: $auto;
+}
+
+.marginTop1{
+    margin-top: $fixMarge1;
+}
+.marginTop5{
+    margin-top: $marge5;
+}
+
+.marginRight1{
+    margin-right: $fixMarge1;
+}
+
+.marginLeft1{
+    margin-left: $fixMarge1;
+}

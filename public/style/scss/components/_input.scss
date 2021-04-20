@@ -20,6 +20,17 @@
     }
 }
 
+.text-input2 {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    width: 80%;
+    &:focus {
+        border: 4px solid $darkGreen;
+        outline: none;
+    }
+}
+
 .textarea {
    @extend .text-input;
    resize: none;
