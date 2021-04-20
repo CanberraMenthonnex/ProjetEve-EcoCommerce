@@ -8,7 +8,7 @@ use Core\View\Template\Template;
 
     <section class="flex--column align--center justify--center flex-fill"  id="pageProduct">
         <div class="product-form">
-            <form id="formCreationArticle" action="<?= PathGenerator::generatePath("/admin/product/form"); ?>" method="POST">
+            <form id="formCreationArticle" action="<?= PathGenerator::generatePath("admin/product/form"); ?>" method="POST" enctype="multipart/form-data">
                 <div class="flex--row justify--between" id="productInformation">
                     <file-reader name="product-miniature" baseclass="file-reader-input">Upload</file-reader>
                     <div class="flex--column col5" id="product">
@@ -18,14 +18,14 @@ use Core\View\Template\Template;
                     </div>
                 </div>
                 <div id="CreaText" class="py-2">
-                    <label class="" for="description">Description du produit:</label>
+                  <!--  <label class="" for="description">Description du produit:</label>
                     <input id="gStyle" type="button" value="G" style="font-weight:bold;"/> 
                     <input id="iStyle" type="button" value="I" style="font-style:italic;"/> 
                     <input id="sStyle" type="button" value="S" style="text-decoration:underline;"/> 
                     <input id="linkStyle" type="button" value="Lien"/>
-                    <br>
-                    <textarea class="bg--white my-2 textarea" id="editor" rows="10" ></textarea>
-                    <input type="hidden" name="description" id="depot">
+                    <br>-->
+                    <textarea name="description"  class="bg--white my-2 textarea" id="editor" rows="10" ></textarea>
+<!--                    <input type="hidden" name="description" id="depot">-->
                 </div>
                 <div class="flex justify--center align--center">
                     <input class="bg--flash-green py-1 lightRadius text-center" type="submit" name="create_product" id="create_product" value="AJOUTER LE PRODUIT" /><br />

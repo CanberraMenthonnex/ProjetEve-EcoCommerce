@@ -1058,6 +1058,8 @@ input:focus {
     color: white; }
   .file-reader-input--input {
     display: none; }
+  .file-reader-input img {
+    max-width: 100%; }
 
 .arrayCell {
   padding: 10px 20px;

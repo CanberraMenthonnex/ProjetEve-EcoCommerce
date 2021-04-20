@@ -37,7 +37,8 @@ function resultat() {
 /**************************</WYSIWYG>******************************/
 
 
-/*********************<IMAGE PREVIEW>***********************/
+/*
+********************<IMAGE PREVIEW>**********************
 
 const imgFile = document.getElementById("imgFile");
 const prevuConteneur = document.getElementById("imgPreview");
@@ -65,5 +66,6 @@ imgFile.addEventListener("change", function(){
 	}
 });
 
+*/
 
 /*********************</IMAGE PREVIEW>***********************/
