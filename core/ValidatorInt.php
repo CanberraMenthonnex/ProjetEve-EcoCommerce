@@ -32,9 +32,7 @@ class ValidatorInt{
     }
 
     public static function validateQuantityInt($int){
-        if(is_numeric($int) && $int >= 1 && $int <= 99){
-            return true;
-        }
+        return is_numeric($int) && $int >= 1 && $int <= 99;
     }
 
     public function validateDateInt(){

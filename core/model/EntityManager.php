@@ -13,7 +13,7 @@ class EntityManager extends Model {
     {
         parent::__construct();
         $this->_entity = "Model\\Entity\\" . $entity;
-        $this->_table = strtolower( $entity );
+        $this->_table = $this->_convertToTableName($entity);
     }
 
     /**

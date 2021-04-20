@@ -44,49 +44,4 @@ class ProductController extends Controller {
 
 
 
-    public function listingReview(string $prdtId) {
-
-        $db = EntityManager::getDatabase();
-
-        $query = $db->prepare(
-            "SELECT comment, rating, date, lastname, firstname
-             FROM product_review
-             INNER JOIN user ON product_review.user_id = user.id
-             WHERE product_id = :product_id
-             ORDER BY date DESC
-             LIMIT 5"
-        );
-
-        $query->execute(["product_id"=>$prdtId]);
-
-        $reviewList = $query->fetchAll(\PDO::FETCH_ASSOC);
-
-        echo json_encode($reviewList);
-
-    }
-
-
-
-    public function reviewPagination(string $prdtId) {
-
-        $page = $_POST['page'];
-
-        $db = EntityManager::getDatabase();
-
-        $query = $db->prepare(
-            "SELECT comment, rating, date, lastname, firstname
-             FROM product_review
-             INNER JOIN user ON product_review.user_id = user.id
-             WHERE product_id = :product_id
-             ORDER BY date DESC
-             LIMIT 5
-             OFFSET :reviewNbr"
-        );
-
-        $query->execute(["product_id"=>$prdtId, "reviewNbr"=>$page]);
-
-        echo json_encode($query->fetchAll(\PDO::FETCH_ASSOC));
-
-    }
-
 }

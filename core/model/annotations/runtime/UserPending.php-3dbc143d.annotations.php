@@ -6,90 +6,90 @@ return array(
   'DateTime' => 'DateTime',
 ),
   '#traitMethodOverrides' => array (
-  'Model\\Entity\\User_pending' => 
+  'Model\\Entity\\UserPending' => 
   array (
   ),
 ),
-  'Model\\Entity\\User_pending::$id' => array(
+  'Model\\Entity\\UserPending::$id' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string'),
     array('#name' => 'index', '#type' => 'Core\\Model\\Annotations\\IndexAnnotation')
   ),
-  'Model\\Entity\\User_pending::$lastname' => array(
+  'Model\\Entity\\UserPending::$lastname' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$firstname' => array(
+  'Model\\Entity\\UserPending::$firstname' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$email' => array(
+  'Model\\Entity\\UserPending::$email' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$password' => array(
+  'Model\\Entity\\UserPending::$password' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$birth_date' => array(
+  'Model\\Entity\\UserPending::$birth_date' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'DateTime')
   ),
-  'Model\\Entity\\User_pending::$adress' => array(
+  'Model\\Entity\\UserPending::$adress' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$phone' => array(
+  'Model\\Entity\\UserPending::$phone' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::$code' => array(
+  'Model\\Entity\\UserPending::$code' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'int')
   ),
-  'Model\\Entity\\User_pending::getPassword' => array(
+  'Model\\Entity\\UserPending::getPassword' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'hashed')
   ),
-  'Model\\Entity\\User_pending::getId' => array(
+  'Model\\Entity\\UserPending::getId' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getLastname' => array(
+  'Model\\Entity\\UserPending::getLastname' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getFirstname' => array(
+  'Model\\Entity\\UserPending::getFirstname' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getEmail' => array(
+  'Model\\Entity\\UserPending::getEmail' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getBirth_date' => array(
+  'Model\\Entity\\UserPending::getBirth_date' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getAdress' => array(
+  'Model\\Entity\\UserPending::getAdress' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getPhone' => array(
+  'Model\\Entity\\UserPending::getPhone' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
   ),
-  'Model\\Entity\\User_pending::getCode' => array(
+  'Model\\Entity\\UserPending::getCode' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'int')
   ),
-  'Model\\Entity\\User_pending::setId' => array(
+  'Model\\Entity\\UserPending::setId' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setLastname' => array(
+  'Model\\Entity\\UserPending::setLastname' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setFirstname' => array(
+  'Model\\Entity\\UserPending::setFirstname' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setEmail' => array(
+  'Model\\Entity\\UserPending::setEmail' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setPassword' => array(
+  'Model\\Entity\\UserPending::setPassword' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setBirth_date' => array(
+  'Model\\Entity\\UserPending::setBirth_date' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setAdress' => array(
+  'Model\\Entity\\UserPending::setAdress' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setPhone' => array(
+  'Model\\Entity\\UserPending::setPhone' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
-  'Model\\Entity\\User_pending::setCode' => array(
+  'Model\\Entity\\UserPending::setCode' => array(
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'self')
   ),
 );

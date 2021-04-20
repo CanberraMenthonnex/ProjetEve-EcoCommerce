@@ -10,10 +10,10 @@ ob_start();
         <header class="py-1 py-3-phone">
             <h1 class="main-title py-1">Notre Blog</h1>
             <nav class="py-1">
-                <a href="#" class="cta">Catégorie 1</a>
-                <a href="#" class="cta">Catégorie 1</a>
-                <a href="#" class="cta">Catégorie 1</a>
-                <a href="#" class="cta">Catégorie 1</a>
+                <a href="<?= PathGenerator::generatePath(ARTICLE_ROUTE) ?>" class="cta">Tous</a>
+                <?php foreach (BLOG_CATEGORIES as $key => $cat) : ?>
+                    <a href="<?= PathGenerator::generatePath(ARTICLE_ROUTE . "?category=" . $key) ?>" class="cta"><?= $cat ?></a>
+                <?php endforeach; ?>
             </nav>
         </header>
         <div class="article-wrapper">
