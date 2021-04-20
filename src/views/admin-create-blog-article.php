@@ -19,7 +19,9 @@ ob_start();
         <div class="flex--column align--center py-1">
             <label for="article-category" class="f-white py-4">Catégorie de l'article</label>
             <select id="article-category" name="category" class="select">
-                <option value="categorie_1">Catégorie 1</option>
+                <?php foreach (BLOG_CATEGORIES as $key => $cat): ?>
+                    <option value="<?= $key ?>"><?= $cat ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
     </form>

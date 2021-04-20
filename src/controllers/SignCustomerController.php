@@ -4,14 +4,21 @@ namespace Controller;
 
 use Core\Controller\Controller;
 use Core\Model\EntityManager;
+use Core\Session;
 use Exception;
 use Core\ValidatorString;
 use Core\ValidatorInt;
 use Core\Http;
 use Core\Model\Converters\TypeConverter;
-use Model\Entity\User_pending;
+use Model\Entity\UserPending;
 
 class SignCustomerController extends Controller{
+
+    private $em; 
+
+    public function __construct() {
+        $this->em = new EntityManager("User");
+    }
 
     public function sendMail() {
         $code = rand();
@@ -23,12 +30,12 @@ class SignCustomerController extends Controller{
 
 
     public function signCustomerPage() {
-        $this->render("client-sign-in");
+        $this->render("client-sign-in", ["signData" => Session::flash("sign-data")]);
     }
     public function sign(){
 
-        //infos perso
 
+        //infos perso
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $email = $_POST["email"];
@@ -42,7 +49,6 @@ class SignCustomerController extends Controller{
         $year = $_POST["year"];
 
         //adresse
-
         $road = $_POST["road"];
         $road_number = $_POST["road_number"];
         $zip_code = $_POST["zip_code"];
@@ -139,6 +145,13 @@ class SignCustomerController extends Controller{
 
         $sign_error = array_values(array_filter($sign_error));
 
+        $userAlreadyExisting =  $this->em->findOne(["email" => $email]);
+
+        if($userAlreadyExisting !== null) {
+            $sign_error[] = "Email has already been taken";
+        }
+
+
 
         if(!$sign_error && $check_guc == "yes"){
                 
@@ -153,8 +166,15 @@ class SignCustomerController extends Controller{
             $pwd = password_hash($pwd, PASSWORD_DEFAULT);
             $code = rand();
 
+<<<<<<< HEAD
             $em = new EntityManager('UserPending');
             $user_pending = new User_pending();
+=======
+        
+
+            $em = new EntityManager('UserPending');
+            $user_pending = new UserPending();
+>>>>>>> de938b561cff61ddbacee84dfdfa3e5a0afc95d4
             $user_pending
             ->setFirstname($firstname)
             ->setLastname($lastname)
@@ -192,11 +212,11 @@ class SignCustomerController extends Controller{
             
         } 
         else
-        {   
+        {
 
+            Session::set("sign-data", $_POST);
 
-            $that_fuking_error = $sign_error[0][0]; 
-            $this->render("client-sign-in", compact("that_fuking_error"));
+            $this->redirectWithError(CUSTOMER_POST_SIGN_ROUTE, $sign_error[0][0]);
         }
             
     }
@@ -232,7 +252,7 @@ class SignCustomerController extends Controller{
                 if($query) {
                     $em->delete(["email"=>$emailSubmitted]);
 
-                    Http::redirect(CUSTOMER_POST_SIGN_ROUTE);
+                    Http::redirect(CUSTOMER_POST_LOGIN_ROUTE);
                 }
                 else {
                     throw new \Exception(\ERROR_DELETE_BDD);

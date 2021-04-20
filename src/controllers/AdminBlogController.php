@@ -46,6 +46,7 @@ class AdminBlogController extends Controller {
         }
 
         $admin = Session::get('admin');
+        $category = BLOG_CATEGORIES[$_POST["category"]] ? $_POST["category"] : BLOG_CATEGORIES["discovery"];
         
         $article = new Article();
         $article ->setTitle($_POST['title'])        

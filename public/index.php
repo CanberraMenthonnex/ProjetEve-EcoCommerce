@@ -12,6 +12,7 @@ $dotenv->load();
 
 require ("../configuration/configuration.php");
 require("../configuration/dbconfiguration.php");
+require("../constant/blog.php");
 require("../constant/ERROR_Message.php");
 require ("../constant/routes.php");
 require('../core/router/PathGenerator.php');
