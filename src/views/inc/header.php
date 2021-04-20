@@ -68,9 +68,11 @@
             <?php
                 if(!$userSession) {
                     echo "<p>Il faut être connecté pour pouvoir ajouter des produits au panier</p>";
+                } else {
+                    echo '<button id="buyBasket" class="header--cart--buy">Acheter</button>';
                 }
             ?>
-            <button id="buyBasket" class="header--cart--buy">Acheter</button>
+            
         </div>
 
     </div>

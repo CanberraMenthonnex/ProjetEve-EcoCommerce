@@ -14,7 +14,8 @@ class BlogController extends Controller {
     }
 
     public function articleList() {
-        $articles = $this->em->find([], ['*'], [0, 10]);
+        $filters = $_GET["category"] ? ["category" => $_GET["category"]] : [];
+        $articles = $this->em->find($filters, ['*'], [0, 10]);
         $this->render("client-article-list", ['articles' => $articles]);
     }
 

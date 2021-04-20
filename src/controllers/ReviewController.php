@@ -6,7 +6,7 @@ use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
 use Model;
-use Model\Entity\Product_review;
+use Model\Entity\ProductReview;
 
 class ReviewController extends Controller {
 
@@ -27,7 +27,7 @@ class ReviewController extends Controller {
       
          if(!$result) {
 
-            $product_review = new Product_review();
+            $product_review = new ProductReview();
 
             $product_review
                ->setRating($rt)
@@ -45,7 +45,7 @@ class ReviewController extends Controller {
             }
 
          } else {
-            throw new \Exception("You have already post a review for this product");           
+             $this->redirectWithError(PRODUCT_DESC_ROUTE . $product_id, "You have already post a review for this product" );
          }
       }   
       else {

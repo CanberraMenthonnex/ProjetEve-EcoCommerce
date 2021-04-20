@@ -23,7 +23,6 @@ class CustomerLoginController extends Controller {
             $em = new EntityManager("User");
             $user = $em->findOne(["email"=>$email]);
             if($user){
-
                 if(password_verify($pwd, $user->getPassword())) {
                     Session::set("user", $user);
 

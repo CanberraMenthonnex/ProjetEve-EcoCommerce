@@ -62,7 +62,7 @@ class ProductReview {
     /**
      * @param int $rating
      */
-    public function setRating(int $rating): Product_review
+    public function setRating(int $rating): self
     {
         $this->rating = $rating;
         return $this;
@@ -74,7 +74,7 @@ class ProductReview {
     }
 
 
-    public function setUser_id(string $user_id): Product_review
+    public function setUser_id(string $user_id): self
     {
         $this->user_id = $user_id;
         return $this;
@@ -86,7 +86,7 @@ class ProductReview {
     }
 
 
-    public function setProduct_id(string $product_id): Product_review
+    public function setProduct_id(string $product_id): self
     {
         $this->product_id = $product_id;
         return $this;
@@ -97,7 +97,7 @@ class ProductReview {
         return $this->product_id;
     }
 
-    public function setComment(string $comment): Product_review
+    public function setComment(string $comment): self
     {
         $this->comment = $comment;
         return $this;

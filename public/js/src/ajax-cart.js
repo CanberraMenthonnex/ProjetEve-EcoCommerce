@@ -1,3 +1,4 @@
+
 function getCartItems() {
     return fetch(MAIN_PATH + "/cart/stock", {
         method: "GET",
@@ -5,13 +6,16 @@ function getCartItems() {
             "Accept" : "application/json"
         }
     })
+        .then(res => res.json())
 }
 
 function updateCartItem (productId, data) {
     return fetch(MAIN_PATH + "/cart/update/" + productId, {
         method: "POST",
-        body : data,
+        body : data ,
+
     })
+        .then(res => res.json())
 }
 
 function deleteCartItems(productId) {
@@ -52,18 +56,19 @@ function displayCart(res) {
 
       document.querySelector('.listShopping .container-products').innerHTML = content
 
-        const deleteBtns = Array.from(document.querySelector(".delete-product"))
-        const formForUpdating = Array.from(document.querySelector(".update-form"))
+        const deleteBtns = Array.from(document.querySelectorAll(".delete-product"))
+        const formForUpdating = Array.from(document.querySelectorAll(".update-form"))
 
         deleteBtns.forEach((btn) => {
 
             btn.addEventListener("click", (e)=>{
                 e.preventDefault()
 
+
                 const delQuestion = confirm("Êtes-vous sûr de vouloir supprimer cet article de votre panier")
 
                 if(delQuestion) {
-                    deleteCartItems()
+                    deleteCartItems(btn.dataset.productId)
                         .then(() => getCartItems())
                         .then((res)=> {
                             displayCart(res)
@@ -75,20 +80,24 @@ function displayCart(res) {
 
         })
 
+
+
         formForUpdating.forEach(form => {
             form.addEventListener("submit", (e)=> {
 
                 e.preventDefault()
 
                 const element = e.currentTarget
+                const quantityInput = form.querySelector("input[type=number]")
 
-                const quantity = element.children().children("input[type=number]").val()
+                const quantity = quantityInput.value
 
-                const productId = element.data("productId")
-                console.log(product_id);
-
-                updateCartItem(productId, {quantity})
+                const productId = element.dataset.productId
+                const formData = new FormData()
+                formData.append("quantity", quantity)
+                updateCartItem(productId, formData)
                     .then((res)=> {
+                        console.log(res)
                         displayCart(res)
                     })
 
@@ -98,7 +107,6 @@ function displayCart(res) {
 
 
 getCartItems()
-    .then(res => res.json())
     .then((res)=> {
         displayCart(res)
     })

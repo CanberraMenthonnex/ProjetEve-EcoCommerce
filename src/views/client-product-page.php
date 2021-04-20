@@ -8,6 +8,10 @@ ob_start()
 
 ?>
 
+    <?php
+        require "inc/alert.php";
+    ?>
+
     <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
     
     <section class="m-3 product-banner">
