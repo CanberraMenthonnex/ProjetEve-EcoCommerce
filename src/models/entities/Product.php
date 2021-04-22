@@ -32,6 +32,13 @@ class Product  {
      * */
     private float  $price;
 
+    /**
+     * image url
+     *
+     * @type string
+     */
+    private string $imageUrl;
+
     /** 
      * creation Date
      * 
@@ -127,6 +134,27 @@ class Product  {
         $this->price = $price;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string $imageUrl
+     * @return Product
+     */
+    public function setImageUrl(string $imageUrl): Product
+    {
+        $this->imageUrl = $imageUrl;
+        return $this;
+    }
+
+
+
 
     /**
      * @return DateTime|\DateTimeInterface|false|null

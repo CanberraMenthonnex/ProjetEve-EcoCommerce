@@ -49,7 +49,7 @@
                 <?php foreach($products as $product) : ?>
                     <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() )?>" class="col2 col5-tablet my-2-tablet col9-phone" >
                         <article class="product-card flex-fill--height">
-                            <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                            <img src="<?= PathGenerator::generatePath(PRODUCT_UPLOAD_IMG_BASE_URL . $product->getImageUrl()) ?>" alt="" class="product-card--img">
                             <div class="product-card--content">
                                 <span class="product-card--price"><?= $product->getPrice() ?>€</span>
                                 <h3 class="product-card--title"><?= $product->getName() ?></h3>
@@ -71,7 +71,7 @@
                 <?php foreach($products as $product) : ?>
                     <a href="<?=PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() ) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
-                            <img src="<?= PathGenerator::generateImgPath('product-img.png') ?>" alt="" class="product-card--img">
+                            <img src="<?= PathGenerator::generatePath(PRODUCT_UPLOAD_IMG_BASE_URL . $product->getImageUrl()) ?>" alt="" class="product-card--img">
                             <div class="product-card--content">
                                 <span class="product-card--price"><?= $product->getPrice() ?>€</span>
                                 <h3 class="product-card--title"><?= $product->getName() ?></h3>
