@@ -304,6 +304,48 @@
 .paddingFix1 {
   padding: 10px; }
 
+.width70 {
+  width: 70%; }
+
+.width10 {
+  width: 10% !important; }
+
+.width40 {
+  width: 40%; }
+
+.width50 {
+  width: 50%; }
+
+.width80 {
+  width: 80%; }
+
+.width100 {
+  width: 100%; }
+
+.marginAuto {
+  margin: auto; }
+
+.marginTop1 {
+  margin-top: 10px; }
+
+.marginTop3 {
+  margin-top: 30px; }
+
+.marginTop5 {
+  margin-top: 10%; }
+
+.marginBottom5 {
+  margin-bottom: 10%; }
+
+.marginRight1 {
+  margin-right: 10px; }
+
+.marginLeft1 {
+  margin-left: 10px; }
+
+.marginForm {
+  margin: 10% auto; }
+
 * {
   padding: 0;
   margin: 0;
@@ -632,6 +674,10 @@ input:focus {
   padding: 2%;
   width: 30vw; }
 
+.login-form {
+  border-radius: 10px 10px 50px 50px;
+  padding: 5px; }
+
 @media screen and (max-width: 450px) {
   .comment-form {
     width: 80%; } }
@@ -683,10 +729,47 @@ input:focus {
     flex-direction: column;
     align-items: center;
     padding: 2%; }
+    .header--cart h3 {
+      color: #516035;
+      text-align: center; }
+    .header--cart .item {
+      margin-top: 50px; }
+    .header--cart .itemPicture {
+      position: relative; }
+    .header--cart .priceProduct {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #516035;
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+      border: 1px solid #516035; }
+    .header--cart .product_quantity {
+      width: 40px; }
+    .header--cart .imageBtn {
+      background: none;
+      border: none; }
+    .header--cart .newQuantityBtn img {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 5px;
+      cursor: pointer; }
+    .header--cart .delete-product {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      cursor: pointer; }
+    .header--cart .delete-product img {
+      width: 35px;
+      height: 35px; }
     .header--cart--buy {
       background-color: #516035;
       color: white;
-      padding: 10px 20px; }
+      padding: 10px 20px;
+      margin-top: 50px;
+      width: 100%; }
   .header--bottom {
     display: flex; }
   .header--nav-category-wrapper {
@@ -794,6 +877,9 @@ input:focus {
 
 .bg--dark-grey {
   background-color: #565656; }
+
+.bg--medium-green {
+  background-color: #8EA75D; }
 
 .bg--very-dark-grey {
   background-color: #353535; }
@@ -1033,6 +1119,15 @@ input:focus {
   border: 4px solid transparent;
   width: 100%; }
   .text-input:focus, .textarea:focus {
+    border: 4px solid #516035;
+    outline: none; }
+
+.text-input2 {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 4px solid transparent;
+  width: 80%; }
+  .text-input2:focus {
     border: 4px solid #516035;
     outline: none; }
 

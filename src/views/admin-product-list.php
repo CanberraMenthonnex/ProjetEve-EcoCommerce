@@ -6,23 +6,9 @@ use Core\View\Template\Template;
     ob_start();
 ?>
 
-<div class="paddingX1 overScroll">
-    <h1 class="f-white text-center">Inventaire Produits</h1>
-    <div class="flex--row justify--end justify-phone--center py-2">
-        <span class="f-white">Recherche : </span>
-        <input type="text" class="searchBack">
-    </div>
-    <div class="flex--column align--start f-white py-2" id="filters">
-        <div class="bg--light-grey py-1 paddingX1">
-            <h3 class="py-1">Trier par :</h3>
-            <h5 class="py-1">Prix : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
-            <h5 class="py-1">Date : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
-            <h5 class="py-1">Ordre alphabétique : <a href="#">Asc</a><span>/</span><a href="#">Desc</a></h5>
-        </div>
 
-    </div>
-    <div class="overScroll">
-        <table class="flex--row justify--center text-center py-1" style="width: 100%;">
+    
+        <table class="marginTop5 flex--row justify--center text-center py-1" style="width: 100%;">
             <tr class="bg--light-grey f-white ">
                 <td class="arrayCell">Nom</td>
                 <td class="arrayCell">Id</td>
@@ -44,7 +30,7 @@ use Core\View\Template\Template;
                 }
             ?>
         </table>
-    </div>
+    
     
 </div>
 
