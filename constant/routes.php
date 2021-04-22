@@ -27,6 +27,11 @@ const DELETE_CART_PRODUCT_ROUTE = "cart/remove/";
 const UPDATE_CART_QUANTITY_ROUTE = "cart/update/";
 const ADD_COMMENT_ROUTE = "comment/form";
 
+
+//Checkout
+
+const CUSTOMER_CHECKOUT_ROUTE = "customer/checkout";
+
 //Product
 const SEARCH_ROUTE = "search/";
 const PRODUCT_DESC_ROUTE = "product/";

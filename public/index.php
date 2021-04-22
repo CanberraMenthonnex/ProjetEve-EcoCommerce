@@ -100,6 +100,10 @@ try {
 
     $router->post(UPDATE_CART_QUANTITY_ROUTE . ":id", \Controller\CartController::class, "updateCartQuantity");
 
+    //CHECKOUT ROUTES
+
+    $router->get(CUSTOMER_CHECKOUT_ROUTE, \Controller\CheckoutController::class, "checkout");
+
     //BLOG ROUTES 
 
     $router->get(ARTICLE_ROUTE, \Controller\BlogController::class, "articleList");
