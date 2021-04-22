@@ -23,6 +23,9 @@ return array(
   'Model\\Entity\\Product::$price' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'float')
   ),
+  'Model\\Entity\\Product::$imageUrl' => array(
+    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
+  ),
   'Model\\Entity\\Product::$createdAt' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'DateTime')
   ),
@@ -55,6 +58,13 @@ return array(
   ),
   'Model\\Entity\\Product::setPrice' => array(
     array('#name' => 'param', '#type' => 'mindplay\\annotations\\standard\\ParamAnnotation', 'type' => 'float', 'name' => 'price'),
+    array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'Product')
+  ),
+  'Model\\Entity\\Product::getImageUrl' => array(
+    array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
+  ),
+  'Model\\Entity\\Product::setImageUrl' => array(
+    array('#name' => 'param', '#type' => 'mindplay\\annotations\\standard\\ParamAnnotation', 'type' => 'string', 'name' => 'imageUrl'),
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'Product')
   ),
   'Model\\Entity\\Product::getCreatedAt' => array(
