@@ -7,6 +7,7 @@ class FileReaderInput extends HTMLElement {
         this.name = this.getAttribute("name")
         this.classNames = this.getAttribute("class")
         this.baseClassName = this.getAttribute('baseclass')
+        this.defaultValue = this.getAttribute("defaultValue")
         this.labelContent = this.innerHTML
         this._generateElement()
         this.input.addEventListener("change", this._onChange.bind(this))
@@ -18,7 +19,7 @@ class FileReaderInput extends HTMLElement {
         this.classList.add("file-reader-input")
 
         this.span = document.createElement("span")
-        this.span.innerHTML = this.labelContent
+        this.span.innerHTML = this.defaultValue ? "" :  this.labelContent
 
         this.label = document.createElement("label")
         this.label.htmlFor = this.name
@@ -33,6 +34,7 @@ class FileReaderInput extends HTMLElement {
 
         this.preview = document.createElement('img')
         this.preview.classList.add(this.baseClassName + '--preview')
+        this.preview.src = this.defaultValue
 
         this.label.appendChild(this.preview)
         this.appendChild(this.label)

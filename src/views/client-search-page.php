@@ -6,7 +6,12 @@ use Core\View\Template\Template;
 ob_start()
 ?>  
     <section class="p-2">
-        <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché "<?= $keywords ?>"</h1>
+        <?php if( $keywords) :  ?>
+            <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché "<?= $keywords ?>"</h1>
+        <?php endif; ?>
+        <?php if( $category) :  ?>
+            <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché dans la catégorie "<?= $category ?>"</h1>
+        <?php endif; ?>
         <section class="flex justify-tablet--center align--stretch">
             <?php foreach($products as $product) : ?>
 

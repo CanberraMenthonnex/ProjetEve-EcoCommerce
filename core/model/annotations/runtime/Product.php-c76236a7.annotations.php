@@ -26,6 +26,9 @@ return array(
   'Model\\Entity\\Product::$imageUrl' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
   ),
+  'Model\\Entity\\Product::$category' => array(
+    array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'string')
+  ),
   'Model\\Entity\\Product::$createdAt' => array(
     array('#name' => 'type', '#type' => 'mindplay\\annotations\\standard\\TypeAnnotation', 'type' => 'DateTime')
   ),
@@ -79,6 +82,13 @@ return array(
   ),
   'Model\\Entity\\Product::setUpdatedAt' => array(
     array('#name' => 'param', '#type' => 'mindplay\\annotations\\standard\\ParamAnnotation', 'type' => 'DateTime|\\DateTimeInterface|false|null', 'name' => 'updatedAt'),
+    array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'Product')
+  ),
+  'Model\\Entity\\Product::getCategory' => array(
+    array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'string')
+  ),
+  'Model\\Entity\\Product::setCategory' => array(
+    array('#name' => 'param', '#type' => 'mindplay\\annotations\\standard\\ParamAnnotation', 'type' => 'string', 'name' => 'category'),
     array('#name' => 'return', '#type' => 'mindplay\\annotations\\standard\\ReturnAnnotation', 'type' => 'Product')
   ),
 );

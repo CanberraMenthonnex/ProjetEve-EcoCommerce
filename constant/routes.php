@@ -6,6 +6,7 @@ const ADMIN_LOGOUT_ROUTE = "admin/logout";
 const ADMIN_CREATE_PRODUCT_ROUTE = "admin/product/form";
 const ADMIN_GET_PRODUCT_ROUTE = "admin/product/stock";
 const ADMIN_DELETE_PRODUCT_ROUTE = "admin/product/";
+const ADMIN_UPDATE_PRODUCT_ROUTE = "admin/product/edit/";
 const ADMIN_ARTICLE_LIST = "admin/blog/articles";
 const ADMIN_CREATE_ARTICLE = 'admin/blog/article';
 const ADMIN_UPDATE_ARTICLE = "admin/blog/article/update/";
