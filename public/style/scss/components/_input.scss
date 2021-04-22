@@ -43,3 +43,23 @@
     color: $white;
     width: 100%;
 }
+
+.file-reader-input {
+    border: 2px solid $white;
+    flex: 1;
+
+    &--label {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+    }
+
+    &--input {
+        display: none;
+    }
+
+}

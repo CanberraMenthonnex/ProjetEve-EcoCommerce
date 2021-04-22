@@ -5,18 +5,14 @@ use Core\Controller\Controller;
 use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
-use Core\ValidatorInt;
 use Model;
-use Model\Entity\Product_review;
+use Model\Entity\ProductReview;
 
 class ReviewController extends Controller {
 
-   public function __construct() {
-      $this->protectFor("user", HOME_ROUTE);
-   }
-
 
    public function addReview(string $product_id) {
+       $this->protectFor("user", HOME_ROUTE);
       
       $user = Session::get('user');
       
@@ -25,13 +21,13 @@ class ReviewController extends Controller {
          $rt = $_POST["rating"];
          $cm = $_POST["comment"];
 
-         $em = new EntityManager("Product_review");
+         $em = new EntityManager("ProductReview");
          
          $result = $em->findOne(["product_id"=>$product_id, "user_id" => $user->getId()], ["product_id"]);
       
          if(!$result) {
 
-            $product_review = new Product_review();
+            $product_review = new ProductReview();
 
             $product_review
                ->setRating($rt)
@@ -49,7 +45,7 @@ class ReviewController extends Controller {
             }
 
          } else {
-            throw new \Exception("You have already post a review for this product");           
+             $this->redirectWithError(PRODUCT_DESC_ROUTE . $product_id, "You have already post a review for this product" );
          }
       }   
       else {
@@ -57,6 +53,31 @@ class ReviewController extends Controller {
       }
      
   }
+
+
+
+
+    public function listReviews(string $prdtId) {
+
+        $offset = $_GET["offset"] ?? 0;
+
+        $db = EntityManager::getDatabase();
+
+        $query = $db->prepare(
+            "SELECT comment, rating, date, lastname, firstname
+             FROM product_review
+             INNER JOIN user ON product_review.user_id = user.id
+             WHERE product_id = :product_id
+             ORDER BY date DESC
+             LIMIT 5
+             OFFSET :offset "
+        );
+
+        $query->execute(["product_id"=>$prdtId, "offset"=>$offset]);
+
+        echo json_encode($query->fetchAll(\PDO::FETCH_ASSOC));
+
+    }
 
 
   

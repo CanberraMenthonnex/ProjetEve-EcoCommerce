@@ -1,7 +1,7 @@
 @import "./helpers/fonts.scss";
 @import './helpers/variables.scss';
 @import "./components/margin";
-@import "./components/reset";
+@import "./helpers/base";
 @import './components/flex';
 @import "./components/text";
 @import "./components/verify";
@@ -16,8 +16,7 @@
 @import "./components/array";
 @import "./components/card";
 @import './components/footer';
-@import './components/headerBack';
+@import './components/header-back';
 @import './components/cta';
 @import './components/editor';
 @import './components/articles';
-@import './components/color';

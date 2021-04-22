@@ -145,8 +145,16 @@ $margins : (
     width: 40%;
 }
 
+.width50{
+    width: 50%;
+}
+
 .width80{
     width: 80%;
+}
+
+.width100{
+    width: 100%;
 }
 
 .marginAuto{
@@ -156,8 +164,16 @@ $margins : (
 .marginTop1{
     margin-top: $fixMarge1;
 }
+
+.marginTop3{
+    margin-top: $fixMarge3;
+}
 .marginTop5{
     margin-top: $marge5;
+}
+
+.marginBottom5{
+    margin-bottom: $marge5;
 }
 
 .marginRight1{
@@ -166,4 +182,8 @@ $margins : (
 
 .marginLeft1{
     margin-left: $fixMarge1;
+}
+
+.marginForm{
+    margin: $marge5 $auto;
 }

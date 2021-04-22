@@ -313,8 +313,14 @@
 .width40 {
   width: 40%; }
 
+.width50 {
+  width: 50%; }
+
 .width80 {
   width: 80%; }
+
+.width100 {
+  width: 100%; }
 
 .marginAuto {
   margin: auto; }
@@ -322,14 +328,23 @@
 .marginTop1 {
   margin-top: 10px; }
 
+.marginTop3 {
+  margin-top: 30px; }
+
 .marginTop5 {
   margin-top: 10%; }
+
+.marginBottom5 {
+  margin-bottom: 10%; }
 
 .marginRight1 {
   margin-right: 10px; }
 
 .marginLeft1 {
   margin-left: 10px; }
+
+.marginForm {
+  margin: 10% auto; }
 
 * {
   padding: 0;
@@ -345,6 +360,9 @@ ul {
 
 a {
   text-decoration: none; }
+
+input:focus {
+  outline: none; }
 
 @media screen and (max-width: 450px) {
   body {
@@ -362,11 +380,12 @@ a {
   .flex--column-reverse {
     flex-direction: column-reverse; }
 
-.flex-fill--height {
-  height: 100%; }
-
-.flex-fill--width {
-  width: 100%; }
+.flex-fill {
+  flex: 1; }
+  .flex-fill--height {
+    height: 100%; }
+  .flex-fill--width {
+    width: 100%; }
 
 .col1 {
   flex: 0 0 8.3%;
@@ -650,6 +669,15 @@ a {
   width: 30%;
   margin: 0 auto; }
 
+.product-form {
+  background-color: #707070;
+  padding: 2%;
+  width: 30vw; }
+
+.login-form {
+  border-radius: 10px 10px 50px 50px;
+  padding: 5px; }
+
 @media screen and (max-width: 450px) {
   .comment-form {
     width: 80%; } }
@@ -812,6 +840,9 @@ a {
 
 .bg--dark-grey {
   background-color: #565656; }
+
+.bg--medium-green {
+  background-color: #8EA75D; }
 
 .bg--very-dark-grey {
   background-color: #353535; }
@@ -1072,6 +1103,20 @@ a {
   color: white;
   width: 100%; }
 
+.file-reader-input {
+  border: 2px solid white;
+  flex: 1; }
+  .file-reader-input--label {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; }
+  .file-reader-input--input {
+    display: none; }
+
 .arrayCell {
   padding: 10px 20px;
   border-radius: 10px; }
@@ -1136,7 +1181,9 @@ a {
   padding: 20px; }
   .headerBack--logo {
     width: 15%;
-    padding-top: 20px; }
+    padding-top: 20px;
+    position: absolute;
+    z-index: -1; }
   .headerBack--link {
     text-decoration: none;
     color: white;
@@ -1186,9 +1233,3 @@ a {
   .article-wrapper {
     grid-template-columns: 1fr;
     padding: 6%; } }
-
-.lightGrey {
-  color: #707070; }
-
-.black {
-  color: black; }

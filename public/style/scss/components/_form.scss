@@ -29,6 +29,17 @@
     margin: 0 auto;
 }
 
+.product-form {
+    background-color: $lightGrey;
+    padding: $marge1;
+    width: 30vw;
+}
+
+.login-form{
+    border-radius: 10px 10px 50px 50px;
+    padding: 5px;
+}
+
 @media screen and (max-width: $phoneSize) {
     .comment-form {
         width: 80%;

@@ -8,6 +8,10 @@ ob_start()
 
 ?>
 
+    <?php
+        require "inc/alert.php";
+    ?>
+
     <input type="hidden" value="<?= $product->getId() ?>" id="prdtId">
     
     <section class="m-3 product-banner">
@@ -133,6 +137,6 @@ ob_start()
 
 <?php
 $content = ob_get_clean();
-$temp = new Template($product->getName(), ["review-min"], ["index"]);
+$temp = new Template($product->getName(), ["review"], ["index"]);
 $temp->transmitVarToContext(compact("userSession"));
 $temp->render($content);

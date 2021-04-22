@@ -11,15 +11,13 @@ use Core\Router\PathGenerator;
     <link rel="stylesheet" href="<?= PathGenerator::generateStylePath("template.css") ?>">
     <link rel="stylesheet" href="<?= PathGenerator::generateStylePath("index.css") ?>">
 
-    <title><?= $templateTitle ?></title>
+    <title>Login</title>
 </head>
 <body class="bg--very-dark-grey template-container">
 
-<header class="flex--column headerBack" id="headerAfficheArticle">
-        <img class="headerBack--logo" src="<?= MAIN_PATH ?>/img/logoBackOffice.png">
-</header>
-
-
+    <header class="flex--column headerBack" id="headerAfficheArticle">
+            <img class="headerBack--logo" src="<?= PathGenerator::generateImgPath("logoBackOffice.png" ) ?>">
+    </header>
     <main class="template-container--main">
     <div class="flex--column align--center ">
         <div class="bg--light-grey text-center py-2 paddingX2 semiRadius">
@@ -27,12 +25,12 @@ use Core\Router\PathGenerator;
             
                 <form action="<?=PathGenerator::generatePath( ADMIN_LOG_ROUTE )?>" method ="POST">
                     <div id="divInputLog">
-                    <input class="semiRadius py-1 paddingX3" type="text"  id="id" name="email" placeholder="Identifiant" autocomplete="off"> <br>
-                    <input class="my-3 semiRadius py-1 paddingX3" type="password" id="pwd" name="pwd" placeholder="Mot de passe" autocomplete="off"> <br>
+                        <input class="text-input my-3 " type="text"  id="id" name="email" placeholder="Identifiant" autocomplete="off"> <br>
+                        <input class="text-input" type="password" id="pwd" name="pwd" placeholder="Mot de passe" autocomplete="off"> <br>
+                        </div>
+                        <div id="divSubmit">
+                        <input class="fixeMargin3 semiRadius py-1 paddingX3" type="submit" name="send" value="Connexion" id="buttonLog">
                     </div>
-                    <div id="divSubmit">
-                    <input class="fixeMargin3 semiRadius py-1 paddingX3" type="submit" name="send" value="Connexion" id="buttonLog">
-                </div>
                 </form>
         </div>
             

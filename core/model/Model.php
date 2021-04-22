@@ -22,6 +22,28 @@ abstract class Model {
     }
 
     /**
+     * convert model name to table name
+     *
+     * @param string $modelName
+     */
+    protected function _convertToTableName(string $modelName) {
+        $tableName = $modelName;
+        $matches = [];
+
+        preg_match_all("/[A-Z]/", $tableName, $matches, PREG_OFFSET_CAPTURE);
+
+        if(!$matches) {
+            return $tableName;
+        }
+
+        foreach ($matches[0] as $match) {
+            $tableName = substr_replace($tableName, ($match[1] > 0 ? "_" : "") . strtolower( $match[0] ), $match[1], $match[0] > 0 ? 2 : 1);
+        }
+
+        return $tableName;
+    }
+
+    /**
      * For getting element from db table
      *
      * @param $table : string

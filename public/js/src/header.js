@@ -1,11 +1,19 @@
 
 (function () {
 
-  $(".basketIcon").click(function() {
-    $("#listShopping").toggle("slow");
-  });
+    const basketBtns = Array.from( document.querySelectorAll(".basketIcon") )
+    const listCart = document.querySelector("#listShopping")
 
-  $("#listShopping").toggle()
+    if(Array.isArray(basketBtns)) {
+        listCart.style.display = "none"
+
+        basketBtns.forEach(basketBtn => {
+            basketBtn.addEventListener("click", function() {
+                listCart.style.display = listCart.style.display === "none" ? "block" : "none"
+            })
+        })
+
+    }
 
 
   const burgerBtn = document.querySelector("#burger-btn")
@@ -26,4 +34,4 @@
       burgerBtn.classList.toggle(enableBurgerBtn)
   })
 
-})()
+})();
