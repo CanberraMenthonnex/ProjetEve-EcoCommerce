@@ -18,7 +18,7 @@ module.exports = {
     },
     {
       name: 'creation-article',
-      scripts: ['./public/js/src/custom-elements/file-reader-input.js'],
+      scripts: ['./public/js/src/custom-elements/file-reader-input.js', './public/js/src/creation-article.js'],
       vendor: []
     },
     {

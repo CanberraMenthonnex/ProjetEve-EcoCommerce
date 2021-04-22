@@ -729,10 +729,47 @@ input:focus {
     flex-direction: column;
     align-items: center;
     padding: 2%; }
+    .header--cart h3 {
+      color: #516035;
+      text-align: center; }
+    .header--cart .item {
+      margin-top: 50px; }
+    .header--cart .itemPicture {
+      position: relative; }
+    .header--cart .priceProduct {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #516035;
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+      border: 1px solid #516035; }
+    .header--cart .product_quantity {
+      width: 40px; }
+    .header--cart .imageBtn {
+      background: none;
+      border: none; }
+    .header--cart .newQuantityBtn img {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 5px;
+      cursor: pointer; }
+    .header--cart .delete-product {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      cursor: pointer; }
+    .header--cart .delete-product img {
+      width: 35px;
+      height: 35px; }
     .header--cart--buy {
       background-color: #516035;
       color: white;
-      padding: 10px 20px; }
+      padding: 10px 20px;
+      margin-top: 50px;
+      width: 100%; }
   .header--bottom {
     display: flex; }
   .header--nav-category-wrapper {
@@ -1116,6 +1153,8 @@ input:focus {
     color: white; }
   .file-reader-input--input {
     display: none; }
+  .file-reader-input img {
+    max-width: 100%; }
 
 .arrayCell {
   padding: 10px 20px;
