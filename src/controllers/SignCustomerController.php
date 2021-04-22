@@ -148,7 +148,7 @@ class SignCustomerController extends Controller{
         $userAlreadyExisting =  $this->em->findOne(["email" => $email]);
 
         if($userAlreadyExisting !== null) {
-            $sign_error[] = "Email has already been taken";
+            $sign_error[][0] = "Email has already been taken";
         }
 
 

@@ -1,4 +1,4 @@
-<?php if($errorMessage || $defaultMessage): ?>
+<?php if(isset($errorMessage) && $errorMessage || isset($defaultMessage) && $defaultMessage): ?>
     <div class="alert" id="alert-modal">
 
         <div class="alert--modal <?= $errorMessage ? "alert-error"  : "alert-success" ?>">

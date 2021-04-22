@@ -18,7 +18,7 @@ ob_start()
     
         <p class="product-banner--title"><u>Catégorie Gourde</u> <?= $product->getName() ?></p><br>
         <article class="product-banner--container">
-            <img id="product_image" class="product-banner--img-frame " src="<?= PathGenerator::generateImgPath('gourde.jpg') ?>" alt="product-image">
+            <img id="product_image" class="product-banner--img-frame " src="<?= PathGenerator::generatePath(PRODUCT_UPLOAD_IMG_BASE_URL . $product->getImageUrl()) ?>" alt="product-image">
             <div class="product-banner--desc-container">
                 <div class="product-banner--desc-container-child">
                     <form action="<?=PathGenerator::generatePath( ADD_CART_ROUTE ."/" . $product->getId() ) ?>" method="POST" class="product-banner--cart-wrapper">
@@ -50,7 +50,7 @@ ob_start()
                 <?php foreach($relationProducts as $products) : ?>
                     <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $products->getId()) ?>" class="col2 col5-tablet my-2-tablet col9-phone">
                         <article class="product-card flex-fill--height">
-                            <img src="<?= PathGenerator::generateImgPath('product-img.png') ?>" alt="" class="product-card--img">
+                            <img src="<?= PathGenerator::generatePath(PRODUCT_UPLOAD_IMG_BASE_URL . $products->getImageUrl()) ?>" alt="" class="product-card--img">
                             <div class="product-card--content">
                                 <span class="product-card--price"><?= $products->getPrice() ?>€</span>
                                 <h3 class="product-card--title"><?= $products->getName() ?></h3>

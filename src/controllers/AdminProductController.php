@@ -2,6 +2,7 @@
 namespace Controller;
 
 use Core\Controller\Controller;
+use Core\FileReader;
 use Core\Model\EntityManager;
 use Model;
 use Core\Http;
@@ -22,10 +23,17 @@ class AdminProductController extends Controller {
     }
 
     public function createProduct() {
-       
-        if($this->checkPostKeys($_POST, ["name", "description", "price"])) {
 
+        if($this->checkPostKeys($_POST, ["name", "description", "price"]) && $_FILES) {
+
+            $files = array_values($_FILES);
             if(!is_numeric($_POST["price"])) Http::redirect(HOME_ROUTE);
+
+            $fileReader = new FileReader();
+
+            $fileReader->defineDir(ROOT . "/". PRODUCT_UPLOAD_IMG_PATH);
+
+            $fileReader->getImage($files[0]);
 
             $name = htmlspecialchars($_POST["name"]);
             $desc = $_POST["description"];
@@ -36,7 +44,8 @@ class AdminProductController extends Controller {
             $product
                 ->setName($name)
                 ->setDescription($desc)
-                ->setPrice($price);
+                ->setPrice($price)
+                ->setImageUrl($fileReader->getUrl());
 
             $em = new EntityManager("Product");
 
@@ -70,6 +79,14 @@ class AdminProductController extends Controller {
     public  function removeProduct (string $id) {
 
         $em = new EntityManager("Product");
+
+        $product = $em->findOne(["id" => $id]);
+
+        if(!$product) {
+            Http::redirect(ADMIN_GET_PRODUCT_ROUTE);
+        }
+
+        unlink(ROOT . "/" . PRODUCT_UPLOAD_IMG_PATH . $product->getImageUrl());
 
         $res = $em->delete(["id"=> $id]);
         
