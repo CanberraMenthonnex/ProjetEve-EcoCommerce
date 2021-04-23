@@ -53,20 +53,19 @@ ob_start()
                 </tfoot>
             </table>
 
-
-            
-
     </div>
 </div>
 
+<script>
+
+
+
+</script>
+
+
 <?php
 
-
-
-
-
-
 $content = ob_get_clean();
-$temp = new Template("Checkout", [], ["index"]);
+$temp = new Template("Checkout", ["customer-checkout.js"], ["index"]);
 $temp->transmitVarToContext(["userSession" => $userSession]);
 $temp->render($content);
