@@ -6,7 +6,6 @@ use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
 use Core\ValidatorInt;
-use Model;
 use Model\Entity\Cart;
 
 class CartController extends Controller {
