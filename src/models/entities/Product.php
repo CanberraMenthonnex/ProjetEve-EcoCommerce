@@ -39,6 +39,14 @@ class Product  {
      */
     private string $imageUrl;
 
+    /**
+     * Category
+     *
+     * @type string
+     */
+    private string $category;
+
+
     /** 
      * creation Date
      * 
@@ -192,6 +200,23 @@ class Product  {
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     * @return Product
+     */
+    public function setCategory(string $category): Product
+    {
+        $this->category = $category;
+        return $this;
+    }
  
 
 }

@@ -79,12 +79,9 @@
     <div class="header--bottom">
         <div class="header--nav-category-wrapper">
             <nav  class="header--nav-category">
-                <a href="#" class="header--nav-category--items">Catégorie</a>
-                <a href="#" class="header--nav-category--items">Catégorie</a>
-                <a href="#" class="header--nav-category--items">Catégorie</a>
-                <a href="#" class="header--nav-category--items">Catégorie</a>
-                <a href="#" class="header--nav-category--items">Catégorie</a>
-                <a href="#" class="header--nav-category--items">Catégorie</a>
+                <?php foreach (PRODUCT_CATEGORIES as $k => $cat) : ?>
+                    <a href="<?= PathGenerator::generatePath("/search/?category=" . $k) ?>" class="header--nav-category--items"><?= $cat ?></a>
+                <?php endforeach; ?>
             </nav> 
         </div>
     </div>

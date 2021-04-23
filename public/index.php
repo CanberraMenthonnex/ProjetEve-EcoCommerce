@@ -53,6 +53,10 @@ try {
 
     $router->post(ADMIN_CREATE_PRODUCT_ROUTE, \Controller\AdminProductController::class, "createProduct");
 
+    $router->get(ADMIN_UPDATE_PRODUCT_ROUTE . ":id" , \Controller\AdminProductController::class, "editProductPage");
+
+    $router->post(ADMIN_UPDATE_PRODUCT_ROUTE . ":id" , \Controller\AdminProductController::class, "editProduct");
+
     $router->get(ADMIN_GET_PRODUCT_ROUTE, \Controller\AdminProductController::class, "listingProduct");
 
     $router->get(ADMIN_DELETE_PRODUCT_ROUTE . ":id", \Controller\AdminProductController::class, "removeProduct");
