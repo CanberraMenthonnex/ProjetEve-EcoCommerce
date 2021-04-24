@@ -625,10 +625,8 @@ input:focus {
   margin-top: 100px; }
 
 .pending-div {
-  margin: 100px auto 0 auto;
+  margin: 100px auto;
   border: 1px solid black;
-  width: 500px;
-  height: 300px;
   text-align: center; }
   .pending-div > h2 {
     padding-top: 25px; }

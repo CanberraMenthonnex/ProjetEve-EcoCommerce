@@ -62,14 +62,14 @@
             <span></span>
         </button>
         <!-- CART  -->
-        <div class="listShopping header--cart" id="listShopping">
+        <div class="listShopping header--cart flex--column" id="listShopping">
             <h3>Panier</h3>
             <div class="container-products"></div>
             <?php
                 if(!$userSession) {
                     echo "<p>Il faut être connecté pour pouvoir ajouter des produits au panier</p>";
                 } else {
-                    echo '<a id="buyBasket" class="header--cart--buy" href="<?= PathGenerator::generatePath(CUSTOMER_CHECKOUT_ROUTE)?>">Acheter</a>';
+                    echo '<a id="buyBasket" class="header--cart--buy" href="'. PathGenerator::generatePath(CUSTOMER_CHECKOUT_ROUTE) .'">Acheter</a>';
                 }
             ?>
             

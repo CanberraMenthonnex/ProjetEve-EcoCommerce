@@ -1,28 +1,31 @@
-let formCode = $('#code-div');
-let formResend = $('#send-div');
+let formCode = document.querySelector('#code-div');
+let formResend = document.querySelector('#send-div');
 
-$('#code-p').click((e)=>{
-    formCode.hide();
-    formResend.show();
+document.querySelector('#code-p').addEventListener("click", (e)=>{
+    formCode.style.display = "none"
+    formResend.style.display = "block"
 })
 
-$('#send-p').click((e)=>{
-    formResend.hide();
-    formCode.show();
+document.querySelector('#send-p').addEventListener("click", (e)=>{
+    formResend.style.display = "none"
+    formCode.style.display = "block"
 })
 
-$("#resend").click((e)=>{
+document.querySelector("#resend").addEventListener("click", (e)=>{
     e.preventDefault();
 
-    const email = $("#email-resend").val();
+    const email = document.querySelector("#email-resend").value;
 
-    $.ajax({
-        url: MAIN_PATH + "/customer/verify/resend",
-        method:"POST",
-        data: {email}
+    return fetch(MAIN_PATH + "/customer/verify/resend", {
+        method: "POST",
+        headers : {
+            "Accept" : "application/json"
+        },
+        body: JSON.stringify({
+            email
+        })
     })
-    .done((res)=> {
-        alert(res);
-    })
-
+        .then(res => res.text())
+        .then(res => alert(res))
+//com
 })

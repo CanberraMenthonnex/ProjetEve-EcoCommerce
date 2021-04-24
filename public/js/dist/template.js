@@ -147,7 +147,7 @@ getCartItems()
 
         basketBtns.forEach(basketBtn => {
             basketBtn.addEventListener("click", function() {
-                listCart.style.display = listCart.style.display === "none" ? "block" : "none"
+                listCart.style.display = listCart.style.display === "none" ? "flex" : "none"
             })
         })
 
