@@ -15,15 +15,17 @@ document.querySelector("#resend").addEventListener("click", (e)=>{
     e.preventDefault();
 
     const email = document.querySelector("#email-resend").value;
+    const form = new FormData()
+    form.append("email", email)
 
     return fetch(MAIN_PATH + "/customer/verify/resend", {
         method: "POST",
         headers : {
             "Accept" : "application/json"
         },
-        body: JSON.stringify({
-            email
-        })
+        body: form
+            
+        
     })
         .then(res => res.text())
         .then(res => alert(res))
