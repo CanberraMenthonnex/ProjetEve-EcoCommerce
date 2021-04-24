@@ -69,7 +69,7 @@
                 if(!$userSession) {
                     echo "<p>Il faut être connecté pour pouvoir ajouter des produits au panier</p>";
                 } else {
-                    /*echo "<a id="buyBasket" class="header--cart--buy" href='<?= PathGenerator::generatePath(CUSTOMER_CHECKOUT_ROUTE)?>'>Acheter</a>";*/
+                    echo '<a id="buyBasket" class="header--cart--buy" href="<?= PathGenerator::generatePath(CUSTOMER_CHECKOUT_ROUTE)?>">Acheter</a>';
                 }
             ?>
             
