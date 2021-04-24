@@ -22,7 +22,7 @@
                     if(gettype($userSession) === "object"){
                         echo "<a href=' ". PathGenerator::generatePath("customer/profil")." ' id='customerName' class='header--username-resp'>" . $userSession->getFirstname() . "</a>";
                     }else{
-                            echo '<a href="'. PathGenerator::generatePath('customer/login').' " class="header--username"><img src="'.  PathGenerator::generateImgPath('luser-icon.svg') .' alt="user icon" title="User" class="head-items--icon"></a>';
+                        echo "<a href=' ". PathGenerator::generatePath("customer/login") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
                     }
 
                 ?>
