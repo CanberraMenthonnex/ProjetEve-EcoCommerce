@@ -53,11 +53,12 @@ function deleteCartItems(productId) {
 
 function displayCart(res) {
 
+    console.log(res);
     const content = res.map((item)=> {
         return ( `
             <div class="item">
                 <div class="itemPicture">
-                    <img src="${MAIN_PATH}/upload/${item.image_url}">
+                    <img src="${MAIN_PATH}/upload/${item.imageUrl}" style="max-width: 15vw;">
                     <button class="imageBtn delete-product" data-product-id="${item.product_id}"><img src="${MAIN_PATH}/img/close-btn.png" alt="deleteProduct"></button>
                     <p class="priceProduct">${item.price * item.quantity} €</p>
                 </div>
