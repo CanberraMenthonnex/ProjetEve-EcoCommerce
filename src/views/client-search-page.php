@@ -9,7 +9,7 @@ ob_start()
         <?php if( $keywords) :  ?>
             <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché "<?= $keywords ?>"</h1>
         <?php endif; ?>
-        <?php if( $category) :  ?>
+        <?php if( isset($category) && $category) :  ?>
             <h1 class="f-white search-title py-1 py-3-phone">Vous avez recherché dans la catégorie "<?= $category ?>"</h1>
         <?php endif; ?>
         <section class="flex justify-tablet--center align--stretch">
@@ -17,7 +17,7 @@ ob_start()
 
                 <a href="<?= PathGenerator::generatePath( PRODUCT_DESC_ROUTE . $product->getId() )?>" class="col-3 m-1">
                     <article class="product-card flex-fill--height">
-                        <img src="<?= MAIN_PATH ?>/img/product-img.png" alt="" class="product-card--img">
+                        <img src="<?= PathGenerator::generatePath(PRODUCT_UPLOAD_IMG_BASE_URL . $product->getImageUrl()) ?>" alt="" class="product-card--img">
                         <div class="product-card--content">
                             <span class="product-card--price"><?= $product->getPrice(); ?>€</span>
                             <h3 class="product-card--title"><?= $product->getName(); ?></h3>

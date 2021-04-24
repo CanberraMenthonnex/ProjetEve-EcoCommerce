@@ -57,7 +57,7 @@ function displayCart(res) {
         return ( `
             <div class="item">
                 <div class="itemPicture">
-                    <img src="${MAIN_PATH}/img/product-img.png">
+                    <img src="${MAIN_PATH}/upload/${item.image_url}">
                     <button class="imageBtn delete-product" data-product-id="${item.product_id}"><img src="${MAIN_PATH}/img/close-btn.png" alt="deleteProduct"></button>
                     <p class="priceProduct">${item.price * item.quantity} €</p>
                 </div>
