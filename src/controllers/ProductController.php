@@ -18,7 +18,7 @@ class ProductController extends Controller {
 
     public function searchList () {
 
-        $keywords = $_GET["search"];
+        $keywords = isset($_GET["search"]) ? $_GET["search"] : null;
         $search = "%" . $keywords . "%";
         $searchFilters = $keywords ? ["name" =>$search] : [];
 

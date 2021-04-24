@@ -132,8 +132,8 @@ class AdminProductController extends Controller {
                 ->setCategory($category);
 
             $files = array_values($_FILES);
-
-            if($files["name"]) {
+            var_dump($files);
+            if($files[0]["name"]) {
 
                 $fileReader = new FileReader();
 

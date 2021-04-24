@@ -45,7 +45,7 @@ use Core\Router\PathGenerator;
         </section>
 
         <div class="flex justify--center marginX1" id="sendBtn">
-            <a class="noDecoration" href="<?= PathGenerator::generatePath(CUSTOMER_LOGOUT_ROUTE)  ?>">Se déconnecter</a>
+            <a class="noDecoration my-1" href="<?= PathGenerator::generatePath(CUSTOMER_LOGOUT_ROUTE)  ?>">Se déconnecter</a>
         </div>
         
         <?php
