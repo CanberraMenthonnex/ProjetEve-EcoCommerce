@@ -6,6 +6,7 @@ use Core\Http;
 use Core\Controller\Controller;
 use Core\Model\EntityManager;
 use Exception;
+use Model\Entity\Product;
 
 class ProductController extends Controller {
 
@@ -18,16 +19,16 @@ class ProductController extends Controller {
 
     public function searchList () {
 
-        $keywords = $_GET["search"];
+        $keywords = isset($_GET["search"]) ? $_GET["search"] : null;
         $search = "%" . $keywords . "%";
         $searchFilters = $keywords ? ["name" =>$search] : [];
 
-        $category = $_GET["category"];
+        $category =  isset($_GET["category"])? $_GET["category"] : null;
         $catFilter = $category ? [ "category" => $category] : [];
 
         $products = $this->em->findByRegex( array_merge($searchFilters, $catFilter) );
-       
-        $this->render("client-search-page", array_merge( compact("products", "keywords"), ["category" => PRODUCT_CATEGORIES[$category]] ));
+
+        $this->render("client-search-page", array_merge( compact("products", "keywords"), $catFilter ? ["category" => PRODUCT_CATEGORIES[$category] ] : [] ));
     }
 
     public function productDescription (string $productId) {

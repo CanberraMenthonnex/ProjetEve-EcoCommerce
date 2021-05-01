@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 22 avr. 2021 à 22:27
--- Version du serveur :  8.0.23-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3
+-- Généré le : sam. 24 avr. 2021 à 12:06
+-- Version du serveur :  5.7.24
+-- Version de PHP : 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `back_office`
 --
-CREATE DATABASE IF NOT EXISTS `back_office` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `back_office`;
 
 -- --------------------------------------------------------
 
@@ -31,7 +28,7 @@ USE `back_office`;
 --
 
 CREATE TABLE `admin` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
@@ -53,13 +50,13 @@ INSERT INTO `admin` (`id`, `lastname`, `firstname`, `mail`, `password`) VALUES
 --
 
 CREATE TABLE `article` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `category` varchar(50) NOT NULL,
   `content` json NOT NULL,
   `createdAt` datetime NOT NULL,
-  `author` int NOT NULL
+  `author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -84,9 +81,9 @@ INSERT INTO `article` (`id`, `title`, `description`, `category`, `content`, `cre
 --
 
 CREATE TABLE `cart` (
-  `user_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `quantity` int NOT NULL
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -94,7 +91,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`user_id`, `product_id`, `quantity`) VALUES
-(10, 6, 4);
+(10, 6, 4),
+(12, 36, 3);
 
 -- --------------------------------------------------------
 
@@ -103,21 +101,22 @@ INSERT INTO `cart` (`user_id`, `product_id`, `quantity`) VALUES
 --
 
 CREATE TABLE `product` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `price` int NOT NULL,
+  `price` int(11) NOT NULL,
   `imageUrl` mediumtext NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT NULL
+  `updatedAt` datetime DEFAULT NULL,
+  `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `price`, `imageUrl`, `createdAt`, `updatedAt`) VALUES
-(36, 'sefes', 'fesfes', 2, '1619eaf6f1c028450399b46ef3c1870ee16a6931c0b662d7c36844855f9285d6d5a81e9da61c91f4c9a7cc8f1d03b94a91b4269f2a2caa562cbe66cf984ead2120-20-21-626879.jpg', '2021-04-20 18:04:45', '2021-04-20 18:04:45');
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `imageUrl`, `createdAt`, `updatedAt`, `category`) VALUES
+(36, 'sefes', 'fesfes', 2, '1619eaf6f1c028450399b46ef3c1870ee16a6931c0b662d7c36844855f9285d6d5a81e9da61c91f4c9a7cc8f1d03b94a91b4269f2a2caa562cbe66cf984ead2120-20-21-626879.jpg', '2021-04-20 18:04:45', '2021-04-20 18:04:45', '');
 
 -- --------------------------------------------------------
 
@@ -126,9 +125,9 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `imageUrl`, `create
 --
 
 CREATE TABLE `product_review` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `product_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `comment` text NOT NULL,
   `rating` tinyint(1) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -157,7 +156,8 @@ INSERT INTO `product_review` (`id`, `user_id`, `product_id`, `comment`, `rating`
 (18, 2, 14, 'Première nouvelle, ce concept a déjà été vu et revu 1000 fois ces dernières années, et en plus depuis l\'arrivée de la télé-réalité, les gens sont moins enclins à valoriser les flics (c\'est foutu d\'avance) , les politiques pensent que les bons pères de famille ont peur de l\'insécurité . Sans parler des lobby en tous genres, tu n\'as aucune info concrète sur les Parisiens qui sont les seuls à vouloir sauver le monde ! LOLOLOL ', 3, '2020-12-13 15:33:04'),
 (19, 3, 14, 'Première nouvelle, ce concept a déjà été vu et revu 1000 fois ces dernières années, et en plus depuis l\'arrivée de la télé-réalité, les gens sont moins enclins à valoriser les flics (c\'est foutu d\'avance) , les politiques pensent que les bons pères de famille ont peur de l\'insécurité . Sans parler des lobby en tous genres, tu n\'as aucune info concrète sur les Parisiens qui sont les seuls à vouloir sauver le monde ! LOLOLOL ', 2, '2020-12-13 15:33:04'),
 (20, 5, 17, 'dzdzqdzqd', 1, '2021-02-01 23:02:13'),
-(21, 11, 15, 'super nul !', 1, '2021-04-20 12:04:03');
+(21, 11, 15, 'super nul !', 1, '2021-04-20 12:04:03'),
+(22, 12, 36, '', 5, '2021-04-23 18:04:16');
 
 -- --------------------------------------------------------
 
@@ -166,8 +166,8 @@ INSERT INTO `product_review` (`id`, `user_id`, `product_id`, `comment`, `rating`
 --
 
 CREATE TABLE `stock` (
-  `product_id` int NOT NULL,
-  `quantity` int NOT NULL
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -177,7 +177,7 @@ CREATE TABLE `stock` (
 --
 
 CREATE TABLE `user` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -197,7 +197,8 @@ INSERT INTO `user` (`id`, `lastname`, `firstname`, `email`, `password`, `birth_d
 (3, 'test', 'mathieu', 'test@mail.com', '$2y$10$i623RTT8cLEOheG0uL/uauclkVDzb8eIyqb5mrAV2JYuAgC4fT7LG', '1985-02-05 00:02:00', '2 alle magnandzqdqzd 78545 france', '0658264852'),
 (4, 'Raimbault', 'Mathieu', 'mario@mail.com', '$2y$10$3ZUNb7MVnTVOjYbOdKq8QuSmqGY./EvrfbfW6kLU9UwNMofXQL.Z.', '2001-02-01 00:02:00', '2 rue Magnanville 78200 France', '0618680289'),
 (10, 'ramb', 'mathieu', 'mathieu.2001@hotmail.fr', '$2y$10$QvDStcso75Spk5x2M6Z3tOsW6ITplOMMTZ6CPFZglX2myv98/aufq', '2001-01-02 00:01:00', '2 rue paradius ville 78200 pays', '0587456952'),
-(11, 'dzqdzq', 'dzqd', 'mars@mail.com', '$2y$10$tR0Ztg9RxfGzgOF3wF07NuF9/m7k7f530qyX/HocvLNFMXvWMCCHa', '1900-01-02 00:01:00', 'dzqdzq dzqd dqzd dzqd dzqd', '0658789545');
+(11, 'dzqdzq', 'dzqd', 'mars@mail.com', '$2y$10$tR0Ztg9RxfGzgOF3wF07NuF9/m7k7f530qyX/HocvLNFMXvWMCCHa', '1900-01-02 00:01:00', 'dzqdzq dzqd dqzd dzqd dzqd', '0658789545'),
+(12, 'DAVAL', 'Lucas', 'lucas.daval@edu.devinci.fr', '$2y$10$LQUPBrF3hBBgyvXqw99/ou1RtiNcQaBzR1PHgcmJAo4KZpIk1bW9G', '1996-05-28 00:05:00', '6 avenue de Saint Germain croissy 78290 France', '0680468695');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ INSERT INTO `user` (`id`, `lastname`, `firstname`, `email`, `password`, `birth_d
 --
 
 CREATE TABLE `user_pending` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -214,7 +215,7 @@ CREATE TABLE `user_pending` (
   `birth_date` datetime NOT NULL,
   `adress` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `code` int NOT NULL
+  `code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -273,43 +274,43 @@ ALTER TABLE `user_pending`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `product_review`
 --
 ALTER TABLE `product_review`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `product_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `user_pending`
 --
 ALTER TABLE `user_pending`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

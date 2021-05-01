@@ -1,1 +1,0 @@
-let formCode=$("#code-div"),formResend=$("#send-div");$("#code-p").click(e=>{formCode.hide(),formResend.show()}),$("#send-p").click(e=>{formResend.hide(),formCode.show()}),$("#resend").click(e=>{e.preventDefault();const d=$("#email-resend").val();$.ajax({url:MAIN_PATH+"/customer/verify/resend",method:"POST",data:{email:d}}).done(e=>{alert(e)})});

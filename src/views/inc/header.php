@@ -22,7 +22,7 @@
                     if(gettype($userSession) === "object"){
                         echo "<a href=' ". PathGenerator::generatePath("customer/profil")." ' id='customerName' class='header--username-resp'>" . $userSession->getFirstname() . "</a>";
                     }else{
-                            echo '<a href="'. PathGenerator::generatePath('customer/login').' " class="header--username"><img src="'.  PathGenerator::generateImgPath('luser-icon.svg') .' alt="user icon" title="User" class="head-items--icon"></a>';
+                        echo "<a href=' ". PathGenerator::generatePath("customer/login") ."' class='header--action-items--icon'><img src='". MAIN_PATH ."/img/user-icon.svg' alt='user icon' title='User' class='head-items--icon'></a>";
                     }
 
                 ?>
@@ -62,14 +62,14 @@
             <span></span>
         </button>
         <!-- CART  -->
-        <div class="listShopping header--cart" id="listShopping">
+        <div class="listShopping header--cart flex--column" id="listShopping">
             <h3>Panier</h3>
             <div class="container-products"></div>
             <?php
                 if(!$userSession) {
                     echo "<p>Il faut être connecté pour pouvoir ajouter des produits au panier</p>";
                 } else {
-                    echo '<button id="buyBasket" class="header--cart--buy">Acheter</button>';
+                    echo '<a id="buyBasket" class="header--cart--buy" href="'. PathGenerator::generatePath(CUSTOMER_CHECKOUT_ROUTE) .'">Acheter</a>';
                 }
             ?>
             

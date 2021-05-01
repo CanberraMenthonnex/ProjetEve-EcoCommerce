@@ -133,7 +133,7 @@ class AdminProductController extends Controller {
 
             $files = array_values($_FILES);
 
-            if($files["name"]) {
+            if($files[0]["name"]) {
 
                 $fileReader = new FileReader();
 

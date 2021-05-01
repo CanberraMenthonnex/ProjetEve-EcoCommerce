@@ -6,7 +6,6 @@ use Core\Http;
 use Core\Model\EntityManager;
 use Core\Session;
 use Core\ValidatorInt;
-use Model;
 use Model\Entity\Cart;
 
 class CartController extends Controller {
@@ -67,7 +66,7 @@ class CartController extends Controller {
       $db = EntityManager::getDatabase();
 
       $query = $db->prepare(
-         "SELECT product_id, name, description, price, quantity
+         "SELECT product_id, name, description, price, quantity, imageUrl
           FROM cart
           INNER JOIN product ON cart.product_id = product.id
           WHERE user_id = :user_id"
