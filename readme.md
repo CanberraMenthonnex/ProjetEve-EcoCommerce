@@ -37,3 +37,8 @@ Here the description
    ```
    npm start
    ```
+   
+## ADMIN
+
+id: test@mail.com
+password : soleil
